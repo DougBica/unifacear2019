@@ -1,4 +1,4 @@
-package edu.br.unifacear.webdev2019.compraPassagem.controller;
+package edu.br.unifacear.webdev2019.passagem.controller;
 
 import java.util.List;
 
@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.br.unifacear.webdev2019.compraPassagem.entity.Passagem;
-import edu.br.unifacear.webdev2019.compraPassagem.service.PassagemService;
+import edu.br.unifacear.webdev2019.passagem.entity.Passagem;
+import edu.br.unifacear.webdev2019.passagem.service.PassagemService;
 import edu.br.unifacear.webdev2019.usuario.entity.Usuario;
 
 @RestController
