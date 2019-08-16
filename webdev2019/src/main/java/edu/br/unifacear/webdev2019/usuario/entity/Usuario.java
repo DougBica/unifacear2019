@@ -1,5 +1,6 @@
 package edu.br.unifacear.webdev2019.usuario.entity;
 
+import java.util.Date;
 import java.util.List;
 
 import javax.persistence.CollectionTable;
@@ -13,7 +14,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
@@ -27,9 +28,16 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long guidUsuario;
 	private String nome;
-	private String login;
 	private String email;
+	private String senha;
+	private String CPF;
+	private Date DataNasc;
+	private String Foto;
 	
+	@ManyToOne
+	@JoinColumn(name = "guidTipoPerfil")
+	private TipoPerfil perfil;
+
 	@ElementCollection
     @CollectionTable(name = "TIPO_USUARIOS",joinColumns = @JoinColumn(name = "guidUsuario") ,  foreignKey=@ForeignKey(name = "FK_USUARIO_ROLES"))
     @Column(name = "ROLE")
@@ -37,9 +45,48 @@ public class Usuario {
 	@Fetch(FetchMode.SUBSELECT)
 	private List<TipoUsuario> TipoDeUsuarios;
 	
-	
 	public List<TipoUsuario> getTipoDeUsuarios() {
 		return TipoDeUsuarios;
+	}
+
+	
+	public TipoPerfil getPerfil() {
+		return perfil;
+	}
+
+	public void setPerfil(TipoPerfil perfil) {
+		this.perfil = perfil;
+	}
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getCPF() {
+		return CPF;
+	}
+
+	public void setCPF(String cPF) {
+		CPF = cPF;
+	}
+
+	public Date getDataNasc() {
+		return DataNasc;
+	}
+
+	public void setDataNasc(Date dataNasc) {
+		DataNasc = dataNasc;
+	}
+
+	public String getFoto() {
+		return Foto;
+	}
+
+	public void setFoto(String foto) {
+		Foto = foto;
 	}
 
 	public void setTipoDeUsuarios(List<TipoUsuario> tipoDeUsuarios) {
@@ -62,12 +109,12 @@ public class Usuario {
 		this.nome = nome;
 	}
 
-	public String getLogin() {
-		return login;
+	public String getEmail() {
+		return email;
 	}
 
-	public void setLogin(String login) {
-		this.login = login;
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }
