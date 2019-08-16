@@ -28,6 +28,7 @@ public class Usuario {
 	private Long guidUsuario;
 	private String nome;
 	private String login;
+	private String email;
 	
 	@ElementCollection
     @CollectionTable(name = "TIPO_USUARIOS",joinColumns = @JoinColumn(name = "guidUsuario") ,  foreignKey=@ForeignKey(name = "FK_USUARIO_ROLES"))
