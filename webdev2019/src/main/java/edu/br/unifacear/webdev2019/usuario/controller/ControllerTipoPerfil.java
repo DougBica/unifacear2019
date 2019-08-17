@@ -33,5 +33,10 @@ public class ControllerTipoPerfil {
 	public void excluir(@RequestBody TipoPerfil tipoPerfil) {
 		tipoperfilService.excluir(tipoPerfil);
 	}
+	
+	@GetMapping
+	public void BuscarId(Iterable<Long> ids) {
+		 tipoperfilService.BuscarId(ids);
+	}
 
 }
