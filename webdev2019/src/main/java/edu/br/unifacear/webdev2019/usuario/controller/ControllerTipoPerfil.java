@@ -35,8 +35,8 @@ public class ControllerTipoPerfil {
 	}
 	
 	@GetMapping
-	public void BuscarId(Iterable<Long> ids) {
-		 tipoperfilService.BuscarId(ids);
+	public void BuscarId(Iterable<Long> guidTipoPerfil) {
+		 tipoperfilService.BuscarId(guidTipoPerfil);
 	}
 
 }
