@@ -28,5 +28,10 @@ public class ControllerTipoPerfil {
 	public List<TipoPerfil> listar() {
 		return tipoperfilService.listar();
 	}
+	
+	@PostMapping
+	public void excluir(@RequestBody TipoPerfil tipoPerfil) {
+		tipoperfilService.excluir(tipoPerfil);
+	}
 
 }
