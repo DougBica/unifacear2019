@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "CANCELAR")
 public class Cancela implements Serializable{
@@ -18,6 +20,7 @@ public class Cancela implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long guidCancelar;
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataCancelamento;
 	
 	public Long getGuidCancelar() {
