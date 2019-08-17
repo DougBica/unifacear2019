@@ -28,4 +28,7 @@ public class UsuarioService {
 		return usuarioRepository.findAll();
 	}
 	
+	public List<Usuario> BuscarPorID(Iterable<Long> guidUsuario) {
+		return usuarioRepository.findAllById(guidUsuario);
+	}
 }
