@@ -13,7 +13,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -24,10 +24,6 @@ public class TipoPerfil {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long guidTipoPerfil;
 	private String descricao;
-	
-	@ManyToOne
-    @JoinColumn(name = "guidUsuario") // Esta coluna está na tabela "evento".
-    private List<Usuario> usuarios;
 	
 	@ElementCollection
     @CollectionTable(name = "PERFIL_PERMISSAO",joinColumns = @JoinColumn(name = "guidTipoPerfil") ,  foreignKey=@ForeignKey(name = "FK_PERFIL_ROLES"))
@@ -41,12 +37,6 @@ public class TipoPerfil {
 	}
 	public void setGuidTipoPerfil(Long guidTipoPerfil) {
 		this.guidTipoPerfil = guidTipoPerfil;
-	}
-	public List<Usuario> getUsuarios() {
-		return usuarios;
-	}
-	public void setUsuarios(List<Usuario> usuarios) {
-		this.usuarios = usuarios;
 	}
 	
 	public String getDescricao() {

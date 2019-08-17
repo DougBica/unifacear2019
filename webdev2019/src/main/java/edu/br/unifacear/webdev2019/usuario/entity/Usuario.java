@@ -38,15 +38,11 @@ public class Usuario {
 	@JoinColumn(name = "guidTipoPerfil")
 	private TipoPerfil perfil;
 
-	@ElementCollection
-    @CollectionTable(name = "TIPO_USUARIOS",joinColumns = @JoinColumn(name = "guidUsuario") ,  foreignKey=@ForeignKey(name = "FK_USUARIO_ROLES"))
-    @Column(name = "ROLE")
     @Enumerated(EnumType.STRING)
-	@Fetch(FetchMode.SUBSELECT)
-	private List<TipoUsuario> TipoDeUsuarios;
+	private TipoUsuario tipoDeUsuario;
 	
-	public List<TipoUsuario> getTipoDeUsuarios() {
-		return TipoDeUsuarios;
+	public TipoUsuario getTipoDeUsuarios() {
+		return tipoDeUsuario;
 	}
 
 	
@@ -86,11 +82,11 @@ public class Usuario {
 	}
 
 	public void setFoto(String foto) {
-		Foto = foto;
+		this.Foto = foto;
 	}
 
-	public void setTipoDeUsuarios(List<TipoUsuario> tipoDeUsuarios) {
-		TipoDeUsuarios = tipoDeUsuarios;
+	public void setTipoDeUsuarios(TipoUsuario tipoDeUsuarios) {
+		this.tipoDeUsuario = tipoDeUsuarios;
 	}
 
 	public Long getGuidUsuario() {
