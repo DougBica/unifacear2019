@@ -14,7 +14,7 @@ import edu.br.unifacear.webdev2019.usuario.service.UsuarioService;
 
 @RestController
 @RequestMapping("/usuario")
-public class UsuarioController {
+public class ControllerUsuario {
 
 	@Autowired
 	private UsuarioService usuarioService;
@@ -27,6 +27,11 @@ public class UsuarioController {
 	@GetMapping
 	public List<Usuario> listar() {
 		return usuarioService.listar();
+	}
+	
+	@GetMapping
+	public List<Usuario> BuscarPorID(Iterable<Long> guidUsuario) {
+		return usuarioService.BuscarPorID(guidUsuario);
 	}
 	
 }
