@@ -31,11 +31,8 @@ public class UsuarioService {
 		return usuarioRepository.findAll();
 	}
 	
-	public Usuario buscarPorId(final Long guidUsuario) {
-	       Usuario usuario = Optional.ofNullable(usuarioRepository.findById(guidUsuario).
-	               orElse(null))
-	               .orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR001));
-	       return usuario;
+	public List<Usuario> buscarPorId(Iterable<Long> guidUsuario) {
+			return usuarioRepository.findAllById(guidUsuario);
 	   }
 	public Usuario Logar(final String email) {
 	       Usuario usuario = Optional.ofNullable(usuarioRepository.findByEmail(email))
