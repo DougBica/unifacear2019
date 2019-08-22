@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import edu.br.unifacear.webdev2019.usuario.entity.Usuario;
 import edu.br.unifacear.webdev2019.usuario.repository.UsuarioRepository;
@@ -14,16 +15,20 @@ public class UsuarioService {
 	@Autowired
 	private UsuarioRepository usuarioRepository;
 	
-	public void salvar(Usuario usuario) {
-		//if (usuario.getIdade() == null
-		//		&& usuario.getIdade() < 18) {
-			//lançar uma excecao 
-		//}		
+	@Transactional
+	public void salvar(Usuario usuario) {		
 		usuarioRepository.save(usuario);
+	}	
+	
+	public void excluir(Usuario usuario) {
+		usuarioRepository.delete(usuario);
 	}
 	
 	public List<Usuario> listar() {
 		return usuarioRepository.findAll();
 	}
 	
+	public List<Usuario> BuscarPorID(Iterable<Long> guidUsuario) {
+		return usuarioRepository.findAllById(guidUsuario);
+	}
 }
