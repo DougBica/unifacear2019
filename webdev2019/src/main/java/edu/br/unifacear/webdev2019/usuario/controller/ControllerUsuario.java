@@ -19,17 +19,17 @@ public class ControllerUsuario {
 	@Autowired
 	private UsuarioService usuarioService;
 	
-	@PostMapping
+	@PostMapping("/salvar")
 	public void salvar(@RequestBody Usuario usuario) {
 		usuarioService.salvar(usuario);
 	}
 	
-	@GetMapping
+	@GetMapping("/listar")
 	public List<Usuario> listar() {
 		return usuarioService.listar();
 	}
 	
-	@GetMapping
+	@GetMapping("/BuscarPorID")
 	public List<Usuario> BuscarPorID(Iterable<Long> guidUsuario) {
 		return usuarioService.buscarPorId(guidUsuario);
 	}
