@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import edu.br.unifacear.webdev2019.checkin.entity.Bagagem;
 import edu.br.unifacear.webdev2019.checkin.repository.BagagemRepository;
+import edu.br.unifacear.webdev2019.common.exception.BusinessException;
+import edu.br.unifacear.webdev2019.common.exception.BusinessExceptionCode;
 
 @Service
 public class BagagemService implements Serializable {
@@ -29,9 +31,12 @@ public class BagagemService implements Serializable {
 
 	}
 	
-	public Optional <Bagagem> findOne(Long id){
+	public Bagagem findOne(Long id){
 		try {
-			return bagagemrepository.findById(id);
+			Bagagem bagagem = Optional.
+					ofNullable(bagagemrepository.findById(id)).orElse(null).
+					orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR500));
+			return bagagem;
 		}
 		catch (Exception e) {
 			e.printStackTrace();
@@ -45,10 +50,12 @@ public class BagagemService implements Serializable {
 			bagagem.setValortotal((bagagem.getValorbagagem()+(bagagem.getPesoBagagem()-23.0)*
 					bagagem.getValorexcesso()));
 			try {
-				return bagagemrepository.save(bagagem);
+				Bagagem bagagem2 = Optional.
+						ofNullable(bagagemrepository.save(bagagem)).
+						orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR501));
+				return bagagem2;
 			}
-			catch (Exception e){
-				e.printStackTrace();
+			catch (BusinessException ex){
 				return null;
 			}
 		}
@@ -56,8 +63,10 @@ public class BagagemService implements Serializable {
 			bagagem.setExcesso(false);
 			bagagem.setValortotal(bagagem.getValorbagagem());
 			try {
-				return bagagemrepository.save(bagagem);
-				
+				Bagagem bagagem2 = Optional.
+						ofNullable(bagagemrepository.save(bagagem)).
+						orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR501));
+				return bagagem2;
 			}
 			catch (Exception e) {
 				e.printStackTrace();
@@ -72,7 +81,10 @@ public class BagagemService implements Serializable {
 			bagagem.setValortotal((bagagem.getValorbagagem()+(bagagem.getPesoBagagem()-23.0)*
 					bagagem.getValorexcesso()));
 			try {
-				return bagagemrepository.save(bagagem);
+				Bagagem bagagem2 = Optional.
+						ofNullable(bagagemrepository.save(bagagem)).
+						orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR502));
+				return bagagem2;
 			}
 			catch (Exception e){
 				e.printStackTrace();
@@ -83,7 +95,10 @@ public class BagagemService implements Serializable {
 			bagagem.setExcesso(false);
 			bagagem.setValortotal(bagagem.getValorbagagem());
 			try {
-				return bagagemrepository.save(bagagem);	
+				Bagagem bagagem2 = Optional.
+						ofNullable(bagagemrepository.save(bagagem)).
+						orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR502));
+				return bagagem2;
 			}
 			catch (Exception e) {
 				e.printStackTrace();

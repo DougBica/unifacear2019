@@ -1,7 +1,6 @@
 package edu.br.unifacear.webdev2019.checkin.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -29,7 +28,7 @@ public class CheckinController {
 	}
 	
 	@GetMapping(value="/{id}")
-	public Optional<Checkin> listOneCheckin(@PathVariable Long id) {
+	public Checkin listOneCheckin(@PathVariable Long id) {
 		return checkinService.findOne(id);
 	}
 	

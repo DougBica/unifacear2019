@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import edu.br.unifacear.webdev2019.checkin.entity.Checkin;
 import edu.br.unifacear.webdev2019.checkin.repository.CheckinRepository;
+import edu.br.unifacear.webdev2019.common.exception.BusinessException;
+import edu.br.unifacear.webdev2019.common.exception.BusinessExceptionCode;
 
 @Service
 public class CheckinService implements Serializable {
@@ -31,9 +33,11 @@ public class CheckinService implements Serializable {
 		}
 	}
 	
-	public Optional<Checkin> findOne(Long id) {
+	public Checkin findOne(Long id) {
 		try {
-			return checkinRepository.findById(id);
+			Checkin checkin = Optional.ofNullable(checkinRepository.findById(id)).
+					orElse(null).orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR503));
+			return checkin;
 		}
 		catch(Exception e) {
 			e.printStackTrace();
@@ -41,21 +45,28 @@ public class CheckinService implements Serializable {
 		}
 	}
 	
-	public void insertCheckin(Checkin checkin) {
+	public Checkin insertCheckin(Checkin checkin) {
 		try {
-			checkinRepository.save(checkin);	
+			Checkin checkin2 = Optional.ofNullable(checkinRepository.save(checkin)).
+					orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR504));
+			return checkin2;
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			return null;
 		}
 	}
 	
-	public void alterCheckin(Checkin checkin) {
+	public Checkin alterCheckin(Checkin checkin) {
 		try {
-			checkinRepository.save(checkin);
+		Checkin checkin2 = Optional.
+				ofNullable(checkinRepository.save(checkin)).
+				orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR505));
+			return checkin2;
 		}
 		catch(Exception e) {
 			e.printStackTrace();
+			return null;
 		}
 	}
 	
