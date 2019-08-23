@@ -32,16 +32,10 @@ public class BagagemService implements Serializable {
 	}
 	
 	public Bagagem findOne(Long id){
-		try {
-			Bagagem bagagem = Optional.
-					ofNullable(bagagemrepository.findById(id)).orElse(null).
-					orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR500));
-			return bagagem;
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+		Bagagem bagagem = Optional.
+			ofNullable(bagagemrepository.findById(id)).orElse(null).
+			orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR500));
+		return bagagem;
 	}
 	
 	public Bagagem inserirBagagem(Bagagem bagagem) {
@@ -49,29 +43,18 @@ public class BagagemService implements Serializable {
 			bagagem.setExcesso(true);
 			bagagem.setValortotal((bagagem.getValorbagagem()+(bagagem.getPesoBagagem()-23.0)*
 					bagagem.getValorexcesso()));
-			try {
-				Bagagem bagagem2 = Optional.
-						ofNullable(bagagemrepository.save(bagagem)).
-						orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR501));
-				return bagagem2;
-			}
-			catch (BusinessException ex){
-				return null;
-			}
+			Bagagem bagagem2 = Optional.
+				ofNullable(bagagemrepository.save(bagagem)).
+				orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR501));
+			return bagagem2;
 		}
 		else {
 			bagagem.setExcesso(false);
 			bagagem.setValortotal(bagagem.getValorbagagem());
-			try {
-				Bagagem bagagem2 = Optional.
-						ofNullable(bagagemrepository.save(bagagem)).
-						orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR501));
-				return bagagem2;
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-				return null;
-			}
+			Bagagem bagagem2 = Optional.
+				ofNullable(bagagemrepository.save(bagagem)).
+				orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR501));
+			return bagagem2;
 		}
 	}
 	
@@ -80,30 +63,18 @@ public class BagagemService implements Serializable {
 			bagagem.setExcesso(true);
 			bagagem.setValortotal((bagagem.getValorbagagem()+(bagagem.getPesoBagagem()-23.0)*
 					bagagem.getValorexcesso()));
-			try {
-				Bagagem bagagem2 = Optional.
-						ofNullable(bagagemrepository.save(bagagem)).
-						orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR502));
-				return bagagem2;
-			}
-			catch (Exception e){
-				e.printStackTrace();
-				return null;
-			}
+			Bagagem bagagem2 = Optional.
+					ofNullable(bagagemrepository.save(bagagem)).
+					orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR502));
+			return bagagem2;
 		}
 		else {
 			bagagem.setExcesso(false);
 			bagagem.setValortotal(bagagem.getValorbagagem());
-			try {
-				Bagagem bagagem2 = Optional.
-						ofNullable(bagagemrepository.save(bagagem)).
-						orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR502));
-				return bagagem2;
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-				return null;
-			}
+			Bagagem bagagem2 = Optional.
+					ofNullable(bagagemrepository.save(bagagem)).
+					orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR502));
+			return bagagem2;
 		}
 	}
 	

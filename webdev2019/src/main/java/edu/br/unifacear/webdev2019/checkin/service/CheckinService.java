@@ -34,40 +34,22 @@ public class CheckinService implements Serializable {
 	}
 	
 	public Checkin findOne(Long id) {
-		try {
-			Checkin checkin = Optional.ofNullable(checkinRepository.findById(id)).
-					orElse(null).orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR503));
-			return checkin;
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+		Checkin checkin = Optional.ofNullable(checkinRepository.findById(id)).
+				orElse(null).orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR503));
+		return checkin;
 	}
 	
 	public Checkin insertCheckin(Checkin checkin) {
-		try {
-			Checkin checkin2 = Optional.ofNullable(checkinRepository.save(checkin)).
-					orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR504));
-			return checkin2;
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+		Checkin checkin2 = Optional.ofNullable(checkinRepository.save(checkin)).
+				orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR504));
+		return checkin2;
 	}
 	
 	public Checkin alterCheckin(Checkin checkin) {
-		try {
 		Checkin checkin2 = Optional.
-				ofNullable(checkinRepository.save(checkin)).
-				orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR505));
-			return checkin2;
-		}
-		catch(Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+			ofNullable(checkinRepository.save(checkin)).
+			orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR505));
+		return checkin2;
 	}
 	
 	public void deleteCheckin(Checkin checkin) {
