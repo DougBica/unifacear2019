@@ -9,6 +9,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table(name = "REMARCAR")
 public class Remarca implements Serializable{
@@ -18,6 +20,7 @@ public class Remarca implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long guidRemarcar;
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataRemarcacao;
 	
 	public Long getGuidRemarcar() {

@@ -6,7 +6,6 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.br.unifacear.webdev2019.remarcacao.entity.Cancela;
 import edu.br.unifacear.webdev2019.remarcacao.entity.Remarca;
 import edu.br.unifacear.webdev2019.remarcacao.repository.RemarcaRepository;
 import edu.br.unifacear.webdev2019.remarcacao.service.exceptions.ObjectNotFoundException;

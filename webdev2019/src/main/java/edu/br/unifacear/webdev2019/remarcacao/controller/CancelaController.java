@@ -52,5 +52,4 @@ public class CancelaController {
 			@RequestParam(value="End") Date end){
 		return service.findByDate(init, end);
 	}
-	
 }
