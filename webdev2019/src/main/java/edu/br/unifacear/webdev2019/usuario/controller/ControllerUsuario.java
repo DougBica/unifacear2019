@@ -28,15 +28,9 @@ public class ControllerUsuario {
 	public List<Usuario> listar() {
 		return usuarioService.listar();
 	}
-	
-<<<<<<< HEAD
+
 	@GetMapping("/BuscarPorID")
 	public List<Usuario> BuscarPorID(Iterable<Long> guidUsuario) {
-=======
-	@GetMapping
-	public Usuario BuscarPorID(final Long guidUsuario) {
->>>>>>> ca8bbd4e8fecfefaa5bc74ecdcaca61ff1090aa8
-		return usuarioService.buscarPorId(guidUsuario);
 	}
 	
 }
