@@ -15,6 +15,7 @@ public class Usuario {
 	private Long guidUsuario;
 	private String nome;
 	private String login;
+	private String email;
 
 	public Long getGuidUsuario() {
 		return guidUsuario;
@@ -38,6 +39,14 @@ public class Usuario {
 
 	public void setLogin(String login) {
 		this.login = login;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
 	}
 
 }
