@@ -30,7 +30,7 @@ public class ControllerUsuario {
 	}
 	
 	@GetMapping
-	public List<Usuario> BuscarPorID(Iterable<Long> guidUsuario) {
+	public Usuario BuscarPorID(final Long guidUsuario) {
 		return usuarioService.buscarPorId(guidUsuario);
 	}
 	
