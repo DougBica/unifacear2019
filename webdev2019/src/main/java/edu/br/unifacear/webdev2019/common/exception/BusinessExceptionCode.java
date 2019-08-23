@@ -2,8 +2,8 @@ package edu.br.unifacear.webdev2019.common.exception;
 
 public enum BusinessExceptionCode {
 	
-	ERR000("Erro não esperado"),
-	ERR001("Usuário não encontrado");
+	ERR300("Erro não esperado"),
+	ERR301("Usuário não encontrado");
 	
 	private final String message;
 
