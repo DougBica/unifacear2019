@@ -43,12 +43,4 @@ public class RemarcaController {
 			service.delete(guidRemarca);
 			return ResponseEntity.noContent().build();
 		}
-		/*
-		@RequestMapping(value = "/date",method = RequestMethod.GET)
-		public List<Cancela> findByDate(
-				@RequestParam(value="Init") Date init,
-				@RequestParam(value="End") Date end){
-			return service.findByDate(init, end);
-		}*/
-		
 }
