@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import edu.br.unifacear.webdev2019.common.exception.BusinessException;
 import edu.br.unifacear.webdev2019.common.exception.BusinessExceptionCode;
 import edu.br.unifacear.webdev2019.usuario.entity.Usuario;
+import edu.br.unifacear.webdev2019.usuario.repository.TipoPerfilRepository;
 import edu.br.unifacear.webdev2019.usuario.repository.UsuarioRepository;
 
 @Service
@@ -17,10 +18,16 @@ public class UsuarioService {
 
 	@Autowired
 	private UsuarioRepository usuarioRepository;
+	private TipoPerfilRepository tipoperfilrepository;
 	
 	@Transactional
-	public void salvar(Usuario usuario) {		
-		usuarioRepository.save(usuario);
+	public void salvar(Usuario usuario) {
+		if(usuario.getEmail().contentEquals(buscarPorEmail(usuario.getEmail()).getEmail())) {
+			throw new BusinessException(BusinessExceptionCode.ERR004);
+		}
+		else {
+			usuarioRepository.save(usuario);
+		}
 	}	
 	
 	public void excluir(Usuario usuario) {
@@ -37,9 +44,14 @@ public class UsuarioService {
 	               .orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR001));
 	       return usuario;
 	   }
-	public Usuario Logar(final String email) {
-	       Usuario usuario = Optional.ofNullable(usuarioRepository.findByEmail(email))
+	public Usuario buscarPorEmail(final String email) {
+		Usuario usuario = Optional.ofNullable(usuarioRepository.findByEmail(email))
 	               .orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR003));
+		return usuario;
+	}
+	public List<Usuario>Logar(final String email, final String senha) {
+	       List<Usuario> usuario =  Optional.ofNullable(usuarioRepository.BuscarPorEmaileSenha(email,senha))
+	               .orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR002));
 	       return usuario;
 	   }	
 }

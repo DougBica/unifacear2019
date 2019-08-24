@@ -26,7 +26,8 @@ public class TipoPerfil {
 	private String descricao;
 	
 	@ElementCollection
-    @CollectionTable(name = "PERFIL_PERMISSAO",joinColumns = @JoinColumn(name = "guidTipoPerfil") ,  foreignKey=@ForeignKey(name = "FK_PERFIL_ROLES"))
+    @CollectionTable(name = "PERFIL_PERMISSAO",joinColumns = @JoinColumn(name = "guidTipoPerfil") , 
+    foreignKey=@ForeignKey(name = "FK_PERFIL_ROLES"))
     @Column(name = "ROLE")
     @Enumerated(EnumType.STRING)
 	@Fetch(FetchMode.SUBSELECT)
