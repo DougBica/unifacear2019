@@ -44,4 +44,8 @@ public class UsuarioService {
 		return usuarioRepository.findByEmail(email);
 	}
 	
+	public List<Usuario> procurarPorNomeOuEmail(String nome, String email) {
+		return usuarioRepository.procurarPorNomeOuEmail(nome, email);
+	}
+	
 }

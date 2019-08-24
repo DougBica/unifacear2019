@@ -29,6 +29,13 @@ public class UsuarioController {
 	public Usuario buscarPorEmail(@PathVariable(name = "email") String email) {
 		return usuarioService.buscarPorEmail(email);
 	}
+	
+	@GetMapping("/nomeouemail/{nome}/{email}")
+	public List<Usuario> procurarPorNomeOuEmail(
+			@PathVariable(name = "nome") String nome, 
+			@PathVariable(name = "email") String email) {
+		return usuarioService.procurarPorNomeOuEmail(nome, email);
+	}
 
 	@GetMapping
 	public List<Usuario> listar() {
