@@ -1,6 +1,5 @@
 package edu.br.unifacear.webdev2019.remarcacao.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.br.unifacear.webdev2019.remarcacao.entity.Cancela;
@@ -40,16 +38,21 @@ public class CancelaController {
 		return service.save(obj);
 	}
 	
+	@PostMapping("/{guidCancela}")
+	public Cancela atualizar(Cancela cancela) {
+		return service.update(cancela);
+	}
+	
 	@RequestMapping(value = "/{guidCancela}",method = RequestMethod.DELETE)
 	public ResponseEntity<Void> excluir(@PathVariable Long guidCancela) {
 		service.delete(guidCancela);
 		return ResponseEntity.noContent().build();
 	}
-	
+	/*
 	@RequestMapping(value = "/date",method = RequestMethod.GET)
 	public List<Cancela> findByDate(
 			@RequestParam(value="Init") Date init,
 			@RequestParam(value="End") Date end){
 		return service.findByDate(init, end);
-	}
+	}*/
 }
