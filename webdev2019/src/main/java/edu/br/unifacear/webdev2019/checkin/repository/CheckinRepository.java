@@ -6,4 +6,6 @@ import edu.br.unifacear.webdev2019.checkin.entity.Checkin;
 
 public interface CheckinRepository extends JpaRepository<Checkin, Long>{
 
+	Checkin findByToken(String email);
+	
 }

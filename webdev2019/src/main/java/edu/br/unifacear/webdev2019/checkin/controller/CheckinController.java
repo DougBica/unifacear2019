@@ -47,4 +47,9 @@ public class CheckinController {
 		checkinService.deleteCheckin(checkin);
 	}
 	
+	@GetMapping(value="/token/{token}")
+	public Checkin acharToken(@PathVariable String token) {
+		return checkinService.chekinWithToken(token);
+	}
+	
 }

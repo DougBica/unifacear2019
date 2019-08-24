@@ -1,6 +1,7 @@
 package edu.br.unifacear.webdev2019.checkin.service;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -27,29 +28,48 @@ public class CheckinService implements Serializable {
 		try {
 			return checkinRepository.findAll();		
 		}
-		catch(Exception e) {
-			e.printStackTrace();
-			return null;
+		catch(BusinessException e) {
+			throw new BusinessException(BusinessExceptionCode.ERR000);
 		}
 	}
 	
 	public Checkin findOne(Long id) {
-		Checkin checkin = Optional.ofNullable(checkinRepository.findById(id)).
-				orElse(null).orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR503));
-		return checkin;
+		  Checkin checkin = Optional.ofNullable(checkinRepository.findById(id)).
+		  orElse(null).orElseThrow(() -> new
+		  BusinessException(BusinessExceptionCode.ERR503)); 
+		  return checkin;
 	}
 	
 	public Checkin insertCheckin(Checkin checkin) {
-		Checkin checkin2 = Optional.ofNullable(checkinRepository.save(checkin)).
-				orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR504));
-		return checkin2;
+		if(checkin.getDataCheckin().before(Calendar.
+				getInstance().getTime())) {
+			throw new BusinessException(BusinessExceptionCode.ERR500);
+		}
+		else if(checkin.getGuidUsuario() == null){
+			throw new BusinessException(BusinessExceptionCode.ERR500);
+		}
+		else if(checkin.getGuidAeronave() == null) {
+			throw new BusinessException(BusinessExceptionCode.ERR001);	
+		}
+		else if(checkin.getGuidVoo() == null) {
+			throw new BusinessException(BusinessExceptionCode.ERR500);
+		}
+		else if(checkin.getGuidPassagem() == null) {
+			throw new BusinessException(BusinessExceptionCode.ERR000);
+		}
+		else {
+			return checkinRepository.save(checkin);
+		}
 	}
 	
 	public Checkin alterCheckin(Checkin checkin) {
-		Checkin checkin2 = Optional.
-			ofNullable(checkinRepository.save(checkin)).
-			orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR505));
-		return checkin2;
+		if(checkin.getDataCheckin().
+				before(Calendar.getInstance().getTime())) {
+			throw new BusinessException(BusinessExceptionCode.ERR503);
+		}
+		else {
+			return checkinRepository.save(checkin);
+		}
 	}
 	
 	public void deleteCheckin(Checkin checkin) {
@@ -59,6 +79,10 @@ public class CheckinService implements Serializable {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public Checkin chekinWithToken(String token) {
+		return checkinRepository.findByToken(token);
 	}
 	
 }

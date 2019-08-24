@@ -24,11 +24,9 @@ public class BagagemService implements Serializable {
 		try {
 			return bagagemrepository.findAll();
 		}
-		catch (Exception e) {
-			e.printStackTrace();
-			return null;
+		catch (BusinessException e) {
+			throw new BusinessException(BusinessExceptionCode.ERR000);
 		}
-
 	}
 	
 	public Bagagem findOne(Long id){
@@ -43,18 +41,12 @@ public class BagagemService implements Serializable {
 			bagagem.setExcesso(true);
 			bagagem.setValortotal((bagagem.getValorbagagem()+(bagagem.getPesoBagagem()-23.0)*
 					bagagem.getValorexcesso()));
-			Bagagem bagagem2 = Optional.
-				ofNullable(bagagemrepository.save(bagagem)).
-				orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR501));
-			return bagagem2;
+			return bagagemrepository.save(bagagem);
 		}
 		else {
 			bagagem.setExcesso(false);
 			bagagem.setValortotal(bagagem.getValorbagagem());
-			Bagagem bagagem2 = Optional.
-				ofNullable(bagagemrepository.save(bagagem)).
-				orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR501));
-			return bagagem2;
+			return bagagemrepository.save(bagagem);
 		}
 	}
 	
@@ -63,18 +55,12 @@ public class BagagemService implements Serializable {
 			bagagem.setExcesso(true);
 			bagagem.setValortotal((bagagem.getValorbagagem()+(bagagem.getPesoBagagem()-23.0)*
 					bagagem.getValorexcesso()));
-			Bagagem bagagem2 = Optional.
-					ofNullable(bagagemrepository.save(bagagem)).
-					orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR502));
-			return bagagem2;
+			return bagagemrepository.save(bagagem);
 		}
 		else {
 			bagagem.setExcesso(false);
 			bagagem.setValortotal(bagagem.getValorbagagem());
-			Bagagem bagagem2 = Optional.
-					ofNullable(bagagemrepository.save(bagagem)).
-					orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR502));
-			return bagagem2;
+			return bagagemrepository.save(bagagem);
 		}
 	}
 	
@@ -83,7 +69,7 @@ public class BagagemService implements Serializable {
 			bagagemrepository.delete(bagagem);
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			throw new BusinessException(BusinessExceptionCode.ERR000);
 		}
 	}
 
