@@ -9,7 +9,12 @@ public enum BusinessExceptionCode {
 	ERR502("Erro ao alterar bagagem"),
 	ERR503("Checkin não encontrado"),
 	ERR504("Erro ao inserir checkin"),
-	ERR505("Erro ao alterar checkin");
+	ERR505("Erro ao alterar checkin"),
+	ERR506("Erro data"),
+	ERR507("Erro passagem"),
+	ERR508("Erro voo"),
+	ERR509("Erro aeronave"),
+	ERR510("Erro usuario");
 	
 	private final String message;
 
