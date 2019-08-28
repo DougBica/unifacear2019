@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -11,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import edu.br.unifacear.webdev2019.passagem.entity.Passagem;
 import edu.br.unifacear.webdev2019.passagem.service.PassagemService;
-import edu.br.unifacear.webdev2019.usuario.entity.Usuario;
 
 @RestController
 @RequestMapping("/passagem")
@@ -27,5 +27,11 @@ public class PassagemController {
 	@GetMapping
 	public List<Passagem> listar() {
 		return passagemService.listar();
+	}
+	
+	@GetMapping("/{guidPassagem}")
+	public Passagem buscarPorId(@PathVariable(name = "guidPassagem") Long guidPassagem) {
+		return passagemService.burcarPorId(guidPassagem);
+		
 	}
 }
