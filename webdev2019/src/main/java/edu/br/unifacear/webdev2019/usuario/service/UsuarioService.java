@@ -1,6 +1,7 @@
 package edu.br.unifacear.webdev2019.usuario.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -28,7 +29,7 @@ public class UsuarioService {
 		return usuarioRepository.findAll();
 	}
 	
-	public List<Usuario> BuscarPorID(Iterable<Long> guidUsuario) {
-		return usuarioRepository.findAllById(guidUsuario);
+	public Optional<Usuario> BuscarPorID(Long guidUsuario) {
+		return usuarioRepository.findById(guidUsuario);
 	}
 }

@@ -1,4 +1,4 @@
-package edu.br.unifacear.webdev2019.passagem.controller;
+package edu.br.unifacear.webdev2019.reserva.controller;
 
 import java.util.List;
 
@@ -10,28 +10,28 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.br.unifacear.webdev2019.passagem.entity.Passagem;
-import edu.br.unifacear.webdev2019.passagem.service.PassagemService;
+import edu.br.unifacear.webdev2019.reserva.entity.Reserva;
+import edu.br.unifacear.webdev2019.reserva.service.ReservaService;
 
 @RestController
 @RequestMapping("/passagem")
-public class PassagemController {
+public class ReservaController {
 	@Autowired
-	private PassagemService passagemService;
+	private ReservaService reservaService;
 	
 	@PostMapping
-	public void salvar(@RequestBody Passagem passagem) {
-		passagemService.salvar(passagem);
+	public void salvar(@RequestBody Reserva reserva) {
+		reservaService.salvar(reserva);
 	}
 	
 	@GetMapping
-	public List<Passagem> listar() {
-		return passagemService.listar();
+	public List<Reserva> listar() {
+		return reservaService.listar();
 	}
 	
 	@GetMapping("/{guidPassagem}")
-	public Passagem buscarPorId(@PathVariable(name = "guidPassagem") Long guidPassagem) {
-		return passagemService.burcarPorId(guidPassagem);
+	public Reserva buscarPorId(@PathVariable(name = "guidReserva") Long guidReserva) {
+		return reservaService.buscarPorId(guidReserva);
 		
 	}
 }

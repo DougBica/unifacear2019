@@ -1,6 +1,7 @@
 package edu.br.unifacear.webdev2019.usuario.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -29,9 +30,9 @@ public class ControllerUsuario {
 		return usuarioService.listar();
 	}
 	
-	@GetMapping
-	public List<Usuario> BuscarPorID(Iterable<Long> guidUsuario) {
-		return usuarioService.BuscarPorID(guidUsuario);
+	@GetMapping("/{guidPassagem}")
+	public Optional<Usuario> BuscarPorID( Long guidPassagem) {
+		return usuarioService.BuscarPorID(guidPassagem);
 	}
 	
 }
