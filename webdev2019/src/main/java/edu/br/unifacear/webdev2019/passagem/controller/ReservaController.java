@@ -1,4 +1,4 @@
-package edu.br.unifacear.webdev2019.reserva.controller;
+package edu.br.unifacear.webdev2019.passagem.controller;
 
 import java.util.List;
 
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.br.unifacear.webdev2019.reserva.entity.Reserva;
-import edu.br.unifacear.webdev2019.reserva.service.ReservaService;
+import edu.br.unifacear.webdev2019.passagem.entity.Reserva;
+import edu.br.unifacear.webdev2019.passagem.service.ReservaService;
 
 @RestController
 @RequestMapping("/passagem")

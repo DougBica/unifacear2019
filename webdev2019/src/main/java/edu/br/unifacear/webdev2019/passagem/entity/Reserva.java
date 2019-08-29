@@ -1,4 +1,4 @@
-package edu.br.unifacear.webdev2019.reserva.entity;
+package edu.br.unifacear.webdev2019.passagem.entity;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

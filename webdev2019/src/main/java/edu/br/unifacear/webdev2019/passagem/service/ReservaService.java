@@ -1,4 +1,4 @@
-package edu.br.unifacear.webdev2019.reserva.service;
+package edu.br.unifacear.webdev2019.passagem.service;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,8 +9,8 @@ import org.springframework.transaction.annotation.Transactional;
 
 import edu.br.unifacear.webdev2019.common.exception.BusinessException;
 import edu.br.unifacear.webdev2019.common.exception.BusinessExceptionCode;
-import edu.br.unifacear.webdev2019.reserva.entity.Reserva;
-import edu.br.unifacear.webdev2019.reserva.repository.ReservaRepository;
+import edu.br.unifacear.webdev2019.passagem.entity.Reserva;
+import edu.br.unifacear.webdev2019.passagem.repository.ReservaRepository;
 
 @Service
 public class ReservaService {
