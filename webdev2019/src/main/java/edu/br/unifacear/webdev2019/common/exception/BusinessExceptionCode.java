@@ -10,6 +10,18 @@ public enum BusinessExceptionCode {
 	ERR005("CPF inválido"),
 	ERR006("Idade minima permitida(18 anos)!!!"),
 	ERR007("");
+	ERR500("Bagagem não encontrada"),
+	ERR501("Erro ao inserir bagagem"),
+	ERR502("Erro ao alterar bagagem"),
+	ERR503("Checkin não encontrado"),
+	ERR504("Erro ao inserir checkin"),
+	ERR505("Erro ao alterar checkin"),
+	ERR506("Erro data"),
+	ERR507("Erro passagem"),
+	ERR508("Erro voo"),
+	ERR509("Erro aeronave"),
+	ERR510("Erro usuario");
+
 	private final String message;
 
 	private BusinessExceptionCode(final String message) {
