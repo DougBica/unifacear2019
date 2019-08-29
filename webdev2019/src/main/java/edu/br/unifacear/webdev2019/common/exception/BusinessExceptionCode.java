@@ -9,7 +9,7 @@ public enum BusinessExceptionCode {
 	ERR004("Email já cadastrado"),
 	ERR005("CPF inválido"),
 	ERR006("Idade minima permitida(18 anos)!!!"),
-	ERR007("");
+	ERR007(""),
 	ERR500("Bagagem não encontrada"),
 	ERR501("Erro ao inserir bagagem"),
 	ERR502("Erro ao alterar bagagem"),
