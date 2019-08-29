@@ -2,6 +2,8 @@ package edu.br.unifacear.webdev2019.remarcacao.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -39,20 +41,14 @@ public class CancelaController {
 	}
 	
 	@PostMapping("/{guidCancela}")
-	public Cancela atualizar(Cancela cancela) {
+	public Cancela atualizar(@Valid @RequestBody Cancela cancela) {
 		return service.update(cancela);
 	}
 	
 	@RequestMapping(value = "/{guidCancela}",method = RequestMethod.DELETE)
 	public ResponseEntity<Void> excluir(@PathVariable Long guidCancela) {
-		service.delete(guidCancela);
+		service.delete(guidCancela);//teste
 		return ResponseEntity.noContent().build();
 	}
-	/*
-	@RequestMapping(value = "/date",method = RequestMethod.GET)
-	public List<Cancela> findByDate(
-			@RequestParam(value="Init") Date init,
-			@RequestParam(value="End") Date end){
-		return service.findByDate(init, end);
-	}*/
+	
 }

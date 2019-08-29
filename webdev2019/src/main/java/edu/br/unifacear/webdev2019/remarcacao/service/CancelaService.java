@@ -42,16 +42,5 @@ public class CancelaService {
 		findById(cancela.getGuidCancelar());
 		return repo.save(cancela);
 	}
-	/*
-	public List<Cancela> findByDate(Date init, Date end){
-		List<Cancela> list = find();
-		List<Cancela> list_date = new ArrayList<>();
-		for(Cancela c: list  ){
-			if( c.getDataCancelamento().before(end) && c.getDataCancelamento().after(init) ) {
-				list_date.add(c);
-			}
-		}
-		return list_date;
-	}*/
 	
 }
