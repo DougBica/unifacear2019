@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import edu.br.unifacear.webdev2019.checkin.entity.Bagagem;
 import edu.br.unifacear.webdev2019.checkin.repository.BagagemRepository;
+import edu.br.unifacear.webdev2019.common.exception.BusinessException;
+import edu.br.unifacear.webdev2019.common.exception.BusinessExceptionCode;
 
 @Service
 public class BagagemService implements Serializable {
@@ -22,21 +24,16 @@ public class BagagemService implements Serializable {
 		try {
 			return bagagemrepository.findAll();
 		}
-		catch (Exception e) {
-			e.printStackTrace();
-			return null;
+		catch (BusinessException e) {
+			throw new BusinessException(BusinessExceptionCode.ERR000);
 		}
-
 	}
 	
-	public Optional <Bagagem> findOne(Long id){
-		try {
-			return bagagemrepository.findById(id);
-		}
-		catch (Exception e) {
-			e.printStackTrace();
-			return null;
-		}
+	public Bagagem findOne(Long id){
+		Bagagem bagagem = Optional.
+			ofNullable(bagagemrepository.findById(id)).orElse(null).
+			orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR500));
+		return bagagem;
 	}
 	
 	public Bagagem inserirBagagem(Bagagem bagagem) {
@@ -44,25 +41,12 @@ public class BagagemService implements Serializable {
 			bagagem.setExcesso(true);
 			bagagem.setValortotal((bagagem.getValorbagagem()+(bagagem.getPesoBagagem()-23.0)*
 					bagagem.getValorexcesso()));
-			try {
-				return bagagemrepository.save(bagagem);
-			}
-			catch (Exception e){
-				e.printStackTrace();
-				return null;
-			}
+			return bagagemrepository.save(bagagem);
 		}
 		else {
 			bagagem.setExcesso(false);
 			bagagem.setValortotal(bagagem.getValorbagagem());
-			try {
-				return bagagemrepository.save(bagagem);
-				
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-				return null;
-			}
+			return bagagemrepository.save(bagagem);
 		}
 	}
 	
@@ -71,24 +55,12 @@ public class BagagemService implements Serializable {
 			bagagem.setExcesso(true);
 			bagagem.setValortotal((bagagem.getValorbagagem()+(bagagem.getPesoBagagem()-23.0)*
 					bagagem.getValorexcesso()));
-			try {
-				return bagagemrepository.save(bagagem);
-			}
-			catch (Exception e){
-				e.printStackTrace();
-				return null;
-			}
+			return bagagemrepository.save(bagagem);
 		}
 		else {
 			bagagem.setExcesso(false);
 			bagagem.setValortotal(bagagem.getValorbagagem());
-			try {
-				return bagagemrepository.save(bagagem);	
-			}
-			catch (Exception e) {
-				e.printStackTrace();
-				return null;
-			}
+			return bagagemrepository.save(bagagem);
 		}
 	}
 	
@@ -97,7 +69,7 @@ public class BagagemService implements Serializable {
 			bagagemrepository.delete(bagagem);
 		}
 		catch(Exception e) {
-			e.printStackTrace();
+			throw new BusinessException(BusinessExceptionCode.ERR000);
 		}
 	}
 

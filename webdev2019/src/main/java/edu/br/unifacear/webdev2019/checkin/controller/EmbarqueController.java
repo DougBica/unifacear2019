@@ -12,38 +12,39 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import edu.br.unifacear.webdev2019.checkin.entity.Bagagem;
-import edu.br.unifacear.webdev2019.checkin.service.BagagemService;
+import edu.br.unifacear.webdev2019.checkin.entity.Embarque;
+import edu.br.unifacear.webdev2019.checkin.service.EmbarqueService;
 
 @RestController
-@RequestMapping(value="/bagagem")
-public class BagagemController {
+@RequestMapping(value="/embarque")
+public class EmbarqueController {
 	
 	@Autowired
-	private BagagemService bagagemservice;
+	EmbarqueService embarqueService;
 	
 	@GetMapping
-	public List <Bagagem> listBagagem(){
-		return bagagemservice.findAll();
+	public List<Embarque> listarTodos(){
+		return embarqueService.listarAll();
 	}
 	
 	@GetMapping(value="/{id}")
-	public Bagagem buscaBagagem(@PathVariable Long id) {
-		return bagagemservice.findOne(id);
+	public Embarque listarUm(@PathVariable Long id) {
+		return embarqueService.listarOne(id);
 	}
 	
 	@PostMapping
-	public void inserirBagagem(@RequestBody Bagagem bagagem) {
-		bagagemservice.inserirBagagem(bagagem);
+	public Embarque inserirEmbarque(@RequestBody Embarque embarque) {
+		return embarqueService.inserirEmbarque(embarque);
 	}
 	
-	@PatchMapping(value="/atualizar")
-	public void alterarBagagem(@RequestBody Bagagem bagagem) {
-		bagagemservice.alterarBagagem(bagagem);
+	@PatchMapping
+	public Embarque atualizarEmbarque(@RequestBody Embarque embarque) {
+		return embarqueService.alterarEmbarque(embarque);
 	}
 	
 	@DeleteMapping
-	public void deteleBagagem(@RequestBody Bagagem bagagem) {
-		bagagemservice.deletarBagagem(bagagem);
+	public void deletarEmbarque(@RequestBody Embarque embarque) {
+		embarqueService.deletarEmbarque(embarque);
 	}
+	
 }
