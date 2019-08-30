@@ -30,7 +30,7 @@ public class CancelaController {
 	}
 	
 	@GetMapping("/{guidCancela}")
-	public ResponseEntity<Cancela> listarPorId(Long guidCancela) {
+	public ResponseEntity<Cancela> listarPorId(@PathVariable Long guidCancela) {
 		Cancela obj = service.findById(guidCancela);
 		return ResponseEntity.ok().body(obj);
 	}
@@ -41,7 +41,7 @@ public class CancelaController {
 	}
 	
 	@GetMapping("/guidreserva/{guidReserva}")
-	public List<Cancela> findByGuidReserva(Long guidReserva) {
+	public List<Cancela> findByGuidReserva(@PathVariable Long guidReserva) {
 		return service.findByGuidReserva(guidReserva);
 	}
 	
