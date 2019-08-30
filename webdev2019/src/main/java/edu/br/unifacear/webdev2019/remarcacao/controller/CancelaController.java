@@ -1,7 +1,6 @@
 package edu.br.unifacear.webdev2019.remarcacao.controller;
 
 import java.util.List;
-import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -31,8 +30,8 @@ public class CancelaController {
 	}
 	
 	@GetMapping("/{guidCancela}")
-	public ResponseEntity<Optional<Cancela>> listarPorId(Long guidCancela) {
-		Optional<Cancela> obj = service.findById(guidCancela);
+	public ResponseEntity<Cancela> listarPorId(Long guidCancela) {
+		Cancela obj = service.findById(guidCancela);
 		return ResponseEntity.ok().body(obj);
 	}
 	

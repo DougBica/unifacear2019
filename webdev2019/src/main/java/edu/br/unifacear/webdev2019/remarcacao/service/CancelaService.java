@@ -6,6 +6,8 @@ import java.util.Optional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.br.unifacear.webdev2019.common.exception.BusinessException;
+import edu.br.unifacear.webdev2019.common.exception.BusinessExceptionCode;
 import edu.br.unifacear.webdev2019.remarcacao.entity.Cancela;
 import edu.br.unifacear.webdev2019.remarcacao.repository.CancelaRepository;
 
@@ -19,18 +21,19 @@ public class CancelaService {
 		 return repo.findAll();
 	}
 
-	public Optional<Cancela> findById(Long guidCancela) {
-		Optional<Cancela> cancela = repo.findById(guidCancela);
+	public Cancela findById(Long guidCancela) {
+		Cancela cancela = Optional.ofNullable(repo.findById(guidCancela))
+				.orElse(null)
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR000));
 		return cancela;
 	}
-	
 	
 	public Cancela save(Cancela obj) {
 		return repo.save(obj);
 	}
 	
 	public void delete(Long guidCancela) {
-	 // findById(guidCancela);
+	  findById(guidCancela);
 		try {
 			repo.deleteById(guidCancela);
 		} catch (Exception e) {
@@ -39,7 +42,7 @@ public class CancelaService {
 	} 
 	
 	public Cancela update(Cancela cancela) {
-	//	findById(cancela.getGuidCancelar());
+		findById(cancela.getGuidCancelar());
 		return repo.save(cancela);
 	}
 	
