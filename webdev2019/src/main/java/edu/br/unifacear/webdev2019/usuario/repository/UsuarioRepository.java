@@ -14,6 +14,8 @@ public interface UsuarioRepository
 	
 	public Usuario findByEmail(String email);
 	
+	public Usuario findByCpf(String cpf);
+	
 	@Query("select u from Usuario u where u.email = :email and u.senha = :senha")
 	public List<Usuario> BuscarPorEmaileSenha(@Param("email")String email, @Param("senha")String senha) ;
 }

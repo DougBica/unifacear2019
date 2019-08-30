@@ -48,4 +48,8 @@ public class ControllerUsuario {
 	public List<Usuario> Logar(@PathVariable(name = "email") String email, @PathVariable(name = "senha") String senha) {
 		return usuarioService.Logar(email, senha);
 	}
+	@GetMapping("/cpf/{cpf}")
+	public Usuario BuscarPorCpf(@PathVariable(name = "cpf") String cpf) {
+		return usuarioService.buscarPorCpf(cpf);
+	}
 }
