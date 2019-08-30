@@ -19,19 +19,20 @@ public class PassagemController {
 	@Autowired
 	private PassagemService passagemService;
 	
-	@PostMapping
+	@PostMapping("/salvar")
 	public void salvar(@RequestBody Passagem passagem) {
 		passagemService.salvar(passagem);
 	}
 	
-	@GetMapping
+	@GetMapping ("/listarTodos")
 	public List<Passagem> listar() {
 		return passagemService.listar();
 	}
 	
-	@GetMapping("/{guidPassagem}")
-	public Passagem buscarPorId(@PathVariable(name = "guidPassagem") Long guidPassagem) {
+	@GetMapping("/buscarPorID")
+	public Passagem buscarPorId(final Long guidPassagem) {
 		return passagemService.burcarPorId(guidPassagem);
-		
 	}
+
+	
 }
