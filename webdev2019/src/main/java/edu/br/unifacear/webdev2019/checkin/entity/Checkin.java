@@ -28,6 +28,14 @@ public class Checkin {
 	private boolean altaBagagem;
 	private String fotoCheckin;
 	private boolean indicadorFoto;
+	private Long guidMilhagem;
+	
+	public Long getGuidMilhagem() {
+		return guidMilhagem;
+	}
+	public void setGuidMilhagem(Long guidMilhagem) {
+		this.guidMilhagem = guidMilhagem;
+	}
 	public boolean isIndicadorFoto() {
 		return indicadorFoto;
 	}
