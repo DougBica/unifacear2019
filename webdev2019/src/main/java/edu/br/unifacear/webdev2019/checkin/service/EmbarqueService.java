@@ -1,5 +1,6 @@
 package edu.br.unifacear.webdev2019.checkin.service;
 
+import java.io.Serializable;
 import java.util.List;
 import java.util.Optional;
 
@@ -12,7 +13,12 @@ import edu.br.unifacear.webdev2019.common.exception.BusinessException;
 import edu.br.unifacear.webdev2019.common.exception.BusinessExceptionCode;
 
 @Service
-public class EmbarqueService {
+public class EmbarqueService implements Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	
 	@Autowired
 	EmbarqueRepository embarqueRepository;
