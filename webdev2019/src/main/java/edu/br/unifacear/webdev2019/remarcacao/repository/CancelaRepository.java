@@ -9,6 +9,9 @@ import edu.br.unifacear.webdev2019.remarcacao.entity.Cancela;
 public interface CancelaRepository extends JpaRepository<Cancela, Long>{
 	
 	Cancela findByGuidUsuario(Long guidUsuario);
+	
 	List<Cancela> findByGuidReserva(Long guidReserva);
+	
 	Cancela findByGuidPassagem(Long guidPassagem);
+
 }

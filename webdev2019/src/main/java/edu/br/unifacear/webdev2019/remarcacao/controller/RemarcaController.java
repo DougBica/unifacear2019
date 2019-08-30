@@ -27,12 +27,12 @@ public class RemarcaController {
 			return service.find();
 		}
 		
-		@RequestMapping(value = "/{guidRemarca}", method = RequestMethod.GET)
+	/*	@RequestMapping(value = "/{guidRemarca}", method = RequestMethod.GET)
 		public ResponseEntity<Cancela> listarPorId(Long guidRemarca) {
 			Cancela obj = service.findById(guidRemarca);
 			return ResponseEntity.ok().body(obj);
 		}
-		
+		*/
 		@PostMapping
 		public Cancela salvar(@RequestBody Cancela obj) {
 			return service.save(obj);

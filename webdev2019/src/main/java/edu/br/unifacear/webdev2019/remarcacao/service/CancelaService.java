@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import edu.br.unifacear.webdev2019.remarcacao.entity.Cancela;
 import edu.br.unifacear.webdev2019.remarcacao.repository.CancelaRepository;
-import edu.br.unifacear.webdev2019.remarcacao.service.exceptions.ObjectNotFoundException;
 
 @Service
 public class CancelaService {
@@ -19,10 +18,10 @@ public class CancelaService {
 	public List<Cancela> find(){
 		 return repo.findAll();
 	}
-	
-	public Cancela findById(Long guidCancela) {
-		Optional<Cancela> obj = repo.findById(guidCancela);
-		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: "+guidCancela));
+
+	public Optional<Cancela> findById(Long guidCancela) {
+		Optional<Cancela> cancela = repo.findById(guidCancela);
+		return cancela;
 	}
 	
 	
@@ -31,16 +30,16 @@ public class CancelaService {
 	}
 	
 	public void delete(Long guidCancela) {
-		findById(guidCancela);
+	 // findById(guidCancela);
 		try {
 			repo.deleteById(guidCancela);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	}
+	} 
 	
 	public Cancela update(Cancela cancela) {
-		findById(cancela.getGuidCancelar());
+	//	findById(cancela.getGuidCancelar());
 		return repo.save(cancela);
 	}
 	

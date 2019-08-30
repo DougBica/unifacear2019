@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -20,8 +21,11 @@ public class Cancela implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long guidCancelar;
+	@NotNull
 	private Long guidUsuario;
+	@NotNull
 	private Long guidReserva;
+	@NotNull
 	private Long guidPassagem;
 	private Boolean statusPassagem;
 	private Boolean statusReserva;

@@ -1,17 +1,18 @@
 package edu.br.unifacear.webdev2019.remarcacao.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.br.unifacear.webdev2019.remarcacao.entity.Cancela;
@@ -30,8 +31,8 @@ public class CancelaController {
 	}
 	
 	@GetMapping("/{guidCancela}")
-	public ResponseEntity<Cancela> listarPorId(Long guidCancela) {
-		Cancela obj = service.findById(guidCancela);
+	public ResponseEntity<Optional<Cancela>> listarPorId(Long guidCancela) {
+		Optional<Cancela> obj = service.findById(guidCancela);
 		return ResponseEntity.ok().body(obj);
 	}
 	
@@ -55,7 +56,7 @@ public class CancelaController {
 		return service.update(cancela);
 	}
 	
-	@RequestMapping(value = "/{guidCancela}",method = RequestMethod.DELETE)
+	@DeleteMapping("/{guidCancela}")
 	public ResponseEntity<Void> excluir(@PathVariable Long guidCancela) {
 		service.delete(guidCancela);
 		return ResponseEntity.noContent().build();
