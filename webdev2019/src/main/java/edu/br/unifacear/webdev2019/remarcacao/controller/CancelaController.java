@@ -29,10 +29,20 @@ public class CancelaController {
 		return service.find();
 	}
 	
-	@RequestMapping(value = "/{guidCancela}", method = RequestMethod.GET)
+	@GetMapping("/{guidCancela}")
 	public ResponseEntity<Cancela> listarPorId(Long guidCancela) {
 		Cancela obj = service.findById(guidCancela);
 		return ResponseEntity.ok().body(obj);
+	}
+	
+	@GetMapping("/guidusuario/{guidUsuario}")
+	public Cancela findByGuidUsuario(@PathVariable Long guidUsuario) {
+		return service.findByGuidUsuario(guidUsuario);
+	}
+	
+	@GetMapping("/guidreserva/{guidReserva}")
+	public List<Cancela> findByGuidReserva(Long guidReserva) {
+		return service.findByGuidReserva(guidReserva);
 	}
 	
 	@PostMapping
@@ -47,7 +57,7 @@ public class CancelaController {
 	
 	@RequestMapping(value = "/{guidCancela}",method = RequestMethod.DELETE)
 	public ResponseEntity<Void> excluir(@PathVariable Long guidCancela) {
-		service.delete(guidCancela);//teste
+		service.delete(guidCancela);
 		return ResponseEntity.noContent().build();
 	}
 	

@@ -24,7 +24,8 @@ public class CancelaService {
 		Optional<Cancela> obj = repo.findById(guidCancela);
 		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: "+guidCancela));
 	}
-		
+	
+	
 	public Cancela save(Cancela obj) {
 		return repo.save(obj);
 	}
@@ -43,4 +44,15 @@ public class CancelaService {
 		return repo.save(cancela);
 	}
 	
+	public Cancela findByGuidUsuario(Long guidUsuario) {
+		return repo.findByGuidUsuario(guidUsuario);
+	}
+	
+	public List<Cancela> findByGuidReserva(Long guidReserva) {
+		return repo.findByGuidReserva(guidReserva);
+	}
+	
+	public Cancela findByGuidPassagem(Long guidPassagem) {
+		return repo.findByGuidPassagem(guidPassagem);
+	}
 }

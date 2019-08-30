@@ -20,9 +20,14 @@ public class Cancela implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long guidCancelar;
+	private Long guidUsuario;
+	private Long guidReserva;
+	private Long guidPassagem;
+	private Boolean statusPassagem;
+	private Boolean statusReserva;
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataCancelamento;
-	
+ 
 	public Long getGuidCancelar() {
 		return guidCancelar;
 	}
@@ -38,5 +43,45 @@ public class Cancela implements Serializable{
 	public void setDataCancelamento(Date dataCancelamento) {
 		this.dataCancelamento = dataCancelamento;
 	}
-	
+
+	public Long getGuidUsuario() {
+		return guidUsuario;
+	}
+
+	public void setGuidUsuario(Long guidUsuario) {
+		this.guidUsuario = guidUsuario;
+	}
+
+	public Long getGuidReserva() {
+		return guidReserva;
+	}
+
+	public void setGuidReserva(Long guidReserva) {
+		this.guidReserva = guidReserva;
+	}
+
+	public Long getGuidPassagem() {
+		return guidPassagem;
+	}
+
+	public void setGuidPassagem(Long guidPassagem) {
+		this.guidPassagem = guidPassagem;
+	}
+
+	public Boolean getStatusPassagem() {
+		return statusPassagem;
+	}
+
+	public void setStatusPassagem(Boolean statusPassagem) {
+		this.statusPassagem = statusPassagem;
+	}
+
+	public Boolean getStatusReserva() {
+		return statusReserva;
+	}
+
+	public void setStatusReserva(Boolean statusReserva) {
+		this.statusReserva = statusReserva;
+	}
+
 }
