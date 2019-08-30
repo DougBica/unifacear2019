@@ -6,6 +6,5 @@ import edu.br.unifacear.webdev2019.usuario.entity.TipoPerfil;
 
 public interface TipoPerfilRepository 
 	extends JpaRepository<TipoPerfil, Long>{
-	
 
 }
