@@ -14,7 +14,7 @@ import edu.br.unifacear.webdev2019.passagem.entity.Reserva;
 import edu.br.unifacear.webdev2019.passagem.service.ReservaService;
 
 @RestController
-@RequestMapping("/passagem")
+@RequestMapping("/reserva")
 public class ReservaController {
 	@Autowired
 	private ReservaService reservaService;
@@ -29,7 +29,7 @@ public class ReservaController {
 		return reservaService.listar();
 	}
 	
-	@GetMapping("/{guidPassagem}")
+	@GetMapping("/{guidReserva}")
 	public Reserva buscarPorId(@PathVariable(name = "guidReserva") Long guidReserva) {
 		return reservaService.buscarPorId(guidReserva);
 		

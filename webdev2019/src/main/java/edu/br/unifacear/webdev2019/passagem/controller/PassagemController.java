@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.br.unifacear.webdev2019.passagem.entity.Passagem;
+import edu.br.unifacear.webdev2019.passagem.entity.Reserva;
 import edu.br.unifacear.webdev2019.passagem.service.PassagemService;
 
 @RestController
@@ -19,20 +20,25 @@ public class PassagemController {
 	@Autowired
 	private PassagemService passagemService;
 	
-	@PostMapping("/salvar")
+	@PostMapping
+	
 	public void salvar(@RequestBody Passagem passagem) {
 		passagemService.salvar(passagem);
+	
 	}
 	
-	@GetMapping ("/listarTodos")
+	@GetMapping
 	public List<Passagem> listar() {
+	
 		return passagemService.listar();
+	
 	}
 	
-	@GetMapping("/buscarPorID")
-	public Passagem buscarPorId(final Long guidPassagem) {
+	@GetMapping("/{guidPassagem}")
+	public Passagem buscarPorId(@PathVariable(name = "guidPassagem") Long guidPassagem) {
+		
 		return passagemService.burcarPorId(guidPassagem);
+	
 	}
-
 	
 }
