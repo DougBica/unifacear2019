@@ -7,6 +7,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -29,7 +31,16 @@ public class Checkin {
 	private String fotoCheckin;
 	private boolean indicadorFoto;
 	private Long guidMilhagem;
+	@OneToOne
+	@JoinColumn(name="guidStatusCheckin")
+	private Long guidStatusCheckin;
 	
+	public Long getGuidStatusCheckin() {
+		return guidStatusCheckin;
+	}
+	public void setGuidStatusCheckin(Long guidStatusCheckin) {
+		this.guidStatusCheckin = guidStatusCheckin;
+	}
 	public Long getGuidMilhagem() {
 		return guidMilhagem;
 	}
