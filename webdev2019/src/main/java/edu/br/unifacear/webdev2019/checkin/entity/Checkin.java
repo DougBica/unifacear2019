@@ -31,15 +31,15 @@ public class Checkin {
 	private String fotoCheckin;
 	private boolean indicadorFoto;
 	private Long guidMilhagem;
-    @OneToOne
+	@OneToOne
 	@JoinColumn(name="guidStatus")
-	private Long guidStatusCheckin;
+	private StatusCheckin statusCheckin;
 	
-	public Long getGuidStatusCheckin() {
-		return guidStatusCheckin;
+	public StatusCheckin getStatusCheckin() {
+		return statusCheckin;
 	}
-	public void setGuidStatusCheckin(Long guidStatusCheckin) {
-		this.guidStatusCheckin = guidStatusCheckin;
+	public void setStatusCheckin(StatusCheckin statusCheckin) {
+		this.statusCheckin = statusCheckin;
 	}
 	public Long getGuidMilhagem() {
 		return guidMilhagem;
