@@ -27,4 +27,8 @@ public class AeronaveService {
 	public List<Aeronave> listar() {
 		return aeronaveRepository.findAll();
 	}
+
+	public Aeronave findOneById(Long guidAeronave) {
+		return aeronaveRepository.findById(guidAeronave).get();
+	}
 }

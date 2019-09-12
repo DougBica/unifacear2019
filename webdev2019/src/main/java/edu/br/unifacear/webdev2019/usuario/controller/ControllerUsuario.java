@@ -24,12 +24,12 @@ public class ControllerUsuario {
 		usuarioService.salvar(usuario);
 	}
 	
-	@GetMapping
+	//@GetMapping
 	public List<Usuario> listar() {
 		return usuarioService.listar();
 	}
 	
-	@GetMapping
+	//@GetMapping
 	public List<Usuario> BuscarPorID(Iterable<Long> guidUsuario) {
 		return usuarioService.BuscarPorID(guidUsuario);
 	}

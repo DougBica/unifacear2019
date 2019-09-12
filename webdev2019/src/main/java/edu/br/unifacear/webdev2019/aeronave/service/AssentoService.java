@@ -29,4 +29,8 @@ public class AssentoService {
 	public List<Assento> listar() {
 		return assentoRepository.findAll();
 	}
+
+	public Assento findOneById(Long guidAssento) {
+		return assentoRepository.findById(guidAssento).get();
+	}
 }

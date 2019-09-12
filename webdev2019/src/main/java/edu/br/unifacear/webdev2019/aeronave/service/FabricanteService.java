@@ -27,4 +27,8 @@ public class FabricanteService {
 	public List<Fabricante> listar() {
 		return fabricanteRepository.findAll();
 	}
+
+	public Fabricante findOneById(Long guidFabricante) {
+		return fabricanteRepository.findById(guidFabricante).get();
+	}
 }

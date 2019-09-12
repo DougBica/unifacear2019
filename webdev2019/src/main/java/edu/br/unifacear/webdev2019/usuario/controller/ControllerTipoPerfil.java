@@ -3,8 +3,6 @@ package edu.br.unifacear.webdev2019.usuario.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -19,22 +17,22 @@ public class ControllerTipoPerfil {
 	@Autowired
 	private TipoPerfilService tipoperfilService;
 	
-	@PostMapping
+	//@PostMapping
 	public void salvar(@RequestBody TipoPerfil tipoperfil) {
 		tipoperfilService.salvar(tipoperfil);
 	}
 	
-	@GetMapping
+	//@GetMapping
 	public List<TipoPerfil> listar() {
 		return tipoperfilService.listar();
 	}
 	
-	@PostMapping
+	//@PostMapping
 	public void excluir(@RequestBody TipoPerfil tipoPerfil) {
 		tipoperfilService.excluir(tipoPerfil);
 	}
 	
-	@GetMapping
+	//@GetMapping
 	public void BuscarId(Iterable<Long> guidTipoPerfil) {
 		 tipoperfilService.BuscarId(guidTipoPerfil);
 	}
