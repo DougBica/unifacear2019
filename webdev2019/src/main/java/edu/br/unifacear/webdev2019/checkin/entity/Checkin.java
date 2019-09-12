@@ -31,8 +31,8 @@ public class Checkin {
 	private String fotoCheckin;
 	private boolean indicadorFoto;
 	private Long guidMilhagem;
-	@OneToOne
-	@JoinColumn(name="guidStatusCheckin")
+    @OneToOne
+	@JoinColumn(name="guidStatus")
 	private Long guidStatusCheckin;
 	
 	public Long getGuidStatusCheckin() {
