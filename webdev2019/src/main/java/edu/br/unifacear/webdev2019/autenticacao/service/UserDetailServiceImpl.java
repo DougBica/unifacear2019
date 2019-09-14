@@ -46,8 +46,11 @@ public class UserDetailServiceImpl implements UserDetailsService {
 		 * isCredentialsNonExpired(), customUser.isAccountNonLocked(),
 		 * getUserRoles(customUser.getId()), customUser.getId()); }
 		 */
+		List<GrantedAuthority> permissoes = new ArrayList<GrantedAuthority>();
+		permissoes.add(new SimpleGrantedAuthority("USUARIO_LISTAR"));
+		
 		CustomUser customUser = new CustomUser("admin@scp.com", new BCryptPasswordEncoder().encode("123"), true, true, true, true,
-				new ArrayList<GrantedAuthority>());
+				permissoes);
 
 		return customUser;
 	}

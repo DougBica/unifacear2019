@@ -3,6 +3,7 @@ package edu.br.unifacear.webdev2019.usuario.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -24,6 +25,7 @@ public class ControllerUsuario {
 		usuarioService.salvar(usuario);
 	}
 	
+	@PreAuthorize("hasRole('ADMIN') || hasRole('USUARIO_LISTAR')")
 	@GetMapping("/listar")
 	public List<Usuario> listar() {
 		return usuarioService.listar();
