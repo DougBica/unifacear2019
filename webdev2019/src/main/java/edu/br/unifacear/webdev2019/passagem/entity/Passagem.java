@@ -1,11 +1,14 @@
 package edu.br.unifacear.webdev2019.passagem.entity;
 import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 
@@ -39,7 +42,19 @@ public class Passagem {
 	private double valorPassagem;
 	
 	private String nomePassageiro; // this attibute shall be NOT NULL
+	
 	private String cpfPassageiro; // This attribute shall be NULL
+	
+	@ManyToOne
+	@JoinColumn(name = "guidReserva")
+	private Reserva reserva;
+	
+	public Reserva getReserva() {
+		return reserva;
+	}
+	public void setReserva(Reserva reserva) {
+		this.reserva = reserva;
+	}
 	public Long getGuidPassagem() {
 		return guidPassagem;
 	}
