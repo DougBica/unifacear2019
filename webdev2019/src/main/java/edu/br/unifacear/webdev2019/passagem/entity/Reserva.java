@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,6 +24,33 @@ public class Reserva {
 	private boolean paid; // its paid?
 	
 	private boolean active; // its active?
+	
+	@ManyToOne
+	@JoinColumn(name="guidTipoPagamento")
+		private TipoPagamento tipoPagamento;
+	
+	@ManyToOne
+	@JoinColumn(name="guidPassagem")
+	private Passagem passagem; 
+	
+	
+		
+
+	public Passagem getPassagem() {
+		return passagem;
+	}
+
+	public void setPassagem(Passagem passagem) {
+		this.passagem = passagem;
+	}
+
+	public TipoPagamento getTipoPagamento() {
+		return tipoPagamento;
+	}
+
+	public void setTipoPagamento(TipoPagamento tipoPagamento) {
+		this.tipoPagamento = tipoPagamento;
+	}
 
 	public Long getGuidReserva() {
 		return guidReserva;
