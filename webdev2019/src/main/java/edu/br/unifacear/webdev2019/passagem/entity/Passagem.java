@@ -10,9 +10,17 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.br.CPF;
+
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "guidPassagem")
 @Table(name = "PASSAGEM")
 public class Passagem {
 	@Id
@@ -23,14 +31,17 @@ public class Passagem {
 	 * Receive by Voo module.
 	 * Rota object must contain a List<Voo>.
 	 */
+	@NotNull
 	private Long guidRota; // this attibute shall be NOT NULL
 	
 	/*
 	 * This Enum must contain in Aeroporto module
 	 */
 	@Enumerated(EnumType.STRING)
-    private ClassePassagemEnum classePassagem;
 	
+    private ClassePassagemEnum classePassagemEnum;
+	
+	@NotNull
 	private Date dataPartida;
 	
 	/*
@@ -40,9 +51,9 @@ public class Passagem {
 	private boolean active;
 	
 	private double valorPassagem;
-	
+	@NotNull @NotEmpty
 	private String nomePassageiro; // this attibute shall be NOT NULL
-	
+	@NotNull @NotEmpty @CPF
 	private String cpfPassageiro; // This attribute shall be NULL
 	
 	@ManyToOne
@@ -68,10 +79,11 @@ public class Passagem {
 		this.guidRota = guidRota;
 	}
 	public ClassePassagemEnum getClassePassagem() {
-		return classePassagem;
+		return classePassagemEnum;
 	}
+	
 	public void setClassePassagem(ClassePassagemEnum classePassagem) {
-		this.classePassagem = classePassagem;
+		this.classePassagemEnum = classePassagem;
 	}
 	public Date getDataPartida() {
 		return dataPartida;

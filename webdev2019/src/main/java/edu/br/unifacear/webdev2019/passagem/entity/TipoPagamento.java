@@ -9,10 +9,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
-import org.hibernate.validator.constraints.NotEmpty;
+
 
 
 
@@ -23,7 +25,7 @@ public class TipoPagamento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long guidTipoPagamento;
 	
-	@NotEmpty
+	@NotEmpty @NotNull 
 	private String descricaoPagamento;
 	
 	@OneToMany(mappedBy="tipoPagamento",fetch = FetchType.EAGER)

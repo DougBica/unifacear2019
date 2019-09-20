@@ -3,9 +3,6 @@ package edu.br.unifacear.webdev2019.common.exception;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
@@ -20,8 +17,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice  //Interceptador de Exception
 public class ErroDeValidacaoHandler {
 	
-	@Autowired
-	private MessageSource messageSource;
+//	@Autowired
+//	private MessageSource messageSource;
 	
 	
 	//Padrão de interceptador
@@ -34,8 +31,8 @@ public class ErroDeValidacaoHandler {
 		List<FieldError> fieldErrors = ex.getBindingResult().getFieldErrors(); 
 		
 		fieldErrors.forEach(e -> {
-			String mensagem = messageSource.getMessage(e, LocaleContextHolder.getLocale()); //intercionalizada
-			MensagemErro erro = new MensagemErro(e.getField(), new BusinessException(BusinessExceptionCode.ERR501));
+//			String mensagem = messageSource.getMessage(e, LocaleContextHolder.getLocale()); //intercionalizada
+			MensagemErro erro = new MensagemErro(e.getField(), BusinessExceptionCode.ERR501.toString(), BusinessExceptionCode.ERR501.getMessage());
 			listMsg.add(erro);
 		});
 		return listMsg;

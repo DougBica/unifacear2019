@@ -20,6 +20,9 @@ public class BusinessException extends RuntimeException {
 	public BusinessExceptionCode getCode() {
 		return code;
 	}
-
+	
+	public String toString(){
+		return super.getMessage();
+	}
 }
 

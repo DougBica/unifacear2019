@@ -1,24 +1,35 @@
 package edu.br.unifacear.webdev2019.passagem.entity;
 
+import java.util.List;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+
 @Entity
+@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "guidReserva")
 @Table(name = "RESERVA")
 public class Reserva {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long guidReserva;
 
+	@NotNull
 	private Long guidUsuario;
-	
+	@NotNull @NotEmpty
 	private String origem;
+	@NotNull @NotEmpty
 	private String destino;
 	
 	private Double valorReserva; // This attribute is defined with the Passagem values
@@ -27,22 +38,22 @@ public class Reserva {
 	
 	private boolean active; // its active?
 	
-	@ManyToOne
+	@OneToOne
 	@JoinColumn(name="guidTipoPagamento")
-		private TipoPagamento tipoPagamento;
+	private TipoPagamento tipoPagamento;
 	
-	@ManyToOne
+	@OneToMany
 	@JoinColumn(name="guidPassagem")
-	private Passagem passagem; 
+	private List<Passagem> passagem; 
 	
 	
 		
 
-	public Passagem getPassagem() {
-		return passagem;
+	public List<Passagem> getPassagem() {
+		return this.passagem;
 	}
 
-	public void setPassagem(Passagem passagem) {
+	public void setPassagem(List<Passagem> passagem) {
 		this.passagem = passagem;
 	}
 

@@ -2,6 +2,8 @@ package edu.br.unifacear.webdev2019.passagem.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.br.unifacear.webdev2019.passagem.entity.Passagem;
-import edu.br.unifacear.webdev2019.passagem.entity.Reserva;
 import edu.br.unifacear.webdev2019.passagem.service.PassagemService;
 
 @RestController
@@ -22,7 +23,7 @@ public class PassagemController {
 	
 	@PostMapping
 	
-	public void salvar(@RequestBody Passagem passagem) {
+	public void salvar(@RequestBody @Valid Passagem passagem) {
 		passagemService.salvar(passagem);
 	
 	}
