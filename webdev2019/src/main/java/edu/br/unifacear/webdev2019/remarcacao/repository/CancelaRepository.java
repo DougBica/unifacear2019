@@ -13,5 +13,5 @@ public interface CancelaRepository extends JpaRepository<Cancela, Long>{
 	List<Cancela> findByGuidReserva(Long guidReserva);
 	
 	Cancela findByGuidPassagem(Long guidPassagem);
-
+	
 }
