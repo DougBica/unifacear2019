@@ -4,6 +4,7 @@ public enum BusinessExceptionCode {
 	
 	ERR000("Erro não esperado"),
 	ERR001("Usuário não encontrado"),	
+	ERR501("Erro de formulário"),
 	ERR500("A reserva deve conter pelo menos 1 passagem");
 	
 	private final String message;

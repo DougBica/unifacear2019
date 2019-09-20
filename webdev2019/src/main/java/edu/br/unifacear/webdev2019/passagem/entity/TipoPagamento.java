@@ -12,6 +12,8 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
+import org.hibernate.validator.constraints.NotEmpty;
+
 
 
 @Entity
@@ -21,6 +23,7 @@ public class TipoPagamento {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long guidTipoPagamento;
 	
+	@NotEmpty
 	private String descricaoPagamento;
 	
 	@OneToMany(mappedBy="tipoPagamento",fetch = FetchType.EAGER)

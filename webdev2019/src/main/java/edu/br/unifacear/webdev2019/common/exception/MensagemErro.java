@@ -3,9 +3,9 @@ package edu.br.unifacear.webdev2019.common.exception;
 public class MensagemErro {
 	
 	private String campo;
-	private String erro;
+	private BusinessException erro;
 	
-	public MensagemErro(String campo, String erro) {
+	public MensagemErro(String campo, BusinessException erro) {
 		super();
 		this.campo = campo;
 		this.erro = erro;
@@ -15,7 +15,7 @@ public class MensagemErro {
 		return campo;
 	}
 
-	public String getErro() {
+	public BusinessException getErro() {
 		return erro;
 	}
 	

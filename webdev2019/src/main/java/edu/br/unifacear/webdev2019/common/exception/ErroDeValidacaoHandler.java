@@ -35,10 +35,11 @@ public class ErroDeValidacaoHandler {
 		
 		fieldErrors.forEach(e -> {
 			String mensagem = messageSource.getMessage(e, LocaleContextHolder.getLocale()); //intercionalizada
-			MensagemErro erro = new MensagemErro(e.getField(), mensagem);
+			MensagemErro erro = new MensagemErro(e.getField(), new BusinessException(BusinessExceptionCode.ERR501));
 			listMsg.add(erro);
 		});
 		return listMsg;
 	}
 	
 }
+//
