@@ -15,12 +15,8 @@ public class Reserva {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long guidReserva;
-<<<<<<< HEAD
-	@NotNull
-	private String guidUsuario;
-=======
+
 	private Long guidUsuario;
->>>>>>> f0ec136a18a6346f5f3d24666e2776c0b2d69362
 	
 	private String origem;
 	private String destino;
