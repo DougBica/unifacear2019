@@ -11,8 +11,8 @@ import edu.br.unifacear.webdev2019.passagem.entity.Passagem;
 public interface PassagemRepository 
 extends JpaRepository<Passagem, Long>{
 
-	Passagem findByClasse(String classe);
-	
-	@Query("select p from Passagem p where guidPassagem like %:guiPassagem% and classePassagem like %:classePassagem% ")
-	public List<Passagem> findByClasseAndGuid(@Param ("guiPassagem") Long guiPassagem,@Param ("classePassagem") String classePassagem);
+//	public Passagem findByClasse(String classe);
+//	
+//	@Query("select p from Passagem p where guidPassagem like %:guiPassagem% and classePassagem like %:classePassagem% ")
+//	public List<Passagem> findByClasseAndGuid(@Param ("guiPassagem") Long guiPassagem,@Param ("classePassagem") String classePassagem);
 }

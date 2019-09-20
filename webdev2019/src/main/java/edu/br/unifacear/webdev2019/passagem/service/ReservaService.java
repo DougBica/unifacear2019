@@ -18,7 +18,16 @@ public class ReservaService {
 	private ReservaRepository reservaRepository;
 	
 	@Transactional
-	public void salvar(Reserva reserva) {		
+	public void salvar(Reserva reserva) {
+		
+		
+
+//		if(reserva.getPassagem() == null) {
+//			String err500 = new BusinessException(BusinessExceptionCode.ERR500).getMessage();
+//			return err500;
+//		}
+		
+		
 		reservaRepository.save(reserva);
 	}	
 	
@@ -30,8 +39,8 @@ public class ReservaService {
 		return reservaRepository.findAll();
 	}
 	public Reserva buscarPorId(final Long guidReserva) {
-		Reserva passagem = Optional.ofNullable(reservaRepository.findById(guidReserva)).orElse(null)
+		Reserva reserva = Optional.ofNullable(reservaRepository.findById(guidReserva)).orElse(null)
 				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR000));
-		return passagem;
+		return reserva;
 	}
 }
