@@ -43,4 +43,6 @@ public class RemarcaController {
 			service.delete(guidRemarca);
 			return ResponseEntity.noContent().build();
 		}
+		
+		
 }
