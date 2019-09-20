@@ -19,12 +19,12 @@ public class ControllerTipoPerfil {
 	@Autowired
 	private TipoPerfilService tipoperfilService;
 	
-	@PostMapping("/Salvar")
+	@PostMapping
 	public void salvar(@RequestBody TipoPerfil tipoperfil) {
 		tipoperfilService.salvar(tipoperfil);
 	}
 	
-	@GetMapping("/Listar")
+	@GetMapping
 	public List<TipoPerfil> listar() {
 		return tipoperfilService.listar();
 	}
