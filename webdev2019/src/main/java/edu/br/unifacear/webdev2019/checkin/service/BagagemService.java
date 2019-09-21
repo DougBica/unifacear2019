@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import edu.br.unifacear.webdev2019.checkin.entity.Bagagem;
@@ -16,6 +17,9 @@ import edu.br.unifacear.webdev2019.common.exception.BusinessExceptionCode;
 public class BagagemService implements Serializable {
 
 	private static final long serialVersionUID = 1L;
+	
+	@Value("${webdev2019.bagagem.peso}")
+	private Double peso;
 
 	@Autowired	
 	private BagagemRepository bagagemrepository;
@@ -37,11 +41,19 @@ public class BagagemService implements Serializable {
 	}
 	
 	public Bagagem inserirBagagem(Bagagem bagagem) {
-		if(bagagem.getPesoBagagem()>23.0) {
+		if(bagagem.getPesoBagagem()>peso) {
 			bagagem.setExcesso(true);
-			bagagem.setValortotal((bagagem.getValorbagagem()+(bagagem.getPesoBagagem()-23.0)*
+			bagagem.setValortotal((bagagem.getValorbagagem()+(bagagem.getPesoBagagem()-peso)*
 					bagagem.getValorexcesso()));
-			return bagagemrepository.save(bagagem);
+			if(bagagem.getGuidCheckin() == null) {
+				throw new BusinessException(BusinessExceptionCode.ERR511);
+			}
+			else {
+				return bagagemrepository.save(bagagem);		
+			}
+		}
+		else if(bagagem.getGuidCheckin() == null) {
+			throw new BusinessException(BusinessExceptionCode.ERR511);
 		}
 		else {
 			bagagem.setExcesso(false);
@@ -51,11 +63,19 @@ public class BagagemService implements Serializable {
 	}
 	
 	public Bagagem alterarBagagem(Bagagem bagagem) {
-		if(bagagem.getPesoBagagem()>23.0) {
+		if(bagagem.getPesoBagagem()>peso) {
 			bagagem.setExcesso(true);
-			bagagem.setValortotal((bagagem.getValorbagagem()+(bagagem.getPesoBagagem()-23.0)*
+			bagagem.setValortotal((bagagem.getValorbagagem()+(bagagem.getPesoBagagem()-peso)*
 					bagagem.getValorexcesso()));
-			return bagagemrepository.save(bagagem);
+			if(bagagem.getGuidCheckin() == null) {
+				throw new BusinessException(BusinessExceptionCode.ERR511);
+			}
+			else {
+				return bagagemrepository.save(bagagem);		
+			}
+		}
+		else if(bagagem.getGuidCheckin() == null) {
+			throw new BusinessException(BusinessExceptionCode.ERR511);
 		}
 		else {
 			bagagem.setExcesso(false);
