@@ -1,4 +1,4 @@
-package edu.br.unifacear.webdev2019.usuario.entity;
+/*package edu.br.unifacear.webdev2019.usuario.entity;
 
 import java.util.List;
 
@@ -54,3 +54,4 @@ public class TipoPerfil {
 	}
 	
 }
+*/

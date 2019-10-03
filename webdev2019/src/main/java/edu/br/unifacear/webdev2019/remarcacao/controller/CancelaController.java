@@ -18,7 +18,7 @@ import edu.br.unifacear.webdev2019.remarcacao.entity.Cancela;
 import edu.br.unifacear.webdev2019.remarcacao.service.CancelaService;
 
 @RestController
-@RequestMapping("/cancela")
+@RequestMapping("/scp/public/cancela")
 public class CancelaController {
 	
 	@Autowired

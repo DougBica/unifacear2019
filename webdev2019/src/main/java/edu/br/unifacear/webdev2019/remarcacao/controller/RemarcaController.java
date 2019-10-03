@@ -16,7 +16,7 @@ import edu.br.unifacear.webdev2019.remarcacao.entity.Remarca;
 import edu.br.unifacear.webdev2019.remarcacao.service.RemarcaService;
 
 @RestController
-@RequestMapping("/remarca")
+@RequestMapping("/scp/public/remarca")
 public class RemarcaController {
 		
 		@Autowired
@@ -25,7 +25,7 @@ public class RemarcaController {
 		@GetMapping
 		public List<Remarca> listar(){
 			return service.find();
-		}
+		}	
 		
 		@GetMapping("/{guidRemarca}")
 		public ResponseEntity<Remarca> listarPorId(@PathVariable Long guidRemarca) {
@@ -43,4 +43,15 @@ public class RemarcaController {
 			service.delete(guidRemarca);
 			return ResponseEntity.noContent().build();
 		}
+		
+		@GetMapping("/guidreserva/{guidReservs}")
+		public List<Remarca> findByGuidReserva(@PathVariable Long guidReserva) {
+			return service.findByGuidReserva(guidReserva);
+		}
+		
+		@GetMapping("/guidpassagem/{guidPassagem}")
+		public Remarca findByGuidPassagem(@PathVariable Long guidPassagem) {
+			return service.findByGuidPassagem(guidPassagem);
+		}
+		
 }
