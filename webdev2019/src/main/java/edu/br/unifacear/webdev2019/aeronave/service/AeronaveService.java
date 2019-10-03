@@ -17,10 +17,7 @@ public class AeronaveService {
 	private AeronaveRepository aeronaveRepository;
 	
 	public void salvar(Aeronave aeronave) {
-		//if (usuario.getIdade() == null
-		//		&& usuario.getIdade() < 18) {
-			//lançar uma excecao 
-		//}		
+		
 		aeronaveRepository.save(aeronave);
 	}
 	

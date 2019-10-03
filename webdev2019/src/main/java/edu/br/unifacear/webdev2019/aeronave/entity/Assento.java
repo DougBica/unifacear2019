@@ -1,5 +1,6 @@
 package edu.br.unifacear.webdev2019.aeronave.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -16,6 +17,7 @@ public class Assento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long guidassento;
+	@Column(name = "guidaeronave", nullable = false)
 	private Long guidAeronave;
 	private Long qtdassento;
 	@Enumerated(EnumType.STRING)

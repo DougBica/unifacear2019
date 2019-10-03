@@ -5,9 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import edu.br.unifacear.webdev2019.aeronave.entity.Aeronave;
 import edu.br.unifacear.webdev2019.aeronave.entity.Assento;
-import edu.br.unifacear.webdev2019.aeronave.repository.AeronaveRepository;
 import edu.br.unifacear.webdev2019.aeronave.repository.AssentoRepository;
 
 
@@ -32,5 +30,9 @@ public class AssentoService {
 
 	public Assento findOneById(Long guidAssento) {
 		return assentoRepository.findById(guidAssento).get();
+	}
+
+	public List<Assento> findAllByGuidAeronave(Long guidAeronave) {
+		return assentoRepository.findAllByGuidAeronave(guidAeronave);
 	}
 }
