@@ -42,11 +42,27 @@ public class StatusCheckinService implements Serializable {
 	}
 
 	public StatusCheckin insertStatusCheckin(StatusCheckin statuscheckin) {
-		return statuscheckinrepository.save(statuscheckin);
+		if(statuscheckin.getNomeStatus().equals(null)) {
+			throw new BusinessException(BusinessExceptionCode.ERR511);
+		}
+		else if(statuscheckin.getCorStatus().equals(null)) {
+			throw new BusinessException(BusinessExceptionCode.ERR511);
+		}
+		else {
+			return statuscheckinrepository.save(statuscheckin);		
+		}
 	}
 
 	public StatusCheckin alterStatusCheckin(StatusCheckin statuscheckin) {
-		return statuscheckinrepository.save(statuscheckin);
+		if(statuscheckin.getNomeStatus().equals(null)) {
+			throw new BusinessException(BusinessExceptionCode.ERR511);
+		}
+		else if(statuscheckin.getCorStatus().equals(null)) {
+			throw new BusinessException(BusinessExceptionCode.ERR511);
+		}
+		else {
+			return statuscheckinrepository.save(statuscheckin);		
+		}
 	}
 
 	public void deleteStatusCheckin(StatusCheckin statuscheckin) {

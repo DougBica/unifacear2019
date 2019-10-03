@@ -20,7 +20,8 @@ public enum BusinessExceptionCode {
 	ERR507("Erro passagem"),
 	ERR508("Erro voo"),
 	ERR509("Erro aeronave"),
-	ERR510("Erro usuario");
+	ERR510("Erro usuario"),
+	ERR511("Os campos obrigatórios estão nulos");
 
 	private final String message;
 
