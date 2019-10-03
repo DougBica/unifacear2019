@@ -1,7 +1,5 @@
 package edu.br.unifacear.webdev2019.remarcacao.service;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -62,14 +60,4 @@ public class CancelaService {
 		return repo.findByGuidPassagem(guidPassagem);
 	}
 	
-	public List<Cancela> findByDate(Date init, Date end){
-		List<Cancela> list = find();
-		List<Cancela> list_date = new ArrayList<>();
-		for(Cancela c: list  ){
-			if( c.getDataCancelamento().before(end) && c.getDataCancelamento().after(init) ) {
-				list_date.add(c);
-			}
-		}
-		return list_date;
-	}
 }

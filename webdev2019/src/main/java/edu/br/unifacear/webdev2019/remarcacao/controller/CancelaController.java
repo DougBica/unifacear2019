@@ -7,14 +7,12 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
-import java.util.Date;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import edu.br.unifacear.webdev2019.remarcacao.entity.Cancela;
@@ -64,11 +62,5 @@ public class CancelaController {
 		return ResponseEntity.noContent().build();
 	}
 	
-	@RequestMapping(value = "/date",method = RequestMethod.GET)
-	public List<Cancela> findByDate(
-			@RequestParam(value="Init") Date init,
-			@RequestParam(value="End") Date end){
-		return service.findByDate(init, end);
-	}
 	
 }

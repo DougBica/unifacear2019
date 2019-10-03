@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-/*package edu.br.unifacear.webdev2019.usuario.entity;
-=======
 package edu.br.unifacear.webdev2019.usuario.entity;
->>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
 
 import java.util.List;
 
@@ -30,12 +26,8 @@ public class TipoPerfil {
 	private String descricao;
 	
 	@ElementCollection
-<<<<<<< HEAD
     @CollectionTable(name = "PERFIL_PERMISSAO",joinColumns = @JoinColumn(name = "guidTipoPerfil") , 
     foreignKey=@ForeignKey(name = "FK_PERFIL_ROLES"))
-=======
-    @CollectionTable(name = "PERFIL_PERMISSAO",joinColumns = @JoinColumn(name = "guidTipoPerfil") ,  foreignKey=@ForeignKey(name = "FK_PERFIL_ROLES"))
->>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
     @Column(name = "ROLE")
     @Enumerated(EnumType.STRING)
 	@Fetch(FetchMode.SUBSELECT)
@@ -62,7 +54,3 @@ public class TipoPerfil {
 	}
 	
 }
-<<<<<<< HEAD
-*/
-=======
->>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
