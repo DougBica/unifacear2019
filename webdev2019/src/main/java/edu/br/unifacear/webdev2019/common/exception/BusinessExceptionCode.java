@@ -23,10 +23,17 @@ public enum BusinessExceptionCode {
 	ERR508("Erro voo"),
 	ERR509("Erro aeronave"),
 <<<<<<< HEAD
+<<<<<<< HEAD
 	ERR510("Erro usuario");	
 	
 =======
 	ERR510("Erro usuario");
+=======
+	ERR510("Erro usuario"),
+	ERR511("Os campos obrigatórios estão nulos"),
+	ERR300("Erro não esperado"),
+	ERR301("Usuário não encontrado");
+>>>>>>> c79a152108a70129cfd99c79c79f28bb804e5c80
 
 >>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
 	private final String message;
