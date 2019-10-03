@@ -30,8 +30,8 @@ public class TipoPerfilService {
 		return tipoPerfilRepository.findAll();
 	}
 	
-	public List<TipoPerfil> BuscarId(Iterable<Long> ids) {
-		 return tipoPerfilRepository.findAllById(ids);
+	public List<TipoPerfil> BuscarId(Iterable<Long> guidTipoPerfil) {
+		 return tipoPerfilRepository.findAllById(guidTipoPerfil);
 	}
 	
 }

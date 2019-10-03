@@ -1,6 +1,7 @@
 package edu.br.unifacear.webdev2019.checkin.service;
 
 import java.io.Serializable;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Optional;
 
@@ -9,6 +10,8 @@ import org.springframework.stereotype.Service;
 
 import edu.br.unifacear.webdev2019.checkin.entity.Checkin;
 import edu.br.unifacear.webdev2019.checkin.repository.CheckinRepository;
+import edu.br.unifacear.webdev2019.common.exception.BusinessException;
+import edu.br.unifacear.webdev2019.common.exception.BusinessExceptionCode;
 
 @Service
 public class CheckinService implements Serializable {
@@ -25,37 +28,47 @@ public class CheckinService implements Serializable {
 		try {
 			return checkinRepository.findAll();		
 		}
-		catch(Exception e) {
-			e.printStackTrace();
-			return null;
+		catch(BusinessException e) {
+			throw new BusinessException(BusinessExceptionCode.ERR000);
 		}
 	}
 	
-	public Optional<Checkin> findOne(Long id) {
-		try {
-			return checkinRepository.findById(id);
+	public Checkin findOne(Long id) {
+		  Checkin checkin = Optional.ofNullable(checkinRepository.findById(id)).
+		  orElse(null).orElseThrow(() -> new
+		  BusinessException(BusinessExceptionCode.ERR503)); 
+		  return checkin;
+	}
+	
+	public Checkin insertCheckin(Checkin checkin) {
+		if(checkin.getDataCheckin().before(Calendar.
+				getInstance().getTime())) {
+			throw new BusinessException(BusinessExceptionCode.ERR506);
 		}
-		catch(Exception e) {
-			e.printStackTrace();
-			return null;
+		else if(checkin.getGuidUsuario() == null){
+			throw new BusinessException(BusinessExceptionCode.ERR510);
+		}
+		else if(checkin.getGuidAeronave() == null) {
+			throw new BusinessException(BusinessExceptionCode.ERR509);	
+		}
+		else if(checkin.getGuidVoo() == null) {
+			throw new BusinessException(BusinessExceptionCode.ERR508);
+		}
+		else if(checkin.getGuidPassagem() == null) {
+			throw new BusinessException(BusinessExceptionCode.ERR507);
+		}
+		else {
+			return checkinRepository.save(checkin);
 		}
 	}
 	
-	public void insertCheckin(Checkin checkin) {
-		try {
-			checkinRepository.save(checkin);	
+	public Checkin alterCheckin(Checkin checkin) {
+		if(checkin.getDataCheckin().
+				before(Calendar.getInstance().getTime())) {
+			throw new BusinessException(BusinessExceptionCode.ERR503);
 		}
-		catch(Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
-	public void alterCheckin(Checkin checkin) {
-		try {
-			checkinRepository.save(checkin);
-		}
-		catch(Exception e) {
-			e.printStackTrace();
+		else {
+			return checkinRepository.save(checkin);
 		}
 	}
 	
@@ -66,6 +79,10 @@ public class CheckinService implements Serializable {
 		catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	
+	public Checkin chekinWithToken(String token) {
+		return checkinRepository.findByToken(token);
 	}
 	
 }

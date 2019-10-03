@@ -1,11 +1,14 @@
 package edu.br.unifacear.webdev2019.usuario.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import edu.br.unifacear.webdev2019.common.exception.BusinessException;
+import edu.br.unifacear.webdev2019.common.exception.BusinessExceptionCode;
 import edu.br.unifacear.webdev2019.usuario.entity.Usuario;
 import edu.br.unifacear.webdev2019.usuario.repository.UsuarioRepository;
 
@@ -28,7 +31,15 @@ public class UsuarioService {
 		return usuarioRepository.findAll();
 	}
 	
-	public List<Usuario> BuscarPorID(Iterable<Long> guidUsuario) {
-		return usuarioRepository.findAllById(guidUsuario);
-	}
+	public Usuario buscarPorId(final Long guidUsuario) {
+	       Usuario usuario = Optional.ofNullable(usuarioRepository.findById(guidUsuario).
+	               orElse(null))
+	               .orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR001));
+	       return usuario;
+	   }
+	public Usuario Logar(final String email) {
+	       Usuario usuario = Optional.ofNullable(usuarioRepository.findByEmail(email))
+	               .orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR003));
+	       return usuario;
+	   }	
 }

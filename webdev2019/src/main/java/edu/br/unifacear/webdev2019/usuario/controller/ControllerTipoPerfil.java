@@ -17,22 +17,22 @@ public class ControllerTipoPerfil {
 	@Autowired
 	private TipoPerfilService tipoperfilService;
 	
-	//@PostMapping
+	@PostMapping("/Salvar")
 	public void salvar(@RequestBody TipoPerfil tipoperfil) {
 		tipoperfilService.salvar(tipoperfil);
 	}
 	
-	//@GetMapping
+	@GetMapping("/Listar")
 	public List<TipoPerfil> listar() {
 		return tipoperfilService.listar();
 	}
 	
-	//@PostMapping
+	@PostMapping("/Excluir")
 	public void excluir(@RequestBody TipoPerfil tipoPerfil) {
 		tipoperfilService.excluir(tipoPerfil);
 	}
 	
-	//@GetMapping
+	@GetMapping("/BuscarId")
 	public void BuscarId(Iterable<Long> guidTipoPerfil) {
 		 tipoperfilService.BuscarId(guidTipoPerfil);
 	}
