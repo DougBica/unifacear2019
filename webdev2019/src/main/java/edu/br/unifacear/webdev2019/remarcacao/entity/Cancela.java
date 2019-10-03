@@ -8,10 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-<<<<<<< HEAD
 import javax.validation.constraints.NotNull;
-=======
->>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -20,8 +17,6 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class Cancela implements Serializable{
 
 	private static final long serialVersionUID = 1L;
-<<<<<<< HEAD
-	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long guidCancelar;
@@ -35,16 +30,8 @@ public class Cancela implements Serializable{
 	private Boolean statusReserva;
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataCancelamento;
- 
-=======
 
-	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long guidCancelar;
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-	private Date dataCancelamento;
-	
->>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
+
 	public Long getGuidCancelar() {
 		return guidCancelar;
 	}
@@ -60,7 +47,6 @@ public class Cancela implements Serializable{
 	public void setDataCancelamento(Date dataCancelamento) {
 		this.dataCancelamento = dataCancelamento;
 	}
-<<<<<<< HEAD
 
 	public Long getGuidUsuario() {
 		return guidUsuario;
@@ -101,8 +87,4 @@ public class Cancela implements Serializable{
 	public void setStatusReserva(Boolean statusReserva) {
 		this.statusReserva = statusReserva;
 	}
-
-=======
-	
->>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
 }

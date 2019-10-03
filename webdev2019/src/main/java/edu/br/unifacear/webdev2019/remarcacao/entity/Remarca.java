@@ -8,12 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-<<<<<<< HEAD
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-=======
->>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
 
 @Entity
 @Table(name = "REMARCAR")
@@ -24,7 +21,6 @@ public class Remarca implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long guidRemarcar;
-<<<<<<< HEAD
 	@NotNull
 	private Long guidUsuario;
 	@NotNull
@@ -38,11 +34,6 @@ public class Remarca implements Serializable{
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataRemarcacao;
 	
-	
-=======
-	private Date dataRemarcacao;
-	
->>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
 	public Long getGuidRemarcar() {
 		return guidRemarcar;
 	}
@@ -58,7 +49,6 @@ public class Remarca implements Serializable{
 	public void setDataRemarcacao(Date dataRemarcacao) {
 		this.dataRemarcacao = dataRemarcacao;
 	}
-<<<<<<< HEAD
 
 	public Long getGuidUsuario() {
 		return guidUsuario;
@@ -107,7 +97,5 @@ public class Remarca implements Serializable{
 	public void setDataPassagem(Date dataPassagem) {
 		this.dataPassagem = dataPassagem;
 	}
-=======
->>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
-	
+
 }
