@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 /*package edu.br.unifacear.webdev2019.usuario.entity;
+=======
+package edu.br.unifacear.webdev2019.usuario.entity;
+>>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
 
 import java.util.Date;
 import java.util.List;
@@ -16,7 +20,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+<<<<<<< HEAD
 import javax.validation.constraints.Email;
+=======
+>>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -29,6 +36,7 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long guidUsuario;
 	private String nome;
+<<<<<<< HEAD
 	@Email(message = "Email inserido inválido")
 	private String email;
 	private String senha;
@@ -36,6 +44,13 @@ public class Usuario {
 	
 	private Date dataNasc;
 	private String foto;
+=======
+	private String email;
+	private String senha;
+	private String CPF;
+	private Date DataNasc;
+	private String Foto;
+>>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
 	
 	@ManyToOne
 	@JoinColumn(name = "guidTipoPerfil")
@@ -64,6 +79,7 @@ public class Usuario {
 		this.senha = senha;
 	}
 
+<<<<<<< HEAD
 	public String getCpf() {
 		return cpf;
 	}
@@ -86,6 +102,30 @@ public class Usuario {
 
 	public void setFoto(String foto) {
 		this.foto = foto;
+=======
+	public String getCPF() {
+		return CPF;
+	}
+
+	public void setCPF(String cPF) {
+		CPF = cPF;
+	}
+
+	public Date getDataNasc() {
+		return DataNasc;
+	}
+
+	public void setDataNasc(Date dataNasc) {
+		DataNasc = dataNasc;
+	}
+
+	public String getFoto() {
+		return Foto;
+	}
+
+	public void setFoto(String foto) {
+		this.Foto = foto;
+>>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
 	}
 
 	public void setTipoDeUsuarios(TipoUsuario tipoDeUsuarios) {
@@ -117,4 +157,7 @@ public class Usuario {
 	}
 
 }
+<<<<<<< HEAD
 */
+=======
+>>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2

@@ -22,8 +22,13 @@ public enum BusinessExceptionCode {
 	ERR507("Erro passagem"),
 	ERR508("Erro voo"),
 	ERR509("Erro aeronave"),
+<<<<<<< HEAD
 	ERR510("Erro usuario");	
 	
+=======
+	ERR510("Erro usuario");
+
+>>>>>>> 34cd681d7cf53a9473b4dbdcb59526b567c402f2
 	private final String message;
 
 	private BusinessExceptionCode(final String message) {
