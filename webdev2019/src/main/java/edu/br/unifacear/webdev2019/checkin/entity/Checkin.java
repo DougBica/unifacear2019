@@ -32,14 +32,14 @@ public class Checkin {
 	private boolean indicadorFoto;
 	private Long guidMilhagem;
 	@OneToOne
-	@JoinColumn(name="guidStatusCheckin")
-	private Long guidStatusCheckin;
+	@JoinColumn(name="guidStatus")
+	private StatusCheckin statusCheckin;
 	
-	public Long getGuidStatusCheckin() {
-		return guidStatusCheckin;
+	public StatusCheckin getStatusCheckin() {
+		return statusCheckin;
 	}
-	public void setGuidStatusCheckin(Long guidStatusCheckin) {
-		this.guidStatusCheckin = guidStatusCheckin;
+	public void setStatusCheckin(StatusCheckin statusCheckin) {
+		this.statusCheckin = statusCheckin;
 	}
 	public Long getGuidMilhagem() {
 		return guidMilhagem;
