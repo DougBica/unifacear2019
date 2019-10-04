@@ -4,8 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -16,9 +14,7 @@ public class Embarque {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long guidEmbarque;
 	private boolean idntEmbarque;
-	@OneToOne
-	@JoinColumn(name="guidCheckin")
-	private Checkin checkin;
+	private Long guidCheckin;
 	
 	public Long getGuidEmbarque() {
 		return guidEmbarque;
@@ -32,11 +28,10 @@ public class Embarque {
 	public void setIdntEmbarque(boolean idntEmbarque) {
 		this.idntEmbarque = idntEmbarque;
 	}
-	public Checkin getCheckin() {
-		return checkin;
+	public Long getGuidCheckin() {
+		return guidCheckin;
 	}
-	public void setCheckin(Checkin checkin) {
-		this.checkin = checkin;
-	}
-	
+	public void setGuidCheckin(Long guidCheckin) {
+		this.guidCheckin = guidCheckin;
+	}	
 }
