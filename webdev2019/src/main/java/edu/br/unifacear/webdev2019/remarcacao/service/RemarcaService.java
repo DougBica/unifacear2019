@@ -1,6 +1,5 @@
 package edu.br.unifacear.webdev2019.remarcacao.service;
 
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -59,7 +58,4 @@ public class RemarcaService {
 		return repo.findByGuidPassagem(guidPassagem);
 	}
 	
-	public Remarca findByDataPasagem(Date dataPassagem) {
-		return repo.findByDataPassagem(dataPassagem);
-	}
 }

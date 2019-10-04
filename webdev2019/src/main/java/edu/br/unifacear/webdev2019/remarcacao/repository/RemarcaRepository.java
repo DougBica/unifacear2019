@@ -1,6 +1,5 @@
 package edu.br.unifacear.webdev2019.remarcacao.repository;
 
-import java.util.Date;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -14,5 +13,4 @@ public interface RemarcaRepository extends JpaRepository<Remarca, Long>{
 	
 	Remarca findByGuidPassagem(Long guidPassagem);
 	
-	Remarca findByDataPassagem(Date dataPassagem);
 }

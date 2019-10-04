@@ -26,10 +26,9 @@ public class Cancela implements Serializable{
 	private Long guidReserva;
 	@NotNull
 	private Long guidPassagem;
-	private Boolean statusPassagem;
-	private Boolean statusReserva;
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataCancelamento;
+	private String motivoCancelamento;
 
 
 	public Long getGuidCancelar() {
@@ -72,19 +71,12 @@ public class Cancela implements Serializable{
 		this.guidPassagem = guidPassagem;
 	}
 
-	public Boolean getStatusPassagem() {
-		return statusPassagem;
+	public String getMotivoCancelamento() {
+		return motivoCancelamento;
 	}
 
-	public void setStatusPassagem(Boolean statusPassagem) {
-		this.statusPassagem = statusPassagem;
+	public void setMotivoCancelamento(String motivoCancelamento) {
+		this.motivoCancelamento = motivoCancelamento;
 	}
 
-	public Boolean getStatusReserva() {
-		return statusReserva;
-	}
-
-	public void setStatusReserva(Boolean statusReserva) {
-		this.statusReserva = statusReserva;
-	}
 }

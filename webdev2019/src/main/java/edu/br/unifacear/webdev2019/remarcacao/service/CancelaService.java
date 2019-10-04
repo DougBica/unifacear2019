@@ -34,7 +34,6 @@ public class CancelaService {
 	}
 	
 	public void delete(Long guidCancela) {
-	  findById(guidCancela);
 		findById(guidCancela);
 		try {
 			repo.deleteById(guidCancela);

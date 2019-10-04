@@ -33,6 +33,16 @@ public class RemarcaController {
 			return ResponseEntity.ok().body(obj);
 		}
 		
+		@GetMapping("/guidreserva/{guidReserva}")
+		public List<Remarca> findByGuidReserva(@PathVariable Long guidReserva) {
+			return service.findByGuidReserva(guidReserva);
+		}
+		
+		@GetMapping("/guidpassagem/{guidPassagem}")
+		public Remarca findByGuidPassagem(@PathVariable Long guidPassagem) {
+			return service.findByGuidPassagem(guidPassagem);
+		}
+		
 		@PostMapping
 		public Remarca salvar(@RequestBody Remarca obj) {
 			return service.save(obj);
@@ -42,16 +52,6 @@ public class RemarcaController {
 		public ResponseEntity<Void> excluir(@PathVariable Long guidRemarca) {
 			service.delete(guidRemarca);
 			return ResponseEntity.noContent().build();
-		}
-		
-		@GetMapping("/guidreserva/{guidReservs}")
-		public List<Remarca> findByGuidReserva(@PathVariable Long guidReserva) {
-			return service.findByGuidReserva(guidReserva);
-		}
-		
-		@GetMapping("/guidpassagem/{guidPassagem}")
-		public Remarca findByGuidPassagem(@PathVariable Long guidPassagem) {
-			return service.findByGuidPassagem(guidPassagem);
 		}
 		
 }

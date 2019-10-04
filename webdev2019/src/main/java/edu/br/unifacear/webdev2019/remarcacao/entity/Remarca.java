@@ -27,12 +27,15 @@ public class Remarca implements Serializable{
 	private Long guidReserva;
 	@NotNull
 	private Long guidPassagem;
-	private Boolean statusReserva;
-	private Boolean statusPassagem;
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
-	private Date dataPassagem;
+	
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataRemarcacao;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+	private Date dataPassagemAntiga;
+	
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
+	private Date dataPassagemNova;
 	
 	public Long getGuidRemarcar() {
 		return guidRemarcar;
@@ -74,28 +77,19 @@ public class Remarca implements Serializable{
 		this.guidPassagem = guidPassagem;
 	}
 
-	public Boolean getStatusReserva() {
-		return statusReserva;
+	public Date getDataPassagemAntiga() {
+		return dataPassagemAntiga;
 	}
 
-	public void setStatusReserva(Boolean statusReserva) {
-		this.statusReserva = statusReserva;
+	public void setDataPassagemAntiga(Date dataPassagemAntiga) {
+		this.dataPassagemAntiga = dataPassagemAntiga;
 	}
 
-	public Boolean getStatusPassagem() {
-		return statusPassagem;
+	public Date getDataPassagemNova() {
+		return dataPassagemNova;
 	}
 
-	public void setStatusPassagem(Boolean statusPassagem) {
-		this.statusPassagem = statusPassagem;
+	public void setDataPassagemNova(Date dataPassagemNova) {
+		this.dataPassagemNova = dataPassagemNova;
 	}
-
-	public Date getDataPassagem() {
-		return dataPassagem;
-	}
-
-	public void setDataPassagem(Date dataPassagem) {
-		this.dataPassagem = dataPassagem;
-	}
-
 }
