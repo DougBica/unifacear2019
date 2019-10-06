@@ -5,7 +5,11 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.web.bind.annotation.DeleteMapping;
+=======
+import org.springframework.web.bind.annotation.CrossOrigin;
+>>>>>>> c7d612f4296dd51a147ab1cf667744be1d5d5126
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -16,6 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.br.unifacear.webdev2019.usuario.entity.Usuario;
 import edu.br.unifacear.webdev2019.usuario.service.UsuarioService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/usuario")
 public class ControllerUsuario {
