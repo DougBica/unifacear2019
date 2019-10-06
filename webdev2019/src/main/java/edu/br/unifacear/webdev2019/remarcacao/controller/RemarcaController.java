@@ -23,9 +23,10 @@ public class RemarcaController {
 		private RemarcaService service;
 		
 		@GetMapping
-		public List<Remarca> listar(){
-			return service.find();
-		}	
+		public ResponseEntity<List<Remarca>> listar(){
+			List<Remarca> list = service.find();
+			return ResponseEntity.ok().body(list);
+		}
 		
 		@GetMapping("/{guidRemarca}")
 		public ResponseEntity<Remarca> listarPorId(@PathVariable Long guidRemarca) {
@@ -34,18 +35,27 @@ public class RemarcaController {
 		}
 		
 		@GetMapping("/guidreserva/{guidReserva}")
-		public List<Remarca> findByGuidReserva(@PathVariable Long guidReserva) {
-			return service.findByGuidReserva(guidReserva);
+		public ResponseEntity<Remarca> findByGuidReserva(@PathVariable Long guidReserva) {
+			 Remarca obj = service.findByGuidReserva(guidReserva);
+			 return ResponseEntity.ok().body(obj);
 		}
 		
 		@GetMapping("/guidpassagem/{guidPassagem}")
-		public Remarca findByGuidPassagem(@PathVariable Long guidPassagem) {
-			return service.findByGuidPassagem(guidPassagem);
+		public ResponseEntity<Remarca> findByGuidPassagem(@PathVariable Long guidPassagem) {
+			Remarca obj = service.findByGuidPassagem(guidPassagem);
+			return ResponseEntity.ok().body(obj);
 		}
 		
 		@PostMapping
-		public Remarca salvar(@RequestBody Remarca obj) {
-			return service.save(obj);
+		public ResponseEntity<Void> salvar(@RequestBody Remarca obj) {
+			service.save(obj);
+			return ResponseEntity.noContent().build();
+		}
+
+		@PostMapping("/{guidRemarca}")
+		public ResponseEntity<Void> atualizar(@PathVariable @RequestBody Long guidRemarca ){
+			service.update(guidRemarca);
+			return ResponseEntity.noContent().build();
 		}
 		
 		@DeleteMapping(value = "/{guidRemarca}")
@@ -53,5 +63,4 @@ public class RemarcaController {
 			service.delete(guidRemarca);
 			return ResponseEntity.noContent().build();
 		}
-		
 }

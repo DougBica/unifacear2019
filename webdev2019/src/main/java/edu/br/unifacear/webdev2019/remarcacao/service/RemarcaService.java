@@ -29,8 +29,8 @@ public class RemarcaService {
 		return remaraca;
 	}
 	
-	public Remarca save(Remarca obj) {
-		return repo.save(obj);
+	public void save(Remarca obj) {
+		repo.save(obj);
 	}
 	
 	public void delete(Long guidRemarca) {
@@ -41,8 +41,8 @@ public class RemarcaService {
 			e.printStackTrace();
 		}
 	}
-	public Remarca update(Remarca obj) {
-		findById(obj.getGuidRemarcar());
+	public Remarca update(Long guidRemarca) {
+		Remarca obj = findById(guidRemarca);
 		return repo.save(obj);
 	}
 	
@@ -50,12 +50,13 @@ public class RemarcaService {
 		return repo.findByGuidUsuario(guidUsuario);
 	}
 	
-	public List<Remarca> findByGuidReserva(Long guidReserva) {
+	public Remarca findByGuidReserva(Long guidReserva) {
 		return repo.findByGuidReserva(guidReserva);
 	}
 	
 	public Remarca findByGuidPassagem(Long guidPassagem) {
 		return repo.findByGuidPassagem(guidPassagem);
 	}
+	
 	
 }
