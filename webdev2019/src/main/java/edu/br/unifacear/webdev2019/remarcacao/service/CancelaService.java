@@ -25,12 +25,13 @@ public class CancelaService {
 	public Cancela findById(Long guidCancela) {
 		Cancela cancela = Optional.ofNullable(repo.findById(guidCancela))
 				.orElse(null)
-				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR000));
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR600));
 		return cancela;
 	}
 		
-	public Cancela save(Cancela obj) {
-		return repo.save(obj);
+	public void save(Cancela obj) {
+		Optional.ofNullable(repo.save(obj)).
+				orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR601));
 	}
 	
 	public void delete(Long guidCancela) {

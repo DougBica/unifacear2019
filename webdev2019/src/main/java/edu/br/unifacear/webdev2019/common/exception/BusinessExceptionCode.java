@@ -25,7 +25,9 @@ public enum BusinessExceptionCode {
 	ERR510("Erro usuario"),
 	ERR511("Os campos obrigatórios estão nulos"),
 	ERR300("Erro não esperado"),
-	ERR301("Usuário não encontrado");
+	ERR301("Usuário não encontrado"),
+	ERR600("Cancelamento não encontrado!"),
+	ERR601("Não foi possivel salvar esse cancelamento!");
 	
 	private final String message;
 

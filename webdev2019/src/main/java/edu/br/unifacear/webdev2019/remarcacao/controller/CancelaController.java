@@ -51,8 +51,8 @@ public class CancelaController {
 	}
 	
 	@PostMapping
-	public Cancela salvar(@RequestBody Cancela obj) {
-		return service.save(obj);
+	public void salvar(@RequestBody Cancela obj) {
+		service.save(obj);
 	}
 	
 	@PostMapping("/{guidCancela}")
