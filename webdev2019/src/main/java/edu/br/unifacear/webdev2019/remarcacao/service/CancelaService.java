@@ -19,7 +19,9 @@ public class CancelaService {
 	private CancelaRepository repo;
 	
 	public List<Cancela> find(){
-		 return repo.findAll();
+		List<Cancela> lista = Optional.ofNullable(repo.findAll()).
+				orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR000)) ;
+		return lista;
 	}
 
 	public Cancela findById(Long guidCancela) {
@@ -30,8 +32,14 @@ public class CancelaService {
 	}
 		
 	public void save(Cancela obj) {
-		Optional.ofNullable(repo.save(obj)).
-				orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR601));
+		if(obj.getCheckin()) {
+			Optional.ofNullable(null)
+			.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR605));
+		}
+		else {
+			Optional.ofNullable(repo.save(obj))
+			.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR601));			
+		}
 	}
 	
 	public void delete(Long guidCancela) {
@@ -39,7 +47,7 @@ public class CancelaService {
 		try {
 			repo.deleteById(guidCancela);
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new BusinessException(BusinessExceptionCode.ERR602);
 		}
 	} 
 	
@@ -49,15 +57,21 @@ public class CancelaService {
 	}
 	
 	public Cancela findByGuidUsuario(Long guidUsuario) {
-		return repo.findByGuidUsuario(guidUsuario);
+		Cancela obj = Optional.ofNullable(repo.findByGuidUsuario(guidUsuario))
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR301));
+		return obj;
 	}
 	
 	public List<Cancela> findByGuidReserva(Long guidReserva) {
-		return repo.findByGuidReserva(guidReserva);
+		List<Cancela> lista = Optional.ofNullable(repo.findByGuidReserva(guidReserva))
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR603));
+		return lista;
 	}
 	
 	public Cancela findByGuidPassagem(Long guidPassagem) {
-		return repo.findByGuidPassagem(guidPassagem);
+		Cancela cancela = Optional.ofNullable(repo.findByGuidPassagem(guidPassagem))
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR604));
+		return cancela;
 	}
 	
 }

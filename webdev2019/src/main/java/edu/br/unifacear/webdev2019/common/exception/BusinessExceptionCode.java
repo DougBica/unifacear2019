@@ -27,7 +27,11 @@ public enum BusinessExceptionCode {
 	ERR300("Erro não esperado"),
 	ERR301("Usuário não encontrado"),
 	ERR600("Cancelamento não encontrado!"),
-	ERR601("Não foi possivel salvar esse cancelamento!");
+	ERR601("Não foi possivel salvar esse cancelamento!"),
+	ERR602("Não foi possivel excluir esse cancalamento!"),
+	ERR603("Reserva não encontrada!"),
+	ERR604("Passagem não encontrada!"),
+	ERR605("Não foi possivel cancelar checkin já efeutado!");
 	
 	private final String message;
 
