@@ -27,6 +27,8 @@ public class Remarca implements Serializable{
 	private Long guidReserva;
 	@NotNull
 	private Long guidPassagem;
+	@NotNull
+	private Boolean checkin;
 	
 	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	private Date dataRemarcacao;
@@ -91,5 +93,13 @@ public class Remarca implements Serializable{
 
 	public void setDataPassagemNova(Date dataPassagemNova) {
 		this.dataPassagemNova = dataPassagemNova;
+	}
+
+	public Boolean getCheckin() {
+		return checkin;
+	}
+
+	public void setCheckin(Boolean checkin) {
+		this.checkin = checkin;
 	}
 }

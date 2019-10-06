@@ -22,15 +22,21 @@ public class RemarcaService {
 		return repo.findAll();
 	}
 	
-	public Remarca findById(Long guidCancela) {
-		Remarca remaraca = Optional.ofNullable(repo.findById(guidCancela))
+	public Remarca findById(Long guidRemarca) {
+		Remarca remaraca = Optional.ofNullable(repo.findById(guidRemarca))
 				.orElse(null)
-				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR000));
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR606));
 		return remaraca;
 	}
 	
 	public void save(Remarca obj) {
-		repo.save(obj);
+		if(obj.getCheckin()) {
+			Optional.ofNullable(null)
+			.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR605));
+		}else {
+			Optional.ofNullable(repo.save(obj))
+			.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR607));
+		}
 	}
 	
 	public void delete(Long guidRemarca) {
@@ -38,25 +44,30 @@ public class RemarcaService {
 		try {
 			repo.deleteById(guidRemarca);
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new BusinessException(BusinessExceptionCode.ERR608);
 		}
-	}
+	} 
+	
 	public Remarca update(Long guidRemarca) {
 		Remarca obj = findById(guidRemarca);
 		return repo.save(obj);
 	}
 	
 	public Remarca findByGuidUsuario(Long guidUsuario) {
-		return repo.findByGuidUsuario(guidUsuario);
+		Remarca remarca = Optional.ofNullable(repo.findByGuidUsuario(guidUsuario))
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR301));
+		return remarca;
 	}
 	
 	public Remarca findByGuidReserva(Long guidReserva) {
-		return repo.findByGuidReserva(guidReserva);
+		Remarca remarca = Optional.ofNullable(repo.findByGuidReserva(guidReserva))
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR603));
+		return remarca;
 	}
 	
 	public Remarca findByGuidPassagem(Long guidPassagem) {
-		return repo.findByGuidPassagem(guidPassagem);
-	}
-	
-	
+		Remarca remarca = Optional.ofNullable(repo.findByGuidPassagem(guidPassagem))
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR604));
+		return remarca;
+	}	
 }

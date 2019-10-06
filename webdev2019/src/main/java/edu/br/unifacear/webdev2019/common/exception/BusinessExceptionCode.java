@@ -31,7 +31,10 @@ public enum BusinessExceptionCode {
 	ERR602("Não foi possivel excluir esse cancalamento!"),
 	ERR603("Reserva não encontrada!"),
 	ERR604("Passagem não encontrada!"),
-	ERR605("Não foi possivel cancelar checkin já efeutado!");
+	ERR605("Não foi possivel cancelar checkin já efeutado!"),
+	ERR606("Remarcação não encontrada!"),
+	ERR607("Não foi possivel remarcar!"),
+	ERR608("Não foi possivel excluir essa remarcacao!");
 	
 	private final String message;
 
