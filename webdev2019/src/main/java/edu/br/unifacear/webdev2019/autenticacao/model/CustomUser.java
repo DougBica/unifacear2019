@@ -14,12 +14,11 @@ public class CustomUser extends User {
 
 	private Long id;
 
-	public CustomUser(String username, String password, boolean enabled, boolean accountNonExpired,
-			boolean credentialsNonExpired, boolean accountNonLocked,
-			Collection<? extends GrantedAuthority> authorities) {
+	public CustomUser(String username, String password, boolean enabled, boolean accountNonExpired, boolean credentialsNonExpired, boolean accountNonLocked,Collection<? extends GrantedAuthority> authorities) {
 
 		super(username, password, enabled, accountNonExpired, credentialsNonExpired, accountNonLocked, authorities);
 		this.id = id;
+		
 	}
 
 	public Long getId() {
