@@ -33,7 +33,7 @@ public class CustomExceptionHandler {
 	@ExceptionHandler(Exception.class)
     public final ValidationErrorResponse handleAllExceptions(Exception ex, WebRequest request) {
 		ValidationErrorResponse error = new ValidationErrorResponse();
-		error.setCode(BusinessExceptionCode.ERR000);
+		error.setCode(BusinessExceptionCode.ERR300);
 		error.setMessage(ex.getMessage());
         return error;
     }

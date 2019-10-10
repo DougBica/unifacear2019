@@ -4,8 +4,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -21,9 +19,14 @@ public class Bagagem {
 	private Double valorexcesso;
 	private Double valortotal;
 	private Double valorbagagem;
-	@ManyToOne
-	@JoinColumn(name="guidCheckin")
-	private Checkin checkin;
+	private Long guidCheckin;
+	
+	public Long getGuidCheckin() {
+		return guidCheckin;
+	}
+	public void setGuidCheckin(Long guidCheckin) {
+		this.guidCheckin = guidCheckin;
+	}
 	public Long getGuidBagagem() {
 		return guidBagagem;
 	}
@@ -65,12 +68,6 @@ public class Bagagem {
 	}
 	public void setValorbagagem(Double valorbagagem) {
 		this.valorbagagem = valorbagagem;
-	}
-	public Checkin getCheckin() {
-		return checkin;
-	}
-	public void setCheckin(Checkin checkin) {
-		this.checkin = checkin;
 	}
 	
 }

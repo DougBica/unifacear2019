@@ -1,3 +1,20 @@
-<p>
-  usuario-listar works!
-</p>
+<div class=" content">
+  <h4>
+    Listar Usuários
+  </h4>
+
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Nome</th>
+      <th>Email</th>
+    </tr>
+    <tr *ngFor="let usuario of usuarios">
+      <td>{{usuario.guidUsuario}}</td>
+      <td>{{usuario.nome}}</td>
+      <td>{{usuario.email}}</td>
+    </tr>    
+  </table>
+
+</div>
+>>>>>>> a28213a72c8ea4e11c690cfa681fdadce3b5e9eb

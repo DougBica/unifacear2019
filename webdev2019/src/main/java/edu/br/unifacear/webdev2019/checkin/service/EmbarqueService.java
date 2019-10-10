@@ -39,11 +39,21 @@ public class EmbarqueService implements Serializable {
 	}
 	
 	public Embarque inserirEmbarque(Embarque embarque) {
-		return embarqueRepository.save(embarque);
+		if(embarque.getGuidCheckin() == null) {
+			throw new BusinessException(BusinessExceptionCode.ERR511);
+		}
+		else {
+			return embarqueRepository.save(embarque);		
+		}
 	}
 	
 	public Embarque alterarEmbarque(Embarque embarque) {
-		return embarqueRepository.save(embarque);
+		if(embarque.getGuidCheckin() == null) {
+			throw new BusinessException(BusinessExceptionCode.ERR511);
+		}
+		else {
+			return embarqueRepository.save(embarque);		
+		}
 	}
 	
 	public void deletarEmbarque(Embarque embarque) {
