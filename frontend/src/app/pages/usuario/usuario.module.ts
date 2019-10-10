@@ -5,6 +5,7 @@ import { UsuarioCadastrarComponent } from './usuario-cadastrar/usuario-cadastrar
 
 @NgModule({
   declarations: [UsuarioListarComponent, UsuarioCadastrarComponent],
+
   imports: [
     CommonModule
   ]

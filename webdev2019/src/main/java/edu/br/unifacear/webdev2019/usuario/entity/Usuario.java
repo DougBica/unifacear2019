@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -28,9 +29,11 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long guidUsuario;
 	private String nome;
+	@Email(message = "Email inserido inválido")
 	private String email;
 	private String senha;
 	private String cpf;
+	
 	private Date dataNasc;
 	private String foto;
 	
