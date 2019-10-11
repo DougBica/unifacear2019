@@ -24,6 +24,7 @@ import { UsuarioModule } from './pages/usuario/usuario.module';
     NgbModule,
     RouterModule,
     AppRoutingModule,
+    FormsModule,
     UsuarioModule,
     ToastrModule.forRoot()
   ],
