@@ -1,0 +1,31 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card card-plain">
+        <div class=" card-header">
+          <h4 class=" card-title">Lista de checkins</h4>
+          <p class=" category">Aqui está listado todos checkins que estão ativos.</p>
+        </div>
+        <div class=" card-body">
+          <div>
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  <th>Token</th>
+                  <th>Voô</th>
+                  <th>Data do checkin</th>
+                </tr>
+                <tr *ngFor="let checkin of checkins">
+                  <td>{{checkin.token}}</td>
+                  <td>{{checkin.guidVoo}}</td>
+                  <td>{{checkin.dataCheckin}}</td>
+                  <button class="btn btn-sm btn-danger btn-simple active" (click)="editar(checkin)">Editar</button>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
