@@ -31,6 +31,7 @@ public class Checkin {
 	private String fotoCheckin;
 	private boolean indicadorFoto;
 	private Long guidMilhagem;
+	private Date dataCheckin;
 	@OneToOne
 	@JoinColumn(name="guidStatus")
 	private StatusCheckin statusCheckin;
@@ -53,8 +54,6 @@ public class Checkin {
 	public void setIndicadorFoto(boolean indicadorFoto) {
 		this.indicadorFoto = indicadorFoto;
 	}
-	private Date dataCheckin;
-	
 	public Long getGuidCheckin() {
 		return guidCheckin;
 	}
