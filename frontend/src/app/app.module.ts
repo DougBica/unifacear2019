@@ -24,6 +24,7 @@ import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-l
     NgbModule,
     RouterModule,
     AppRoutingModule,
+    FormsModule,
     UsuarioModule,
     ToastrModule.forRoot()
   ],

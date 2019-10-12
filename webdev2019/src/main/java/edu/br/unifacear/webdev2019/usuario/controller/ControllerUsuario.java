@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.br.unifacear.webdev2019.usuario.entity.Usuario;
 import edu.br.unifacear.webdev2019.usuario.service.UsuarioService;
 
+@CrossOrigin("*")
 @RestController
 @RequestMapping("/usuario")
 public class ControllerUsuario {
