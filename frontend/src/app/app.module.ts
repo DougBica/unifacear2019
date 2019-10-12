@@ -14,6 +14,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { UsuarioModule } from './pages/usuario/usuario.module';
+import { AeronaveModule } from './pages/aeronave/aeronave.module';
 
 @NgModule({
   imports: [
@@ -25,6 +26,7 @@ import { UsuarioModule } from './pages/usuario/usuario.module';
     RouterModule,
     AppRoutingModule,
     UsuarioModule,
+    AeronaveModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],

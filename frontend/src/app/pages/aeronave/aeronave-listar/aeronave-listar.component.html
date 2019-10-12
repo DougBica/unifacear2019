@@ -1,0 +1,17 @@
+<div class=" content">
+  <h4>
+    Aircraft List
+  </h4>
+
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>Aircraft Name</th>
+    </tr>
+    <tr *ngFor="let aeronave of aeronaves">
+      <td>{{aeronave.guidaeronave}}</td>
+      <td>{{aeronave.nomeaeronave}}</td>
+    </tr>    
+  </table>
+
+</div>

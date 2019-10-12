@@ -14,7 +14,14 @@ export const ROUTES: RouteInfo[] = [
     rtlTitle: "",
     icon: "icon-chart-pie-36",
     class: ""
-  }
+  },
+  {
+    path: "/admin/aeronave",
+    title: "Aircraft",
+    rtlTitle: "",
+    icon: "icon-chart-pie-36",
+    class: ""
+  },
 ];
 
 @Component({
