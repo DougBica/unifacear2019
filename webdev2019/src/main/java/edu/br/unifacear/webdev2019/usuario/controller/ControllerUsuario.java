@@ -2,6 +2,8 @@ package edu.br.unifacear.webdev2019.usuario.controller;
 
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,7 +26,7 @@ public class ControllerUsuario {
 	private UsuarioService usuarioService;
 	
 	@PostMapping
-	public void salvar(@RequestBody Usuario usuario) {
+	public void salvar(@RequestBody @Valid Usuario usuario) {
 		usuarioService.salvar(usuario);
 	}
 	

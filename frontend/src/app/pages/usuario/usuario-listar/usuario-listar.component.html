@@ -8,11 +8,13 @@
       <th>ID</th>
       <th>Nome</th>
       <th>Email</th>
+      <th>&nbsp;</th>
     </tr>
     <tr *ngFor="let usuario of usuarios">
       <td>{{usuario.guidUsuario}}</td>
       <td>{{usuario.nome}}</td>
       <td>{{usuario.email}}</td>
+      <td><button class="btn" (click)="edit(usuario)">Editar</button></td>
     </tr>    
   </table>
 

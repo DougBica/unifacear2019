@@ -1,3 +1,19 @@
-<p>
-  usuario-cadastrar works!
-</p>
+<div class=" content">
+  <h4>
+    Cadastrar Usuário
+  </h4>
+  <form id="formUsuario" (ngSubmit)="salvar()">
+    <div class="form-group">
+      <label for="nome">Nome</label>
+      <input type="text" class="form-control" name="nome" placeholder="Digite seu nome" [(ngModel)]="usuario.nome"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" class="form-control" name="email" placeholder="Digite seu email" [(ngModel)]="usuario.email"
+        required>
+    </div>
+    <button type="submit" class="btn">Salvar</button>
+  </form>
+
+</div>

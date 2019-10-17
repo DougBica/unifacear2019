@@ -7,11 +7,20 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UsuarioService {
-
+  
   constructor(private http : HttpClient) { }
 
   list() : Observable<Usuario[]> {
-    return this.http.get<Usuario[]>("http://localhost:8080/usuario/listar");
+    return this.http.get<Usuario[]>("http://localhost:8080/usuario");
+  }
+
+  buscarPorID(guidUsuario: string) : Observable<Usuario>  {
+    return this.http.get<Usuario>("http://localhost:8080/usuario/"+guidUsuario);
+  }
+
+  salvar(usuario: Usuario) : Observable<any> {
+    return this.http.post<any>
+      ("http://localhost:8080/usuario/",usuario);
   }
 
 }
