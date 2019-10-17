@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,6 +35,12 @@ public class ControllerUsuario {
 	public List<Usuario> listar() {
 		return usuarioService.listar();
 	}
+<<<<<<< HEAD
+
+	@GetMapping("/buscarPorID/{guidUsuario}")
+	public Usuario BuscarPorID(@PathVariable("guidUsuario")
+		final Long guidUsuario) {
+=======
 	
     @DeleteMapping
 	public void deleteUsuario(@RequestBody Usuario usuario) {
@@ -41,6 +48,7 @@ public class ControllerUsuario {
 	}
 	@GetMapping("/{guidUsuario}")
 	public Usuario BuscarPorID(@PathVariable(name = "guidUsuario") Long guidUsuario) {
+>>>>>>> 41b8685d4b2cb9349c639555f39cb4621e17dca4
 		return usuarioService.buscarPorId(guidUsuario);
 	}
 	@GetMapping("/email/{email}")
