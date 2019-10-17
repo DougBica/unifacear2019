@@ -9,7 +9,9 @@ public enum BusinessExceptionCode {
 	ERR004("Email já cadastrado"),
 	ERR005("CPF inválido"),
 	ERR006("Idade minima permitida(18 anos)!!!"),
-	ERR007(""),
+	ERR007("CPF já cadastrado"),
+	ERR008("Data de nascimento invalida"),
+	ERR009("Você é muito velho K K K K"),
 	ERR500("Bagagem não encontrada"),
 	ERR501("Erro ao inserir bagagem"),
 	ERR502("Erro ao alterar bagagem"),
@@ -20,7 +22,10 @@ public enum BusinessExceptionCode {
 	ERR507("Erro passagem"),
 	ERR508("Erro voo"),
 	ERR509("Erro aeronave"),
-	ERR510("Erro usuario");
+	ERR510("Erro usuario"),
+	ERR511("Os campos obrigatórios estão nulos"),
+	ERR300("Erro não esperado"),
+	ERR301("Usuário não encontrado");
 
 	private final String message;
 
