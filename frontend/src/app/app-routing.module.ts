@@ -7,10 +7,12 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usuario-cadastrar.component';
+import { AutenticacaoGuard } from './autenticacao.guard';
 
 const routes: Routes = [
   {
     path: "admin",
+    canActivate:[AutenticacaoGuard],
     component: AdminLayoutComponent,
     children: [
 
