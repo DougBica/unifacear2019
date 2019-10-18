@@ -29,18 +29,4 @@ export class UsuarioListarComponent implements OnInit {
   edit(usuario: Usuario) {
     this.router.navigate(["/admin/usuario/"+usuario.guidUsuario]);    
   }
-
-  login: string;
-  senha: string;
-
-  submit() {
-    this.usuarioService.login(this.login,this.senha).subscribe(
-      user => {
-        localStorage.setItem("token",user['token']);
-        alert('logou');
-        //redirecionar para o dashboard
-      }
-    )
-  }
-
 }

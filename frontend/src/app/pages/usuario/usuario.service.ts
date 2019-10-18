@@ -27,15 +27,4 @@ export class UsuarioService {
       ("http://localhost:8080/usuario/salvar/",usuario);
   }
 
-  login(login: string, senha: string) : Observable<any> {
-    let options = {
-      headers: new HttpHeaders().set('Content-Type', 'application/x-www-form-urlencoded')
-    };
-
-    return this.http.post<any>
-      ("http://localhost:8080/scp/public/login",
-        "login="+login+"&senha="+senha, 
-        options);
-  }
-
 }

@@ -1,6 +1,6 @@
-export class Perfil {
+export class Login {
 
-    guidPerfil: number;
-	
+    login: Text;
+    senha: Text;
 
 }

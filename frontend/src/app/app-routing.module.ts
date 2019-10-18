@@ -7,6 +7,7 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usuario-cadastrar.component';
+import { LogarComponent } from './pages/login/logar/logar.component';
 
 const routes: Routes = [
   {
@@ -15,11 +16,11 @@ const routes: Routes = [
     children: [
 
       { path: 'usuario', component: UsuarioListarComponent },
-      { path: 'usuario/:id', component: UsuarioCadastrarComponent }
+      { path: 'usuario/:id', component: UsuarioCadastrarComponent },
       
-
     ]
   },
+  { path: 'login', component: LogarComponent },
   {
     path: "",
     redirectTo: "dashboard",

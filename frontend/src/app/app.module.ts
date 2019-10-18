@@ -15,6 +15,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { UsuarioModule } from './pages/usuario/usuario.module';
+import { LoginModule } from './pages/login/login.module';
 
 @NgModule({
   imports: [
@@ -26,6 +27,7 @@ import { UsuarioModule } from './pages/usuario/usuario.module';
     RouterModule,
     AppRoutingModule,
     FormsModule,
+    LoginModule,
     UsuarioModule,
     ToastrModule.forRoot()
   ],
