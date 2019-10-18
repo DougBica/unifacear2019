@@ -25,7 +25,11 @@ public enum BusinessExceptionCode {
 	ERR510("Erro usuario"),
 	ERR511("Os campos obrigatórios estão nulos"),
 	ERR300("Erro não esperado"),
-	ERR301("Usuário não encontrado");
+	ERR301("Usuário não encontrado"), 
+	ERR101("Aeroporto não encontrado"), 
+	ERR103("Parada não encontrada"), 
+	ERR102("Rota não encontrada"), 
+	ERR100("Voo não encontrado");
 
 	private final String message;
 
