@@ -14,6 +14,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AbstractAuthenticationProcessingFilter;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.web.bind.annotation.CrossOrigin;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -21,6 +22,7 @@ import edu.br.unifacear.webdev2019.autenticacao.components.TokenAuthenticationSe
 import edu.br.unifacear.webdev2019.autenticacao.model.Autenticacao;
 import edu.br.unifacear.webdev2019.autenticacao.model.CustomUser;
 
+@CrossOrigin("*")
 public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
 
 	public JWTLoginFilter(String url, AuthenticationManager authManager) {
