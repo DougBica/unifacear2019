@@ -7,6 +7,7 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { CheckinListarComponent } from './pages/checkin/checkin-listar/checkin-listar.component';
+import { CheckinCadastrarComponent } from './pages/checkin/checkin-cadastrar/checkin-cadastrar.component';
 
 const routes: Routes = [
   {
@@ -15,8 +16,8 @@ const routes: Routes = [
     children: [
 
       { path: 'usuario', component: UsuarioListarComponent },
-      { path: 'checkin-controle', component: CheckinListarComponent }
-
+      { path: 'checkin-controle', component: CheckinListarComponent },
+      { path: 'checkin-cadastrar/:id', component: CheckinCadastrarComponent }
     ]
   },
   {
