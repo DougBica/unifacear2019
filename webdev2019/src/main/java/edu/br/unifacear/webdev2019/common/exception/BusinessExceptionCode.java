@@ -35,7 +35,12 @@ public enum BusinessExceptionCode {
 	ERR606("Remarcação não encontrada!"),
 	ERR607("Não foi possivel remarcar!"),
 	ERR608("Não foi possivel excluir essa remarcacao!");
-	
+	ERR101("Aeroporto não encontrado"), 
+	ERR103("Parada não encontrada"), 
+	ERR102("Rota não encontrada"), 
+	ERR100("Voo não encontrado");
+
+
 	private final String message;
 
 	private BusinessExceptionCode(final String message) {

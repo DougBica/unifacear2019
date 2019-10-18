@@ -37,19 +37,17 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
 	private CustomUser getCustomUser(String userName) {
 
-		/*
-		 * CustomUser customUser = jdbcTemplate.
-		 * queryForObject("select id, login, senha from usuario where login=?",new
-		 * Object[]{userName},new UserRowMapper()); if(customUser != null){ customUser =
-		 * new CustomUser(customUser.getUsername(),customUser.getPassword(),customUser.
-		 * isEnabled(),customUser.isAccountNonExpired(),customUser.
-		 * isCredentialsNonExpired(), customUser.isAccountNonLocked(),
-		 * getUserRoles(customUser.getId()), customUser.getId()); }
-		 */
+		
+		 //CustomUser customUser = jdbcTemplate.
+		 //queryForObject("select guid_usuario, email as login, senha from usuario where email=?",new
+		 //Object[]{userName},new UserRowMapper()); 
+		 //if(customUser != null){ 
+		//	 customUser = new CustomUser(customUser.getUsername(),new BCryptPasswordEncoder().encode(customUser.getPassword()),customUser.isEnabled(),customUser.isAccountNonExpired(),customUser.isCredentialsNonExpired(), customUser.isAccountNonLocked(),getUserRoles(customUser.getId())); 
+		//}
+		 
 		ArrayList<GrantedAuthority> permissoes = new ArrayList<GrantedAuthority>();
 		permissoes.add(new SimpleGrantedAuthority("GERENCIAR_VOO"));
-		CustomUser customUser = new CustomUser("admin@scp.com", new BCryptPasswordEncoder().encode("123"), true, true, true, true,
-				permissoes);
+		CustomUser customUser = new CustomUser("admin@scp.com", new BCryptPasswordEncoder().encode("123"), true, true, true, true,permissoes);
 
 		return customUser;
 	}
@@ -67,13 +65,13 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
 
-		List<String> roles = jdbcTemplate.queryForList(
-				"select distinct pp.PERMISSAO from PERFIL_PERMISSAO pp left join USUARIO_PERFIL up on up.PERFIL_ID = pp.ID where up.USUARIO_ID=?",
-				new Object[] { ID }, String.class);
+		//List<String> roles = jdbcTemplate.queryForList(
+		//		"select distinct pp.PERMISSAO from PERFIL_PERMISSAO pp left join USUARIO_PERFIL up on up.PERFIL_ID = pp.ID where up.USUARIO_ID=?",
+		//		new Object[] { ID }, String.class);
 
-		if (roles != null) {
-			roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role)));
-		}
+		//if (roles != null) {
+		//	roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role)));
+		//}
 
 		return authorities;
 
