@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Aeronave } from '../model/aeronave.model';
 import { AeronaveService } from '../aeronave.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-aeronave-listar',
@@ -10,8 +11,11 @@ import { AeronaveService } from '../aeronave.service';
 export class AeronaveListarComponent implements OnInit {
 
   aeronaves : Aeronave[];
+  
+  AeronaveService: any;
 
-  constructor(private aeronaveService : AeronaveService) { }
+  constructor(private aeronaveService : AeronaveService,
+    private router : Router) { }
 
   ngOnInit() {
     this.load();
@@ -23,5 +27,10 @@ export class AeronaveListarComponent implements OnInit {
        aeronaves => this.aeronaves = aeronaves
       )
   }
+
+  edit(aeronave: Aeronave) {
+    this.router.navigate(["/admin/aeronave/"+aeronave.guidaeronave]);    
+  }
+
 
 }

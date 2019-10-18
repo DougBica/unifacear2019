@@ -7,6 +7,7 @@ import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.compon
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { AeronaveListarComponent } from './pages/aeronave/aeronave-listar/aeronave-listar.component';
+import { AeronaveCadastrarComponent } from './pages/aeronave/aeronave-cadastrar/aeronave-cadastrar.component';
 
 const routes: Routes = [
   {
@@ -14,20 +15,13 @@ const routes: Routes = [
     component: AdminLayoutComponent,
     children: [
 
-      { path: 'usuario', component: UsuarioListarComponent }
+      { path: 'usuario', component: UsuarioListarComponent },
+      { path: 'aeronave', component: AeronaveListarComponent },
+      { path: 'aeronave/:id', component: AeronaveCadastrarComponent }
 
     ]
   },
-  {
-    path: "admin",
-    component: AdminLayoutComponent,
-    children: [
-
-      { path: 'aeronave', component: AeronaveListarComponent }
-
-    ]
-  },
-  
+ 
   {
     path: "",
     redirectTo: "dashboard",

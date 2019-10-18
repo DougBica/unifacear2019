@@ -1,3 +1,19 @@
-<p>
-  aeronave-cadastrar works!
-</p>
+<div class=" content">
+  <h4>
+    Register Aircraft
+  </h4>
+  <form id="formUsuario" (ngSubmit)="salvar()">
+    <div class="form-group">
+      <label for="nome">Aircraft Name</label>
+      <input type="text" class="form-control" name="nome" placeholder="Enter Aircraft Name " [(ngModel)]="aeronave.nomeaeronave"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="nome">Model</label>
+      <input type="email" class="form-control" name="Model" placeholder="Enter Aircraft Model" [(ngModel)]="aeronave.modelo"
+        required>
+    </div>
+    <button type="submit" class="btn">Salvar</button>
+  </form>
+
+</div>

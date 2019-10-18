@@ -1,6 +1,10 @@
 export class Aeronave {
 
-    guidAeronave: number;
+    
+  guidaeronave: number;
+  nomeaeronave: string;
+  modelo: string;
+  guidFabricante: number;
 
 
 }
