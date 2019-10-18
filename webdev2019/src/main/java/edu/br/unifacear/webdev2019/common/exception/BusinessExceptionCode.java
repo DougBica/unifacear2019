@@ -34,7 +34,7 @@ public enum BusinessExceptionCode {
 	ERR605("Não foi possivel cancelar checkin já efeutado!"),
 	ERR606("Remarcação não encontrada!"),
 	ERR607("Não foi possivel remarcar!"),
-	ERR608("Não foi possivel excluir essa remarcacao!");
+	ERR608("Não foi possivel excluir essa remarcacao!"),
 	ERR101("Aeroporto não encontrado"), 
 	ERR103("Parada não encontrada"), 
 	ERR102("Rota não encontrada"), 
