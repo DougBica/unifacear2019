@@ -27,6 +27,7 @@ import { BagagemModule } from './pages/checkin/bagagem.module';
     NgbModule,
     RouterModule,
     AppRoutingModule,
+    FormsModule,
     UsuarioModule,
     CheckinModule,
     BagagemModule,

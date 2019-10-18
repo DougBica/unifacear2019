@@ -6,8 +6,12 @@ import { Routes, RouterModule } from "@angular/router";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
+<<<<<<< HEAD
 import { CheckinListarComponent } from './pages/checkin/checkin-listar/checkin-listar.component';
 import { CheckinCadastrarComponent } from './pages/checkin/checkin-cadastrar/checkin-cadastrar.component';
+=======
+import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usuario-cadastrar.component';
+>>>>>>> 1c8bd25894a2184a808ead44446b0e840d69987d
 
 const routes: Routes = [
   {
@@ -16,8 +20,14 @@ const routes: Routes = [
     children: [
 
       { path: 'usuario', component: UsuarioListarComponent },
+<<<<<<< HEAD
       { path: 'checkin-controle', component: CheckinListarComponent },
       { path: 'checkin-cadastrar/:id', component: CheckinCadastrarComponent }
+=======
+      { path: 'usuario/:id', component: UsuarioCadastrarComponent }
+      
+
+>>>>>>> 1c8bd25894a2184a808ead44446b0e840d69987d
     ]
   },
   {
