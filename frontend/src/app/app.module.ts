@@ -13,7 +13,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
-import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
+import { UsuarioModule } from './pages/usuario/usuario.module';
 
 @NgModule({
   imports: [
@@ -28,7 +28,7 @@ import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-l
     UsuarioModule,
     ToastrModule.forRoot()
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent, UsuarioListarComponent],
+  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
