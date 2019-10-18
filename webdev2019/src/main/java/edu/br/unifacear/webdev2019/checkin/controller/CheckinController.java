@@ -17,7 +17,7 @@ import edu.br.unifacear.webdev2019.checkin.entity.Checkin;
 import edu.br.unifacear.webdev2019.checkin.service.CheckinService;
 
 @RestController
-@RequestMapping(value="/checkin")
+@RequestMapping(value="/scp/public/checkin")
 @CrossOrigin("*")
 public class CheckinController {
 	

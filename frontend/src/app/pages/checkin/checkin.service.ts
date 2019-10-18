@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Checkin } from './model/checkin.model';
-const urlApi = 'http://localhost:8080/checkin';
+const urlApi = 'http://localhost:8080/scp/public/checkin';
 
 @Injectable({
   providedIn: 'root'

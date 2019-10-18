@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [UsuarioListarComponent, UsuarioCadastrarComponent],
+
   imports: [
     CommonModule,
     FormsModule

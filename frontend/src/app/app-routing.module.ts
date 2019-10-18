@@ -9,13 +9,14 @@ import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-l
 import { CheckinListarComponent } from './pages/checkin/checkin-listar/checkin-listar.component';
 import { CheckinCadastrarComponent } from './pages/checkin/checkin-cadastrar/checkin-cadastrar.component';
 import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usuario-cadastrar.component';
+import { AutenticacaoGuard } from './autenticacao.guard';
 
 const routes: Routes = [
   {
     path: "admin",
+    //canActivate:[AutenticacaoGuard],
     component: AdminLayoutComponent,
     children: [
-
       { path: 'usuario', component: UsuarioListarComponent },
       { path: 'checkin-controle', component: CheckinListarComponent },
       { path: 'checkin-cadastrar/:id', component: CheckinCadastrarComponent },
