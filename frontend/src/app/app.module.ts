@@ -16,6 +16,7 @@ import { ComponentsModule } from "./components/components.module";
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { UsuarioModule } from './pages/usuario/usuario.module';
 import { LoginModule } from './pages/login/login.module';
+import { LogintesteModule } from './pages/loginTeste/login/loginteste.module';
 
 @NgModule({
   imports: [
@@ -29,6 +30,7 @@ import { LoginModule } from './pages/login/login.module';
     FormsModule,
     LoginModule,
     UsuarioModule,
+    LogintesteModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],

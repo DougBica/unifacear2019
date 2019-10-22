@@ -8,19 +8,21 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usuario-cadastrar.component';
 import { LogarComponent } from './pages/login/logar/logar.component';
+import { AutenticacaoGuard } from './autenticacao.guard';
+import { LoginComponent } from './pages/loginTeste/login/login.component';
 
 const routes: Routes = [
   {
     path: "admin",
+    canActivate:[AutenticacaoGuard],
     component: AdminLayoutComponent,
     children: [
-
       { path: 'usuario', component: UsuarioListarComponent },
       { path: 'usuario/:id', component: UsuarioCadastrarComponent },
-      
     ]
   },
   { path: 'login', component: LogarComponent },
+  { path: 'loginteste', component: LoginComponent },
   {
     path: "",
     redirectTo: "dashboard",

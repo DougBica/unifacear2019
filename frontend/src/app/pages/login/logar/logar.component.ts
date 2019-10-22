@@ -23,9 +23,14 @@ export class LogarComponent implements OnInit {
       user => {
         localStorage.setItem("token",user['token']);
         alert('logou');
-        //redirecionar para o dashboard
+        this.router.navigate(['/']);
       }
     )
+
+  }
+
+  logout() {
+      localStorage.clear();
   }
 
 }
