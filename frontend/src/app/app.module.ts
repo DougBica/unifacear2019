@@ -14,6 +14,9 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { UsuarioModule } from './pages/usuario/usuario.module';
+import { CheckinModule } from './pages/checkin/checkin.module';
+import { EmbarqueModule } from './pages/checkin/embarque.module';
+import { BagagemModule } from './pages/checkin/bagagem.module';
 
 @NgModule({
   imports: [
@@ -26,6 +29,9 @@ import { UsuarioModule } from './pages/usuario/usuario.module';
     AppRoutingModule,
     FormsModule,
     UsuarioModule,
+    CheckinModule,
+    BagagemModule,
+    EmbarqueModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],

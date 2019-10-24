@@ -14,8 +14,7 @@ export class AutenticacaoGuard implements CanActivate {
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
       if (localStorage.getItem('token') != undefined) {
         return true;
-      }
-        
+      }        
       this.router.navigate(['/']);
       return false;
   }
