@@ -4,9 +4,9 @@ import java.util.List;
 
 import javax.validation.Valid;
 
-import org.springframework.beans.factory.annotation.Autowired;<<<<<<<HEAD
-import org.springframework.web.bind.annotation.DeleteMapping;=======
-import org.springframework.security.access.prepost.PreAuthorize;>>>>>>>feature/jwt
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -28,7 +28,6 @@ public class ControllerUsuario {
 	public void salvar(@RequestBody @Valid Usuario usuario) {
 		usuarioService.salvar(usuario);
 	}
-=======
 	
 	@PreAuthorize("hasRole('ADMIN') || hasRole('USUARIO_LISTAR')")
 	@GetMapping("/listar")
