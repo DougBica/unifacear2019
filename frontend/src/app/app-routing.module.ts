@@ -8,6 +8,8 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { AeronaveListarComponent } from './pages/aeronave/aeronave-listar/aeronave-listar.component';
 import { AeronaveCadastrarComponent } from './pages/aeronave/aeronave-cadastrar/aeronave-cadastrar.component';
+import { FabricanteCadastrarComponent } from './pages/aeronave/fabricante-cadastrar/fabricante-cadastrar.component';
+import { FabricanteListarComponent } from './pages/aeronave/fabricante-listar/fabricante-listar.componet';
 
 const routes: Routes = [
   {
@@ -17,7 +19,10 @@ const routes: Routes = [
 
       { path: 'usuario', component: UsuarioListarComponent },
       { path: 'aeronave', component: AeronaveListarComponent },
-      { path: 'aeronave/:id', component: AeronaveCadastrarComponent }
+      { path: 'aeronave/:id', component: AeronaveCadastrarComponent },
+      { path: 'fabricante/:id', component: FabricanteCadastrarComponent },
+      { path: 'fabricante', component: FabricanteListarComponent },
+
 
     ]
   },

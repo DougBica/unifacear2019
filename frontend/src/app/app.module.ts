@@ -16,6 +16,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { UsuarioModule } from './pages/usuario/usuario.module';
 import { AeronaveModule } from './pages/aeronave/aeronave.module';
+import { FabricanteModule } from './pages/aeronave/fabricante.module';
 
 @NgModule({
   imports: [
@@ -28,6 +29,7 @@ import { AeronaveModule } from './pages/aeronave/aeronave.module';
     AppRoutingModule,
     UsuarioModule,
     AeronaveModule,
+    FabricanteModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],

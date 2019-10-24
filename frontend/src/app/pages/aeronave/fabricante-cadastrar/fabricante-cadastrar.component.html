@@ -1,0 +1,16 @@
+<div class=" content">
+    <h4>
+      Register Manufacturer
+    </h4>
+    <form id="formFabricante" (ngSubmit)="salvar()">
+      <div class="form-group">
+        <label for="nome">Manufacturer Name</label>
+        <input type="text" class="form-control" name="nome" placeholder="Enter Manufacturer Name " [(ngModel)]="fabricante.nomefabricante"
+          required>
+      </div>
+
+      <button type="submit" class="btn">Salvar</button>
+    </form>
+  
+  </div>
+  

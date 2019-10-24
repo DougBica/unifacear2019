@@ -34,10 +34,8 @@ export class AeronaveCadastrarComponent implements OnInit {
   }
 
   salvar() {
-    this.AeronaveService.salvar(this.aeronave).subscribe(
+    this.aeronaveService.salvar(this.aeronave).subscribe(
       () => {
-        
-
         this.router.navigate(["/admin/aeronave/"]);    
       }
     );

@@ -20,8 +20,18 @@ export const ROUTES: RouteInfo[] = [
     title: "Aircraft",
     rtlTitle: "",
     icon: "icon-chart-pie-36",
-    class: ""
+    class: "",
+
+   
+    
   },
+  {
+  path: "/admin/fabricante",
+  title: "Manufacturer",
+  rtlTitle: "",
+  icon: "icon-chart-pie-36",
+  class: ""
+  }
 ];
 
 @Component({
