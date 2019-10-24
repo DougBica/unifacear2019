@@ -30,7 +30,6 @@ export class CheckinListarComponent implements OnInit {
   }
 
   editar(checkin: Checkin) {
-    console.log(checkin);
     this.toastr.success('<span class="tim-icons icon-bell-55" [data-notify]="icon"></span>Aguarde um momento.', '', {
       disableTimeOut: false,
       closeButton: true,

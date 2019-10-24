@@ -11,4 +11,5 @@ export class Checkin {
     indicadorFoto: boolean;
     guidMilhagem: number;
     dataCheckin: any;
+    guidStatus: number;
 }
