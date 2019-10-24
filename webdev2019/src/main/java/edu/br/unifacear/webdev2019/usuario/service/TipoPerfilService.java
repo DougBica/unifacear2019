@@ -1,4 +1,4 @@
-/*package edu.br.unifacear.webdev2019.usuario.service;
+package edu.br.unifacear.webdev2019.usuario.service;
 
 import java.util.List;
 
@@ -35,4 +35,3 @@ public class TipoPerfilService {
 	}
 	
 }
-*/
