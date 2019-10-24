@@ -1,4 +1,4 @@
-/*package edu.br.unifacear.webdev2019.usuario.repository;
+package edu.br.unifacear.webdev2019.usuario.repository;
 
 import java.util.List;
 
@@ -18,4 +18,4 @@ public interface UsuarioRepository
 	
 	@Query("select u from Usuario u where u.email = :email and u.senha = :senha")
 	public List<Usuario> BuscarPorEmaileSenha(@Param("email")String email, @Param("senha")String senha) ;
-}*/
+}
