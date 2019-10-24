@@ -1,4 +1,4 @@
-/*package edu.br.unifacear.webdev2019.usuario.controller;
+package edu.br.unifacear.webdev2019.usuario.controller;
 
 import java.util.List;
 
@@ -15,29 +15,28 @@ import edu.br.unifacear.webdev2019.usuario.service.TipoPerfilService;
 @RestController
 @RequestMapping("/tipoperfil")
 public class ControllerTipoPerfil {
-	
+
 	@Autowired
 	private TipoPerfilService tipoperfilService;
-	
+
 	@PostMapping
 	public void salvar(@RequestBody TipoPerfil tipoperfil) {
 		tipoperfilService.salvar(tipoperfil);
 	}
-	
+
 	@GetMapping
 	public List<TipoPerfil> listar() {
 		return tipoperfilService.listar();
 	}
-	
+
 	@PostMapping("/Excluir")
 	public void excluir(@RequestBody TipoPerfil tipoPerfil) {
 		tipoperfilService.excluir(tipoPerfil);
 	}
-	
+
 	@GetMapping("/BuscarId")
 	public void BuscarId(Iterable<Long> guidTipoPerfil) {
-		 tipoperfilService.BuscarId(guidTipoPerfil);
+		tipoperfilService.BuscarId(guidTipoPerfil);
 	}
 
 }
-*/
