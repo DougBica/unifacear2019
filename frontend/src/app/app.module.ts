@@ -15,8 +15,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { UsuarioModule } from './pages/usuario/usuario.module';
-import { LoginModule } from './pages/login/login.module';
-import { LogintesteModule } from './pages/loginTeste/login/loginteste.module';
+import { LogintesteModule } from './pages/login/login.module';
+
 
 @NgModule({
   imports: [
@@ -28,7 +28,7 @@ import { LogintesteModule } from './pages/loginTeste/login/loginteste.module';
     RouterModule,
     AppRoutingModule,
     FormsModule,
-    LoginModule,
+    LogintesteModule,
     UsuarioModule,
     LogintesteModule,
     ToastrModule.forRoot()

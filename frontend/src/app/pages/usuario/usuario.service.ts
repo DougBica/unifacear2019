@@ -19,12 +19,12 @@ export class UsuarioService {
   }
 
   buscarPorID(guidUsuario: string) : Observable<Usuario>  {
-    return this.http.get<Usuario>("http://localhost:8080/usuario/buscarPorID/"+guidUsuario);
+    return this.http.get<Usuario>("http://localhost:8080/usuario/"+guidUsuario);
   }
 
   salvar(usuario: Usuario) : Observable<any> {
     return this.http.post<any>
-      ("http://localhost:8080/usuario/salvar/",usuario);
+      ("http://localhost:8080/usuario/",usuario);
   }
 
 }

@@ -14,9 +14,9 @@ export class UsuarioCadastrarComponent implements OnInit {
 
   usuario: Usuario = new Usuario();
 
-  constructor(private route: ActivatedRoute, 
-    private usuarioService : UsuarioService,
-    private router : Router) { }
+  constructor(private route: ActivatedRoute,
+    private usuarioService: UsuarioService,
+    private router: Router) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
@@ -24,8 +24,8 @@ export class UsuarioCadastrarComponent implements OnInit {
         var guidUsuario = params.get('id');
         this.usuarioService.buscarPorID(guidUsuario).subscribe(
           usuario => {
-              this.usuario = usuario;
-              //console.log(this.usuario);
+            this.usuario = usuario;
+            //console.log(this.usuario);
           }
         );
       }
@@ -35,9 +35,9 @@ export class UsuarioCadastrarComponent implements OnInit {
   salvar() {
     this.usuarioService.salvar(this.usuario).subscribe(
       () => {
-        
 
-        this.router.navigate(["/admin/usuario/"]);    
+
+        this.router.navigate(["/admin/usuario/"]);
       }
     );
   }

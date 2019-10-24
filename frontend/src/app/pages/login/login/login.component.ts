@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
-import { LoginService } from '../login.service';
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { LoginService } from '../../login/login.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-logar',
-  templateUrl: './logar.component.html',
-  styleUrls: ['./logar.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class LogarComponent implements OnInit {
-
+export class LoginComponent implements OnInit, OnDestroy {
   constructor(private loginService : LoginService, private router : Router) { }
+  
 
   ngOnInit() {
+  }
+  ngOnDestroy() {
   }
 
   login: string;
