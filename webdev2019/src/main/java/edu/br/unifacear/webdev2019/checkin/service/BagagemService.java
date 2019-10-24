@@ -1,4 +1,4 @@
-package edu.br.unifacear.webdev2019.checkin.service;
+/*package edu.br.unifacear.webdev2019.checkin.service;
 
 import java.io.Serializable;
 import java.util.List;
@@ -94,3 +94,4 @@ public class BagagemService implements Serializable {
 	}
 
 }
+*/

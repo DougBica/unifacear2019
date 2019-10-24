@@ -13,11 +13,10 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
-<<<<<<< HEAD
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
-=======
->>>>>>> b0a5be99bff288f46a7c26fc792bfa33eb02674c
 import { UsuarioModule } from './pages/usuario/usuario.module';
+import { LogintesteModule } from './pages/login/login.module';
+
 
 @NgModule({
   imports: [
@@ -29,7 +28,9 @@ import { UsuarioModule } from './pages/usuario/usuario.module';
     RouterModule,
     AppRoutingModule,
     FormsModule,
+    LogintesteModule,
     UsuarioModule,
+    LogintesteModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],

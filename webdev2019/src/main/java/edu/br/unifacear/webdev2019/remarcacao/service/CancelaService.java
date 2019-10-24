@@ -1,16 +1,16 @@
 package edu.br.unifacear.webdev2019.remarcacao.service;
 
-import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import edu.br.unifacear.webdev2019.common.exception.BusinessException;
+import edu.br.unifacear.webdev2019.common.exception.BusinessExceptionCode;
 import edu.br.unifacear.webdev2019.remarcacao.entity.Cancela;
 import edu.br.unifacear.webdev2019.remarcacao.repository.CancelaRepository;
-import edu.br.unifacear.webdev2019.remarcacao.service.exceptions.ObjectNotFoundException;
+
 
 @Service
 public class CancelaService {
@@ -19,16 +19,27 @@ public class CancelaService {
 	private CancelaRepository repo;
 	
 	public List<Cancela> find(){
-		 return repo.findAll();
+		List<Cancela> lista = Optional.ofNullable(repo.findAll()).
+				orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR000)) ;
+		return lista;
 	}
-	
+
 	public Cancela findById(Long guidCancela) {
-		Optional<Cancela> obj = repo.findById(guidCancela);
-		return obj.orElseThrow(() -> new ObjectNotFoundException("Objeto não encontrado! Id: "+guidCancela));
+		Cancela cancela = Optional.ofNullable(repo.findById(guidCancela))
+				.orElse(null)
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR600));
+		return cancela;
 	}
 		
-	public Cancela save(Cancela obj) {
-		return repo.save(obj);
+	public void save(Cancela obj) {
+		if(obj.getCheckin()) {
+			Optional.ofNullable(null)
+			.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR605));
+		}
+		else {
+			Optional.ofNullable(repo.save(obj))
+			.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR601));			
+		}
 	}
 	
 	public void delete(Long guidCancela) {
@@ -36,19 +47,31 @@ public class CancelaService {
 		try {
 			repo.deleteById(guidCancela);
 		} catch (Exception e) {
-			e.printStackTrace();
+			throw new BusinessException(BusinessExceptionCode.ERR602);
 		}
+	} 
+	
+	public Cancela update(Cancela cancela) {
+		findById(cancela.getGuidCancelar());
+		return repo.save(cancela);
 	}
 	
-	public List<Cancela> findByDate(Date init, Date end){
-		List<Cancela> list = find();
-		List<Cancela> list_date = new ArrayList<>();
-		for(Cancela c: list  ){
-			if( c.getDataCancelamento().before(end) && c.getDataCancelamento().after(init) ) {
-				list_date.add(c);
-			}
-		}
-		return list_date;
+	public Cancela findByGuidUsuario(Long guidUsuario) {
+		Cancela obj = Optional.ofNullable(repo.findByGuidUsuario(guidUsuario))
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR301));
+		return obj;
 	}
-
+	
+	public List<Cancela> findByGuidReserva(Long guidReserva) {
+		List<Cancela> lista = Optional.ofNullable(repo.findByGuidReserva(guidReserva))
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR603));
+		return lista;
+	}
+	
+	public Cancela findByGuidPassagem(Long guidPassagem) {
+		Cancela cancela = Optional.ofNullable(repo.findByGuidPassagem(guidPassagem))
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR604));
+		return cancela;
+	}
+	
 }

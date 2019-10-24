@@ -25,7 +25,21 @@ public enum BusinessExceptionCode {
 	ERR510("Erro usuario"),
 	ERR511("Os campos obrigatórios estão nulos"),
 	ERR300("Erro não esperado"),
-	ERR301("Usuário não encontrado");
+	ERR301("Usuário não encontrado"),
+	ERR600("Cancelamento não encontrado!"),
+	ERR601("Não foi possivel salvar esse cancelamento!"),
+	ERR602("Não foi possivel excluir esse cancalamento!"),
+	ERR603("Reserva não encontrada!"),
+	ERR604("Passagem não encontrada!"),
+	ERR605("Não foi possivel cancelar checkin já efeutado!"),
+	ERR606("Remarcação não encontrada!"),
+	ERR607("Não foi possivel remarcar!"),
+	ERR608("Não foi possivel excluir essa remarcacao!"),
+	ERR101("Aeroporto não encontrado"), 
+	ERR103("Parada não encontrada"), 
+	ERR102("Rota não encontrada"), 
+	ERR100("Voo não encontrado");
+
 
 	private final String message;
 
@@ -36,5 +50,4 @@ public enum BusinessExceptionCode {
 	public String getMessage() {
 		return message;
 	}
-
 }
