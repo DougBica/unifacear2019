@@ -21,6 +21,13 @@ export const ROUTES: RouteInfo[] = [
     rtlTitle: "",
     icon: "icon-single-02",
     class: ""
+  },
+  {
+    path: "/admin/checkin-controle",
+    title: "Checkin",
+    rtlTitle: "",
+    icon: "icon-map-big",
+    class: ""
   }
 ];
 

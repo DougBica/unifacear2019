@@ -15,8 +15,9 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { UsuarioModule } from './pages/usuario/usuario.module';
-import { LogintesteModule } from './pages/login/login.module';
-
+import { CheckinModule } from './pages/checkin/checkin.module';
+import { EmbarqueModule } from './pages/checkin/embarque.module';
+import { BagagemModule } from './pages/checkin/bagagem.module';
 
 @NgModule({
   imports: [
@@ -30,7 +31,9 @@ import { LogintesteModule } from './pages/login/login.module';
     FormsModule,
     LogintesteModule,
     UsuarioModule,
-    LogintesteModule,
+    CheckinModule,
+    BagagemModule,
+    EmbarqueModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],

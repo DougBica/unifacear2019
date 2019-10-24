@@ -6,19 +6,22 @@ import { Routes, RouterModule } from "@angular/router";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
+import { CheckinListarComponent } from './pages/checkin/checkin-listar/checkin-listar.component';
+import { CheckinCadastrarComponent } from './pages/checkin/checkin-cadastrar/checkin-cadastrar.component';
 import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usuario-cadastrar.component';
 import { AutenticacaoGuard } from './autenticacao.guard';
-import { LoginComponent } from './pages/login/login/login.component';
 
 const routes: Routes = [
   {
     path: "admin",
-    canActivate:[AutenticacaoGuard],
+    //canActivate:[AutenticacaoGuard],
     component: AdminLayoutComponent,
     children: [
       { path: 'usuario', component: UsuarioListarComponent },
-      { path: 'usuario/:id', component: UsuarioCadastrarComponent },
-    ]
+      { path: 'checkin-controle', component: CheckinListarComponent },
+      { path: 'checkin-cadastrar/:id', component: CheckinCadastrarComponent },
+      { path: 'usuario/:id', component: UsuarioCadastrarComponent }
+   ]
   },
   { path: 'login', component: LoginComponent },
   {
