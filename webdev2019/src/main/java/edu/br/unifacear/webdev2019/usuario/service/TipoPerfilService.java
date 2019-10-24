@@ -33,5 +33,5 @@ public class TipoPerfilService {
 	public List<TipoPerfil> BuscarId(Iterable<Long> guidTipoPerfil) {
 		return tipoPerfilRepository.findAllById(guidTipoPerfil);
 	}
-
+	
 }

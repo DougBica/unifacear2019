@@ -1,4 +1,4 @@
-package edu.br.unifacear.webdev2019.checkin.controller;
+/*package edu.br.unifacear.webdev2019.checkin.controller;
 
 import java.util.List;
 
@@ -47,3 +47,4 @@ public class BagagemController {
 		bagagemservice.deletarBagagem(bagagem);
 	}
 }
+*/

@@ -13,6 +13,7 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
+import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { UsuarioModule } from './pages/usuario/usuario.module';
 import { CheckinModule } from './pages/checkin/checkin.module';
 import { EmbarqueModule } from './pages/checkin/embarque.module';
@@ -28,6 +29,7 @@ import { BagagemModule } from './pages/checkin/bagagem.module';
     RouterModule,
     AppRoutingModule,
     FormsModule,
+    LogintesteModule,
     UsuarioModule,
     CheckinModule,
     BagagemModule,
