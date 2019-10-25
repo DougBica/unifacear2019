@@ -16,6 +16,7 @@ import { ComponentsModule } from "./components/components.module";
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { UsuarioModule } from './pages/usuario/usuario.module';
 import { LogintesteModule } from './pages/login/login.module';
+import { RegisterModule } from "./pages/register/RegisterModule";
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { LogintesteModule } from './pages/login/login.module';
     RouterModule,
     AppRoutingModule,
     FormsModule,
+    RegisterModule,
     LogintesteModule,
     UsuarioModule,
     LogintesteModule,

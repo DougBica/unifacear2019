@@ -9,6 +9,7 @@ import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-l
 import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usuario-cadastrar.component';
 import { AutenticacaoGuard } from './autenticacao.guard';
 import { LoginComponent } from './pages/login/login/login.component';
+import { RegisterComponent } from './pages/register/register/register.component';
 
 const routes: Routes = [
   {
@@ -21,6 +22,7 @@ const routes: Routes = [
     ]
   },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
     path: "",
     redirectTo: "dashboard",
