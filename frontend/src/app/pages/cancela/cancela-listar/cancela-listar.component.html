@@ -5,16 +5,16 @@
 
   <table class="table table-striped">
     <tr>
-      <th>ID</th>
       <th>ID Usuário</th>
-      <th>ID Reserva</th>
-      <th>Motivo cancelamento</th>
+      <th>ID Passagem</th>
+      <th>Data cancelamento</th>
+      <th>&nbsp;</th>
     </tr>
     <tr *ngFor="let cancela of cancelamentos">
-        <td>{{cancela.guidCancelar}}</td>
         <td>{{cancela.guidUsuario}}</td>
-        <td>{{cancela.guidReserva}}</td> 
-        <td>{{cancela.motivoCancelamento}}</td>
+        <td>{{cancela.guidPassagem}}</td>
+        <td>{{cancela.dataCancelamento}}</td>
+        <td><button class="btn" (click)="detail(cancela)">Detalhes</button></td>
       </tr>   
   </table>
 

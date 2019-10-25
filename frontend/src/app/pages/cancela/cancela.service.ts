@@ -10,7 +10,11 @@ export class CancelaService {
 
   constructor(private http: HttpClient) {}
 
-list(): Observable<Cancela[]>{
-    return this.http.get<Cancela[]>("http://localhost:8080/scp/public/cancela")
-   }
+  list(): Observable<Cancela[]>{
+     return this.http.get<Cancela[]>("http://localhost:8080/scp/public/cancela")
+    }
+  findByid(guidCancela: number): Observable<Cancela>{
+    return this.http.get<Cancela>("http://localhost:8080/scp/public/cancela" + guidCancela)
+  }
+
 }

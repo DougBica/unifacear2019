@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CancelaService } from '../cancela.service';
 import { Cancela } from '../model/cancela.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-cancela-listar',
@@ -9,7 +10,8 @@ import { Cancela } from '../model/cancela.model';
 })
 export class CancelaListarComponent implements OnInit {
   cancelamentos: Cancela[];
-  constructor(private service: CancelaService) { }
+
+  constructor(private router: Router, private service: CancelaService) { }
 
   ngOnInit() {
     this.load()
@@ -18,6 +20,9 @@ export class CancelaListarComponent implements OnInit {
     this.service.list().subscribe(
       cancelamentos => this.cancelamentos = cancelamentos
     )
+  }
+  detail(guidCancela: number){
+    this.router.navigate(["/admin/cancela/detalhes"])
   }
 
 }
