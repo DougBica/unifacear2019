@@ -1,0 +1,21 @@
+<div class=" content">
+  <h4>
+    Cancela listar
+  </h4>
+
+  <table class="table table-striped">
+    <tr>
+      <th>ID</th>
+      <th>ID Usuário</th>
+      <th>ID Reserva</th>
+      <th>Motivo cancelamento</th>
+    </tr>
+    <tr *ngFor="let cancela of cancelamentos">
+        <td>{{cancela.guidCancelar}}</td>
+        <td>{{cancela.guidUsuario}}</td>
+        <td>{{cancela.guidReserva}}</td> 
+        <td>{{cancela.motivoCancelamento}}</td>
+      </tr>   
+  </table>
+
+</div>

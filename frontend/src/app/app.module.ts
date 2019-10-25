@@ -18,6 +18,8 @@ import { UsuarioModule } from './pages/usuario/usuario.module';
 import { CheckinModule } from './pages/checkin/checkin.module';
 import { EmbarqueModule } from './pages/checkin/embarque.module';
 import { BagagemModule } from './pages/checkin/bagagem.module';
+import { LogintesteModule } from './pages/login/login.module'
+import { CancelaModule } from './pages/cancela/cancela.module'
 
 @NgModule({
   imports: [
@@ -34,6 +36,7 @@ import { BagagemModule } from './pages/checkin/bagagem.module';
     CheckinModule,
     BagagemModule,
     EmbarqueModule,
+    CancelaModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
