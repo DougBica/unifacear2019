@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Bagagem } from '../model/bagagem.model';
+import { BagagemService } from '../bagagem.service';
 
 @Component({
   selector: 'app-bagagem-listar',
@@ -6,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./bagagem-listar.component.scss']
 })
 export class BagagemListarComponent implements OnInit {
+
+  bagagens: Bagagem[];
 
   constructor() { }
 

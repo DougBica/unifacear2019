@@ -16,7 +16,7 @@ import edu.br.unifacear.webdev2019.checkin.entity.Bagagem;
 import edu.br.unifacear.webdev2019.checkin.service.BagagemService;
 
 @RestController
-@RequestMapping(value="/bagagem")
+@RequestMapping(value="/scp/public/bagagem")
 public class BagagemController {
 	
 	@Autowired
