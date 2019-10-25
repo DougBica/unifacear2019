@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Fabricante } from '../model/fabricante.model';
-import { FabricanteService } from '../fabricante.service';
+import { FabricanteService } from '../model/fabricante.service';
 import { Router } from '@angular/router';
 
 @Component({

@@ -8,8 +8,8 @@ import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { AeronaveListarComponent } from './pages/aeronave/aeronave-listar/aeronave-listar.component';
 import { AeronaveCadastrarComponent } from './pages/aeronave/aeronave-cadastrar/aeronave-cadastrar.component';
-import { FabricanteCadastrarComponent } from './pages/aeronave/fabricante-cadastrar/fabricante-cadastrar.component';
-import { FabricanteListarComponent } from './pages/aeronave/fabricante-listar/fabricante-listar.componet';
+import { FabricanteCadastrarComponent } from './pages/fabricante/fabricante-cadastrar/fabricante-cadastrar.component';
+import { FabricanteListarComponent } from './pages/fabricante/fabricante-listar/fabricante-listar.componet';
 
 const routes: Routes = [
   {

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Fabricante } from '../model/fabricante.model';
-import { FabricanteService } from '../fabricante.service';
+import { FabricanteService } from '../model/fabricante.service';
 
 
 

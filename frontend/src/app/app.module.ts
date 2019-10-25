@@ -16,7 +16,7 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { UsuarioModule } from './pages/usuario/usuario.module';
 import { AeronaveModule } from './pages/aeronave/aeronave.module';
-import { FabricanteModule } from './pages/aeronave/fabricante.module';
+import { FabricanteModule } from './pages/fabricante/model/fabricante.module';
 
 @NgModule({
   imports: [
