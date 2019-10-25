@@ -32,7 +32,7 @@ public class AeronaveController {
 		return aeronaveService.listar();
 	}
 	
-	@GetMapping("/buscarPorId{guidAeronave}")
+	@GetMapping("/buscarPorId/{guidAeronave}")
 	public Aeronave BuscarPorID(@PathVariable("guidAeronave") Long guidAeronave) {
 		return aeronaveService.findOneById(guidAeronave);
 	}
