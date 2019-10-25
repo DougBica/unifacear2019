@@ -13,6 +13,37 @@
       <input type="email" class="form-control" name="email" placeholder="Digite seu email" [(ngModel)]="usuario.email"
         required>
     </div>
+
+    <div class="card">
+      <div class="card-header">
+        Perfis <button class="btn" (click)="adicionarPerfil();">Adicionar</button>
+      </div>
+      <ul class="list-group">
+        <li *ngFor="let perfil of perfis; let perfilIndex = index" class="list-group-item" style="background-color: #525f7f">
+          <div class="row">
+            <div class="col">
+              <select class="form-control" name="nome" [(ngModel)]="perfil.nome">
+                <option>Primeira Classe</option>
+                <option>Segunda Classe</option>
+              </select>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="qtdeAssentos" [(ngModel)]="perfil.descricao"
+                placeholder="Quantidade de assentos">
+            </div>
+            <div class="col">
+              <button type="button" (click)="removerPerfil(perfilIndex);" class=" close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+
+            </div>
+          </div>
+
+        </li>
+
+      </ul>
+    </div>
+
     <button type="submit" class="btn">Salvar</button>
   </form>
 

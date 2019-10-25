@@ -10,6 +10,7 @@ import { CheckinListarComponent } from './pages/checkin/checkin-listar/checkin-l
 import { CheckinCadastrarComponent } from './pages/checkin/checkin-cadastrar/checkin-cadastrar.component';
 import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usuario-cadastrar.component';
 import { AutenticacaoGuard } from './autenticacao.guard';
+import { LoginComponent } from './pages/login/login/login.component';
 
 const routes: Routes = [
   {
