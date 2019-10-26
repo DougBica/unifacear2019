@@ -93,7 +93,12 @@ import { UsuarioModule } from './pages/usuario/usuario.module';
 import { CheckinModule } from './pages/checkin/checkin.module';
 import { EmbarqueModule } from './pages/checkin/embarque.module';
 import { BagagemModule } from './pages/checkin/bagagem.module';
+<<<<<<< HEAD
 import { LogintesteModule } from './pages/login/login.module';
+=======
+import { LogintesteModule } from './pages/login/login.module'
+import { CancelaModule } from './pages/cancela/cancela.module'
+>>>>>>> 760ebe7320875aaa0d306594e61877e7f62c29fa
 
 @NgModule({
   imports: [
@@ -110,6 +115,7 @@ import { LogintesteModule } from './pages/login/login.module';
     CheckinModule,
     BagagemModule,
     EmbarqueModule,
+    CancelaModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
