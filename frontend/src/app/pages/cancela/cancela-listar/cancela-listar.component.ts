@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { CancelaService } from '../cancela.service';
 import { Cancela } from '../model/cancela.model';
 import { Router } from '@angular/router';
@@ -24,5 +24,4 @@ export class CancelaListarComponent implements OnInit {
   detail(cancela: Cancela){
     this.router.navigateByUrl("/admin/cancela/detalhes",{ state: {cancela: cancela}})
   }
-
 }
