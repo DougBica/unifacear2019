@@ -26,9 +26,13 @@ public class ReservaController {
 		reservaService.salvar(reserva);
 	}
 	
-	@GetMapping
+	@GetMapping("/list")
 	public List<Reserva> listar() {
 		return reservaService.listar();
+	}
+	@GetMapping("/usuario/{guidUsuario}")
+	public List<Reserva> listarPorUsuario(@PathVariable (name = "guidUsuario") Long guidUsuario) {
+		return reservaService.listarPorUsuario(guidUsuario);
 	}
 	
 	@GetMapping("/{guidReserva}")

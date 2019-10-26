@@ -28,9 +28,9 @@ public class TipoPagamento {
 	@NotEmpty @NotNull 
 	private String descricaoPagamento;
 	
-	@OneToMany(mappedBy="tipoPagamento",fetch = FetchType.EAGER)
-	@Fetch(FetchMode.SUBSELECT)
-	private List<Reserva> reserva;
+//	@OneToMany(mappedBy="tipoPagamento",fetch = FetchType.EAGER)
+//	@Fetch(FetchMode.SUBSELECT)
+//	private List<Reserva> reserva;
 
 	public Long getGuidTipoPagamento() {
 		return guidTipoPagamento;
@@ -48,13 +48,13 @@ public class TipoPagamento {
 		this.descricaoPagamento = descricaoPagamento;
 	}
 
-	public List<Reserva> getReserva() {
-		return reserva;
-	}
-
-	public void setReserva(List<Reserva> reserva) {
-		this.reserva = reserva;
-	}
+//	public List<Reserva> getReserva() {
+//		return reserva;
+//	}
+//
+//	public void setReserva(List<Reserva> reserva) {
+//		this.reserva = reserva;
+//	}
 	
 	
 	

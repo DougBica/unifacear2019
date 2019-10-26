@@ -9,14 +9,15 @@ import org.springframework.web.context.request.WebRequest;
 @RestControllerAdvice
 public class CustomExceptionHandler {
 
-//	@ResponseStatus(HttpStatus.BAD_REQUEST)
-//	@ExceptionHandler(BusinessException.class)
-//    public final ValidationErrorResponse handleAllBusinessExceptions(BusinessException ex, WebRequest request) {
-//		ValidationErrorResponse error = new ValidationErrorResponse();
-//		error.setCode(ex.getCode());
-//		error.setMessage(ex.getMessage());
-//        return error;
-//    }
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(BusinessException.class)
+    public final ValidationErrorResponse handleAllBusinessExceptions(BusinessException ex, WebRequest request) {
+		ValidationErrorResponse error = new ValidationErrorResponse();
+		System.out.println(ex.getCode());
+		error.setCode(ex.getCode());
+		error.setMessage(ex.getMessage());
+        return error;
+    }
 //	
 //	@ExceptionHandler(Exception.class)
 //    public final ValidationErrorResponse handleAllExceptions(Exception ex, WebRequest request) {

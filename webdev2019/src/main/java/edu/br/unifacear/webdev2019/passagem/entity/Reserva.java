@@ -1,5 +1,7 @@
 package edu.br.unifacear.webdev2019.passagem.entity;
 
+import java.math.BigDecimal;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -10,11 +12,8 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
-
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "guidReserva")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "guidReserva")
 @Table(name = "RESERVA")
 public class Reserva {
 	@Id
@@ -28,7 +27,7 @@ public class Reserva {
 	@NotNull @NotEmpty
 	private String destino;
 	
-	private Double valorReserva; // This attribute is defined with the Passagem values
+	private BigDecimal valorReserva; // This attribute is defined with the Passagem values
 	
 	private boolean paid; // its paid?
 	
@@ -93,11 +92,11 @@ public class Reserva {
 		this.destino = destino;
 	}
 
-	public Double getValorReserva() {
+	public BigDecimal getValorReserva() {
 		return valorReserva;
 	}
 
-	public void setValorReserva(Double valorReserva) {
+	public void setValorReserva(BigDecimal valorReserva) {
 		this.valorReserva = valorReserva;
 	}
 

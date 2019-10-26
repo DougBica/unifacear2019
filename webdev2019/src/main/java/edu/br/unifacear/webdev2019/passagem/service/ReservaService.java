@@ -19,15 +19,6 @@ public class ReservaService {
 	
 	@Transactional
 	public void salvar(Reserva reserva) {
-		
-		
-
-//		if(reserva.getPassagem() == null) {
-//			String err500 = new BusinessException(BusinessExceptionCode.ERR500).getMessage();
-//			return err500;
-//		}
-		
-		
 		reservaRepository.save(reserva);
 	}	
 	
@@ -40,7 +31,13 @@ public class ReservaService {
 	}
 	public Reserva buscarPorId(final Long guidReserva) {
 		Reserva reserva = Optional.ofNullable(reservaRepository.findById(guidReserva)).orElse(null)
-				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR000));
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR503));
 		return reserva;
+	}
+
+	public List<Reserva> listarPorUsuario(final Long guidUsuairo) {
+		List<Reserva> listaReservas = reservaRepository.findByGuidUsuario(guidUsuairo);
+		if(listaReservas.isEmpty()) throw new BusinessException(BusinessExceptionCode.ERR505);
+		return listaReservas;
 	}
 }

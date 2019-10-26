@@ -20,7 +20,7 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 
 @Entity
-@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "guidPassagem")
+//@JsonIdentityInfo(generator = ObjectIdGenerators.PropertyGenerator.class, property = "guidPassagem")
 @Table(name = "PASSAGEM")
 public class Passagem {
 	@Id
@@ -37,9 +37,8 @@ public class Passagem {
 	/*
 	 * This Enum must contain in Aeroporto module
 	 */
-	@Enumerated(EnumType.STRING)
-	
-    private ClassePassagemEnum classePassagemEnum;
+	@Enumerated(EnumType.STRING)	
+    private ClassePassagemEnum classePassagem;
 	
 	@NotNull
 	private Date dataPartida;
@@ -79,11 +78,11 @@ public class Passagem {
 		this.guidRota = guidRota;
 	}
 	public ClassePassagemEnum getClassePassagem() {
-		return classePassagemEnum;
+		return classePassagem;
 	}
 	
 	public void setClassePassagem(ClassePassagemEnum classePassagem) {
-		this.classePassagemEnum = classePassagem;
+		this.classePassagem = classePassagem;
 	}
 	public Date getDataPartida() {
 		return dataPartida;
