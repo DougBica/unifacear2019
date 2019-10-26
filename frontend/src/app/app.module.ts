@@ -4,6 +4,7 @@ import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { ToastrModule } from 'ngx-toastr';
+import { PassagemModule } from './pages/passagem/passagem.module';
 
 import {
   MatAutocompleteModule,
@@ -110,6 +111,7 @@ import { LogintesteModule } from './pages/login/login.module';
     CheckinModule,
     BagagemModule,
     EmbarqueModule,
+    PassagemModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
