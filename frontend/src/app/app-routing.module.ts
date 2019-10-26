@@ -11,6 +11,7 @@ import { CheckinCadastrarComponent } from './pages/checkin/checkin-cadastrar/che
 import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usuario-cadastrar.component';
 import { AutenticacaoGuard } from './autenticacao.guard';
 import { LoginComponent } from './pages/login/login/login.component';
+import { CarrinhoPassagemComponent } from './pages/passagem/carrinho-passagem/carrinho-passagem.component';
 
 const routes: Routes = [
   {
@@ -24,6 +25,7 @@ const routes: Routes = [
       { path: 'usuario/:id', component: UsuarioCadastrarComponent }
    ]
   },
+  { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
   { path: 'login', component: LoginComponent },
   {
     path: "",
