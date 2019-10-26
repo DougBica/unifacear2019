@@ -21,8 +21,8 @@ export class CancelaListarComponent implements OnInit {
       cancelamentos => this.cancelamentos = cancelamentos
     )
   }
-  detail(guidCancela: number){
-    this.router.navigate(["/admin/cancela/detalhes"])
+  detail(cancela: Cancela){
+    this.router.navigateByUrl("/admin/cancela/detalhes",{ state: {cancela: cancela}})
   }
 
 }

@@ -14,7 +14,7 @@ export class CancelaService {
      return this.http.get<Cancela[]>("http://localhost:8080/scp/public/cancela")
     }
   findByid(guidCancela: number): Observable<Cancela>{
-    return this.http.get<Cancela>("http://localhost:8080/scp/public/cancela" + guidCancela)
+    return this.http.get<Cancela>("http://localhost:8080/scp/public/cancela/"+guidCancela)
   }
 
 }

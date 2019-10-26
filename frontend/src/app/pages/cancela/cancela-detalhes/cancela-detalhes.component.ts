@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { CancelaService } from '../cancela.service';
+import { Cancela } from '../model/cancela.model';
 
 @Component({
   selector: 'app-cancela-detalhes',
@@ -8,9 +10,16 @@ import { Router } from '@angular/router';
 })
 export class CancelaDetalhesComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  cancela: Cancela = new Cancela()
+  nomeUsuario: string
+
+  constructor(private route: ActivatedRoute, private router: Router, private service: CancelaService) {
+    const nav = this.router.getCurrentNavigation();
+    this.cancela = nav.extras.state.cancela;
+   }
 
   ngOnInit() {
+    
   }
   back(){
     this.router.navigate(["/admin/cancela"])

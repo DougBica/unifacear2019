@@ -2,7 +2,25 @@
   <h4>
     Detalhes do cancelamento
   </h4>
-  
+  <table class="table table-striped">
+    <tr>
+      <th>ID </th>
+      <th>ID Usuário</th>
+      <th>ID Reserva</th>
+      <th>ID Passagem</th>
+      <th>Data cancelamento</th>
+      <th>Motivo cancelamento</th>
+      <th>&nbsp;</th>
+    </tr>
+    <tr>
+        <td>{{cancela.guidCancelar}}</td>
+        <td>{{cancela.guidUsuario}}</td>
+        <td>{{cancela.guidReserva}}</td>
+        <td>{{cancela.guidPassagem}}</td>
+        <td>{{cancela.dataCancelamento}}</td>
+        <td>{{cancela.motivoCancelamento}}</td>
+      </tr>   
+  </table>
   <td><button class="btn" (click)="back()">Voltar</button></td>
 
 </div>
