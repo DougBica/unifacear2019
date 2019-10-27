@@ -16,7 +16,7 @@ import edu.br.unifacear.webdev2019.passagem.entity.TipoPagamento;
 import edu.br.unifacear.webdev2019.passagem.service.TipoPagamentoService;
 
 @RestController
-@RequestMapping("/tipoPagamento")
+@RequestMapping("/scp/private/tipoPagamento")
 public class TipoPagamentoController {
 
 	@Autowired
