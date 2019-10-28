@@ -21,6 +21,12 @@ export class CarrinhoPassagemComponent implements OnInit {
   ngOnInit() {
   }
 
+  listById(){ 
+    this.passagemService.listById("1").subscribe(passagem => {
+      console.log("Nome: "+passagem.nomePassageiro + "/ CPF: "+passagem.cpfPassageiro)
+    });
+  }
+
   salvarPassagem(){
     this.passagem.classePassagem = "CLASSE_EXECUTIVA";
     this.passagem.cpfPassageiro = "097.283.229.76";
