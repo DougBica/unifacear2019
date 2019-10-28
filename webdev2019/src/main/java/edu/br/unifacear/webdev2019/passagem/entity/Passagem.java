@@ -43,6 +43,11 @@ public class Passagem {
 	@NotNull
 	private Date dataPartida;
 	
+	@NotNull @NotEmpty
+	private String origem;
+	@NotNull @NotEmpty
+	private String destino;
+	
 	/*
 	 * If this attribute is true, the system shall allow the passenger to use the ticket
 	 * Else the system must block this ticket and passenger can't use it

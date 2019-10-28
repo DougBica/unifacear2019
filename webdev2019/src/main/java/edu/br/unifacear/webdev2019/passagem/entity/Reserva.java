@@ -22,10 +22,7 @@ public class Reserva {
 
 	@NotNull
 	private Long guidUsuario;
-	@NotNull @NotEmpty
-	private String origem;
-	@NotNull @NotEmpty
-	private String destino;
+	
 	
 	private BigDecimal valorReserva; // This attribute is defined with the Passagem values
 	
