@@ -31,11 +31,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity.headers().frameOptions().sameOrigin();
 		
 		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/scp/public/**").permitAll()
-				.antMatchers("/scp/private/reserva/**").hasRole("GERENCIAR_RESERVA")
-				.antMatchers("/scp/private/passagem/**").hasRole("GERENCIAR_RESERVA")
-				.antMatchers("/scp/private/tipoPagamento/**").hasRole("GERENCIAR_RESERVA")
-				.antMatchers(HttpMethod.POST, "/scp/public/login").permitAll()
-				.anyRequest().authenticated().and()
+				.antMatchers(HttpMethod.POST, "/scp/public/login").permitAll().anyRequest().authenticated().and()
 
 				// filtra requisições de login
 				.addFilterBefore(new JWTLoginFilter("/scp/public/login", authenticationManager()),
