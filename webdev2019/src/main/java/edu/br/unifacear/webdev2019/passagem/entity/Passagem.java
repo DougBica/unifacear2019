@@ -64,6 +64,14 @@ public class Passagem {
 	@JoinColumn(name = "guidReserva")
 	private Reserva reserva;
 	
+	public void setOrigem(String origem) {
+		this.origem = origem;
+	}
+
+	public String getDestino() {
+		return destino;
+	}
+	
 	public Reserva getReserva() {
 		return reserva;
 	}

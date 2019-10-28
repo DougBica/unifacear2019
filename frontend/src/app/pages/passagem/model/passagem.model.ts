@@ -1,3 +1,5 @@
+import { Reserva } from './reserva.model';
+
 export class Passagem {
 
     guidPassagem: number;
@@ -9,7 +11,7 @@ export class Passagem {
     active: boolean;
     valorPassagem: number;
     nomePassageiro: string;
-    cpfPassageiro: string;
-    // CRIAR OBJETO RESERVA AQUI
+    cpfPassageiro: string;  
+    reserva: Reserva;
 
 }
