@@ -67,18 +67,11 @@
                                     <th></th>
                                 </thead>
                                 <tbody>
-                                    <tr>
+                                    <tr *ngFor="let passagem of listaPassagens">
                                         <td>1</td>
-                                        <td>Curitiba</td>
-                                        <td>Sao Paulo</td>
-                                        <td>R$23,789</td>
-                                        <td><button class="btn">-</button></td>
-                                    </tr>
-                                    <tr>
-                                        <td>2</td>
-                                        <td>Minerva Hooper</td>
-                                        <td>$23,789</td>
-                                        <td>Curaçao</td>
+                                        <td>{{passagem.origem}}</td>
+                                        <td>{{passagem.destino}}</td>
+                                        <td>{{passagem.valor}}</td>
                                         <td><button class="btn">-</button></td>
                                     </tr>
                                 </tbody>  
