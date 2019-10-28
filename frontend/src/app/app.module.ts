@@ -112,6 +112,7 @@ import { LogintesteModule } from './pages/login/login.module';
     BagagemModule,
     EmbarqueModule,
     PassagemModule,
+    MatIconModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
