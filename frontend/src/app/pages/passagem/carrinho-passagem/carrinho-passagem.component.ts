@@ -27,18 +27,18 @@ export class CarrinhoPassagemComponent implements OnInit {
     });
   }
 
-  salvarPassagem(){
-    this.passagem.classePassagem = "CLASSE_EXECUTIVA";
-    this.passagem.cpfPassageiro = "097.283.229.76";
-    this.passagem.dataPartida = this.data;
-    this.passagem.destino = "Sao paulo";
-    this.passagem.guidRota = 1;
-    this.passagem.nomePassageiro = "Lucas";
-    this.passagem.origem = "Curitiba";
+  // salvarPassagem(){
+  //   this.passagem.classePassagem = "CLASSE_EXECUTIVA";
+  //   this.passagem.cpfPassageiro = "097.283.229.76";
+  //   this.passagem.dataPartida = this.data;
+  //   this.passagem.destino = "Sao paulo";
+  //   this.passagem.guidRota = 1;
+  //   this.passagem.nomePassageiro = "Lucas";
+  //   this.passagem.origem = "Curitiba";
 
     
-    this.passagemService.salvar(this.passagem);
+  //   this.passagemService.salvar(this.passagem);
 
-  }
+  // }
 
 }
