@@ -1,0 +1,87 @@
+.container{
+    bottom: 280px  !important;
+    background-color: white !important;
+    position: absolute  !important;
+    top: 118px  !important;
+    right: 329px  !important;
+    width: 900px  !important;
+    border-radius: 6px;
+    box-shadow: 0 2px 1px rgba(0,0,0,0.1);
+	background: #FFFFFF;
+   -webkit-box-shadow: 0px 3px 5px 0px rgba(184,175,184,1);
+   -moz-box-shadow: 0px 3px 5px 0px rgba(184,175,184,1);
+   box-shadow: 0px 3px 5px 0px rgba(184,175,184,1);
+}
+body{
+    background-color:#1e1e2f !important;
+    
+}
+
+.origem{
+    width: 100%;
+    right: -36px;
+    top: 41px;
+    position: relative;
+}
+.origem input{
+    padding: 15px 40px 15px 15px !important;
+    width: 377px;
+    font-style: italic !important;
+}
+.origem .icon{
+    position: absolute !important;
+    top: 40px !important;
+    right: 522px !important;
+    z-index: 20 !important;
+    border: none !important;
+    background: transparent !important;
+    outline: none !important;
+    display: block !important;
+}
+
+.destino{
+    position: relative;
+    top: -44px;
+    right: -462px;
+}
+
+.destino input{
+    padding: 15px 40px 15px 15px !important;
+    width: 377px;
+    font-style: italic !important;
+}
+
+.destino .icon{
+    position: absolute !important;
+    top: 40px !important;
+    right: -1px !important;
+    z-index: 20 !important;
+    border: none !important;
+    background: transparent !important;
+    outline: none !important;
+    display: block !important;
+}
+
+.seta{
+    right: 450px;
+    position: absolute;
+    top: 81px;
+}
+
+.dataIda{
+    position: relative;
+    top: -41px;
+    right: -20px;
+}
+
+.dataIda input{
+    width: 185px;
+}
+
+.dataVolta {
+    TOP: -40PX;
+}
+
+.dataVolta input{
+    width: 185px;
+}
