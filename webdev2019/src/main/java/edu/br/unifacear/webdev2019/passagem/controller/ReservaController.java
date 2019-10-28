@@ -16,7 +16,7 @@ import edu.br.unifacear.webdev2019.passagem.entity.Reserva;
 import edu.br.unifacear.webdev2019.passagem.service.ReservaService;
 
 @RestController
-@RequestMapping("/scp/private/reserva")
+@RequestMapping("/scp/public/reserva")
 public class ReservaController {
 	@Autowired
 	private ReservaService reservaService;

@@ -16,7 +16,7 @@ import edu.br.unifacear.webdev2019.passagem.entity.Passagem;
 import edu.br.unifacear.webdev2019.passagem.service.PassagemService;
 
 @RestController
-@RequestMapping("/scp/private/passagem")
+@RequestMapping("/scp/public/passagem")
 public class PassagemController {
 	@Autowired
 	private PassagemService passagemService;
