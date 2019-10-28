@@ -73,14 +73,6 @@ public class Reserva {
 		this.guidUsuario = guidUsuario;
 	}
 
-	public String getOrigem() {
-		return origem;
-	}
-
-
-	public void setDestino(String destino) {
-		this.destino = destino;
-	}
 
 	public BigDecimal getValorReserva() {
 		return valorReserva;
