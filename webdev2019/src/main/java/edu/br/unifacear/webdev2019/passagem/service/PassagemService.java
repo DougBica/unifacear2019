@@ -29,7 +29,12 @@ public class PassagemService {
 			if(e.getMessage().contains("null")) throw new BusinessException(BusinessExceptionCode.ERR502);
 		}
 		passagemRepository.save(passagem);
-	}	
+	}
+	
+	public List<Passagem> listar() {
+		return passagemRepository.findAll();
+	}
+
 	
 	public void excluir(Passagem passagem) {
 		passagemRepository.delete(passagem);

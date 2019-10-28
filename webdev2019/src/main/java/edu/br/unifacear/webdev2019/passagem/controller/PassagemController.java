@@ -27,6 +27,13 @@ public class PassagemController {
 		passagemService.salvar(passagem);	
 	}
 	
+	@GetMapping
+	public List<Passagem> listar() {
+	
+		return passagemService.listar();
+	
+	}
+	
 	@GetMapping("/reserva/{guidReserva}")
 	public List<Passagem> listarPorReserva(@PathVariable(name = "guidReserva") Long guidReserva) {
 		return passagemService.listarPorReserva(guidReserva);

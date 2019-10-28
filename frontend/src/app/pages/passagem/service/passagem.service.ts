@@ -16,6 +16,11 @@ export class PassagemService {
     return this.http.get<Passagem>(this.API+id);
   }
 
+  listAll(){
+    return this.http.get<Passagem[]>(this.API);
+    return 
+  }
+
 }
 
 
