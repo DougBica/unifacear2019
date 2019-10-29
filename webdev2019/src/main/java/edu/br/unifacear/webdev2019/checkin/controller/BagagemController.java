@@ -32,6 +32,11 @@ public class BagagemController {
 		return bagagemservice.findOne(id);
 	}
 	
+	@GetMapping(value="/listarpcheckin/{id}")
+	public List<Bagagem> listarid(@PathVariable Long id){
+		return bagagemservice.listaridBagagem(id);
+	}
+	
 	@PostMapping
 	public void inserirBagagem(@RequestBody Bagagem bagagem) {
 		bagagemservice.inserirBagagem(bagagem);

@@ -33,6 +33,15 @@ public class BagagemService implements Serializable {
 		}
 	}
 	
+	public List<Bagagem> listaridBagagem(Long id){
+		try {
+			return  bagagemrepository.findByGuidCheckin(id);
+		}
+		catch(BusinessException e) {
+			throw new BusinessException(BusinessExceptionCode.ERR000);
+		}
+	}
+	
 	public Bagagem findOne(Long id){
 		Bagagem bagagem = Optional.
 			ofNullable(bagagemrepository.findById(id)).orElse(null).
