@@ -1,0 +1,65 @@
+
+<div id="conteudo-principal">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-1"></div>
+        <div id='formulario-pagamento'class="col-md-8">
+          <h3>Pagamento</h3>
+          <form method="POST">
+            <div class="row">
+              <div class="col-md-3">
+                <div class="form-group">
+                    <label for="numeroCartao">Número do Cartão</label>
+                    <input type="text" class="form-control" id="numero-cartao" placeholder="9999 9999 9999 9999" required>
+                </div>
+                <div class="form-group">
+                    <label for="codigoCartao">Código do Cartão (CCV)</label>
+                    <input type="text" class="form-control" id="codigo-cartao" placeholder="999" required>
+                </div>
+                <div class="form-group">
+                    <label for="nome">Nome Titular Cartão</label>
+                    <input type="text" class="form-control" id="nome" placeholder="Ex: JOSE DA SILVA" required>
+                </div>
+                <div class="form-group">
+                    <label for="cpf">CPF Titular Cartão</label>
+                    <input type="text" class="form-control" id="cpf" placeholder="123.456.789-00">
+                  </div>
+                  <input type="submit" value="Confirmar Pagamento" class="btn btn-primary" />
+              </div>
+              <div class="col-md-3">
+                <div class="dropdown">
+                  <p>Bandeira</p>
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="test" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="test">
+                      <a class="dropdown-item" href="#">Action</a>
+                      <a class="dropdown-item" href="#">Another action</a>
+                      <a class="dropdown-item" href="#">Something else here</a>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <p>Validade do Cartão</p>
+                      <button class="btn btn-secondary dropdown-toggle" type="button" id="test" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      </button>
+                      <div class="dropdown-menu" aria-labelledby="test">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" href="#">Something else here</a>
+                      </div>
+                  </div>
+                  <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" id="test" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="test">
+                          <a class="dropdown-item" href="#">Action</a>
+                          <a class="dropdown-item" href="#">Another action</a>
+                          <a class="dropdown-item" href="#">Something else here</a>
+                        </div>
+                    </div>
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>
