@@ -26,7 +26,7 @@ export class CarrinhoPassagemComponent implements OnInit {
       origem: "Curti",
       destino: "sao",
       active: true,
-      valorPassagem: 2,
+      valorPassagem: 250.4,
       nomePassageiro: "ADSas",
       cpfPassageiro: "89",  
       reserva: new Reserva()
@@ -39,7 +39,7 @@ export class CarrinhoPassagemComponent implements OnInit {
       origem: "origem2",
       destino: "destino2",
       active: true,
-      valorPassagem: 2,
+      valorPassagem: 232.4,
       nomePassageiro: "ADSas",
       cpfPassageiro: "89",  
       reserva: new Reserva()
@@ -52,7 +52,7 @@ export class CarrinhoPassagemComponent implements OnInit {
       origem: "origem3",
       destino: "destino3",
       active: true,
-      valorPassagem: 2,
+      valorPassagem: 334.67,
       nomePassageiro: "ADSas",
       cpfPassageiro: "89",  
       reserva: new Reserva()
@@ -78,6 +78,12 @@ export class CarrinhoPassagemComponent implements OnInit {
         console.log("Nome: "+element.nomePassageiro + "/ CPF: "+element.cpfPassageiro)
       });
     });
+  }
+
+
+
+  removerPassagem(id: number){
+    
   }
 
 }
