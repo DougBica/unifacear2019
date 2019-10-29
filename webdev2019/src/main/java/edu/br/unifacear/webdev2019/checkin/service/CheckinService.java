@@ -41,25 +41,22 @@ public class CheckinService implements Serializable {
 	}
 	
 	public Checkin insertCheckin(Checkin checkin) {
-		if(checkin.getDataCheckin().before(Calendar.
+		/*if(checkin.getDataCheckin().before(Calendar.
 				getInstance().getTime())) {
 			throw new BusinessException(BusinessExceptionCode.ERR506);
 		}
-		else if(checkin.getGuidUsuario() == null){
-			throw new BusinessException(BusinessExceptionCode.ERR510);
-		}
-		else if(checkin.getGuidAeronave() == null) {
-			throw new BusinessException(BusinessExceptionCode.ERR509);	
-		}
-		else if(checkin.getGuidVoo() == null) {
-			throw new BusinessException(BusinessExceptionCode.ERR508);
-		}
-		else if(checkin.getGuidPassagem() == null) {
-			throw new BusinessException(BusinessExceptionCode.ERR507);
-		}
+		else if(checkin.getGuidUsuario() == null){ throw new
+		BusinessException(BusinessExceptionCode.ERR510); } else
+		if(checkin.getGuidAeronave() == null) { throw new
+		BusinessException(BusinessExceptionCode.ERR509); } else
+		if(checkin.getGuidVoo() == null) { throw new
+		BusinessException(BusinessExceptionCode.ERR508); } else
+		if(checkin.getGuidPassagem() == null) { throw new
+		BusinessException(BusinessExceptionCode.ERR507); } 
 		else {
 			return checkinRepository.save(checkin);
-		}
+		}*/
+		return checkinRepository.save(checkin);
 	}
 	
 	public Checkin alterCheckin(Checkin checkin) {

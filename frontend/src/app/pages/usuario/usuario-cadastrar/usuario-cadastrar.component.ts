@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Usuario } from '../model/usuario.model';
 import { UsuarioService } from '../usuario.service';
-
+import { Perfil } from '../model/perfil.model';
 
 
 @Component({
@@ -13,6 +13,8 @@ import { UsuarioService } from '../usuario.service';
 export class UsuarioCadastrarComponent implements OnInit {
 
   usuario: Usuario = new Usuario();
+
+  perfis: Perfil[] = [];
 
   constructor(private route: ActivatedRoute,
     private usuarioService: UsuarioService,
@@ -33,13 +35,24 @@ export class UsuarioCadastrarComponent implements OnInit {
   }
 
   salvar() {
-    this.usuarioService.salvar(this.usuario).subscribe(
+    this.usuario.perfis = this.perfis;
+    console.log(this.usuario);
+    /*this.usuarioService.salvar(this.usuario).subscribe(
       () => {
 
 
         this.router.navigate(["/admin/usuario/"]);
       }
-    );
+    );*/
+  }
+
+  adicionarPerfil() {
+    let perfil = new Perfil()   
+    this.perfis.push(perfil);    
+  }
+
+  removerPerfil(index : any) {
+    this.perfis.splice(index, 1);
   }
 
 }

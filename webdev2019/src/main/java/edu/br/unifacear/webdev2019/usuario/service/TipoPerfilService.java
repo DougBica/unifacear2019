@@ -16,22 +16,22 @@ public class TipoPerfilService {
 
 	@Autowired
 	private TipoPerfilRepository tipoPerfilRepository;
-	
+
 	@Transactional
-	public void salvar(TipoPerfil tipoPerfil) {		
+	public void salvar(TipoPerfil tipoPerfil) {
 		tipoPerfilRepository.save(tipoPerfil);
-	}	
-	
+	}
+
 	public void excluir(TipoPerfil tipoPerfil) {
 		tipoPerfilRepository.delete(tipoPerfil);
 	}
-	
+
 	public List<TipoPerfil> listar() {
 		return tipoPerfilRepository.findAll();
 	}
-	
+
 	public List<TipoPerfil> BuscarId(Iterable<Long> guidTipoPerfil) {
-		 return tipoPerfilRepository.findAllById(guidTipoPerfil);
+		return tipoPerfilRepository.findAllById(guidTipoPerfil);
 	}
 	
 }

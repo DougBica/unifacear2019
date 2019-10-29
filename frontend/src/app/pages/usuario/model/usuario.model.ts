@@ -1,3 +1,5 @@
+import { Perfil } from './perfil.model';
+
 export class Usuario {
 
     guidUsuario: number;
@@ -6,4 +8,6 @@ export class Usuario {
     dataNasc: any;
     cpf : String;
     foto : String;
+    perfis: Perfil[] = [];
+
 }
