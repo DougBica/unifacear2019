@@ -25,6 +25,7 @@ public class ControllerUsuario {
 	@Autowired
 	private UsuarioService usuarioService;
 
+
 	@PostMapping
 	public void salvar(@RequestBody @Valid Usuario usuario) {
 		usuarioService.salvar(usuario);
