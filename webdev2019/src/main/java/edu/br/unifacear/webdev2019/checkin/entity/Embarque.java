@@ -1,5 +1,7 @@
 package edu.br.unifacear.webdev2019.checkin.entity;
 
+import java.util.Date;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -15,6 +17,22 @@ public class Embarque {
 	private Long guidEmbarque;
 	private boolean idntEmbarque;
 	private Long guidCheckin;
+	private Date dataEmbarque;
+	private boolean embarcou;
+	
+	
+	public boolean isEmbarcou() {
+		return embarcou;
+	}
+	public void setEmbarcou(boolean embarcou) {
+		this.embarcou = embarcou;
+	}
+	public Date getDataEmbarque() {
+		return dataEmbarque;
+	}
+	public void setDataEmbarque(Date dataEmbarque) {
+		this.dataEmbarque = dataEmbarque;
+	}
 	
 	public Long getGuidEmbarque() {
 		return guidEmbarque;

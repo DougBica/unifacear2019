@@ -10,6 +10,7 @@ import { CheckinListarComponent } from './pages/checkin/checkin-listar/checkin-l
 import { CheckinCadastrarComponent } from './pages/checkin/checkin-cadastrar/checkin-cadastrar.component';
 import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usuario-cadastrar.component';
 import { AutenticacaoGuard } from './autenticacao.guard';
+import { EmbarqueListarComponent } from './pages/checkin/embarque-listar/embarque-listar.component';
 
 const routes: Routes = [
   {
@@ -20,7 +21,8 @@ const routes: Routes = [
       { path: 'usuario', component: UsuarioListarComponent },
       { path: 'checkin-controle', component: CheckinListarComponent },
       { path: 'checkin-cadastrar/:id', component: CheckinCadastrarComponent },
-      { path: 'usuario/:id', component: UsuarioCadastrarComponent }
+      { path: 'usuario/:id', component: UsuarioCadastrarComponent },
+      { path: 'embarque-controle', component: EmbarqueListarComponent}
    ]
   },
   {
