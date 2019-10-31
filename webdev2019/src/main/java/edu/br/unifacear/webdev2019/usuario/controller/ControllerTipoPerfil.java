@@ -1,4 +1,4 @@
-package edu.br.unifacear.webdev2019.usuario.controller;
+/*package edu.br.unifacear.webdev2019.usuario.controller;
 
 import java.util.List;
 
@@ -39,4 +39,9 @@ public class ControllerTipoPerfil {
 		 tipoperfilService.BuscarId(guidTipoPerfil);
 	}
 
+<<<<<<< HEAD
 }
+=======
+}
+*/
+>>>>>>> 90ad94b435ab5670bd4c6bac21a53d73d7412901

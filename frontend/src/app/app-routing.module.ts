@@ -10,6 +10,7 @@ import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usu
 import { AutenticacaoGuard } from './autenticacao.guard';
 import { LoginComponent } from './pages/login/login/login.component';
 
+
 const routes: Routes = [
   {
     path: "admin",
