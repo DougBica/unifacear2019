@@ -18,7 +18,10 @@ export class PassagemService {
 
   listAll(){
     return this.http.get<Passagem[]>(this.API);
-    return 
+  }
+
+  salvar(passagem: Passagem) : Observable<any> {
+    return this.http.post<any>(this.API, passagem);
   }
 
 }

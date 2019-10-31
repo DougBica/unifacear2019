@@ -11,10 +11,11 @@ import { TipoPagamento } from '../model/tipo-pagamento.model';
 })
 export class CarrinhoPassagemComponent implements OnInit {
 
-  passagem: Passagem;
-  reserva: Reserva;
+  passagem: Passagem = null;
+  reserva: Reserva = new Reserva();
   tipoPagamento: TipoPagamento;
-  data: Date = new Date('1995-12-17T03:24:00');
+  viewValorReserva: number = 0;
+
 
   // Este array será populado com o array que virá da tela buscar-passagem
   listaPassagens: Array<Passagem> = [
@@ -56,22 +57,154 @@ export class CarrinhoPassagemComponent implements OnInit {
       nomePassageiro: "ADSas",
       cpfPassageiro: "89",  
       reserva: new Reserva()
+    },
+    { 
+      guidPassagem: 4,
+      guidRota: 1,
+      classePassagem: "CLASSE_EXECUTIVA",
+      dataPartida: new Date(),
+      origem: "teste",
+      destino: "destiasaasdno3",
+      active: true,
+      valorPassagem: 564.67,
+      nomePassageiro: "ADSas",
+      cpfPassageiro: "89",  
+      reserva: new Reserva()
+    },
+    { 
+      guidPassagem: 5,
+      guidRota: 1,
+      classePassagem: "CLASSE_EXECUTIVA",
+      dataPartida: new Date(),
+      origem: "origem3",
+      destino: "destino3",
+      active: true,
+      valorPassagem: 334.67,
+      nomePassageiro: "ADSas",
+      cpfPassageiro: "89",  
+      reserva: new Reserva()
+    },
+    { 
+      guidPassagem: 6,
+      guidRota: 1,
+      classePassagem: "CLASSE_EXECUTIVA",
+      dataPartida: new Date(),
+      origem: "origem3",
+      destino: "destino3",
+      active: true,
+      valorPassagem: 334.67,
+      nomePassageiro: "ADSas",
+      cpfPassageiro: "89",  
+      reserva: new Reserva()
+    },
+    { 
+      guidPassagem: 7,
+      guidRota: 1,
+      classePassagem: "CLASSE_EXECUTIVA",
+      dataPartida: new Date(),
+      origem: "origem3",
+      destino: "destino3",
+      active: true,
+      valorPassagem: 334.67,
+      nomePassageiro: "ADSas",
+      cpfPassageiro: "89",  
+      reserva: new Reserva()
+    },
+    { 
+      guidPassagem: 4,
+      guidRota: 1,
+      classePassagem: "CLASSE_EXECUTIVA",
+      dataPartida: new Date(),
+      origem: "teste",
+      destino: "destiasaasdno3",
+      active: true,
+      valorPassagem: 564.67,
+      nomePassageiro: "ADSas",
+      cpfPassageiro: "89",  
+      reserva: new Reserva()
+    },
+    { 
+      guidPassagem: 5,
+      guidRota: 1,
+      classePassagem: "CLASSE_EXECUTIVA",
+      dataPartida: new Date(),
+      origem: "origem3",
+      destino: "destino3",
+      active: true,
+      valorPassagem: 334.67,
+      nomePassageiro: "ADSas",
+      cpfPassageiro: "89",  
+      reserva: new Reserva()
+    },
+    { 
+      guidPassagem: 6,
+      guidRota: 1,
+      classePassagem: "CLASSE_EXECUTIVA",
+      dataPartida: new Date(),
+      origem: "origem3",
+      destino: "destino3",
+      active: true,
+      valorPassagem: 334.67,
+      nomePassageiro: "ADSas",
+      cpfPassageiro: "89",  
+      reserva: new Reserva()
+    },
+    { 
+      guidPassagem: 7,
+      guidRota: 1,
+      classePassagem: "CLASSE_EXECUTIVA",
+      dataPartida: new Date(),
+      origem: "origem3",
+      destino: "destino3",
+      active: true,
+      valorPassagem: 334.67,
+      nomePassageiro: "ADSas",
+      cpfPassageiro: "89",  
+      reserva: new Reserva()
+    },
+    { 
+      guidPassagem: 4,
+      guidRota: 1,
+      classePassagem: "CLASSE_EXECUTIVA",
+      dataPartida: new Date(),
+      origem: "teste",
+      destino: "destiasaasdno3",
+      active: true,
+      valorPassagem: 564.67,
+      nomePassageiro: "ADSas",
+      cpfPassageiro: "89",  
+      reserva: new Reserva()
+    },
+    { 
+      guidPassagem: 5,
+      guidRota: 1,
+      classePassagem: "CLASSE_EXECUTIVA",
+      dataPartida: new Date(),
+      origem: "origem3",
+      destino: "destino3",
+      active: true,
+      valorPassagem: 334.67,
+      nomePassageiro: "ADSas",
+      cpfPassageiro: "89",  
+      reserva: new Reserva()
     }
   ]
 
   
-  constructor(private passagemService: PassagemService) { }
-
-  ngOnInit() {
+  constructor(private passagemService: PassagemService) { 
+    this.calcularValorReserva();
   }
 
-  listById(){ 
+  ngOnInit() { 
+  }
+
+  listPassagemById(){ 
     this.passagemService.listById("1").subscribe(passagem => {
       console.log("Nome: "+passagem.nomePassageiro + "/ CPF: "+passagem.cpfPassageiro)
     });
   }
 
-  listAll(){
+  listAllPassagens(){
     this.passagemService.listAll().subscribe(passagens => {
       console.log("List ALL");
       passagens.forEach(element => {
@@ -80,10 +213,10 @@ export class CarrinhoPassagemComponent implements OnInit {
     });
   }
 
-
-
-  removerPassagem(id: number){
-    
+  calcularValorReserva(){
+    this.listaPassagens.forEach(passagem => {
+      this.viewValorReserva += passagem.valorPassagem;
+    });
   }
 
 }
