@@ -22,7 +22,6 @@ public class PassagemController {
 	private PassagemService passagemService;
 	
 	@PostMapping
-	
 	public void salvar(@RequestBody @Valid Passagem passagem) {
 		passagemService.salvar(passagem);	
 	}

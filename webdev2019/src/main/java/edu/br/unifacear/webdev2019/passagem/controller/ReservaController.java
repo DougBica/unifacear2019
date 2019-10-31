@@ -26,7 +26,7 @@ public class ReservaController {
 		reservaService.salvar(reserva);
 	}
 	
-	@GetMapping("/list")
+	@GetMapping
 	public List<Reserva> listar() {
 		return reservaService.listar();
 	}

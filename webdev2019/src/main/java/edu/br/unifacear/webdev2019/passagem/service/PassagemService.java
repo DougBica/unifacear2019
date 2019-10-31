@@ -22,12 +22,12 @@ public class PassagemService {
 	
 	@Transactional
 	public void salvar(Passagem passagem) {	
-		RestTemplate rt = new RestTemplate();
-		try {
-			Reserva res = rt.getForObject("http://localhost:8080/reserva/"+passagem.getReserva().getGuidReserva(),Reserva.class);
-		} catch (HttpClientErrorException  e) {
-			if(e.getMessage().contains("null")) throw new BusinessException(BusinessExceptionCode.ERR502);
-		}
+//		RestTemplate rt = new RestTemplate();
+//		try {
+//			Reserva res = rt.getForObject("http://localhost:8080/reserva/"+passagem.getReserva().getGuidReserva(),Reserva.class);
+//		} catch (HttpClientErrorException  e) {
+//			if(e.getMessage().contains("null")) throw new BusinessException(BusinessExceptionCode.ERR502);
+//		}
 		passagemRepository.save(passagem);
 	}
 	
