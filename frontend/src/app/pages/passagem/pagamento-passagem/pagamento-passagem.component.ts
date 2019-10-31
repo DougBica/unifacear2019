@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl } from '@angular/forms';
+import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 
 @Component({
   selector: 'app-pagamento-passagem',
@@ -10,28 +10,31 @@ export class PagamentoPassagemComponent implements OnInit {
 
   anoAtual : any = new Date().getUTCFullYear();
   listaAno : any = [];
-  listaMes : Number [] = [1,2,3,4,5,6,7,8,9,10,11,12];
-  listaCartoes: String [] = ["Visa", "Master Card", "American Express", "Elo"]
+  listaMes : number [] = [1,2,3,4,5,6,7,8,9,10,11,12];
+  listaCartoes: string [] = ["Visa", "Master Card", "American Express", "Elo"]
+  dadosPagamento : FormGroup;
 
-  constructor() {}
-    myControl = new FormGroup ({
-      bandeiraCartao: new FormControl(''),
-      anoValidade: new FormControl(''),
-      mesValidade: new FormControl(''),
-      numeroCartao: new FormControl(''),
-      codigoCartao: new FormControl(''),
-      nome: new FormControl(''),
-      cpf: new FormControl('')
-    });
+  constructor(private fb: FormBuilder) {}
+     
   
   ngOnInit() {
+    this.dadosPagamento = this.fb.group({
+      nome: ['',[Validators.required]],
+      numeroCartao: ['',[Validators.required]],
+      codigoCartao: ['',[Validators.required]],
+      cpf: ['',[Validators.required]],
+      bandeiraCartao:['',[Validators.required]],
+      anoValidade: ['',[Validators.required]],
+      mesValidade: ['',[Validators.required]]
+    });
+
     for (let i = 0; i < 5; i++) {
       this.listaAno.push(String(this.anoAtual + i));
     }
   }
 
-  onFormSubmit(value: any):void{
-    console.log(this.myControl.value);
+  onFormSubmit(){
+    console.log(this.dadosPagamento.value, this.dadosPagamento.valid);
 
  
   }
