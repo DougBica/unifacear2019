@@ -36,7 +36,14 @@ export class PagamentoPassagemComponent implements OnInit {
   onFormSubmit(){
     console.log(this.dadosPagamento.value, this.dadosPagamento.valid);
 
- 
+    let confirmacao = this.creditCardServce(this.dadosPagamento.value);
+    if (confirmacao) alert("Pagamento realizado com sucesso")
+    
+  }
+
+  creditCardServce(creditCard){
+    console.log("Pagamento realizado com sucesso");
+    return true;
   }
 
 }
