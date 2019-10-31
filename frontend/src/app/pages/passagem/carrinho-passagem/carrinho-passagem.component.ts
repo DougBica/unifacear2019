@@ -1,3 +1,5 @@
+import { TipoPagamentoService } from './../service/tipo-pagamento.service';
+import { ReservaService } from '../service/reserva.service';
 import { Component, OnInit } from '@angular/core';
 import { PassagemService } from '../service/passagem.service';
 import { Passagem } from '../model/passagem.model';
@@ -100,7 +102,7 @@ export class CarrinhoPassagemComponent implements OnInit {
   ]
 
   
-  constructor(private passagemService: PassagemService) { 
+  constructor(private passagemService: PassagemService, private reservaService: ReservaService, private tipoPagamentoService: TipoPagamentoService) { 
     this.calcularValorReserva();
   }
 
@@ -115,17 +117,51 @@ export class CarrinhoPassagemComponent implements OnInit {
 
   listAllPassagens(){
     this.passagemService.listAll().subscribe(passagens => {
-      console.log("List ALL");
+      console.log("List ALL Passagens");
       passagens.forEach(element => {
         console.log("Nome: "+element.nomePassageiro + "/ CPF: "+element.cpfPassageiro)
       });
     });
   }
 
+  listAllReservas(){
+    this.reservaService.listAll().subscribe(reservasF => {
+      console.log("List ALL Reservas");
+      reservasF.forEach(element => {
+        console.log("Valor Reserva: "+element.valorReserva)
+      });
+    });
+  }
+
+  listAllTipoPagamento(){
+    this.tipoPagamentoService.listAll().subscribe(tPagamento => {
+      console.log("List ALL Tipo Pagamento");
+      tPagamento.forEach(element => {
+        console.log("Valor Reserva: "+element.descricaoPagamento);
+      });
+    });
+  }
+
+
+
   calcularValorReserva(){
     this.listaPassagens.forEach(passagem => {
       this.viewValorReserva += passagem.valorPassagem;
     });
+  }
+
+  salvarReserva(){
+    this.reserva.active = true;
+    this.reserva.guidUsuario = 1;
+    this.reserva.paid = false;
+    this.reserva.valorReserva = this.viewValorReserva;
+    this.reservaService.salvar(this.reserva);
+
+    this.listAllPassagens();
+    this.listAllReservas(); 
+    this.listAllTipoPagamento();
+
+    console.log('Executado salvarReserva()');
   }
 
 }
