@@ -5,6 +5,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { ToastrModule } from 'ngx-toastr';
 import { PassagemModule } from './pages/passagem/passagem.module';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import {
   MatAutocompleteModule,
@@ -77,7 +79,8 @@ import {
     
     
   ],
-  declarations: []
+  declarations: [],
+  imports: [BsDatepickerModule.forRoot(), BrowserAnimationsModule, BsDropdownModule.forRoot(), ButtonsModule.forRoot()]
 })
 export class MaterialModule { }
 
@@ -95,6 +98,9 @@ import { CheckinModule } from './pages/checkin/checkin.module';
 import { EmbarqueModule } from './pages/checkin/embarque.module';
 import { BagagemModule } from './pages/checkin/bagagem.module';
 import { LogintesteModule } from './pages/login/login.module';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 @NgModule({
   imports: [
