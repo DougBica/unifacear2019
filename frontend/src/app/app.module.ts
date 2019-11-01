@@ -94,6 +94,7 @@ import { CheckinModule } from './pages/checkin/checkin.module';
 import { EmbarqueModule } from './pages/checkin/embarque.module';
 import { BagagemModule } from './pages/checkin/bagagem.module';
 import { LogintesteModule } from './pages/login/login.module';
+import { ArquivoService } from './arquivo.service';
 
 @NgModule({
   imports: [
@@ -113,7 +114,7 @@ import { LogintesteModule } from './pages/login/login.module';
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
-  providers: [],
+  providers: [ArquivoService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
