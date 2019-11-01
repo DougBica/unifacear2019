@@ -37,20 +37,15 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
 	private CustomUser getCustomUser(String userName) {
 
-		// CustomUser customUser = jdbcTemplate.
-		// queryForObject("select guid_usuario, email as login, senha from usuario where
-		// email=?",new
-		// Object[]{userName},new UserRowMapper());
-		// if(customUser != null){
-		// customUser = new CustomUser(customUser.getUsername(),new
-		// BCryptPasswordEncoder().encode(customUser.getPassword()),customUser.isEnabled(),customUser.isAccountNonExpired(),customUser.isCredentialsNonExpired(),
-		// customUser.isAccountNonLocked(),getUserRoles(customUser.getId()));
-		// }
+		 CustomUser customUser = jdbcTemplate.
+		 queryForObject("select guid_usuario, email as login, senha from usuario where email=?",new
+		 Object[]{userName},new UserRowMapper());
+		 if(customUser != null){
+		 customUser = new CustomUser(customUser.getUsername(),new
+		 BCryptPasswordEncoder().encode(customUser.getPassword()),customUser.isEnabled(),customUser.isAccountNonExpired(),customUser.isCredentialsNonExpired(),
+		 customUser.isAccountNonLocked(),getUserRoles(customUser.getId()));
+		 }
 
-		ArrayList<GrantedAuthority> permissoes = new ArrayList<GrantedAuthority>();
-		permissoes.add(new SimpleGrantedAuthority("GERENCIAR_VOO"));
-		CustomUser customUser = new CustomUser("admin@scp.com", new BCryptPasswordEncoder().encode("123"), true, true,
-				true, true, permissoes);
 
 		return customUser;
 	}

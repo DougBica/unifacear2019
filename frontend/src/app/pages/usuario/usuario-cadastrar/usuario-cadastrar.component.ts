@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Usuario } from '../model/usuario.model';
 import { UsuarioService } from '../usuario.service';
-import { Perfil } from '../model/perfil.model';
+import { Perfil } from '../../perfil/model/perfil.model';
 
 
 @Component({
