@@ -1,10 +1,11 @@
-/*package edu.br.unifacear.webdev2019.usuario.controller;
+package edu.br.unifacear.webdev2019.usuario.controller;
 
 import java.util.List;
 
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -25,12 +26,14 @@ public class ControllerUsuario {
 	@Autowired
 	private UsuarioService usuarioService;
 
+
 	@PostMapping
 	public void salvar(@RequestBody @Valid Usuario usuario) {
 		usuarioService.salvar(usuario);
 	}
-
-	@GetMapping
+	
+	@PreAuthorize("hasRole('ADMIN') || hasRole('USUARIO_LISTAR')")
+	@GetMapping("/listar")
 	public List<Usuario> listar() {
 		return usuarioService.listar();
 	}
@@ -60,4 +63,3 @@ public class ControllerUsuario {
 		return usuarioService.buscarPorCpf(cpf);
 	}
 }
-*/

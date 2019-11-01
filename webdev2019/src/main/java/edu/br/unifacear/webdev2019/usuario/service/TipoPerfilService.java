@@ -1,4 +1,4 @@
-/*package edu.br.unifacear.webdev2019.usuario.service;
+package edu.br.unifacear.webdev2019.usuario.service;
 
 import java.util.List;
 
@@ -16,27 +16,24 @@ public class TipoPerfilService {
 
 	@Autowired
 	private TipoPerfilRepository tipoPerfilRepository;
-	
+
 	@Transactional
-	public void salvar(TipoPerfil tipoPerfil) {		
+	public void salvar(TipoPerfil tipoPerfil) {
 		tipoPerfilRepository.save(tipoPerfil);
-	}	
-	
+	}
+
 	public void excluir(TipoPerfil tipoPerfil) {
 		tipoPerfilRepository.delete(tipoPerfil);
 	}
-	
+
 	public List<TipoPerfil> listar() {
 		return tipoPerfilRepository.findAll();
 	}
-	
+
 	public List<TipoPerfil> BuscarId(Iterable<Long> guidTipoPerfil) {
-		 return tipoPerfilRepository.findAllById(guidTipoPerfil);
+		return tipoPerfilRepository.findAllById(guidTipoPerfil);
 	}
 	
-<<<<<<< HEAD
 }
-=======
-}
-*/
->>>>>>> 90ad94b435ab5670bd4c6bac21a53d73d7412901
+
+

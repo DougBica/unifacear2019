@@ -1,7 +1,5 @@
 package edu.br.unifacear.webdev2019.common.exception;
 
-import java.lang.reflect.Method;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -21,14 +19,14 @@ public class CustomExceptionHandler {
         return error;
     }
 	
-//	@ResponseStatus(HttpStatus.BAD_REQUEST)
-//	@ExceptionHandler(MethodArgumentNotValidException.class)
-//    public final ValidationErrorResponse EmailInvalido(MethodArgumentNotValidException ex, WebRequest request) {
-//		ValidationErrorResponse error = new ValidationErrorResponse();
-//		error.setCode(BusinessExceptionCode.ERR003);
-//		error.setMessage(BusinessExceptionCode.ERR003.getMessage());
-//        return error;
-//    }
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(MethodArgumentNotValidException.class)
+    public final ValidationErrorResponse EmailInvalido(MethodArgumentNotValidException ex, WebRequest request) {
+		ValidationErrorResponse error = new ValidationErrorResponse();
+		error.setCode(BusinessExceptionCode.ERR003);
+		error.setMessage(BusinessExceptionCode.ERR003.getMessage());
+        return error;
+    }
 
 	@ExceptionHandler(Exception.class)
     public final ValidationErrorResponse handleAllExceptions(Exception ex, WebRequest request) {
