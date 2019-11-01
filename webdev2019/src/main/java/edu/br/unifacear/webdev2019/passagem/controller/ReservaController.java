@@ -21,8 +21,11 @@ public class ReservaController {
 	@Autowired
 	private ReservaService reservaService;
 	
+	private String headerLog = "RESERVA CONTROLLER - ";
+	
 	@PostMapping
 	public void salvar(@RequestBody @Valid Reserva reserva) {
+		System.out.println(headerLog + "Salvando Reserva");
 		reservaService.salvar(reserva);
 	}
 	

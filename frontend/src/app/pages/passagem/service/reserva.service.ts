@@ -20,8 +20,8 @@ export class ReservaService {
     return this.http.get<Reserva[]>(this.API);
   }
 
-  salvar(reserva: Reserva) : Observable<any> {
-    return this.http.post<any>(this.API, reserva);
+  salvar(reserva: Reserva) : Observable<Reserva> {
+    return this.http.post<Reserva>(this.API, reserva);
   }
 
 }

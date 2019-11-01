@@ -17,8 +17,11 @@ public class ReservaService {
 	@Autowired
 	private ReservaRepository reservaRepository;
 	
+	private String headerLog = "RESERVA SERVICE - ";
+	
 	@Transactional
 	public void salvar(Reserva reserva) {
+		System.out.println(headerLog + "Salvando Reserva");
 		reservaRepository.save(reserva);
 	}	
 	

@@ -20,6 +20,7 @@ public class PassagemService {
 	@Autowired
 	private PassagemRepository passagemRepository;
 	
+	
 	@Transactional
 	public void salvar(Passagem passagem) {	
 //		RestTemplate rt = new RestTemplate();
