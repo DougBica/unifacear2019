@@ -32,7 +32,7 @@ public class ControllerUsuario {
 		usuarioService.salvar(usuario);
 	}
 	
-	@PreAuthorize("hasRole('ADMIN') || hasRole('USUARIO_LISTAR')")
+	@PreAuthorize("hasRole('USUARIO_LISTAR')")
 	@GetMapping("/listar")
 	public List<Usuario> listar() {
 		return usuarioService.listar();

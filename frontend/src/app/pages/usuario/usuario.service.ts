@@ -15,7 +15,7 @@ export class UsuarioService {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
     
-    return this.http.get<Usuario[]>("http://localhost:8080/scp/private/usuario",options);
+    return this.http.get<Usuario[]>("http://localhost:8080/scp/private/usuario/listar",options);
   }
 
   buscarPorID(guidUsuario: string) : Observable<Usuario>  {
