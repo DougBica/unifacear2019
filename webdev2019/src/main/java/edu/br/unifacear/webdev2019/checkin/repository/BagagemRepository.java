@@ -9,7 +9,7 @@ import edu.br.unifacear.webdev2019.checkin.entity.Bagagem;
 
 public interface BagagemRepository extends JpaRepository<Bagagem, Long> {
 	
-	@Query("select b from Bagagem b where b.guidCheckin = ? ")
+	@Query("select b from Bagagem b where b.guidCheckin = 1 ")
 	List<Bagagem> findByGuidCheckin(Long id);
 
 }

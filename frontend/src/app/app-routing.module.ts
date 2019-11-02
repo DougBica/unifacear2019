@@ -11,6 +11,7 @@ import { CheckinCadastrarComponent } from './pages/checkin/checkin-cadastrar/che
 import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usuario-cadastrar.component';
 import { AutenticacaoGuard } from './autenticacao.guard';
 import { EmbarqueListarComponent } from './pages/checkin/embarque-listar/embarque-listar.component';
+import { EmbarqueCadastrarComponent } from './pages/checkin/embarque-cadastrar/embarque-cadastrar.component';
 
 const routes: Routes = [
   {
@@ -22,7 +23,8 @@ const routes: Routes = [
       { path: 'checkin-controle', component: CheckinListarComponent },
       { path: 'checkin-cadastrar/:id', component: CheckinCadastrarComponent },
       { path: 'usuario/:id', component: UsuarioCadastrarComponent },
-      { path: 'embarque-controle', component: EmbarqueListarComponent}
+      { path: 'embarque-controle', component: EmbarqueListarComponent},
+      { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent}
    ]
   },
   {
