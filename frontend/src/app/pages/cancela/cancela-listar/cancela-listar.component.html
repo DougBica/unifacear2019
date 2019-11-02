@@ -1,0 +1,24 @@
+<div class=" content">
+  <h4>
+    Cancelamentos
+  </h4>
+  <table class="table table-sm ">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">ID Usuário</th>
+        <th scope="col">ID Passagem</th>
+        <th scope="col">Data cancelamento</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let cancela of cancelamentos">
+        <th scope="row">{{cancela.guidCancelar}}</th>
+        <td>{{cancela.guidUsuario}}</td>
+        <td>{{cancela.guidPassagem}}</td>
+        <td>{{cancela.dataCancelamento}}</td>
+        <td><button class="btn btn-info btn-sm" (click)="detail(cancela)">Detalhes</button></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

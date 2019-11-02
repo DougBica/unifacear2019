@@ -94,7 +94,11 @@ import { CheckinModule } from './pages/checkin/checkin.module';
 import { EmbarqueModule } from './pages/checkin/embarque.module';
 import { BagagemModule } from './pages/checkin/bagagem.module';
 import { LogintesteModule } from './pages/login/login.module';
+<<<<<<< HEAD
 import { ArquivoService } from './arquivo.service';
+=======
+import { CancelaModule } from './pages/cancela/cancela.module'
+>>>>>>> d2093024ab0a3ffd632e416713329f4e022b2e3c
 
 @NgModule({
   imports: [
@@ -105,12 +109,12 @@ import { ArquivoService } from './arquivo.service';
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    FormsModule,
     LogintesteModule,
     UsuarioModule,
     CheckinModule,
     BagagemModule,
     EmbarqueModule,
+    CancelaModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
