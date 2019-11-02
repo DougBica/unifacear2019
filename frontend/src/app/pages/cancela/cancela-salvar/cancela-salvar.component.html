@@ -1,0 +1,17 @@
+<div class="content">
+  <form id="formCancela" (ngSubmit)="salvar()">
+    <div class="form-group" >
+      <label for="nome">Id usuario</label>
+      <input type="text" class="form-control" name="nome" placeholder="ID usuario" [(ngModel)]="cancela.guidUsuario" required>
+    </div>
+    <div class="form-group">
+      <label for="data">Data cancelamento</label>
+      <input type="text" class="form-control" name="data" placeholder="Data cancelamento" [(ngModel)]="cancela.dataCancelamento">
+    </div>
+    <div class="form-group">
+      <label for="motivo">Motivo cancelamento</label>
+      <input type="text" class="form-control" name="motivo" placeholder="Motivo cancelamento" [(ngModel)]="cancela.motivoCancelamento">
+    </div>
+    <button type="submit" class="btn btn-info btn-sm" >Salvar</button>
+  </form>
+</div>

@@ -105,7 +105,6 @@ import { CancelaModule } from './pages/cancela/cancela.module'
     NgbModule,
     RouterModule,
     AppRoutingModule,
-    FormsModule,
     LogintesteModule,
     UsuarioModule,
     CheckinModule,
