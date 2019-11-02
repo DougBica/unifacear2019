@@ -7,8 +7,7 @@ import { Usuario } from '../usuario/model/usuario.model';
   providedIn: 'root'
 })
 export class RegisterService {
-  
-  constructor(private http : HttpClient) { }
+  constructor(private http : HttpClient) {}
 
   salvar(usuario: Usuario) : Observable<any> {
     console.log(usuario);

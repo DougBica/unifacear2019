@@ -26,8 +26,10 @@ public class UsuarioService {
 
 	@Transactional
 	public void salvar(Usuario usuario) {
+
 		usuarioRepository.save(usuario);
 	}
+
 	public void excluir(Usuario usuario) {
 		usuarioRepository.delete(usuario);
 	}
