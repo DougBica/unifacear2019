@@ -26,8 +26,9 @@ const routes: Routes = [
       { path: 'checkin-cadastrar/:id', component: CheckinCadastrarComponent },
       { path: 'usuario/:id', component: UsuarioCadastrarComponent },
       { path: 'cancela', component: CancelaListarComponent },
-      { path: 'cancela/detalhes', component: CancelaDetalhesComponent },
-      { path: 'cancela/salvar', component: CancelaSalvarComponent }
+      { path: 'cancela/detalhes/:id', component: CancelaDetalhesComponent },
+      { path: 'cancela/salvar', component: CancelaSalvarComponent },
+      { path: 'cancela/salvar/:id', component: CancelaSalvarComponent }
 
     ]
   },

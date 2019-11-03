@@ -13,11 +13,17 @@ export class CancelaService {
   list(): Observable<Cancela[]>{
      return this.http.get<Cancela[]>("http://localhost:8080/scp/public/cancela")
     }
-  findByid(guidCancela: number): Observable<Cancela>{
+  findByid(guidCancela: string): Observable<Cancela>{
     return this.http.get<Cancela>("http://localhost:8080/scp/public/cancela/"+guidCancela)
+  }
+  findByidGuidUsuario(guidCancela: string): Observable<Cancela>{
+    return this.http.get<Cancela>("http://localhost:8080/scp/public/cancela/guidUsuario/"+guidCancela)
   }
   save(cancela: Cancela): Observable<any>{
     return this.http.post<any>("http://localhost:8080/scp/public/cancela/",cancela)
+  }
+  delete(guidCancela: string): Observable<any>{
+    return this.http.delete<any>("http://localhost:8080/scp/public/cancela/"+guidCancela)
   }
 
 }

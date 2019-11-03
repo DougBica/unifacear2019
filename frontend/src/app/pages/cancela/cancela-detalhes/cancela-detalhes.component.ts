@@ -15,8 +15,18 @@ export class CancelaDetalhesComponent implements OnInit {
   nomeUsuario: string
 
   constructor(private route: ActivatedRoute, private router: Router, private service: CancelaService) {
-    const nav = this.router.getCurrentNavigation();
-    this.cancela = nav.extras.state.cancela;
+    /*const nav = this.router.getCurrentNavigation();
+    this.cancela = nav.extras.state.cancela;*/
+    this.route.paramMap.subscribe(params => {
+      if (params.get('id')) {
+        var guidCancela = params.get('id');
+        this.service.findByid(guidCancela).subscribe(
+          cancela => {
+            this.cancela = cancela;
+          }
+        );
+      }
+    });
    }
 
   ngOnInit() {
@@ -24,5 +34,12 @@ export class CancelaDetalhesComponent implements OnInit {
   }
   back(){
     this.router.navigate(["/admin/cancela"])
+  }
+  deletar(){
+    this.service.delete(this.cancela.guidCancelar+"").subscribe(
+      () =>{
+        this.back()
+      }
+    )
   }
 }
