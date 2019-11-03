@@ -6,11 +6,10 @@ import { Cancela } from '../model/cancela.model';
 @Component({
   selector: 'app-cancela-detalhes',
   templateUrl: './cancela-detalhes.component.html',
-  styleUrls: ['./cancela-detalhes.component.scss']
-  
+  styleUrls: ['./cancela-detalhes.component.scss'],
 })
 export class CancelaDetalhesComponent implements OnInit {
-
+  
   cancela: Cancela = new Cancela()
   nomeUsuario: string
 

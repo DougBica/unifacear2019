@@ -24,7 +24,7 @@
     </div>
     <div class="form-group">
       <label for="motivo">Motivo cancelamento</label>
-      <input type="text" class="form-control" name="motivo" placeholder="Motivo cancelamento" [(ngModel)]="cancela.motivoCancelamento">
+      <input type="text" min="1" max="5" class="form-control" name="motivo" placeholder="Motivo cancelamento"  [(ngModel)]="cancela.motivoCancelamento">
     </div>
     <button type="submit" class="btn btn-info btn-sm" >Salvar</button>
     

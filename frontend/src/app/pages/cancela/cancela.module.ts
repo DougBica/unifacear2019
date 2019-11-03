@@ -4,11 +4,14 @@ import { CancelaListarComponent } from './cancela-listar/cancela-listar.componen
 import { CancelaDetalhesComponent } from './cancela-detalhes/cancela-detalhes.component';
 import { CancelaSalvarComponent } from './cancela-salvar/cancela-salvar.component';
 import { FormsModule } from '@angular/forms';
+import { MatTableModule } from '@angular/material' 
+
 @NgModule({
   declarations: [CancelaListarComponent, CancelaDetalhesComponent, CancelaSalvarComponent],
   imports: [
     CommonModule,
     FormsModule,
+    MatTableModule
   ]
 })
 export class CancelaModule { }

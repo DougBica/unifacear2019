@@ -1,27 +1,16 @@
 <div class="content">
-  <h4>
-    Detalhes do cancelamento
-  </h4>
-  <table class="table table-striped">
-    <tr>
-      <th>ID </th>
-      <th>ID Usuário</th>
-      <th>ID Reserva</th>
-      <th>ID Passagem</th>
-      <th>Data cancelamento</th>
-      <th>Motivo cancelamento</th>
-      <th>&nbsp;</th>
-    </tr>
-    <tr>
-        <td>{{cancela.guidCancelar}}</td>
-        <td>{{cancela.guidUsuario}}</td>
-        <td>{{cancela.guidReserva}}</td>
-        <td>{{cancela.guidPassagem}}</td>
-        <td>{{cancela.dataCancelamento}}</td>
-        <td>{{cancela.motivoCancelamento}}</td>
-        <td><button class="btn btn-info btn-sm" (click)="deletar()">Deletar</button></td>
-      </tr>   
-  </table>
+  <div class="card">
+    <div class="card-body">
+      <h4 class="card-title">Detalhes sobre o cancelamento</h4>
+      <p class="card-text">ID: {{cancela.guidCancelar}}</p>
+      <p class="card-text">ID Usuario: {{cancela.guidUsuario}}</p>
+      <p class="card-text">ID Reserva: {{cancela.guidReserva}}</p>
+      <p class="card-text">ID Pasagem: {{cancela.guidPassagem}}</p>
+      <p class="card-text">Data cancelamento: {{cancela.dataCancelamento}}</p>
+      <p class="card-text">Motivo: {{cancela.motivoCancelamento}}</p>
+    </div>
+  </div>
   <td><button class="btn btn-sm" (click)="back()">Voltar</button></td>
-
+  <td><button class="btn btn-sm" (click)="deletar()">Excluir</button></td>
+  <td><button class="btn btn-sm" (click)="atualizar()">Atualizar</button></td>
 </div>

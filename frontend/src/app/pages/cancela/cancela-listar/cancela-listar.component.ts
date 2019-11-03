@@ -6,11 +6,12 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-cancela-listar',
   templateUrl: './cancela-listar.component.html',
-  styleUrls: ['./cancela-listar.component.scss']
+  styleUrls: ['./cancela-listar.component.css'],
+
 })
 export class CancelaListarComponent implements OnInit {
   cancelamentos: Cancela[];
-
+  
   constructor(private router: Router, private service: CancelaService) { }
 
   ngOnInit() {
@@ -21,9 +22,12 @@ export class CancelaListarComponent implements OnInit {
       cancelamentos => this.cancelamentos = cancelamentos
     )
   }
-  
   detail(cancela: Cancela){
     //this.router.navigateByUrl("/admin/cancela/detalhes",{ state: {cancela: cancela}})
     this.router.navigate(["/admin/cancela/detalhes/"+cancela.guidCancelar])
+  }
+  salvar(){
+    console.log("entrou")
+    this.router.navigate(["/admin/cancela/salvar"])
   }
 }

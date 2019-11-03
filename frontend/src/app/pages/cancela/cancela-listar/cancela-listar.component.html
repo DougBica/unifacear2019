@@ -1,8 +1,9 @@
-<div class=" content">
+<<div class="content">
   <h4>
     Cancelamentos
+    <td><button class="btn btn-sm" (click)="salvar()" >Novo</button></td>
   </h4>
-  <table class="table table-sm ">
+  <table class="table table-sm table-hover">
     <thead>
       <tr>
         <th scope="col">ID</th>
@@ -12,13 +13,12 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let cancela of cancelamentos">
-        <th scope="row">{{cancela.guidCancelar}}</th>
-        <td>{{cancela.guidUsuario}}</td>
-        <td>{{cancela.guidPassagem}}</td>
-        <td>{{cancela.dataCancelamento}}</td>
-        <td><button class="btn btn-info btn-sm" (click)="detail(cancela)">Detalhes</button></td>
-      </tr>
+        <tr *ngFor="let cancela of cancelamentos" (click)="detail(cancela)">
+          <th scope="row">{{cancela.guidCancelar}}</th>
+          <td>{{cancela.guidUsuario}}</td>
+          <td>{{cancela.guidPassagem}}</td>
+          <td>{{cancela.dataCancelamento}}</td>
+        </tr>
     </tbody>
   </table>
 </div>
