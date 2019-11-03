@@ -83,7 +83,6 @@ export class MaterialModule { }
 import { AppComponent } from "./app.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
-
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -94,11 +93,8 @@ import { CheckinModule } from './pages/checkin/checkin.module';
 import { EmbarqueModule } from './pages/checkin/embarque.module';
 import { BagagemModule } from './pages/checkin/bagagem.module';
 import { LogintesteModule } from './pages/login/login.module';
-<<<<<<< HEAD
 import { ArquivoService } from './arquivo.service';
-=======
 import { CancelaModule } from './pages/cancela/cancela.module'
->>>>>>> d2093024ab0a3ffd632e416713329f4e022b2e3c
 
 @NgModule({
   imports: [
