@@ -9,34 +9,29 @@ import { Cancela } from '../model/cancela.model';
   styleUrls: ['./cancela-detalhes.component.scss'],
 })
 export class CancelaDetalhesComponent implements OnInit {
-  
+
   cancela: Cancela = new Cancela()
   nomeUsuario: string
 
   constructor(private route: ActivatedRoute, private router: Router, private service: CancelaService) {
-    /*const nav = this.router.getCurrentNavigation();
-    this.cancela = nav.extras.state.cancela;*/
-    this.route.paramMap.subscribe(params => {
-      if (params.get('id')) {
-        var guidCancela = params.get('id');
-        this.service.findByid(guidCancela).subscribe(
-          cancela => {
-            this.cancela = cancela;
-          }
-        );
-      }
-    });
-   }
+    const nav = this.router.getCurrentNavigation();
+    if (nav.extras.state == null) {
+      this.router.navigate(["/admin/cancela"])
+    }
+    else {
+      this.cancela = nav.extras.state.cancela;
+    }
+  }
 
   ngOnInit() {
-    
+
   }
-  back(){
+  back() {
     this.router.navigate(["/admin/cancela"])
   }
-  deletar(){
-    this.service.delete(this.cancela.guidCancelar+"").subscribe(
-      () =>{
+  deletar() {
+    this.service.delete(this.cancela.guidCancelar + "").subscribe(
+      () => {
         this.back()
       }
     )

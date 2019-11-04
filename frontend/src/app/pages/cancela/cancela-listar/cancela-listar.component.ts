@@ -23,11 +23,19 @@ export class CancelaListarComponent implements OnInit {
     )
   }
   detail(cancela: Cancela){
-    //this.router.navigateByUrl("/admin/cancela/detalhes",{ state: {cancela: cancela}})
-    this.router.navigate(["/admin/cancela/detalhes/"+cancela.guidCancelar])
+   // this.router.navigate(["/admin/cancela/detalhes/"+cancela.guidCancelar])
+    this.router.navigate(["/admin/cancela/detalhes"],
+    { state: {cancela: cancela}})
   }
   salvar(){
-    console.log("entrou")
-    this.router.navigate(["/admin/cancela/salvar"])
+    // init teste
+    const cancela_teste = new Cancela()
+    cancela_teste.guidReserva = 1
+    cancela_teste.guidPassagem = 1
+    cancela_teste.guidUsuario = 1
+    cancela_teste.checkin = false
+    // end teste*/
+    this.router.navigate(["/admin/cancela/salvar"],
+    { state: {cancela: cancela_teste}})
   }
 }
