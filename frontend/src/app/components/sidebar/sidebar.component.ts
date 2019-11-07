@@ -12,7 +12,14 @@ export const ROUTES: RouteInfo[] = [
     path: "/admin/usuario",
     title: "Usuário",
     rtlTitle: "",
-    icon: "icon-chart-pie-36",
+    icon: "icon-single-02",
+    class: ""
+  },
+  {
+    path: "/login",
+    title: "Login",
+    rtlTitle: "",
+    icon: "icon-single-02",
     class: ""
   },
   {

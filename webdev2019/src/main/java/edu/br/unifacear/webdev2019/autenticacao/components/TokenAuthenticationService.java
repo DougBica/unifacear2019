@@ -44,7 +44,7 @@ public class TokenAuthenticationService {
 		autenticacao.setToken(token);
 		autenticacao.setLogin(username);
 		autenticacao.setPermissoes(authsList);
-
+		
 		return autenticacao;
 	}
 	

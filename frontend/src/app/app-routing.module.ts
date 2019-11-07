@@ -12,6 +12,7 @@ import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usu
 import { AutenticacaoGuard } from './autenticacao.guard';
 import { EmbarqueListarComponent } from './pages/checkin/embarque-listar/embarque-listar.component';
 import { EmbarqueCadastrarComponent } from './pages/checkin/embarque-cadastrar/embarque-cadastrar.component';
+import { LoginComponent } from './pages/login/login/login.component';
 
 const routes: Routes = [
   {
@@ -27,6 +28,7 @@ const routes: Routes = [
       { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent}
    ]
   },
+  { path: 'login', component: LoginComponent },
   {
     path: "",
     redirectTo: "dashboard",
