@@ -28,6 +28,13 @@ export const ROUTES: RouteInfo[] = [
     rtlTitle: "",
     icon: "icon-map-big",
     class: ""
+  },
+  {
+    path: "/admin/embarque-controle",
+    title: "Embarque",
+    rtlTitle: "",
+    icon: "icon-badge",
+    class: ""
   }
 ];
 

@@ -4,6 +4,9 @@ import { CheckinService } from '../checkin.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { catchError } from 'rxjs/operators';
 import { ToastrService } from 'ngx-toastr';
+import { BagagemService } from '../bagagem.service';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import { Bagagem } from '../model/bagagem.model';
 
 @Component({
   selector: 'app-checkin-cadastrar',
@@ -14,13 +17,16 @@ export class CheckinCadastrarComponent implements OnInit {
 
   checkin: Checkin = new Checkin();
   guidCheckin: string;
+  bagagens: Bagagem[];
 
   constructor(private checkinService: CheckinService,
     private router: Router,
     private route: ActivatedRoute,
-    private toastr: ToastrService) { }
+    private toastr: ToastrService,
+    private bagagemService: BagagemService) { }
 
   ngOnInit() {
+    this.loadBagagem();
     this.route.paramMap.subscribe(params => {
       if (params.get('id') != 'novo') {
         this.guidCheckin = params.get('id');
@@ -46,6 +52,14 @@ export class CheckinCadastrarComponent implements OnInit {
         this.router.navigate(['/admin/checkin-listar']);
       }
     )
+  }
+
+  loadBagagem(){
+    this.bagagemService.loadByGuidCheckin(this.guidCheckin).subscribe(
+      bagagens =>{
+        this.bagagens = bagagens;
+      }
+    );
   }
 
 }
