@@ -32,5 +32,12 @@ export class AeronaveListarComponent implements OnInit {
     this.router.navigate(["/admin/aeronave/"+aeronave.guidaeronave]);    
   }
 
+  deleteAeronave(aeronave: Aeronave) {
+    this.aeronaveService.remover(aeronave).subscribe(
+      data => {
+        this.load();
+      }
+    );
+  }
 
 }

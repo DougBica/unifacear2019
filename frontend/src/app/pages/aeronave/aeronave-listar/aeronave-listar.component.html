@@ -15,6 +15,7 @@
       <th>Manufacturer</th>
       <th>Action</th>
       <th>Action</th>
+      
 
     </tr>
     <tr *ngFor="let aeronave of aeronaves">
@@ -23,12 +24,15 @@
       <td>{{aeronave.modelo}}</td>
       <td>{{aeronave.guidFabricante}}</td>
 
+
       <td><button (click)="edit(aeronave)" style='font-size:16px' class="btn btn-default" style=color:yellow> <i class="fas fa-edit"
             style='font-size:24px' aria-hidden="true" style=color:yellow > </i> Edit</button></td>
             
-      <td><button style='font-size:16px' class="btn btn-default" style=color:red> <i class="fas fa-trash"
+      <td><button  style='font-size:16px' class="btn btn-default" (click)='deleteAeronave(aeronave)' style=color:red> <i class="fas fa-trash"
             style='font-size:24px' aria-hidden="true" style=color:red></i> Delete</button></td>
     </tr>
+
+    
 
 
 

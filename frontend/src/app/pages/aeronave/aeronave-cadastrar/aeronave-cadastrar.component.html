@@ -2,18 +2,109 @@
   <h4>
     Register Aircraft
   </h4>
-  <form id="formUsuario" (ngSubmit)="salvar()">
+  <form id="formAeronave" (ngSubmit)="salvar()">
     <div class="form-group">
       <label for="nome">Aircraft Name</label>
-      <input type="text" class="form-control" name="nome" placeholder="Enter Aircraft Name " [(ngModel)]="aeronave.nomeaeronave"
-        required>
+      <input type="text" class="form-control" name="nome" placeholder="Enter Aircraft Name "
+        [(ngModel)]="aeronave.nomeaeronave" required>
     </div>
     <div class="form-group">
       <label for="nome">Model</label>
-      <input type="email" class="form-control" name="Model" placeholder="Enter Aircraft Model" [(ngModel)]="aeronave.modelo"
-        required>
+      <input type="email" class="form-control" name="Model" placeholder="Enter Aircraft Model"
+        [(ngModel)]="aeronave.modelo" required>
+    </div>    
+    <div class="form-group">
+      <label for="nome">Fabricante</label>
+      <select class="form-control" name="fabricante" [(ngModel)]="aeronave.guidFabricante">
+        <option *ngFor="let fabricante of fabricantes" [value]="fabricante.guidFabricante">{{fabricante.nomefabricante}}
+        </option>
+      </select>
     </div>
-    <button type="submit" class="btn">Salvar</button>
+    <div class="form-group">
+      <label for="nome">Comprimento</label>
+      <input type="number" class="form-control" name="comprimento" placeholder="Digite o comprimento da Aeronave"
+        [(ngModel)]="aeronave.comprimento" required>
+    </div>
+    <div class="form-group">
+      <label for="nome">Envergadura</label>
+      <input type="number" class="form-control" name="envergadura" placeholder="Digite a envergadura da Aeronave"
+        [(ngModel)]="aeronave.envergadura" required>
+    </div>
+    <div class="form-group">
+      <label for="nome">Altura</label>
+      <input type="number" class="form-control" name="altura" placeholder="Digite a altura da Aeronave"
+        [(ngModel)]="aeronave.altura" required>
+    </div>
+    <div class="form-group">
+      <label for="nome">Quantidade de motores</label>
+      <input type="number" class="form-control" name="qtdmotor" placeholder="Digite a Quantidade de motores da Aeronave"
+        [(ngModel)]="aeronave.qtdmotor" required>
+    </div>
+    <div class="form-group">
+      <label for="nome">Peso Vazio</label>
+      <input type="number" class="form-control" name="pesovazio" placeholder="Digite o Peso Vazio da Aeronave"
+        [(ngModel)]="aeronave.pesovazio" required>
+    </div>
+    <div class="form-group">
+      <label for="nome">Peso Decolagem</label>
+      <input type="number" class="form-control" name="pesodecolagem"
+        placeholder="Digite o Peso da decolagem da Aeronave" [(ngModel)]="aeronave.pesodecolagem" required>
+    </div>
+    <div class="form-group">
+      <label for="nome">Pais de Origem</label>
+      <input type="text" class="form-control" name="paisorigem" placeholder="Digite o pais de origem da Aeronave"
+        [(ngModel)]="aeronave.paisorigem" required>
+    </div>
+    <div class="form-group">
+      <label for="nome">Velocidade Maxima</label>
+      <input type="number" class="form-control" name="velomaxima" placeholder="Digite a velocidade maxima da Aeronave"
+        [(ngModel)]="aeronave.velomaxima" required>
+    </div>
+
+
+    <div class="card">
+      <div class="card-header">
+        Assentos
+      </div>
+      <div>
+        <button type="button" style='font-size:16px' class="btn btn-default" (click)="adicionarAssento();"
+          style=color:yellowgreen> <i class="fas fa-plus " style='font-size:24px' aria-hidden="true"
+            style=color:yellowgreen> </i> Adicionar</button>
+      </div>
+      <ul class="list-group">
+        <li *ngFor="let assento of assentos; let assentoIndex = index" class="list-group-item"
+          style="background-color:lightgrey">
+          <div class="row">
+            <div class="col">
+              <select class="form-control" name="nome" [(ngModel)]="assento.classe">
+                <option value="PRIMEIRA_CLASSE">Primeira Classe</option>
+                <option value="CLASSE_EXECUTIVA">Classe Executiva</option>
+                <option value="CLASSE_ECONOMICA">Classe Economica</option>
+              </select>
+            </div>
+            <div class="col">
+              <input type="text" class="form-control" name="descricao" [(ngModel)]="assento.qtdassento"
+                placeholder="Quantidade de assentos">
+            </div>
+            <div class="col">
+              <button style='font-size:16px' class="btn btn-default" (click)="removerAssento(assentoIndex);"
+                class=" close" aria-label="Close" style=color:red> <i class="fas fa-trash" style='font-size:24px'
+                  aria-hidden="true" style=color:red></i> Delete </button>
+
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+
+    <div>
+      <button type="submit" style='font-size:16px' class="btn btn-default" style=color:white> <i class="fas fa-save "
+          style='font-size:24px' aria-hidden="true" style=color:white> </i> Salvar</button>
+    </div>
+
+
+
   </form>
 
 </div>
