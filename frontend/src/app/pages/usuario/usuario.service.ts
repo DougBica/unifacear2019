@@ -19,12 +19,12 @@ export class UsuarioService {
   }
 
   buscarPorID(guidUsuario: string) : Observable<Usuario>  {
-    return this.http.get<Usuario>("http://localhost:8080/usuario/"+guidUsuario);
+    return this.http.get<Usuario>("http://localhost:8080/scp/private/usuario/"+guidUsuario);
   }
 
   salvar(usuario: Usuario) : Observable<any> {
     return this.http.post<any>
-      ("http://localhost:8080/usuario/",usuario);
+      ("http://localhost:8080/scp/private/usuario/",usuario);
   }
 
 }

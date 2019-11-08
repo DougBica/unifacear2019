@@ -32,12 +32,13 @@ public class ControllerUsuario {
 		usuarioService.salvar(usuario);
 	}
 	
-	@PreAuthorize("hasRole('USUARIO_LISTAR')")
+	@PreAuthorize("hasRole('GERENCIAR_USUARIO')")
 	@GetMapping("/listar")
 	public List<Usuario> listar() {
 		return usuarioService.listar();
 	}
-
+	
+	@PreAuthorize("hasRole('GERENCIAR_USUARIO')")
 	@GetMapping("/buscarPorID/{guidUsuario}")
 	public Usuario BuscarPorID(@PathVariable("guidUsuario") final Long guidUsuario) {
 		return usuarioService.buscarPorId(guidUsuario);
