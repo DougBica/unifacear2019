@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { PerfilService } from '../perfil.service';
+import { Router } from '@angular/router';
+import { Perfil } from '../model/perfil.model';
 
 @Component({
   selector: 'app-perfil-listar',
@@ -7,9 +10,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PerfilListarComponent implements OnInit {
 
-  constructor() { }
+  perfis : Perfil[];
+
+  constructor(private perfilService : PerfilService,
+    private router : Router) { }
+
 
   ngOnInit() {
+    this.load();
   }
+  load() {      
+    this.perfilService.list().subscribe(
+      perfis => {
+        console.log(perfis);
+        this.perfis = perfis
+      }
+    )
 
+}
+
+  edit(perfil: Perfil) {
+    this.router.navigate(["/tipoPerfil/"+perfil.guidTipoPerfil]); 
+  }
 }

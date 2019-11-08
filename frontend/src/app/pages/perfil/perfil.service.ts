@@ -9,22 +9,23 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class PerfilService {
   
   constructor(private http : HttpClient) { }
-
   list() : Observable<Perfil[]> {
     let options = {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
     
-    return this.http.get<Perfil[]>("http://localhost:8080/scp/private/usuario",options);
+    return this.http.get<Perfil[]>("http://localhost:8080/scp/private/tipoperfil",options);
+  }
+  buscarPorID(guidTipoPerfil: string) : Observable<Perfil>  {
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
+    return this.http.get<Perfil>("http://localhost:8080/scp/private/tipoperfil/BuscarId/"+guidTipoPerfil,options);
   }
 
-  buscarPorID(guidUsuario: string) : Observable<Perfil>  {
-    return this.http.get<Perfil>("http://localhost:8080/usuario/buscarPorID/"+guidUsuario);
-  }
-
-  salvar(usuario: Perfil) : Observable<any> {
+  salvar(perfil: Perfil) : Observable<any> {
     return this.http.post<any>
-      ("http://localhost:8080/usuario/salvar/",usuario);
+      ("http://localhost:8080/tipoperfil/",perfil);
   }
 
 }

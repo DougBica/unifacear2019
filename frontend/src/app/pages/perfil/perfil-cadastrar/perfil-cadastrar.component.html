@@ -1,3 +1,37 @@
-<p>
-  perfil-cadastrar works!
-</p>
+<div class=" content">
+  <h4>
+    Cadastrar Usuário
+  </h4>
+  <form id="formPerfil" (ngSubmit)="salvar()">
+    <div class="form-group">
+      <label for="descricao">Descrição</label>
+      <input type="text" class="form-control" name="descricao" [(ngModel)]="perfil.descricao"
+        required>
+    </div>
+    <div class="card">
+      <div class="card-header">
+        Permissões <button class="btn btn-primary" (click)="adicionarPermissao();">Adicionar</button>
+      </div>
+      <ul class="list-group">
+        <li *ngFor="let permissao of perfil.permissoes;let permissaoIndex = index " class="list-group-item" style="background-color: #525f7f">
+          <div class="row">
+            <div class="col">
+              <input type="text" class="form-control" name="permissao" [(ngModel)]="permissao">
+            </div>
+            <div class="col">
+              <button type="button" (click)="removerPermissao(permissaoIndex);" class=" close" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+
+            </div>
+          </div>
+
+        </li>
+
+      </ul>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Salvar</button>
+  </form>
+
+</div>

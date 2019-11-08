@@ -12,6 +12,8 @@ import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usu
 import { AutenticacaoGuard } from './autenticacao.guard';
 import { LoginComponent } from './pages/login/login/login.component';
 import { RegisterComponent } from './pages/register/register/register.component';
+import { PerfilCadastrarComponent } from './pages/perfil/perfil-cadastrar/perfil-cadastrar.component';
+import { PerfilListarComponent } from './pages/perfil/perfil-listar/perfil-listar.component';
 
 const routes: Routes = [
   {
@@ -25,6 +27,8 @@ const routes: Routes = [
       { path: 'usuario/:id', component: UsuarioCadastrarComponent }
    ]
   },
+  { path: 'tipoPerfil/:id', component : PerfilCadastrarComponent},
+  { path: 'tipoperfil', component : PerfilListarComponent},
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {
