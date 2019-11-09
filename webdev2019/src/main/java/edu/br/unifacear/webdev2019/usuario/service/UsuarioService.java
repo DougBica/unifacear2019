@@ -40,7 +40,7 @@ public class UsuarioService {
 
 	public Usuario buscarPorId(final Long guidUsuario) {
 		Usuario usuario = Optional.ofNullable(usuarioRepository.findById(guidUsuario).orElse(null))
-				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR001));
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR001));		
 		return usuario;
 	}
 

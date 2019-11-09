@@ -13,6 +13,8 @@ import { AutenticacaoGuard } from './autenticacao.guard';
 import { LoginComponent } from './pages/login/login/login.component';
 
 import { RegisterComponent } from './pages/register/register/register.component';
+import { PerfilCadastrarComponent } from './pages/perfil1/perfil-cadastrar/perfil-cadastrar.component';
+import { PerfilListarComponent } from './pages/perfil1/perfil-listar/perfil-listar.component';
 
 const routes: Routes = [
   {
@@ -23,7 +25,9 @@ const routes: Routes = [
       { path: 'usuario', component: UsuarioListarComponent },
       { path: 'checkin-controle', component: CheckinListarComponent },
       { path: 'checkin-cadastrar/:id', component: CheckinCadastrarComponent },
-      { path: 'usuario/:id', component: UsuarioCadastrarComponent }
+      { path: 'usuario/:id', component: UsuarioCadastrarComponent },
+      { path: 'tipoPerfil/:id', component : PerfilCadastrarComponent},
+      { path: 'tipoperfil', component : PerfilListarComponent},
    ]
   },
   { path: 'login', component: LoginComponent },

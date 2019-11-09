@@ -1,4 +1,4 @@
-import { Perfil } from '../../perfil/model/perfil.model';
+import { Perfil } from '../../perfil1/model/perfil.model';
 
 export class Usuario {
 

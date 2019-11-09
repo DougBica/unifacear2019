@@ -33,7 +33,7 @@
               <div class=" col-md-6 pl-md-1">
                 <div class=" form-group">
                   <label for="email">Data de Nascimento</label>
-                  <input type="date" class="form-control" name="data" placeholder="Digite seu email" [(ngModel)]="usuario.dataNasc"
+                  <input type="datetime" class="form-control" name="data" placeholder="Digite seu email" [(ngModel)]="usuario.dataNasc"
                     required>
                 </div>
               </div>
@@ -42,14 +42,20 @@
               <div class=" col-md-6 pr-md-1">
                 <div class=" form-group">
                   <label for="nome">Perfil</label>
-                  
+                <div>
+                    <select [(ngModel)]="usuario.perfil.guidTipoPerfil" name="Tipoperfil" class="form-control" > 
+                      <option *ngFor="let perfil of perfis" style = "background-color: #27293D;"value= {{perfil.guidTipoPerfil}}>
+                        {{perfil.descricao}}
+                      </option>
+                    </select> 
+                  </div>
                 </div>
               </div>
             </div>
           </form>
         </div>
         <div class=" card-footer">
-          <button type="submit" class="btn btn-primary">Salvar</button>
+          <button type="submit" class="btn btn-primary" (click)="salvar()">Salvar</button>
         </div>
       </div>
     </div>
@@ -65,7 +71,7 @@
             <a href="javascript:void(0)">
               <img alt="..." class=" avatar" src="assets/img/emilyz.jpg" />
 
-              <h5 class=" title">Mike Andrew</h5>
+              <h5 class=" title" [(ngModel)]="usuario.nome">Leo</h5>
             </a>
             <p class=" description">Ceo/Co-Founder</p>
           </div>

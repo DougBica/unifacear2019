@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Usuario } from '../model/usuario.model';
 import { UsuarioService } from '../usuario.service';
-import { Perfil } from '../../perfil/model/perfil.model';
+import { Perfil } from '../../perfil1/model/perfil.model';
+import { PerfilService } from '../../perfil1/perfil.service';
 
 
 @Component({
@@ -18,9 +19,11 @@ export class UsuarioCadastrarComponent implements OnInit {
 
   constructor(private route: ActivatedRoute,
     private usuarioService: UsuarioService,
+    private perfilService: PerfilService,
     private router: Router) { }
 
   ngOnInit() {
+    this.load();
     this.route.paramMap.subscribe(params => {
       if (params.get('id') != 'novo') {
         var guidUsuario = params.get('id');
@@ -34,25 +37,24 @@ export class UsuarioCadastrarComponent implements OnInit {
     });
   }
 
+  load() {      
+    this.perfilService.list().subscribe(
+      perfis => {
+        console.log(perfis);
+        this.perfis = perfis
+      }
+    )
+  }
+
   salvar() {
-    this.usuario.perfis = this.perfis;
+    console.log(this.perfis);
     console.log(this.usuario);
-    /*this.usuarioService.salvar(this.usuario).subscribe(
+    this.usuarioService.salvar(this.usuario).subscribe(
       () => {
 
 
-        this.router.navigate(["/admin/usuario/"]);
       }
-    );*/
-  }
-
-  adicionarPerfil() {
-    let perfil = new Perfil()   
-    this.perfis.push(perfil);    
-  }
-
-  removerPerfil(index : any) {
-    this.perfis.splice(index, 1);
+    );
   }
 
 }

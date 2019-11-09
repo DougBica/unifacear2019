@@ -21,6 +21,7 @@ import { EmbarqueModule } from './pages/checkin/embarque.module';
 import { BagagemModule } from './pages/checkin/bagagem.module';
 import { LogintesteModule } from './pages/login/login.module';
 import { RegisterModule } from "./pages/register/RegisterModule";
+import { PerfilModule } from './pages/perfil1/perfil.module';
 
 @NgModule({
   imports: [
@@ -35,6 +36,7 @@ import { RegisterModule } from "./pages/register/RegisterModule";
     RegisterModule,
     LogintesteModule,
     UsuarioModule,
+    PerfilModule,
     CheckinModule,
     BagagemModule,
     EmbarqueModule,
