@@ -13,13 +13,24 @@
       <input type="email" class="form-control" name="email" placeholder="Digite seu email" [(ngModel)]="usuario.email"
         required>
     </div>
+    <div class="row no-gutter">
+      <div class="col">
+        <input type='file' #fileInput class="hidden-input"
+         (click)="upload($event.target)"
+          uploader />
+          &nbsp;
+
+          <a href="http://localhost:8080/scp/public/arquivo/download/1">Carregar</a>
+      </div>
+    </div>
 
     <div class="card">
       <div class="card-header">
         Perfis <button class="btn" (click)="adicionarPerfil();">Adicionar</button>
       </div>
       <ul class="list-group">
-        <li *ngFor="let perfil of perfis; let perfilIndex = index" class="list-group-item" style="background-color: #525f7f">
+        <li *ngFor="let perfil of perfis; let perfilIndex = index" class="list-group-item"
+          style="background-color: #525f7f">
           <div class="row">
             <div class="col">
               <select class="form-control" name="nome" [(ngModel)]="perfil.nome">

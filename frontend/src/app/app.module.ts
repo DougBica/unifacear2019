@@ -122,7 +122,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
-  providers: [],
+  providers: [ArquivoService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

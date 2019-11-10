@@ -16,7 +16,7 @@ import edu.br.unifacear.webdev2019.checkin.entity.Bagagem;
 import edu.br.unifacear.webdev2019.checkin.service.BagagemService;
 
 @RestController
-@RequestMapping(value="/bagagem")
+@RequestMapping(value="/scp/public/bagagem")
 public class BagagemController {
 	
 	@Autowired
@@ -30,6 +30,11 @@ public class BagagemController {
 	@GetMapping(value="/{id}")
 	public Bagagem buscaBagagem(@PathVariable Long id) {
 		return bagagemservice.findOne(id);
+	}
+	
+	@GetMapping(value="/listarpcheckin/{id}")
+	public List<Bagagem> listarid(@PathVariable Long id){
+		return bagagemservice.listaridBagagem(id);
 	}
 	
 	@PostMapping
