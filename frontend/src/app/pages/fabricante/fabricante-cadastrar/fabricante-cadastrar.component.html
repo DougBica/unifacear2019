@@ -2,6 +2,7 @@
     <h4>
       Register Manufacturer
     </h4>
+  
     <form id="formFabricante" (ngSubmit)="salvar()">
         <div class="form-group">
             <label for="guidFabricante">Manufacturer Id</label>
@@ -14,8 +15,11 @@
         <input type="text" class="form-control" name="nome" placeholder="Enter Manufacturer Name " [(ngModel)]="fabricante.nomefabricante"
           required>
       </div>
-      <button type="submit" class="btn">Salvar</button>
+      <div>
+        <button type="submit" style='font-size:16px' class="btn btn-default" style=color:white> <i class="fas fa-save "
+            style='font-size:24px' aria-hidden="true" style=color:white> </i> Salvar</button>
+      </div>
     </form>
+</div>
   
-  </div>
   
