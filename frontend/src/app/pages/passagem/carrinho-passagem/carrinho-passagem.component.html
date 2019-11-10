@@ -1,0 +1,51 @@
+<div class="main-content">
+    <p></p>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-lg-12 col-md-12">
+                <div class="card">
+                    <div class="card-header card-header-warning">
+                        <h4 class="card-title"></h4>
+                        <div class="card-icon">
+                            <i><h3>Passagens do Carrinho</h3></i>
+                        </div>
+                    </div>
+                    <div class="card-body table-responsive">
+                        <table class="table table-hover">
+                            <thead class="text-warning">
+                                <th>Origem</th>
+                                <th>Destino</th>
+                                <th>Data Partida</th>
+                                <th>Valor</th>
+                            </thead>
+                            <tbody>
+                                <tr *ngFor="let passagem of listaPassagens">
+                                    <td>{{passagem.origem}}</td>
+                                    <td>{{passagem.destino}}</td>
+                                    <td>{{passagem.dataPartida}}</td>
+                                    <td>R$ {{passagem.valorPassagem}}</td>
+                                </tr>
+                            </tbody>  
+                            <thead class="text-warning" (submit)="calcularValorReserva()">
+                                <th>Total: R$ {{viewValorReserva}}</th>
+                                <th></th>
+                                <th></th>
+                                <th></th>
+                            </thead>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <td><button class="btn" (click)="salvarReserva()">Botao Teste Salvar Reserva</button></td>
+</div>
+
+<app-pagamento-passagem></app-pagamento-passagem>
+
+<!-- <p></p>
+<td><button class="btn" (click)="listPassagemById()">Botao Teste Listar Por Id</button></td>
+<td><button class="btn" (click)="listAllPassagens()">Botao Teste Listar todos</button></td> -->
+
+
+      

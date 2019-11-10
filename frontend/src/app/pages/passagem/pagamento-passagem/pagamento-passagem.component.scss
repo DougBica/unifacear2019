@@ -1,0 +1,37 @@
+#conteudo-principal{
+    margin-top: 2%;
+}
+
+#formulario-pagamento{
+    background-color: rgb(255, 255, 255);
+    border-radius: 7px;
+    padding: 2%;
+}
+p,.select-box,.select-box > option{
+    color: #525f7f;
+    font-size: 0.875rem;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.select-box{
+    border: 0.75px solid;
+    border-color: #2b3553;
+    border-radius: 0.4285rem;
+    height: 11.5%;
+}
+
+#formulario-pagamento > h2{
+    color: #525f7f;
+}
+
+#codigoCartao{
+    width: 25%;
+}
+
+.form-group > input{
+    color: #2b3553;
+}
+.error{
+    color: rgb(255, 38, 38);
+}

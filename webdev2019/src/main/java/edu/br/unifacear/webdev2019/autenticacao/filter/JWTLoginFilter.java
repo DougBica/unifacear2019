@@ -33,10 +33,10 @@ public class JWTLoginFilter extends AbstractAuthenticationProcessingFilter {
 	@Override
 	public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response)
 			throws AuthenticationException, IOException, ServletException {
-		System.out.println("entrou aqui");
+		
 		String login = request.getParameter("login");
 		String senha = request.getParameter("senha");
-		System.out.println(login+" " +senha);
+		
 		
 		Autenticacao credentials = new Autenticacao();
 		credentials.setLogin(login);
