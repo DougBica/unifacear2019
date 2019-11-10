@@ -8,6 +8,7 @@ import { Fabricante } from './fabricante.model';
 })
 export class FabricanteService {
   
+  
   constructor(private http : HttpClient) { }
 
   list() : Observable<Fabricante[]> {
@@ -21,6 +22,11 @@ export class FabricanteService {
   salvar(fabricante: Fabricante) : Observable<any> {
     return this.http.post<any>
       ("http://localhost:8080/fabricante/salvar/",fabricante);
+  }
+
+  remover(fabricante: Fabricante) : Observable<any> {
+    return this.http.delete<any>
+      ("http://localhost:8080/fabricante/remover/"+fabricante.guidFabricante);
   }
 
 

@@ -33,4 +33,13 @@ export class FabricanteListarComponent implements OnInit {
   }
 
 
+  deleteFabricante(fabricante: Fabricante) {
+    this.fabricanteService.remover(fabricante).subscribe(
+      data => {
+        this.load();
+      }
+    );
+  }
+
+
 }
