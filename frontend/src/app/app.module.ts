@@ -1,3 +1,4 @@
+import { ArquivoService } from 'src/app/arquivo.service';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
