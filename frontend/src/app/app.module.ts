@@ -85,6 +85,7 @@ import {
 })
 export class MaterialModule { }
 
+
 import { AppComponent } from "./app.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
@@ -95,6 +96,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { UsuarioModule } from './pages/usuario/usuario.module';
+import { AeronaveModule } from './pages/aeronave/aeronave.module';
+import { FabricanteModule } from './pages/fabricante/model/fabricante.module';
 import { CheckinModule } from './pages/checkin/checkin.module';
 import { EmbarqueModule } from './pages/checkin/embarque.module';
 import { BagagemModule } from './pages/checkin/bagagem.module';
@@ -118,6 +121,8 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     RegisterModule,
     LogintesteModule,
     UsuarioModule,
+    AeronaveModule,
+    FabricanteModule,
     PerfilModule,
     CheckinModule,
     BagagemModule,
