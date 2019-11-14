@@ -6,6 +6,10 @@ import { Routes, RouterModule } from "@angular/router";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
+import { AeronaveListarComponent } from './pages/aeronave/aeronave-listar/aeronave-listar.component';
+import { AeronaveCadastrarComponent } from './pages/aeronave/aeronave-cadastrar/aeronave-cadastrar.component';
+import { FabricanteCadastrarComponent } from './pages/fabricante/fabricante-cadastrar/fabricante-cadastrar.component';
+import { FabricanteListarComponent } from './pages/fabricante/fabricante-listar/fabricante-listar.componet';
 import { CheckinListarComponent } from './pages/checkin/checkin-listar/checkin-listar.component';
 import { CheckinCadastrarComponent } from './pages/checkin/checkin-cadastrar/checkin-cadastrar.component';
 import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usuario-cadastrar.component';
@@ -26,6 +30,10 @@ const routes: Routes = [
     //canActivate:[AutenticacaoGuard],
     component: AdminLayoutComponent,
     children: [
+      { path: 'aeronave', component: AeronaveListarComponent },
+      { path: 'aeronave/:id', component: AeronaveCadastrarComponent },
+      { path: 'fabricante/:id', component: FabricanteCadastrarComponent },
+      { path: 'fabricante', component: FabricanteListarComponent },
       { path: 'usuario', component: UsuarioListarComponent },
       { path: 'checkin-controle', component: CheckinListarComponent },
       { path: 'checkin-cadastrar/:id', component: CheckinCadastrarComponent },

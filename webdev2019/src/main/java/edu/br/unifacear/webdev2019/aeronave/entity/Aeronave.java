@@ -2,6 +2,7 @@ package edu.br.unifacear.webdev2019.aeronave.entity;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -34,7 +35,7 @@ public class Aeronave {
 
 	private Long guidFabricante;
 
-	@OneToMany(mappedBy = "guidAeronave")
+	@OneToMany(mappedBy = "guidAeronave", cascade = CascadeType.ALL, orphanRemoval = true)
 	@Fetch(FetchMode.SUBSELECT)
 	private List<Assento> assentos;
 

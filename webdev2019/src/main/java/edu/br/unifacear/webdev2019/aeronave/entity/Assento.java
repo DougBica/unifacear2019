@@ -17,7 +17,7 @@ public class Assento {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long guidassento;
-	@Column(name = "guidaeronave", nullable = false)
+	@Column(name = "guidaeronave")
 	private Long guidAeronave;
 	private Long qtdassento;
 	@Enumerated(EnumType.STRING)

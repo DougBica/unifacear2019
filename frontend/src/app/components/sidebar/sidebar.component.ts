@@ -42,6 +42,23 @@ export const ROUTES: RouteInfo[] = [
     rtlTitle: "",
     icon: "icon-map-big",
     class: ""
+  },
+  {
+    path: "/admin/aeronave",
+    title: "Aircraft",
+    rtlTitle: "",
+    icon: "icon-chart-pie-36",
+    class: "",
+
+   
+    
+  },
+  {
+  path: "/admin/fabricante",
+  title: "Manufacturer",
+  rtlTitle: "",
+  icon: "icon-chart-pie-36",
+  class: ""
   }
 ];
 
