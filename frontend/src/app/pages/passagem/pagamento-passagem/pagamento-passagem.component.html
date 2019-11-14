@@ -1,0 +1,56 @@
+
+<div id="conteudo-principal">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-2"></div>
+        <div id='formulario-pagamento'class="col-md-8">
+          <h2>Pagamento</h2>
+          <form [formGroup]="dadosPagamento" (ngSubmit)="onFormSubmit(dadosPagamento)">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="form-group">
+                    <label for="numeroCartao">Número do Cartão</label>
+                    <input type="text" class="form-control" formControlName="numeroCartao" placeholder="9999 9999 9999 9999" required>
+                </div>
+                <div class="form-group">
+                    <label for="codigoCartao">Código do Cartão (CCV)</label>
+                    <input type="text" class="form-control" id="codigoCartao" formControlName="codigoCartao" placeholder="999" required>
+                </div>
+                <div class="form-group">
+                    <label for="nome">Nome Titular Cartão</label>
+                    <input type="text" class="form-control" formControlName="nome"placeholder="Ex: JOSE DA SILVA" required>
+                </div>
+                <div 
+                  class="error" 
+                  *ngIf="dadosPagamento.get('nome').hasError('required') && dadosPagamento.get('nome').touched">
+                  Informe o Nome do titular
+
+                </div>
+                <div class="form-group">
+                    <label for="cpf">CPF Titular Cartão</label>
+                    <input type="text" class="form-control" formControlName="cpf" placeholder="123.456.789-00">
+                  </div>
+                </div>
+                <div class="col-md-2">
+                <p>Bandeira</p>
+                <select formControlName="bandeiraCartao" class="select-box custom-select custom-select-lg mb-3">
+                  <option value={{cartao}} *ngFor="let cartao of listaCartoes">{{cartao}}</option>
+                </select>
+                <p>Validade Cartão:</p>
+                <p>Ano</p>
+                <select formControlName="anoValidade" class="select-box custom-select custom-select-lg mb-3">
+                  <option  value={{ano}} *ngFor="let ano of listaAno">{{ano}}</option>
+                </select>
+                <p>Mês</p>
+                <select formControlName="mesValidade" class="select-box custom-select custom-select-lg mb-3">
+                  <option  value={{mes}} *ngFor="let mes of listaMes">{{mes}}</option>
+                </select>
+                
+                <input type="submit"  [disabled] = "dadosPagamento.invalid" value="Confirmar Pagamento" class="btn btn-primary" />               
+              </div>
+            </div>
+          </form>
+        </div>
+    </div>
+  </div>
+</div>

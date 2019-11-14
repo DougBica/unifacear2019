@@ -16,6 +16,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 
 import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
@@ -28,11 +29,12 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long guidUsuario;
 	private String nome;
+	@Email(message = "Email inserido inválido")
 	private String email;
 	private String senha;
-	private String CPF;
-	private Date DataNasc;
-	private String Foto;
+	private String cpf;
+	private Date dataNasc;
+	private String foto;
 	
 	@ManyToOne
 	@JoinColumn(name = "guidTipoPerfil")
@@ -61,28 +63,28 @@ public class Usuario {
 		this.senha = senha;
 	}
 
-	public String getCPF() {
-		return CPF;
+	public String getCpf() {
+		return cpf;
 	}
 
-	public void setCPF(String cPF) {
-		CPF = cPF;
+	public void setCpf(String cPF) {
+		cpf = cPF;
 	}
 
 	public Date getDataNasc() {
-		return DataNasc;
+		return dataNasc;
 	}
 
 	public void setDataNasc(Date dataNasc) {
-		DataNasc = dataNasc;
+		this.dataNasc = dataNasc;
 	}
 
 	public String getFoto() {
-		return Foto;
+		return foto;
 	}
 
 	public void setFoto(String foto) {
-		this.Foto = foto;
+		this.foto = foto;
 	}
 
 	public void setTipoDeUsuarios(TipoUsuario tipoDeUsuarios) {

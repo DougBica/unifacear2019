@@ -12,7 +12,35 @@ export const ROUTES: RouteInfo[] = [
     path: "/admin/usuario",
     title: "Usuário",
     rtlTitle: "",
-    icon: "icon-chart-pie-36",
+    icon: "icon-single-02",
+    class: ""
+  },
+  {
+    path: "/admin/tipoperfil",
+    title: "Perfil",
+    rtlTitle: "",
+    icon: "icon-single-02",
+    class: ""
+  },
+  {
+    path: "/admin/checkin-controle",
+    title: "Checkin",
+    rtlTitle: "",
+    icon: "icon-map-big",
+    class: ""
+  }, 
+  {
+    path: "/carrinho-passagem",
+    title: "Carrinho Compra Passagem",
+    rtlTitle: "",
+    icon: "icon-map-big",
+    class: ""
+  },
+  {
+    path: "/buscar-passagem",
+    title: "buscar pas",
+    rtlTitle: "",
+    icon: "icon-map-big",
     class: ""
   },
   {

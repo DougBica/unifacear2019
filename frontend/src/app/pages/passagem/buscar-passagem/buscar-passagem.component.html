@@ -1,0 +1,181 @@
+<html>
+
+<head>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <link rel="stylesheet" href="https://unpkg.com/ngx-bootstrap/datepicker/bs-datepicker.css"> 
+</head>
+
+
+<body>
+      <div class="container">
+            <div class="row">
+                <form role="form"> 
+                  <div class="row">                
+                  <div class="col-sm">
+                    <div class="form-group has-feedback">
+                      <label class="control-label">ORIGEM</label>
+                      <input type="text" class="form-control" placeholder="Insira sua cidade de origem" />
+                      <i class="form-control-feedback material-icons">my_location</i>
+                    </div>
+                  </div>
+                   
+                  <div class="col-sm">
+                      <i class="seta material-icons">arrow_forward_ios</i>
+                  </div>
+
+                    <div class="col-sm">
+                      <div class="form-group has-feedback" style="right: -83px;">
+                        <label class="control-label">DESTINO</label>
+                        <input type="text" class="form-control" placeholder="Insira sua cidade de origem" />
+                        <i class="form-control-feedback material-icons">local_airport</i>
+                      </div>
+                    </div>
+                  </div>  
+              
+                  <div class="row">
+                    <div class="col-xs-12 col-12 col-md-4 form-group" style="right: -73px;top: 47px;">
+                      <label>DATA DE IDA</label>
+                      <input type="text"
+                             placeholder="Escolha sua data de ida"
+                             class="form-control"
+                             bsDatepicker>
+                    </div>
+
+                    <div class="col-xs-12 col-12 col-md-4 form-group" style="right: -73px;top: 47px;">
+                      <label>DATA DE VOLTA</label>
+                      <input type="text"
+                             placeholder="Escolha sua data de volta"
+                             class="form-control"
+                             bsDatepicker>
+                    </div>
+
+                    <div class="col-xs-12 col-12 col-md-4 form-group" style="right: -68px;top: 72px;">
+                      
+                      <div class="btn-group" dropdown [autoClose]="false">
+                        
+                        <button id="button-autoclose2" dropdownToggle type="button" class="btn btn-outline-secondary dropdown-toggle"aria-controls="dropdown-autoclose2" style="width: 233px;    color: ghostwhite;">
+                          Passageiros e classe do voo
+                        </button>
+                    
+                        <ul id="dropdown-autoclose2" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-autoclose2">
+                          <div class="labels" style="top: 9px;position: relative;right: -27px;width: 350px;height: 253px;">
+                            <div class="row">
+                              <div class="col-sm" style="right: 16px;">
+                             <label style="    margin-bottom: -7px;">ADULTOS</label>
+                             <!-- <input class="form-control" type="number" value="42" id="example-number-input"> -->
+                            </div>
+                            <div class="col-sm" style="right: -80px;">
+                                <select>
+                                    <option>0</option>
+                                    <option>1</option>
+                                    <option>2</option>
+                                    <option>3</option>
+                                    <option>4</option>
+                                    <option>5</option>
+                                    <option>6</option>
+                                    <option>7</option>
+                                    <option>8</option>
+                                    <option>9</option>
+                                </select>
+                            </div>
+                            
+                            </div>
+                            <div class="row small">
+                             <label style="color: #aaa;">A partir de 18 anos</label>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-sm" style="right: 16px;">
+                               <label style="    margin-bottom: -7px;">CRIANÇAS</label>
+                               <!-- <input class="form-control" type="number" value="42" id="example-number-input"> -->
+                              </div>
+                              <div class="col-sm" style="right: -80px;">
+                                  <select>
+                                      <option>0</option>
+                                      <option>1</option>
+                                      <option>2</option>
+                                      <option>3</option>
+                                      <option>4</option>
+                                      <option>5</option>
+                                      <option>6</option>
+                                      <option>7</option>
+                                      <option>8</option>
+                                      <option>9</option>
+                                  </select>
+                              </div>
+                              
+                              </div>
+                              <div class="row small">
+                               <label style="color: #aaa;">2 a 11 anos</label>
+                              </div>
+
+                              <div class="row">
+                                  <div class="col-sm" style="right: 16px;">
+                                 <label style="    margin-bottom: -7px;">BÊBES</label>
+                                 <!-- <input class="form-control" type="number" value="42" id="example-number-input"> -->
+                                </div>
+                                <div class="col-sm" style="right: -80px;">
+                                    <select>
+                                        <option>0</option>
+                                        <option>1</option>
+                                        <option>2</option>
+                                        <option>3</option>
+                                        <option>4</option>
+                                        <option>5</option>
+                                        <option>6</option>
+                                        <option>7</option>
+                                        <option>8</option>
+                                        <option>9</option>
+                                    </select>
+                                </div>
+                                
+                                </div>
+                                
+                                <div class="row small">
+                                 <label style="color: #aaa;">0 a 23 meses</label>
+                                </div>
+
+                                <li class="divider dropdown-divider" style="position: relative;right: 27px;"></li>
+                                <div class="row small">
+                                    <label style="color: #aaa;">Classe do voo</label>
+                                </div>
+
+                                <div class="checkbox" >
+                                    <label><input type="checkbox" class="sm" value=""> Classe ecônomica   </label>
+                                    <label style="    right: -16px;
+                                    position: relative;"><input type="checkbox" class="sm" value=""> Classe executiva</label>
+                                </div>
+                         </div>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                
+                  <div class="row" style="    right: -358px;align-items: center;position: relative;top: 47px;">
+                  
+                      <button (click)="abrirModal(template)" type="button" class="btn btn-outline-primary" style="    color: whitesmoke;    height: 44px;" >
+                          <i class="material-icons" style="right: 6px; position: relative;top: 7px;">search</i>
+                             <label> Pesquisar Passagem</label>
+                        </button>
+                  </div>
+                 
+                 
+                  <ng-template #template>
+                    <div class="modal-header">
+                      <h4 class="modal-title pull-left">Passagens</h4>
+                      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">
+                      Passagens
+                    </div>
+                  </ng-template>
+                </form>
+            </div>
+          
+         
+         </div>
+</body>
+
+</html>

@@ -1,0 +1,41 @@
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card card-plain">
+        <div class=" card-header">
+          <h4 class=" card-title">Lista de embarques</h4>
+          <p class=" category">Aqui está listado todos os embarques que estão ativos.</p>
+        </div>
+        <div class=" card-body">
+          <div>
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+               
+                <tr>
+                    <div id="divFiltrar">
+                      <input type="text" id="txtFiltra" placeholder="Filtrar..."/>
+                      <img src="search3.png" id="btnFiltra" alt="Filtrar"/>
+                    </div>
+                <tr>
+                  <th>Token</th>
+                  <th>Passageiro</th>
+                  <th>Voô</th>
+                  <th>Data do embarque</th>
+                  <th>Status</th>
+                </tr>
+                <tr *ngFor="let embarque of embarques">
+                  <td>{{embarque.token}}</td>
+                  <td>{{embarque.guidUsuario}}</td>
+                  <td>{{embarque.guidVoo}}</td>
+                  <td>{{embarque.dataEmbarque}}</td>
+                  <td>{{embarque.embarcou}}</td>
+                  <button class="btn btn-sm btn-danger btn-simple active" (click)="editar(embarque)"><i class=" tim-icons icon-pencil"></i></button>
+                </tr>
+              </thead>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

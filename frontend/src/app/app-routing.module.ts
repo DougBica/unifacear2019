@@ -10,23 +10,44 @@ import { AeronaveListarComponent } from './pages/aeronave/aeronave-listar/aerona
 import { AeronaveCadastrarComponent } from './pages/aeronave/aeronave-cadastrar/aeronave-cadastrar.component';
 import { FabricanteCadastrarComponent } from './pages/fabricante/fabricante-cadastrar/fabricante-cadastrar.component';
 import { FabricanteListarComponent } from './pages/fabricante/fabricante-listar/fabricante-listar.componet';
+import { CheckinListarComponent } from './pages/checkin/checkin-listar/checkin-listar.component';
+import { CheckinCadastrarComponent } from './pages/checkin/checkin-cadastrar/checkin-cadastrar.component';
+import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usuario-cadastrar.component';
+import { AutenticacaoGuard } from './autenticacao.guard';
+import { EmbarqueListarComponent } from './pages/checkin/embarque-listar/embarque-listar.component';
+import { EmbarqueCadastrarComponent } from './pages/checkin/embarque-cadastrar/embarque-cadastrar.component';
+import { LoginComponent } from './pages/login/login/login.component';
+import { CarrinhoPassagemComponent } from './pages/passagem/carrinho-passagem/carrinho-passagem.component';
+import { BuscarPassagemComponent } from './pages/passagem/buscar-passagem/buscar-passagem.component';
+
+import { RegisterComponent } from './pages/register/register/register.component';
+import { PerfilCadastrarComponent } from './pages/perfil1/perfil-cadastrar/perfil-cadastrar.component';
+import { PerfilListarComponent } from './pages/perfil1/perfil-listar/perfil-listar.component';
 
 const routes: Routes = [
   {
     path: "admin",
+    //canActivate:[AutenticacaoGuard],
     component: AdminLayoutComponent,
     children: [
-
-      { path: 'usuario', component: UsuarioListarComponent },
       { path: 'aeronave', component: AeronaveListarComponent },
       { path: 'aeronave/:id', component: AeronaveCadastrarComponent },
       { path: 'fabricante/:id', component: FabricanteCadastrarComponent },
       { path: 'fabricante', component: FabricanteListarComponent },
-
-
-    ]
+      { path: 'usuario', component: UsuarioListarComponent },
+      { path: 'checkin-controle', component: CheckinListarComponent },
+      { path: 'checkin-cadastrar/:id', component: CheckinCadastrarComponent },
+      { path: 'usuario/:id', component: UsuarioCadastrarComponent },
+      { path: 'tipoPerfil/:id', component : PerfilCadastrarComponent},
+      { path: 'tipoperfil', component : PerfilListarComponent},
+      { path: 'embarque-controle', component: EmbarqueListarComponent},
+      { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent}
+   ]
   },
- 
+  { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
+  { path: 'buscar-passagem', component: BuscarPassagemComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
     path: "",
     redirectTo: "dashboard",

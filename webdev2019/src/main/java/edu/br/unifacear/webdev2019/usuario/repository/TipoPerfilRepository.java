@@ -4,7 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import edu.br.unifacear.webdev2019.usuario.entity.TipoPerfil;
 
-public interface TipoPerfilRepository 
-	extends JpaRepository<TipoPerfil, Long>{
+public interface TipoPerfilRepository extends JpaRepository<TipoPerfil, Long> {
 
 }

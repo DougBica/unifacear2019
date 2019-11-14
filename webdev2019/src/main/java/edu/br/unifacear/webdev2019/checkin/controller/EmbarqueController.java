@@ -16,7 +16,7 @@ import edu.br.unifacear.webdev2019.checkin.entity.Embarque;
 import edu.br.unifacear.webdev2019.checkin.service.EmbarqueService;
 
 @RestController
-@RequestMapping(value="/embarque")
+@RequestMapping(value="/scp/public/embarque")
 public class EmbarqueController {
 	
 	@Autowired

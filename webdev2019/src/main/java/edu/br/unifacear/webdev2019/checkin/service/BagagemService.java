@@ -1,4 +1,4 @@
-package edu.br.unifacear.webdev2019.checkin.service;
+/*package edu.br.unifacear.webdev2019.checkin.service;
 
 import java.io.Serializable;
 import java.util.List;
@@ -29,6 +29,15 @@ public class BagagemService implements Serializable {
 			return bagagemrepository.findAll();
 		}
 		catch (BusinessException e) {
+			throw new BusinessException(BusinessExceptionCode.ERR000);
+		}
+	}
+	
+	public List<Bagagem> listaridBagagem(Long id){
+		try {
+			return  bagagemrepository.findByGuidCheckin(id);
+		}
+		catch(BusinessException e) {
 			throw new BusinessException(BusinessExceptionCode.ERR000);
 		}
 	}
@@ -94,3 +103,4 @@ public class BagagemService implements Serializable {
 	}
 
 }
+*/
