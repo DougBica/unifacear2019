@@ -28,6 +28,20 @@ export const ROUTES: RouteInfo[] = [
     rtlTitle: "",
     icon: "icon-map-big",
     class: ""
+  }, 
+  {
+    path: "/carrinho-passagem",
+    title: "Carrinho Compra Passagem",
+    rtlTitle: "",
+    icon: "icon-map-big",
+    class: ""
+  },
+  {
+    path: "/buscar-passagem",
+    title: "buscar pas",
+    rtlTitle: "",
+    icon: "icon-map-big",
+    class: ""
   }
 ];
 

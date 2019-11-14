@@ -10,7 +10,11 @@ import { CheckinListarComponent } from './pages/checkin/checkin-listar/checkin-l
 import { CheckinCadastrarComponent } from './pages/checkin/checkin-cadastrar/checkin-cadastrar.component';
 import { UsuarioCadastrarComponent } from './pages/usuario/usuario-cadastrar/usuario-cadastrar.component';
 import { AutenticacaoGuard } from './autenticacao.guard';
+import { EmbarqueListarComponent } from './pages/checkin/embarque-listar/embarque-listar.component';
+import { EmbarqueCadastrarComponent } from './pages/checkin/embarque-cadastrar/embarque-cadastrar.component';
 import { LoginComponent } from './pages/login/login/login.component';
+import { CarrinhoPassagemComponent } from './pages/passagem/carrinho-passagem/carrinho-passagem.component';
+import { BuscarPassagemComponent } from './pages/passagem/buscar-passagem/buscar-passagem.component';
 
 import { RegisterComponent } from './pages/register/register/register.component';
 import { PerfilCadastrarComponent } from './pages/perfil1/perfil-cadastrar/perfil-cadastrar.component';
@@ -28,8 +32,12 @@ const routes: Routes = [
       { path: 'usuario/:id', component: UsuarioCadastrarComponent },
       { path: 'tipoPerfil/:id', component : PerfilCadastrarComponent},
       { path: 'tipoperfil', component : PerfilListarComponent},
+      { path: 'embarque-controle', component: EmbarqueListarComponent},
+      { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent}
    ]
   },
+  { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
+  { path: 'buscar-passagem', component: BuscarPassagemComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {

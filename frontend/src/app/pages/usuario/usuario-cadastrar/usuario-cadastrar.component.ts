@@ -4,6 +4,7 @@ import { Usuario } from '../model/usuario.model';
 import { UsuarioService } from '../usuario.service';
 import { Perfil } from '../../perfil1/model/perfil.model';
 import { PerfilService } from '../../perfil1/perfil.service';
+import { ArquivoService } from 'src/app/arquivo.service';
 
 
 @Component({
@@ -17,9 +18,12 @@ export class UsuarioCadastrarComponent implements OnInit {
 
   perfis: Perfil[] = [];
 
+  input : any;
+
   constructor(private route: ActivatedRoute,
     private usuarioService: UsuarioService,
     private perfilService: PerfilService,
+    private arquivoService: ArquivoService,
     private router: Router) { }
 
   ngOnInit() {
@@ -55,6 +59,10 @@ export class UsuarioCadastrarComponent implements OnInit {
 
       }
     );
+  }
+
+  upload(input : any) {
+    this.input = input;
   }
 
 }

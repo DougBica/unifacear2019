@@ -56,5 +56,8 @@ export class PerfilCadastrarComponent implements OnInit {
     this.perfil.permissoes.splice(index, 1);
   }
 
+  updateValue(index:any,value: any) {
+    this.perfil.permissoes[index] = value;
+  }
 
 }
