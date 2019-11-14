@@ -1,7 +1,4 @@
-package edu.br.unifacear.webdev2019.usuario.entity;
-
-
-public enum Permissao  {
+export enum Permissao {
 	ACESSO,
 	GERENCIAR_VOO,
 	GERENCIAR_AEROPORTO,

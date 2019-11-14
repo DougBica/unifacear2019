@@ -1,61 +1,109 @@
+
 <div class=" content">
-  <h4>
-    Cadastrar Usuário
-  </h4>
-  <form id="formUsuario" (ngSubmit)="salvar()">
-    <div class="form-group">
-      <label for="nome">Nome</label>
-      <input type="text" class="form-control" name="nome" placeholder="Digite seu nome" [(ngModel)]="usuario.nome"
-        required>
-    </div>
-    <div class="form-group">
-      <label for="email">Email</label>
-      <input type="email" class="form-control" name="email" placeholder="Digite seu email" [(ngModel)]="usuario.email"
-        required>
-    </div>
-    <div class="row no-gutter">
-      <div class="col">
-        <input type='file' #fileInput class="hidden-input"
-         (click)="upload($event.target)"
-          uploader />
-          &nbsp;
-
-          <a href="http://localhost:8080/scp/public/arquivo/download/1">Carregar</a>
+  <div class=" row">
+    <div class=" col-md-8">
+      <div class=" card">
+        <div class=" card-header"><h5 class=" title">Editar Usuario</h5></div>
+        <div class=" card-body">
+          <form id="formUsuario" (ngSubmit)="salvar()">
+            <div class=" row">
+              <div class=" col-md-6 pr-md-1">
+                <div class=" form-group">
+                  <label for="nome">Nome</label>
+                  <input type="text" class="form-control" name="nome" placeholder="Digite seu nome" [(ngModel)]="usuario.nome"
+                  required>
+                </div>
+              </div>
+              <div class=" col-md-6 pl-md-1">
+                <div class=" form-group">
+                  <label for="email">Email</label>
+                  <input type="email" class="form-control" name="email" placeholder="Digite seu email" [(ngModel)]="usuario.email"
+                    required>
+                </div>
+              </div>
+            </div>
+            <div class=" row">
+              <div class=" col-md-6 pr-md-1">
+                <div class=" form-group">
+                  <label for="nome">CPF</label>
+                  <input type="text" class="form-control" name="CPF" placeholder="Digite seu CPF" [(ngModel)]="usuario.cpf"
+                  required>
+                </div>
+              </div>
+              <div class=" col-md-6 pl-md-1">
+                <div class=" form-group">
+                  <label for="email">Data de Nascimento</label>
+                  <input type="datetime" class="form-control" name="data" placeholder="Digite seu email" [(ngModel)]="usuario.dataNasc"
+                    required>
+                </div>
+              </div>
+            </div>
+            <div class=" row">
+              <div class=" col-md-6 pr-md-1">
+                <div class=" form-group">
+                  <label for="nome">Perfil</label>
+                <div>
+                    <select [(ngModel)]="usuario.perfil.guidTipoPerfil" name="Tipoperfil" class="form-control" > 
+                      <option *ngFor="let perfil of perfis" style = "background-color: #27293D;"value= {{perfil.guidTipoPerfil}}>
+                        {{perfil.descricao}}
+                      </option>
+                    </select> 
+                  </div>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+        <div class=" card-footer">
+          <button type="submit" class="btn btn-primary" (click)="salvar()">Salvar</button>
+        </div>
       </div>
     </div>
+    <div class=" col-md-4">
+      <div class=" card card-user">
+        <div class=" card-body">
+          <p class=" card-text"></p>
+          <div class=" author">
+            <div class=" block block-one"></div>
+            <div class=" block block-two"></div>
+            <div class=" block block-three"></div>
+            <div class=" block block-four"></div>
+            <a href="javascript:void(0)">
+              <img alt="..." class=" avatar" src="assets/img/emilyz.jpg" />
 
-    <div class="card">
-      <div class="card-header">
-        Perfis <button class="btn" (click)="adicionarPerfil();">Adicionar</button>
-      </div>
-      <ul class="list-group">
-        <li *ngFor="let perfil of perfis; let perfilIndex = index" class="list-group-item"
-          style="background-color: #525f7f">
-          <div class="row">
-            <div class="col">
-              <select class="form-control" name="nome" [(ngModel)]="perfil.nome">
-                <option>Primeira Classe</option>
-                <option>Segunda Classe</option>
-              </select>
-            </div>
-            <div class="col">
-              <input type="text" class="form-control" name="qtdeAssentos" [(ngModel)]="perfil.descricao"
-                placeholder="Quantidade de assentos">
-            </div>
-            <div class="col">
-              <button type="button" (click)="removerPerfil(perfilIndex);" class=" close" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-
-            </div>
+              <h5 class=" title" [(ngModel)]="usuario.nome">Leo</h5>
+            </a>
+            <p class=" description">Ceo/Co-Founder</p>
           </div>
-
-        </li>
-
-      </ul>
+          <div class=" card-description">
+            Do not be scared of the truth because we need to restart the human
+            foundation in truth And I love you like Kanye loves Kanye I love
+            Rick Owens’ bed design but the back is...
+          </div>
+        </div>
+        <div class=" card-footer">
+          <div class=" button-container">
+            <button
+              class=" btn btn-icon btn-round btn-facebook"
+              href="javascript:void(0)"
+            >
+              <i class=" fab fa-facebook"> </i>
+            </button>
+            <button
+              class=" btn btn-icon btn-round btn-twitter"
+              href="javascript:void(0)"
+            >
+              <i class=" fab fa-twitter"> </i>
+            </button>
+            <button
+              class=" btn btn-icon btn-round btn-google"
+              href="javascript:void(0)"
+            >
+              <i class=" fab fa-google-plus"> </i>
+            </button>
+          </div>
+        </div>
+      </div>
     </div>
-
-    <button type="submit" class="btn">Salvar</button>
-  </form>
-
+  </div>
 </div>

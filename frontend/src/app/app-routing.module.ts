@@ -16,6 +16,10 @@ import { LoginComponent } from './pages/login/login/login.component';
 import { CarrinhoPassagemComponent } from './pages/passagem/carrinho-passagem/carrinho-passagem.component';
 import { BuscarPassagemComponent } from './pages/passagem/buscar-passagem/buscar-passagem.component';
 
+import { RegisterComponent } from './pages/register/register/register.component';
+import { PerfilCadastrarComponent } from './pages/perfil1/perfil-cadastrar/perfil-cadastrar.component';
+import { PerfilListarComponent } from './pages/perfil1/perfil-listar/perfil-listar.component';
+
 const routes: Routes = [
   {
     path: "admin",
@@ -26,6 +30,8 @@ const routes: Routes = [
       { path: 'checkin-controle', component: CheckinListarComponent },
       { path: 'checkin-cadastrar/:id', component: CheckinCadastrarComponent },
       { path: 'usuario/:id', component: UsuarioCadastrarComponent },
+      { path: 'tipoPerfil/:id', component : PerfilCadastrarComponent},
+      { path: 'tipoperfil', component : PerfilListarComponent},
       { path: 'embarque-controle', component: EmbarqueListarComponent},
       { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent}
    ]
@@ -33,6 +39,7 @@ const routes: Routes = [
   { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
   { path: 'buscar-passagem', component: BuscarPassagemComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
     path: "",
     redirectTo: "dashboard",

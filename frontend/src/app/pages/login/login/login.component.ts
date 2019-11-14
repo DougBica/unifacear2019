@@ -24,7 +24,6 @@ export class LoginComponent implements OnInit, OnDestroy {
     this.loginService.login(this.login,this.senha).subscribe(
       user => {
         localStorage.setItem("token",user['token']);
-        alert('logou');
         this.router.navigate(['/']);
       }
     )

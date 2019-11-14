@@ -99,6 +99,8 @@ import { CheckinModule } from './pages/checkin/checkin.module';
 import { EmbarqueModule } from './pages/checkin/embarque.module';
 import { BagagemModule } from './pages/checkin/bagagem.module';
 import { LogintesteModule } from './pages/login/login.module';
+import { RegisterModule } from "./pages/register/RegisterModule";
+import { PerfilModule } from './pages/perfil1/perfil.module';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
@@ -113,8 +115,10 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     RouterModule,
     AppRoutingModule,
     FormsModule,
+    RegisterModule,
     LogintesteModule,
     UsuarioModule,
+    PerfilModule,
     CheckinModule,
     BagagemModule,
     EmbarqueModule,
