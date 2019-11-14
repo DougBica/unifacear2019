@@ -27,12 +27,9 @@
               "src/assets"
             ],
             "styles": [
-<<<<<<< HEAD
-=======
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
->>>>>>> c385a0db470b31781fe672ca3ea8eb12b50aa84d
               "src/styles.scss",
               "node_modules/ngx-toastr/toastr.css",
               "src/assets/scss/black-dashboard.scss",
@@ -93,12 +90,9 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-<<<<<<< HEAD
-=======
               "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
               "./node_modules/bootstrap/dist/css/bootstrap.min.css",
               "./node_modules/ngx-bootstrap/datepicker/bs-datepicker.css",
->>>>>>> c385a0db470b31781fe672ca3ea8eb12b50aa84d
               "src/styles.scss"
             ],
             "scripts": [],
