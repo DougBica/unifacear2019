@@ -32,4 +32,8 @@ export class PerfilListarComponent implements OnInit {
   edit(perfil: Perfil) {
     this.router.navigate(["/admin/tipoPerfil/"+perfil.guidTipoPerfil]); 
   }
+
+  novo(perfil: Perfil) {
+    this.router.navigate(["/admin/tipoPerfil/novo"])
+  }
 }
