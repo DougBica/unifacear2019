@@ -32,4 +32,7 @@ export class UsuarioListarComponent implements OnInit {
   edit(usuario: Usuario) {
     this.router.navigate(["/admin/usuario/"+usuario.guidUsuario]);    
   }
+  novo(usuario: Usuario) {
+    this.router.navigate(["/admin/usuario/novo"])
+  }
 }

@@ -59,6 +59,7 @@ export class UsuarioCadastrarComponent implements OnInit {
 
       }
     );
+    this.router.navigate(["/admin/usuario"])
   }
 
   upload(input : any) {

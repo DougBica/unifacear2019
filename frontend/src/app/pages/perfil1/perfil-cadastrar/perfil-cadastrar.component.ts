@@ -42,7 +42,7 @@ export class PerfilCadastrarComponent implements OnInit {
 
       }
     );
-
+    this.router.navigate(["/admin/tipoperfil"])
   }
 
   adicionarPermissao() {

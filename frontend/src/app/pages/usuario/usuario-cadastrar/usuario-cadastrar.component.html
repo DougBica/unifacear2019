@@ -33,7 +33,7 @@
               <div class=" col-md-6 pl-md-1">
                 <div class=" form-group">
                   <label for="email">Data de Nascimento</label>
-                  <input type="datetime" class="form-control" name="data" placeholder="Digite seu email" [(ngModel)]="usuario.dataNasc"
+                  <input type="date" class="form-control" name="data" [(ngModel)]="usuario.dataNasc"
                     required>
                 </div>
               </div>
@@ -71,7 +71,7 @@
             <a href="javascript:void(0)">
               <img alt="..." class=" avatar" src="assets/img/emilyz.jpg" />
 
-              <h5 class=" title" [(ngModel)]="usuario.nome">Leo</h5>
+              <h5 class=" title" [(ngModel)]="usuario.nome">{{usuario.nome}}</h5>
             </a>
             <p class=" description">Ceo/Co-Founder</p>
           </div>
