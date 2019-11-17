@@ -1,4 +1,3 @@
-import { ArquivoService } from 'src/app/arquivo.service';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
@@ -103,6 +102,7 @@ import { BagagemModule } from './pages/checkin/bagagem.module';
 import { LogintesteModule } from './pages/login/login.module';
 import { ArquivoService } from './arquivo.service';
 import { CancelaModule } from './pages/cancela/cancela.module'
+import { PerfilModule } from './pages/perfil1/perfil.module'
 
 @NgModule({
   imports: [
