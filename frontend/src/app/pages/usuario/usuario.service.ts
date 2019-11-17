@@ -15,16 +15,22 @@ export class UsuarioService {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
     
-    return this.http.get<Usuario[]>("http://localhost:8080/scp/private/usuario",options);
+    return this.http.get<Usuario[]>("http://localhost:8080/scp/private/usuario/listar",options);
   }
 
   buscarPorID(guidUsuario: string) : Observable<Usuario>  {
-    return this.http.get<Usuario>("http://localhost:8080/usuario/"+guidUsuario);
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
+    return this.http.get<Usuario>("http://localhost:8080/scp/private/usuario/buscarPorID/"+guidUsuario,options);
   }
 
   salvar(usuario: Usuario) : Observable<any> {
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
     return this.http.post<any>
-      ("http://localhost:8080/usuario/",usuario);
+      ("http://localhost:8080/scp/private/usuario/",usuario,options);
   }
 
 }

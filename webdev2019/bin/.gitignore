@@ -29,9 +29,12 @@ build/
 
 ### VS Code ###
 .vscode/
+<<<<<<< HEAD
 /.gitignore
 /.mvn/
 /mvnw
 /mvnw.cmd
 /pom.xml
+=======
+>>>>>>> 5c771e66e7344ced7b68896d2e9778162e910b2f
 /src/

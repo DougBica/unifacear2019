@@ -16,8 +16,8 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
-    path: "/login",
-    title: "Login",
+    path: "/admin/tipoperfil",
+    title: "Perfil",
     rtlTitle: "",
     icon: "icon-single-02",
     class: ""
@@ -28,6 +28,37 @@ export const ROUTES: RouteInfo[] = [
     rtlTitle: "",
     icon: "icon-map-big",
     class: ""
+  }, 
+  {
+    path: "/carrinho-passagem",
+    title: "Carrinho Compra Passagem",
+    rtlTitle: "",
+    icon: "icon-map-big",
+    class: ""
+  },
+  {
+    path: "/buscar-passagem",
+    title: "buscar pas",
+    rtlTitle: "",
+    icon: "icon-map-big",
+    class: ""
+  },
+  {
+    path: "/admin/aeronave",
+    title: "Aircraft",
+    rtlTitle: "",
+    icon: "icon-chart-pie-36",
+    class: "",
+
+   
+    
+  },
+  {
+  path: "/admin/fabricante",
+  title: "Manufacturer",
+  rtlTitle: "",
+  icon: "icon-chart-pie-36",
+  class: ""
   }
 ];
 

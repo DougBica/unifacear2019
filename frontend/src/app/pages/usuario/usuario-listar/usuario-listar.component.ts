@@ -21,12 +21,18 @@ export class UsuarioListarComponent implements OnInit {
 
   load() {      
       this.usuarioService.list().subscribe(
-        usuarios => this.usuarios = usuarios
+        usuarios => {
+          console.log(usuarios);
+          this.usuarios = usuarios
+        }
       )
 
   }
 
   edit(usuario: Usuario) {
     this.router.navigate(["/admin/usuario/"+usuario.guidUsuario]);    
+  }
+  novo(usuario: Usuario) {
+    this.router.navigate(["/admin/usuario/novo"])
   }
 }

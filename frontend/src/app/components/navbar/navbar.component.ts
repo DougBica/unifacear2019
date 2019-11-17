@@ -159,6 +159,9 @@ export class NavbarComponent implements OnInit, OnDestroy {
     }
   }
 
+  Profile(){
+    this.router.navigate(['/admin/tipoperfil']);
+  } 
   logout(){
     localStorage.clear();
     this.router.navigate(['/login']);
