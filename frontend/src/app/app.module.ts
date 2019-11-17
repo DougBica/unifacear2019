@@ -1,3 +1,4 @@
+import { ArquivoService } from 'src/app/arquivo.service';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
@@ -88,6 +89,7 @@ export class MaterialModule { }
 import { AppComponent } from "./app.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -100,9 +102,11 @@ import { CheckinModule } from './pages/checkin/checkin.module';
 import { EmbarqueModule } from './pages/checkin/embarque.module';
 import { BagagemModule } from './pages/checkin/bagagem.module';
 import { LogintesteModule } from './pages/login/login.module';
-import { ArquivoService } from './arquivo.service';
-import { CancelaModule } from './pages/cancela/cancela.module'
-import { PerfilModule } from './pages/perfil1/perfil.module'
+import { RegisterModule } from "./pages/register/RegisterModule";
+import { PerfilModule } from './pages/perfil1/perfil.module';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
 
 @NgModule({
   imports: [
@@ -113,6 +117,8 @@ import { PerfilModule } from './pages/perfil1/perfil.module'
     NgbModule,
     RouterModule,
     AppRoutingModule,
+    FormsModule,
+    RegisterModule,
     LogintesteModule,
     UsuarioModule,
     AeronaveModule,
@@ -121,7 +127,8 @@ import { PerfilModule } from './pages/perfil1/perfil.module'
     CheckinModule,
     BagagemModule,
     EmbarqueModule,
-    CancelaModule,
+    PassagemModule,
+    MatIconModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
