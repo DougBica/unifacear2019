@@ -65,5 +65,6 @@ export class UsuarioCadastrarComponent implements OnInit {
   upload(input : any) {
     this.input = input;
   }
+  
 
 }
