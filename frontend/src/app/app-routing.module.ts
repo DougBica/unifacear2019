@@ -17,16 +17,12 @@ import { AutenticacaoGuard } from './autenticacao.guard';
 import { EmbarqueListarComponent } from './pages/checkin/embarque-listar/embarque-listar.component';
 import { EmbarqueCadastrarComponent } from './pages/checkin/embarque-cadastrar/embarque-cadastrar.component';
 import { LoginComponent } from './pages/login/login/login.component';
-import { CancelaListarComponent } from './pages/cancela/cancela-listar/cancela-listar.component';
-import { CancelaDetalhesComponent } from './pages/cancela/cancela-detalhes/cancela-detalhes.component';
-import { CancelaSalvarComponent } from './pages/cancela/cancela-salvar/cancela-salvar.component';
 import { CarrinhoPassagemComponent } from './pages/passagem/carrinho-passagem/carrinho-passagem.component';
 import { BuscarPassagemComponent } from './pages/passagem/buscar-passagem/buscar-passagem.component';
 
 import { RegisterComponent } from './pages/register/register/register.component';
 import { PerfilCadastrarComponent } from './pages/perfil1/perfil-cadastrar/perfil-cadastrar.component';
 import { PerfilListarComponent } from './pages/perfil1/perfil-listar/perfil-listar.component';
-
 
 const routes: Routes = [
   {
@@ -42,12 +38,11 @@ const routes: Routes = [
       { path: 'checkin-controle', component: CheckinListarComponent },
       { path: 'checkin-cadastrar/:id', component: CheckinCadastrarComponent },
       { path: 'usuario/:id', component: UsuarioCadastrarComponent },
-      { path: 'cancela', component: CancelaListarComponent },
-      { path: 'cancela/detalhes', component: CancelaDetalhesComponent },
-      { path: 'cancela/salvar', component: CancelaSalvarComponent },
-      { path: 'cancela/salvar/:id', component: CancelaSalvarComponent }
-
-    ]
+      { path: 'tipoPerfil/:id', component : PerfilCadastrarComponent},
+      { path: 'tipoperfil', component : PerfilListarComponent},
+      { path: 'embarque-controle', component: EmbarqueListarComponent},
+      { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent}
+   ]
   },
   { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
   { path: 'buscar-passagem', component: BuscarPassagemComponent },
