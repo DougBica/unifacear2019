@@ -107,6 +107,7 @@ import { PerfilModule } from './pages/perfil1/perfil.module';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { CancelaModule } from './pages/cancela/cancela.module'
 
 @NgModule({
   imports: [
@@ -129,6 +130,7 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
     EmbarqueModule,
     PassagemModule,
     MatIconModule,
+    CancelaModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
