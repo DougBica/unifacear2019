@@ -34,6 +34,11 @@ export class FabricanteCadastrarComponent implements OnInit {
   }
 
   salvar() {
+    if (this.fabricante.nomefabricante == undefined) {
+      alert('error');
+      return;
+    }
+
     this.fabricanteService.salvar(this.fabricante).subscribe(
       () => {
         this.router.navigate(["/admin/fabricante/"]);    
