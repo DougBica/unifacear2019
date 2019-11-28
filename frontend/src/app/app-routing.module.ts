@@ -23,6 +23,10 @@ import { BuscarPassagemComponent } from './pages/passagem/buscar-passagem/buscar
 import { RegisterComponent } from './pages/register/register/register.component';
 import { PerfilCadastrarComponent } from './pages/perfil1/perfil-cadastrar/perfil-cadastrar.component';
 import { PerfilListarComponent } from './pages/perfil1/perfil-listar/perfil-listar.component';
+import { CancelaListarComponent } from './pages/cancela/cancela-listar/cancela-listar.component';
+import { CancelaDetalhesComponent } from './pages/cancela/cancela-detalhes/cancela-detalhes.component';
+import { CancelaSalvarComponent } from './pages/cancela/cancela-salvar/cancela-salvar.component'
+
 
 const routes: Routes = [
   {
@@ -41,7 +45,12 @@ const routes: Routes = [
       { path: 'tipoPerfil/:id', component : PerfilCadastrarComponent},
       { path: 'tipoperfil', component : PerfilListarComponent},
       { path: 'embarque-controle', component: EmbarqueListarComponent},
-      { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent}
+      { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent},
+      { path: 'cancela', component: CancelaListarComponent },
+      { path: 'cancela/detalhes', component: CancelaDetalhesComponent },
+      { path: 'cancela/salvar', component: CancelaSalvarComponent },
+      { path: 'cancela/salvar/:id', component: CancelaSalvarComponent }
+
    ]
   },
   { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
