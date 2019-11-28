@@ -169,7 +169,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   Profile(){
-    this.router.navigate(['/admin/tipoperfil']);
+    this.router.navigate(["/admin/usuario/"+ this.usuario.guidUsuario]);
   } 
   logout(){
     localStorage.clear();
