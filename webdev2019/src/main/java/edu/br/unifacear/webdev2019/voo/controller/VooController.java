@@ -14,7 +14,7 @@ import edu.br.unifacear.webdev2019.voo.entity.Voo;
 import edu.br.unifacear.webdev2019.voo.service.VooService;
 
 @RestController
-@RequestMapping("/voo")
+@RequestMapping("/scp/public/voo")
 public class VooController {
 	@Autowired
 	private VooService vooService;

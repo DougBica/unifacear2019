@@ -15,7 +15,7 @@ import edu.br.unifacear.webdev2019.voo.service.RotaService;
 
 
 @RestController
-@RequestMapping("/rota")
+@RequestMapping("/scp/public/rota")
 public class RotaController {
 	@Autowired
 	private RotaService rotaService;

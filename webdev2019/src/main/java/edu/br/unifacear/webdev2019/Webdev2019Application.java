@@ -9,5 +9,5 @@ public class Webdev2019Application {
 	public static void main(String[] args) {
 		SpringApplication.run(Webdev2019Application.class, args);
 	}
-
+	
 }

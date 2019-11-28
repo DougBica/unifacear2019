@@ -16,7 +16,7 @@ import edu.br.unifacear.webdev2019.voo.service.ParadaService;
 
 
 @RestController
-@RequestMapping("/parada")
+@RequestMapping("/scp/public/parada")
 public class ParadaController {
 	@Autowired
 	private ParadaService paradaService;

@@ -14,7 +14,7 @@ import edu.br.unifacear.webdev2019.voo.entity.Aeroporto;
 import edu.br.unifacear.webdev2019.voo.service.AeroportoService;
 
 @RestController
-@RequestMapping("/aeroporto")
+@RequestMapping("/scp/public/aeroporto")
 public class AeroportoController {
 	@Autowired
 	private AeroportoService aeroportoService;
