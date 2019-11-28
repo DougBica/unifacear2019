@@ -1,4 +1,4 @@
-export class Cancela {
+ export class Cancela {
     guidCancelar: number
     guidUsuario: number
     guidReserva: number

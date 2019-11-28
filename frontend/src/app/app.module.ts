@@ -89,6 +89,7 @@ export class MaterialModule { }
 import { AppComponent } from "./app.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
 import { AuthLayoutComponent } from './layouts/auth-layout/auth-layout.component';
+
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 
 import { AppRoutingModule } from "./app-routing.module";
@@ -107,7 +108,6 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { CancelaModule } from './pages/cancela/cancela.module'
-
 
 @NgModule({
   imports: [

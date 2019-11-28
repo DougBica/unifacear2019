@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-cancela-listar',
   templateUrl: './cancela-listar.component.html',
-  styleUrls: ['./cancela-listar.component.css'],
+  styleUrls: ['./cancela-listar.component.scss'],
 
 })
 export class CancelaListarComponent implements OnInit {
