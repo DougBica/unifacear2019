@@ -1,15 +1,15 @@
 export class Checkin {
     guidCheckin: number;
-    token: string;
-    guidUsuario: number;
-    guidVoo: number;
-    guidPassagem: number;
-    guidAeronave: number;
-    checkinAtivo: boolean;
+    token: string; // precisa
+    guidUsuario: number; 
+    guidVoo: number; // precisa
+    guidPassagem: number; // precisa
+    guidAeronave: number; // precisa
+    checkinAtivo: boolean; // precisa
     altaBagagem: boolean;
-    fotoCheckin: string;
-    indicadorFoto: boolean;
-    guidMilhagem: number;
-    dataCheckin: any;
-    guidStatus: number;
+    fotoCheckin: string; 
+    indicadorFoto: boolean; 
+    guidMilhagem: number; 
+    dataCheckin: any; // data padrão
+    guidStatus: number; // 1
 }

@@ -8,6 +8,7 @@ export class Passagem {
     dataPartida: Date;
     origem: string;
     destino: string;
+    isKid: boolean;
     active: boolean;
     valorPassagem: number;
     nomePassageiro: string;
