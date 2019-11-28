@@ -18,7 +18,9 @@ export class UsuarioCadastrarComponent implements OnInit {
 
   perfis: Perfil[] = [];
 
-  input : any;
+  input: any;
+
+  fileToUpload: File = null;
 
   constructor(private route: ActivatedRoute,
     private usuarioService: UsuarioService,
@@ -41,7 +43,17 @@ export class UsuarioCadastrarComponent implements OnInit {
     });
   }
 
-  load() {      
+  handleFileInput(files: FileList) {
+    this.fileToUpload = files.item(0);
+
+    this.usuarioService.upload(this.fileToUpload).subscribe(
+      arquivo => {
+        this.usuario.foto = arquivo.guidArquivo;
+      }
+    );
+  }
+
+  load() {
     this.perfilService.list().subscribe(
       perfis => {
         console.log(perfis);
@@ -53,6 +65,8 @@ export class UsuarioCadastrarComponent implements OnInit {
   salvar() {
     console.log(this.perfis);
     console.log(this.usuario);
+
+
     this.usuarioService.salvar(this.usuario).subscribe(
       () => {
 
@@ -60,11 +74,12 @@ export class UsuarioCadastrarComponent implements OnInit {
       }
     );
     this.router.navigate(["/admin/usuario"])
+
   }
 
-  upload(input : any) {
+  upload(input: any) {
     this.input = input;
   }
-  
+
 
 }

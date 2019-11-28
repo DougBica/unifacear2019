@@ -7,30 +7,43 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class UsuarioService {
-  
-  constructor(private http : HttpClient) { }
 
-  list() : Observable<Usuario[]> {
+  constructor(private http: HttpClient) { }
+
+
+  upload(data: any): Observable<any> {
+    let formData = new FormData();
+    formData.append('arquivo', data, data['name']);
+   
     let options = {
-      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+      headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'))
     };
-    
-    return this.http.get<Usuario[]>("http://localhost:8080/scp/private/usuario/listar",options);
+
+    return this.http.post<any>("http://localhost:8080/scp/public/arquivo", formData, options);
   }
 
-  buscarPorID(guidUsuario: string) : Observable<Usuario>  {
+
+  list(): Observable<Usuario[]> {
     let options = {
-      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+      headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'))
     };
-    return this.http.get<Usuario>("http://localhost:8080/scp/private/usuario/buscarPorID/"+guidUsuario,options);
+
+    return this.http.get<Usuario[]>("http://localhost:8080/scp/private/usuario/listar", options);
   }
 
-  salvar(usuario: Usuario) : Observable<any> {
+  buscarPorID(guidUsuario: string): Observable<Usuario> {
     let options = {
-      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+      headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'))
+    };
+    return this.http.get<Usuario>("http://localhost:8080/scp/private/usuario/buscarPorID/" + guidUsuario, options);
+  }
+
+  salvar(usuario: Usuario): Observable<any> {
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'))
     };
     return this.http.post<any>
-      ("http://localhost:8080/scp/private/usuario/",usuario,options);
+      ("http://localhost:8080/scp/private/usuario/", usuario, options);
   }
 
 }
