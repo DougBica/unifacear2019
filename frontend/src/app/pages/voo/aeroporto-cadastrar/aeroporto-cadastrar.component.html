@@ -1,0 +1,34 @@
+<div class=" content">
+  <h4>
+    Cadastrar Aeroporto
+  </h4>
+  <form id="formAeroporto" (ngSubmit)="salvar()">
+    <div class="form-group">
+      <label for="nome">Nome do Aeroporto</label>
+      <input type="text" class="form-control" name="nome" placeholder="Digite Nome Aeroporto" [(ngModel)]="aeroporto.nome"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="sigla">Sigla Aeroporto</label>
+      <input type="text" class="form-control" name="sigla" placeholder="Digite Sigla Aeroporto" [(ngModel)]="aeroporto.sigla"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="cidade">Cidade de Localização do Aeroporto</label>
+      <input type="text" class="form-control" name="cidade" placeholder="Digite Cidade de Localização do Aeroporto" [(ngModel)]="aeroporto.cidade"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="estado">Estado de Localização do Aeroporto</label>
+      <input type="text" class="form-control" name="estado" placeholder="Digite Estado de Localização do Aeroporto" [(ngModel)]="aeroporto.estado"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="pais">Pais de Localização do Aeroporto</label>
+      <input type="text" class="form-control" name="pais" placeholder="Pais de Localização do Aeroporto" [(ngModel)]="aeroporto.pais"
+        required>
+    </div>
+    <button type="submit" class="btn">Salvar</button>
+  </form>
+
+</div>

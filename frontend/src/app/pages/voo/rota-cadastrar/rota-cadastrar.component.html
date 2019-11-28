@@ -1,0 +1,19 @@
+<div class=" content">
+  <h4>
+    Cadastrar Rota
+  </h4>
+  <form id="formRota" (ngSubmit)="salvar()">
+    <div class="form-group">
+      <label for="origem">Origem</label>
+      <input type="text" class="form-control" name="origem" placeholder="Digite a origem da rota" [(ngModel)]="rota.origem"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="destino">Destino</label>
+      <input type="text" class="form-control" name="destino" placeholder="Digite o destino da rota" [(ngModel)]="rota.destino"
+        required>
+    </div>
+    <button type="submit" class="btn">Salvar</button>
+  </form>
+
+</div>

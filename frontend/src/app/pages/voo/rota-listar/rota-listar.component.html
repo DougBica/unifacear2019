@@ -1,0 +1,21 @@
+<div class=" content">
+    <h4>
+      Listar Rota
+    </h4>
+  
+    <table class="table table-striped">
+      <tr>
+        <th>ID Rota</th>
+        <th>Cidade de Origem</th>
+        <th>Cidade de Destino</th>
+        <th>&nbsp;</th>
+      </tr>
+      <tr *ngFor="let rota of rota">
+        <td>{{rota.guidRota}}</td>
+        <td>{{rota.origem}}</td>
+        <td>{{rota.destino}}</td>
+        <td><button class="btn" (click)="edit(rota)">Editar</button></td>
+      </tr>    
+    </table>  
+  </div>
+  

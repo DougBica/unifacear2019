@@ -1,0 +1,27 @@
+<div class=" content">
+    <h4>
+      Listar Aeroporto
+    </h4>
+  
+    <table class="table table-striped">
+      <tr>
+        <th>ID Aeroporto</th>
+        <th>Nome</th>
+        <th>Sigla</th>
+        <th>Cidade</th>
+        <th>Estado</th>
+        <th>Pais</th>
+        <th>&nbsp;</th>
+      </tr>
+      <tr *ngFor="let aeroporto of aeroporto">
+        <td>{{aeroporto.guidAeroporto}}</td>
+        <td>{{aeroporto.nome}}</td>
+        <td>{{aeroporto.sigla}}</td>
+        <td>{{aeroporto.cidade}}</td>
+        <td>{{aeroporto.estado}}</td>
+        <td>{{aeroporto.pais}}</td>
+        <td><button class="btn" (click)="edit(aeroporto)">Editar</button></td>
+      </tr>    
+    </table>  
+  </div>
+  

@@ -1,0 +1,29 @@
+<div class=" content">
+    <h4>
+      Listar Voo
+    </h4>
+  
+    <table class="table table-striped">
+      <tr>
+        <th>ID Voo</th>
+        <th>Cidade de Origem</th>
+        <th>Cidade de Destino</th>
+        <th>Km Total</th>
+        <th>Data Saída</th>
+        <th>Data Chegada</th>
+        <th>Duração do Voo</th>
+        <th>&nbsp;</th>
+      </tr>
+      <tr *ngFor="let voo of voo">
+        <td>{{voo.guidVoo}}</td>
+        <td>{{voo.origem}}</td>
+        <td>{{voo.destino}}</td>
+        <td>{{voo.kmtotal}}</td>
+        <td>{{voo.datasaida}}</td>
+        <td>{{voo.datachegada}}</td>
+        <td>{{voo.duracao}}</td>
+        <td><button class="btn" (click)="edit(voo)">Editar</button></td>
+      </tr>    
+    </table>  
+  </div>
+  
