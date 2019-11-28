@@ -66,10 +66,8 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
 	private List<GrantedAuthority> getUserRoles(Long ID) {
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
-		 System.out.println(ID);
 		 List<String> roles = jdbcTemplate.queryForList("SELECT ROLE FROM perfil_permissao as p inner join tipo_perfil as t on p.guid_tipo_perfil = t.guid_tipo_perfil inner join usuario as u on u.guid_tipo_perfil = t.guid_tipo_perfil where u.guid_usuario=?",
 		 new Object[] { ID }, String.class);
-		 System.out.println(roles);
 		 if (roles != null) {
 		 roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role)));
 		 }
