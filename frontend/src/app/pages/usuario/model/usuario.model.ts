@@ -8,6 +8,7 @@ export class Usuario {
     dataNasc: any;
     cpf : String;
     foto : String;
+    tipoDeUsuario : String;
     perfil: Perfil;
     perfis : Perfil [] = [];
 
