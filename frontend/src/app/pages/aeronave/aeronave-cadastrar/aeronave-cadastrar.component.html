@@ -2,7 +2,7 @@
   <h4>
     Register Aircraft
   </h4>
-  <form id="formAeronave" (ngSubmit)="salvar()">
+  <form id="formAeronave" (ngSubmit)="salvar()" ngNativeValidate>
     <div class="form-group">
       <label for="nome">Aircraft Name</label>
       <input type="text" class="form-control" name="nome" placeholder="Enter Aircraft Name "

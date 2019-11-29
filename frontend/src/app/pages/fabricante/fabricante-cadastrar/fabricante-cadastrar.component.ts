@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
 import { Fabricante } from '../model/fabricante.model';
 import { FabricanteService } from '../model/fabricante.service';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -14,9 +15,11 @@ export class FabricanteCadastrarComponent implements OnInit {
 
   fabricante: Fabricante = new Fabricante();
   FabricanteveService: any;
+  
 
   constructor(private route: ActivatedRoute, 
     private fabricanteService : FabricanteService,
+    private toastr: ToastrService,
     private router : Router) { }
 
   ngOnInit() {
@@ -35,12 +38,26 @@ export class FabricanteCadastrarComponent implements OnInit {
 
   salvar() {
     if (this.fabricante.nomefabricante == undefined) {
-      alert('error');
+      this.toastr.error('<span class="tim-icons icon-bell-55" [data-notify]="icon"></span>Verificar Campos', '', {
+        disableTimeOut: false,
+        closeButton: true,
+        enableHtml: true,
+        toastClass: "alert alert-info alert-with-icon",
+        timeOut: 5000,
+      });
       return;
     }
 
     this.fabricanteService.salvar(this.fabricante).subscribe(
       () => {
+
+        this.toastr.error('<span class="tim-icons icon-bell-55" [data-notify]="icon"></span>Fabricante Salvo', '', {
+          disableTimeOut: false,
+          closeButton: true,
+          enableHtml: true,
+          toastClass: "alert alert-info alert-with-icon",
+          timeOut: 5000,
+        });
         this.router.navigate(["/admin/fabricante/"]);    
       }
     );
