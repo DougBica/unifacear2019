@@ -49,9 +49,12 @@ public class Reserva {
 //		this.passagem = passagem;
 //	}
 
+	
+	
 	public TipoPagamento getTipoPagamento() {
 		return tipoPagamento;
 	}
+
 
 	public void setTipoPagamento(TipoPagamento tipoPagamento) {
 		this.tipoPagamento = tipoPagamento;
