@@ -14,7 +14,7 @@ import edu.br.unifacear.webdev2019.aeronave.entity.Assento;
 import edu.br.unifacear.webdev2019.aeronave.service.AssentoService;
 
 @RestController
-@RequestMapping("/assento")
+@RequestMapping("/scp/private/assento")
 public class AssentoController {
 
 	@Autowired
