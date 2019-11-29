@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit, OnDestroy {
   }
 
   register() {
-    this.router.navigate(['/']);
+    this.router.navigate(['/register']);
   }
 
 }
