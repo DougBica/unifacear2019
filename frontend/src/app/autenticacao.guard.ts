@@ -12,10 +12,13 @@ export class AutenticacaoGuard implements CanActivate {
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): Observable<boolean | UrlTree> | Promise<boolean | UrlTree> | boolean | UrlTree {
+
+      console.log(localStorage.getItem('token'));
+
       if (localStorage.getItem('token') != undefined) {
         return true;
       }        
-      this.router.navigate(['/']);
+      this.router.navigate(['/login']);
       return false;
   }
   
