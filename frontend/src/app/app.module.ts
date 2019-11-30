@@ -108,6 +108,7 @@ import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import { CancelaModule } from './pages/cancela/cancela.module'
+import { RemarcaModule } from './pages/remarca/remarca.module'
 
 @NgModule({
   imports: [
@@ -131,6 +132,7 @@ import { CancelaModule } from './pages/cancela/cancela.module'
     PassagemModule,
     MatIconModule,
     CancelaModule,
+    RemarcaModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],

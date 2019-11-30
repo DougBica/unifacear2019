@@ -26,6 +26,8 @@ import { PerfilListarComponent } from './pages/perfil1/perfil-listar/perfil-list
 import { CancelaListarComponent } from './pages/cancela/cancela-listar/cancela-listar.component';
 import { CancelaDetalhesComponent } from './pages/cancela/cancela-detalhes/cancela-detalhes.component';
 import { CancelaSalvarComponent } from './pages/cancela/cancela-salvar/cancela-salvar.component'
+import { RemarcaListarComponent } from './pages/remarca/remarca-listar/remarca-listar.component';
+import { RemarcaSalvarComponent } from './pages/remarca/remarca-salvar/remarca-salvar.component';
 
 
 const routes: Routes = [
@@ -49,8 +51,9 @@ const routes: Routes = [
       { path: 'cancela', component: CancelaListarComponent },
       { path: 'cancela/detalhes', component: CancelaDetalhesComponent },
       { path: 'cancela/salvar', component: CancelaSalvarComponent },
-      { path: 'cancela/salvar/:id', component: CancelaSalvarComponent }
-
+      { path: 'cancela/salvar/:id', component: CancelaSalvarComponent },
+      { path: 'remarca', component: RemarcaListarComponent},
+      { path: 'remarca/salvar', component: RemarcaSalvarComponent}
    ]
   },
   { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
