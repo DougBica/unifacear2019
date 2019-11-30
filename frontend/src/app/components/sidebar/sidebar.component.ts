@@ -45,7 +45,7 @@ export const ROUTES: RouteInfo[] = [
   },
   {
     path: "/admin/aeronave",
-    title: "Aircraft",
+    title: "Aeronave",
     rtlTitle: "",
     icon: "icon-chart-pie-36",
     class: "",
@@ -55,7 +55,7 @@ export const ROUTES: RouteInfo[] = [
   },
   {
   path: "/admin/fabricante",
-  title: "Manufacturer",
+  title: "Fabricante",
   rtlTitle: "",
   icon: "icon-chart-pie-36",
   class: ""

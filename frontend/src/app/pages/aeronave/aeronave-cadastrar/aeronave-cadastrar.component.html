@@ -1,16 +1,16 @@
 <div class=" content">
   <h4>
-    Register Aircraft
+    Registro Aeronave
   </h4>
-  <form id="formAeronave" (ngSubmit)="salvar()">
-    <div class="form-group">
-      <label for="nome">Aircraft Name</label>
-      <input type="text" class="form-control" name="nome" placeholder="Enter Aircraft Name "
+  <form id="formAeronave" (ngSubmit)="salvar()" ngNativeValidate>
+    <div class="form-group" >
+      <label for="nome">Nome Aeronave</label>
+      <input type="text" class="form-control" name="nome" placeholder="Digite Nome Aeronave "
         [(ngModel)]="aeronave.nomeaeronave" required>
     </div>
     <div class="form-group">
-      <label for="nome">Model</label>
-      <input type="email" class="form-control" name="Model" placeholder="Enter Aircraft Model"
+      <label for="nome">Modelo</label>
+      <input type="email" class="form-control" name="Model" placeholder="Digite Modelo Aeronave"
         [(ngModel)]="aeronave.modelo" required>
     </div>    
     <div class="form-group">
@@ -51,17 +51,16 @@
         placeholder="Digite o Peso da decolagem da Aeronave" [(ngModel)]="aeronave.pesodecolagem" required>
     </div>
     <div class="form-group">
-      <label for="nome">Pais de Origem</label>
+      <label for="nome">País de Origem</label>
       <input type="text" class="form-control" name="paisorigem" placeholder="Digite o pais de origem da Aeronave"
         [(ngModel)]="aeronave.paisorigem" required>
     </div>
     <div class="form-group">
-      <label for="nome">Velocidade Maxima</label>
+      <label for="nome">Velocidade Máxima</label>
       <input type="number" class="form-control" name="velomaxima" placeholder="Digite a velocidade maxima da Aeronave"
         [(ngModel)]="aeronave.velomaxima" required>
     </div>
-
-
+ 
     <div class="card">
       <div class="card-header">
         Assentos
@@ -73,18 +72,18 @@
       </div>
       <ul class="list-group">
         <li *ngFor="let assento of assentos; let assentoIndex = index" class="list-group-item"
-          style="background-color:lightgrey">
+          style="background-color:rgb(248, 240, 240)">
           <div class="row">
             <div class="col">
-              <select class="form-control" name="nome" [(ngModel)]="assento.classe">
-                <option value="PRIMEIRA_CLASSE">Primeira Classe</option>
-                <option value="CLASSE_EXECUTIVA">Classe Executiva</option>
-                <option value="CLASSE_ECONOMICA">Classe Economica</option>
+              <select class="form-control" name="nome" [(ngModel)]="assento.classe" style="color:black">
+                <option value="PRIMEIRA_CLASSE" > Primeira Classe</option>
+                <option value="CLASSE_EXECUTIVA" > Classe Executiva</option>
+                <option value="CLASSE_ECONOMICA" > Classe Econômica</option>
               </select>
             </div>
             <div class="col">
               <input type="text" class="form-control" name="descricao" [(ngModel)]="assento.qtdassento"
-                placeholder="Quantidade de assentos">
+                placeholder="Quantidade de Assentos">
             </div>
             <div class="col">
               <button style='font-size:16px' class="btn btn-default" (click)="removerAssento(assentoIndex);"
