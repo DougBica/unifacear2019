@@ -116,7 +116,7 @@ export class CarrinhoPassagemComponent implements OnInit {
     private passagemService: PassagemService, 
     private reservaService: ReservaService, 
     private tipoPagamentoService: TipoPagamentoService,
-    private modalService: NgbModal) { 
+    ) { 
     this.calcularValorReserva();
   }
 
@@ -179,10 +179,10 @@ export class CarrinhoPassagemComponent implements OnInit {
   }
 
   pagarReserva(login: boolean){
-    if (login) 
+    localStorage.setItem("listaPassagens", JSON.stringify(this.listaPassagens));
+    if (login) {
       this.pagamentoPassagem = true;
-    }       
-    
-    
-
+    }
+  }       
+        
 }

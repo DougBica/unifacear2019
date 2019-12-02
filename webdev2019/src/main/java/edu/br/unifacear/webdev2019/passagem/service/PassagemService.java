@@ -3,22 +3,26 @@
 import java.util.List;
 import java.util.Optional;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.RestTemplate;
 
 import edu.br.unifacear.webdev2019.common.exception.BusinessException;
 import edu.br.unifacear.webdev2019.common.exception.BusinessExceptionCode;
 import edu.br.unifacear.webdev2019.passagem.entity.Passagem;
 import edu.br.unifacear.webdev2019.passagem.entity.Reserva;
 import edu.br.unifacear.webdev2019.passagem.repository.PassagemRepository;
+import edu.br.unifacear.webdev2019.passagem.repository.ReservaRepository;
 
 @Service
 public class PassagemService {
 	@Autowired
 	private PassagemRepository passagemRepository;
+	
+	@Autowired
+	private ReservaRepository reservaRepository;
 	
 	
 	@Transactional
@@ -50,6 +54,12 @@ public class PassagemService {
 		Passagem passagem = Optional.ofNullable(passagemRepository.findById(guidPassagem)).orElse(null)
 				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR000));
 		return passagem;
+	}
+
+	public void salvarEmLote(@Valid List<Passagem> listaPassagem) {
+		passagemRepository.saveAll(listaPassagem);
+		Reserva reserva = listaPassagem.get(0).getReserva();
+		reservaRepository.save(reserva);
 	}
 	
 //	public boolean existeReserva(final Long guidReserva) {

@@ -18,8 +18,8 @@ export class ModalLoginComponent {
 
     constructor(
         private modalService: NgbModal,
-        private loginService : LoginService,
-        private router : Router) { }
+        private loginService : LoginService
+        ) { }
 
     open(content) {
         if (localStorage.getItem('token') != undefined) {
@@ -46,12 +46,10 @@ export class ModalLoginComponent {
     }
 
     submit() {
-        console.log(this.loginSystem + " " + this.senha);
         this.loginService.login(this.loginSystem,this.senha).subscribe(
           user => {
             localStorage.setItem("token",user['token']);
-            alert('logou');
-            this.router.navigate(['/']);
+            this.modalService.dismissAll(ModalDismissReasons.ESC);
           }
         )}
 }
