@@ -1,6 +1,7 @@
 package edu.br.unifacear.webdev2019.passagem.entity;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,7 +10,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -33,22 +33,6 @@ public class Reserva {
 	@OneToOne
 	@JoinColumn(name="guidTipoPagamento")
 	private TipoPagamento tipoPagamento;
-	
-//	@OneToMany
-//	@JoinColumn(name="guidPassagem")
-//	private List<Passagem> passagem; 
-	
-	
-		
-//
-//	public List<Passagem> getPassagem() {
-//		return this.passagem;
-//	}
-//
-//	public void setPassagem(List<Passagem> passagem) {
-//		this.passagem = passagem;
-//	}
-
 	
 	
 	public TipoPagamento getTipoPagamento() {

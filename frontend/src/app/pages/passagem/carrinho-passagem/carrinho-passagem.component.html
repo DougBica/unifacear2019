@@ -38,10 +38,14 @@
             </div>
         </div>
     </div>
+    <modal-login (conteudo)="pagarReserva($event)"></modal-login>
+    
     <td><button class="btn" (click)="salvarReserva()">Botao Teste Salvar Reserva</button></td>
+   
 </div>
 
-<app-pagamento-passagem></app-pagamento-passagem>
+<app-pagamento-passagem *ngIf="pagamentoPassagem"></app-pagamento-passagem>
+
 
 <!-- <p></p>
 <td><button class="btn" (click)="listPassagemById()">Botao Teste Listar Por Id</button></td>

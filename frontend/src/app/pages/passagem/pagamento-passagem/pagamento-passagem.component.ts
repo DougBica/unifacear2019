@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
+import { PassagemService } from '../service/passagem.service';
+import { catchError } from 'rxjs/operators';
+import { throwError } from 'rxjs';
+
 
 @Component({
   selector: 'app-pagamento-passagem',
@@ -14,7 +18,10 @@ export class PagamentoPassagemComponent implements OnInit {
   listaCartoes: string [] = ["Visa", "Master Card", "American Express", "Elo"]
   dadosPagamento : FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(
+    private fb: FormBuilder,
+    private passagemService: PassagemService
+    ) {}
      
   
   ngOnInit() {
@@ -35,15 +42,40 @@ export class PagamentoPassagemComponent implements OnInit {
 
   onFormSubmit(){
     console.log(this.dadosPagamento.value, this.dadosPagamento.valid);
-
-    let confirmacao = this.creditCardServce(this.dadosPagamento.value);
-    if (confirmacao) alert("Pagamento realizado com sucesso")
-    
+    if(this.dadosPagamento.valid){
+      let confirmacao = this.creditCardServce(this.dadosPagamento.value);
+      
+      if (confirmacao) {
+      this.salvarPassagens()
+        .then(() => alert("Pagamento realizado com sucesso"));
+      }else{
+        alert("Problema ao realizar o pagamento. Operação cancelada !!")
+      }
+    }else{
+        alert("Problema ao realizar o pagamento. Operação cancelada !!")
+    }
   }
 
+  salvarPassagens(){
+    return new Promise((resolve,reject) => {
+      this.passagemService.salvarReserva(localStorage.getItem("listaPassagens")).pipe(
+      catchError(this.handleError)
+    ).subscribe(() => resolve())
+      reject()
+    })
+  }
   creditCardServce(creditCard){
-    console.log("Pagamento realizado com sucesso");
-    return true;
+    if(creditCard){
+      return true;
+    } return false;
   }
-
+  
+  handleError(error) {
+    let errorMessage = '';
+    if(error.status == 403){
+      errorMessage = `Necessita estar logado no sistema`
+    }
+    window.alert(errorMessage);
+    return throwError(errorMessage);
+ }
 }
