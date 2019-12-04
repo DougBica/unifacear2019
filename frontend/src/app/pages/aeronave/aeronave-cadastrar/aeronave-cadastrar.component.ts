@@ -5,6 +5,7 @@ import { AeronaveService } from '../aeronave.service';
 import { FabricanteService } from '../../fabricante/model/fabricante.service';
 import { Fabricante } from '../../fabricante/model/fabricante.model';
 import { Assento } from '../../assento/model/assento.model';
+import { ToastrService } from 'ngx-toastr';
 
 
 
@@ -29,6 +30,7 @@ export class AeronaveCadastrarComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private aeronaveService: AeronaveService,
     private fabricanteService: FabricanteService,
+    private toastr: ToastrService,
     private router: Router) { }
 
   ngOnInit() {
@@ -53,6 +55,13 @@ export class AeronaveCadastrarComponent implements OnInit {
     console.log(this.aeronave);
     this.aeronaveService.salvar(this.aeronave).subscribe(
       () => {
+        this.toastr.error('<span class="tim-icons icon-bell-55" [data-notify]="icon"></span>Aeronave Salvo', '', {
+          disableTimeOut: false,
+          closeButton: true,
+          enableHtml: true,
+          toastClass: "alert alert-info alert-with-icon",
+          timeOut: 5000,
+        });
         this.router.navigate(["/admin/aeronave/"]);
       }
     );
@@ -62,7 +71,10 @@ export class AeronaveCadastrarComponent implements OnInit {
 
 
   adicionarAssento() {
-    let assento = new Assento()
+    let assento = new Assento();
+    if (this.assentos == undefined) {
+      this.assentos = [];
+    }
     this.assentos.push(assento);
   }
 

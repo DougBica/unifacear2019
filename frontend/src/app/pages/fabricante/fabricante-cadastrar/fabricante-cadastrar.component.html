@@ -1,19 +1,14 @@
 <div class=" content">
     <h4>
-      Register Manufacturer
+      Registro Fabricante
     </h4>
   
-    <form id="formFabricante" (ngSubmit)="salvar()">
-        <div class="form-group">
-            <label for="guidFabricante">Manufacturer Id</label>
-            <input type="text" class="form-control" name="id" placeholder="Enter Manufacturer id " [(ngModel)]="fabricante.guidFabricante"
-              required>
-          </div>
-
+    <form id="formFabricante" (ngSubmit)="salvar()" ngNativeValidate>
+ 
       <div class="form-group">
-        <label for="nome">Manufacturer Name</label>
-        <input type="text" class="form-control" name="nome" placeholder="Enter Manufacturer Name " [(ngModel)]="fabricante.nomefabricante"
-          required>
+        <label for="nome">Nome Fabricante</label>
+        <input type="text" class="form-control" name="nome" placeholder="Digite nome Fabricante " [(ngModel)]="fabricante.nomefabricante"
+        required >
       </div>
       <div>
         <button type="submit" style='font-size:16px' class="btn btn-default" style=color:white> <i class="fas fa-save "

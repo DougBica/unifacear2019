@@ -20,7 +20,7 @@ import edu.br.unifacear.webdev2019.aeronave.service.FabricanteService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/fabricante")
+@RequestMapping("/scp/private/fabricante")
 public class FabricanteController {
 
 	@Autowired
