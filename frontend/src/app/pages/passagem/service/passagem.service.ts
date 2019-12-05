@@ -39,7 +39,7 @@ export class PassagemService {
   salvarReserva(passagens){
     let options = this.criarOptions();
     console.log(options);
-    return this.http.post(this.urlPrivateApi + 'reserva',JSON.stringify(passagens), options)
+    return this.http.post(this.urlPrivateApi + 'reserva',passagens, options)
       .pipe(
         retry(1)       
         )

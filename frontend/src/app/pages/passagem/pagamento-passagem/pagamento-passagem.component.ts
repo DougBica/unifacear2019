@@ -51,8 +51,6 @@ export class PagamentoPassagemComponent implements OnInit {
       }else{
         alert("Problema ao realizar o pagamento. Operação cancelada !!")
       }
-    }else{
-        alert("Problema ao realizar o pagamento. Operação cancelada !!")
     }
   }
 

@@ -57,8 +57,9 @@ public class PassagemService {
 	}
 
 	public void salvarEmLote(@Valid List<Passagem> listaPassagem) {
-		passagemRepository.saveAll(listaPassagem);
 		Reserva reserva = listaPassagem.get(0).getReserva();
+		Optional.ofNullable(reserva).orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR512));
+		passagemRepository.saveAll(listaPassagem);
 		reservaRepository.save(reserva);
 	}
 	
