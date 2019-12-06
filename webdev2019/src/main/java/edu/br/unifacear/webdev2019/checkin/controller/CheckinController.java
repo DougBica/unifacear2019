@@ -51,7 +51,12 @@ public class CheckinController {
 	
 	@GetMapping(value="/token/{token}")
 	public Checkin acharToken(@PathVariable String token) {
-		return checkinService.chekinWithToken(token);
+		return checkinService.puxarToken(token);
+	}
+	
+	@GetMapping(value="/listarAberto")
+	public List<Checkin> listarAbertos() {
+		return checkinService.listarAbertos();
 	}
 	
 }

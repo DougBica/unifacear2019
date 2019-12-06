@@ -23,7 +23,7 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
-    path: "/admin/checkin-controle",
+    path: "/admin/checkin-menu",
     title: "Checkin",
     rtlTitle: "",
     icon: "icon-map-big",

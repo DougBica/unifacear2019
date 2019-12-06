@@ -13,6 +13,7 @@ import { AutenticacaoGuard } from './autenticacao.guard';
 import { EmbarqueListarComponent } from './pages/checkin/embarque-listar/embarque-listar.component';
 import { EmbarqueCadastrarComponent } from './pages/checkin/embarque-cadastrar/embarque-cadastrar.component';
 import { LoginComponent } from './pages/login/login/login.component';
+import { CheckinMenuComponent } from './pages/checkin/checkin-menu/checkin-menu.component';
 
 const routes: Routes = [
   {
@@ -25,7 +26,8 @@ const routes: Routes = [
       { path: 'checkin-cadastrar/:id', component: CheckinCadastrarComponent },
       { path: 'usuario/:id', component: UsuarioCadastrarComponent },
       { path: 'embarque-controle', component: EmbarqueListarComponent},
-      { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent}
+      { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent},
+      { path: 'checkin-menu', component: CheckinMenuComponent }
    ]
   },
   { path: 'login', component: LoginComponent },

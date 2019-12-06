@@ -1,5 +1,33 @@
 <div class=" content">
   <div class=" row">
+    <div class=" col-md-11">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 class=" title">Validar checkin</h5>
+        </div>
+        <div class=" card-body">
+          <form>
+            <div class=" row">
+              <div class=" col-md-5 pr-md-1">
+                <div class=" form-group">
+                  <label> Token do checkin </label>
+                  <input class=" form-control" name="token" type="text" [(ngModel)]="token"/>
+                </div>
+              </div>
+              <div class=" col-md-5 pr-md-1">
+                <div class=" form-group">
+                  <br>
+                  <button class="btn btn-sm btn-danger btn-simple active" (click)="baixarCheckin(token)">Validar <i
+                      class=" tim-icons icon-check-2"></i></button>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class=" row">
     <div class=" col-md-12">
       <div class=" card card-plain">
         <div class=" card-header">
@@ -16,10 +44,11 @@
                   <th>Data do checkin</th>
                 </tr>
                 <tr *ngFor="let checkin of checkins">
-                  <td>{{checkin.token}}</td>
+                  <td>{{checkin.guidCheckin}}</td>
                   <td>{{checkin.guidVoo}}</td>
                   <td>{{checkin.dataCheckin}}</td>
-                  <button class="btn btn-sm btn-danger btn-simple active" (click)="editar(checkin)"><i class=" tim-icons icon-pencil"></i></button>
+                  <button class="btn btn-sm btn-danger btn-simple active" (click)="editar(checkin)"><i
+                      class=" tim-icons icon-pencil"></i></button>
                 </tr>
               </thead>
             </table>
