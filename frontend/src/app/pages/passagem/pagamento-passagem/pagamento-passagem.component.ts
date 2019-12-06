@@ -86,6 +86,8 @@ export class PagamentoPassagemComponent implements OnInit {
     }
     if(error.status == 400){
       errorMessage = `Inconformidade nos dados, tente novamente`
+    }else{
+      errorMessage = `Erro no servidor, contate o suporte`
     }
     window.alert(errorMessage);
     return throwError(errorMessage);

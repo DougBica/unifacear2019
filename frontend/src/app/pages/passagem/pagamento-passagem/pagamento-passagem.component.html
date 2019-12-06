@@ -15,23 +15,15 @@
                       mask='0000 0000 0000 0000'
                       class="form-control" 
                       formControlName="numeroCartao"
-<<<<<<< Updated upstream
-                      placeholder="9999 9999 9999 9999" 
-=======
                       placeholder="9999 9999 9999 9999"
                       minlength="16"
->>>>>>> Stashed changes
                       required>
                 </div>
                 <div 
                   class="error" 
-<<<<<<< Updated upstream
-                  *ngIf="dadosPagamento.get('numeroCartao').hasError('required') && dadosPagamento.get('numeroCartao').touched">
-=======
                   *ngIf="(dadosPagamento.get('numeroCartao').hasError('required') || 
                           dadosPagamento.get('numeroCartao').hasError('minlength')) &&
                           dadosPagamento.get('numeroCartao').touched">
->>>>>>> Stashed changes
                   Informe o número do cartão
                 </div>
                 <div class="form-group">
