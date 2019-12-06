@@ -59,8 +59,12 @@ public class PassagemService {
 	public void salvarEmLote(@Valid List<Passagem> listaPassagem) {
 		Reserva reserva = listaPassagem.get(0).getReserva();
 		Optional.ofNullable(reserva).orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR512));
-		passagemRepository.saveAll(listaPassagem);
-		reservaRepository.save(reserva);
+		try {			
+			reservaRepository.save(reserva);
+			passagemRepository.saveAll(listaPassagem);
+		} catch (Exception e) {
+			throw new BusinessException(BusinessExceptionCode.ERR512);
+		}
 	}
 	
 //	public boolean existeReserva(final Long guidReserva) {
