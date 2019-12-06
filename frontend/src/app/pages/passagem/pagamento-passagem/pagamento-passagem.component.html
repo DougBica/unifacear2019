@@ -15,12 +15,23 @@
                       mask='0000 0000 0000 0000'
                       class="form-control" 
                       formControlName="numeroCartao"
+<<<<<<< Updated upstream
                       placeholder="9999 9999 9999 9999" 
+=======
+                      placeholder="9999 9999 9999 9999"
+                      minlength="16"
+>>>>>>> Stashed changes
                       required>
                 </div>
                 <div 
                   class="error" 
+<<<<<<< Updated upstream
                   *ngIf="dadosPagamento.get('numeroCartao').hasError('required') && dadosPagamento.get('numeroCartao').touched">
+=======
+                  *ngIf="(dadosPagamento.get('numeroCartao').hasError('required') || 
+                          dadosPagamento.get('numeroCartao').hasError('minlength')) &&
+                          dadosPagamento.get('numeroCartao').touched">
+>>>>>>> Stashed changes
                   Informe o número do cartão
                 </div>
                 <div class="form-group">
@@ -32,11 +43,14 @@
                       id="codigoCartao" 
                       formControlName="codigoCartao" 
                       placeholder="999" 
+                      minlength="3"
                       required>
                 </div>
                 <div 
                   class="error" 
-                  *ngIf="dadosPagamento.get('codigoCartao').hasError('required') && dadosPagamento.get('codigoCartao').touched">
+                  *ngIf="(dadosPagamento.get('codigoCartao').hasError('required') || 
+                          dadosPagamento.get('codigoCartao').hasError('minlength')) && 
+                          dadosPagamento.get('codigoCartao').touched">
                   Informe o CCV do cartão
                 </div>
                 <div class="form-group">
@@ -47,21 +61,33 @@
                       class="form-control" 
                       formControlName="nome"
                       placeholder="Ex: JOSE DA SILVA"
+                      maxlength='80'
                       required>
                 </div>
                 <div 
                   class="error" 
-                  *ngIf="dadosPagamento.get('nome').hasError('required') && dadosPagamento.get('nome').touched">
+                  *ngIf="dadosPagamento.get('nome').hasError('required') &&
+                          dadosPagamento.get('nome').touched">
                   Informe o Nome do titular
                 </div>
                 <div class="form-group">
                     <label for="cpf">CPF Titular Cartão</label>
-                    <input  type="text" mask='000.000.000-00' class="form-control" formControlName="cpf" placeholder="123.456.789-00">
+                    <input  
+                      type="text"
+                      mask='000.000.000-00' 
+                      class="form-control" 
+                      formControlName="cpf" 
+                      placeholder="123.456.789-00"
+                      minlength="11"
+                      required>
                 </div>
                 <div 
                     class="error" 
-                    *ngIf="dadosPagamento.get('cpf').hasError('required') && dadosPagamento.get('cpf').touched">
-                    Informe o CPF do titular
+                    *ngIf="(dadosPagamento.get('cpf').hasError('required') || 
+                          dadosPagamento.get('cpf').hasError('minlength') ||
+                          dadosPagamento.get('cpf').getError('cpfNotValid'))  && 
+                          dadosPagamento.get('cpf').touched">
+                    Informe o CPF válido
                 </div>
               </div>
             <div class="col-md-5">
@@ -71,7 +97,8 @@
             </select>
             <div 
               class="error" 
-              *ngIf="dadosPagamento.get('bandeiraCartao').hasError('required') && dadosPagamento.get('bandeiraCartao').touched">
+              *ngIf="dadosPagamento.get('bandeiraCartao').hasError('required') && 
+                      dadosPagamento.get('bandeiraCartao').touched">
               Informe a bandeira do cartão
             </div>
             <p>Validade Cartão:</p>
@@ -81,7 +108,8 @@
             </select>
             <div 
               class="error" 
-              *ngIf="dadosPagamento.get('anoValidade').hasError('required') && dadosPagamento.get('anoValidade').touched">
+              *ngIf="dadosPagamento.get('anoValidade').hasError('required') && 
+                      dadosPagamento.get('anoValidade').touched">
               Informe o ano de validade do cartão
             </div>
             <p>Mês</p>
@@ -90,7 +118,8 @@
             </select>
             <div 
               class="error" 
-              *ngIf="dadosPagamento.get('mesValidade').hasError('required') && dadosPagamento.get('mesValidade').touched">
+              *ngIf="dadosPagamento.get('mesValidade').hasError('required') && 
+                      dadosPagamento.get('mesValidade').touched">
               Informe o mês de validadedo cartão
             </div>
             <input type="submit" value="Confirmar Pagamento" class="btn btn-primary" />               

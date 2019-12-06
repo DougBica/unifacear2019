@@ -23,14 +23,15 @@ public class Reserva {
 	@NotNull
 	private Long guidUsuario;
 	
-	
+	@NotNull
 	private BigDecimal valorReserva; // This attribute is defined with the Passagem values
 	
 	private boolean paid; // its paid?
 	
 	private boolean active; // its active?
 	
-	@OneToOne
+	
+	@OneToOne @NotNull
 	@JoinColumn(name="guidTipoPagamento")
 	private TipoPagamento tipoPagamento;
 	
