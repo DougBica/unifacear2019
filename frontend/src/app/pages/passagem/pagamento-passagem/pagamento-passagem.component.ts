@@ -4,6 +4,7 @@ import { PassagemService } from '../service/passagem.service';
 import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { ValidadorCPF } from '../util/ValidadorCPF';
+import { Usuario } from '../../usuario/model/usuario.model';
 
 
 @Component({
@@ -18,6 +19,7 @@ export class PagamentoPassagemComponent implements OnInit {
   listaMes : number [] = [1,2,3,4,5,6,7,8,9,10,11,12];
   listaCartoes: string [] = ["Visa", "Master Card", "American Express", "Elo"]
   dadosPagamento : FormGroup;
+  usuario: Usuario;
 
   constructor(
     private fb: FormBuilder,
@@ -57,20 +59,28 @@ export class PagamentoPassagemComponent implements OnInit {
         let confirmacao = this.creditCardServce(this.dadosPagamento.value);
         
         if (confirmacao) {
-          this.salvarPassagens()
-          .then(() => alert("Pagamento realizado com sucesso"));
+          this.buscarUsuario()
+          .then(retorno => this.salvarPassagens(retorno)
+            .then(() => alert("Pagamento realizado com sucesso")));
         }else{
           alert("Problema ao realizar o pagamento. Operação cancelada !!")
         }
       }
   }
 
-  salvarPassagens(){
+  salvarPassagens(usuario){
     return new Promise((resolve,reject) => {
-      this.passagemService.salvarReserva(localStorage.getItem("listaPassagens")).pipe(
+      this.passagemService.salvarReserva(localStorage.getItem("listaPassagens"),usuario).pipe(
       catchError(this.handleError)
     ).subscribe(() => resolve())
-      reject()
+    })
+  }
+
+  buscarUsuario(){
+    return new Promise((resolve,reject) => {
+      this.passagemService.buscaUsuarioByEmail(this.getEmailJwt()).pipe(
+      catchError(this.handleError)
+    ).subscribe(retorno => resolve(this.usuario = retorno))
     })
   }
   creditCardServce(creditCard){
@@ -91,5 +101,13 @@ export class PagamentoPassagemComponent implements OnInit {
     }
     window.alert(errorMessage);
     return throwError(errorMessage);
+ }
+
+ getEmailJwt(){
+   let token = localStorage.getItem('token');
+   let dados = token.split('.')[1]
+   let dadosUser = JSON.parse(window.atob(dados))
+   let email = dadosUser.sub;
+   return email;
  }
 }

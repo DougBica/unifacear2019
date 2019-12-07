@@ -2,6 +2,7 @@ package edu.br.unifacear.webdev2019.passagem.entity;
 
 import java.math.BigDecimal;
 import java.util.List;
+import java.util.stream.DoubleStream;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -35,6 +36,16 @@ public class Reserva {
 	@JoinColumn(name="guidTipoPagamento")
 	private TipoPagamento tipoPagamento;
 	
+	public Reserva() {
+		
+	}
+	public Reserva(Long guidUsuario,List<Passagem> listaPassagens) {
+		this.guidUsuario = guidUsuario;
+		double valorTotal = listaPassagens.stream().mapToDouble(passagem -> passagem.getValorPassagem()).sum();
+		this.valorReserva = BigDecimal.valueOf(valorTotal);
+		this.paid = true;
+		this.active = true;
+	}
 	
 	public TipoPagamento getTipoPagamento() {
 		return tipoPagamento;

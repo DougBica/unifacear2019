@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import edu.br.unifacear.webdev2019.passagem.dto.PassagensUsuario;
 import edu.br.unifacear.webdev2019.passagem.entity.Passagem;
 import edu.br.unifacear.webdev2019.passagem.service.PassagemService;
 
@@ -29,7 +30,7 @@ public class PassagemController {
 	}
 	
 	@PostMapping("private/passagem/reserva")
-	public void salvarEmLote(@RequestBody @Valid List<Passagem> listaPassagem) {
+	public void salvarEmLote(@RequestBody PassagensUsuario listaPassagem) {
 		passagemService.salvarEmLote(listaPassagem);	
 	}
 	
