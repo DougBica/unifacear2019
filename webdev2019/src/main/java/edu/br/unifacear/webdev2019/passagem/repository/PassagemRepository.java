@@ -1,6 +1,7 @@
 package edu.br.unifacear.webdev2019.passagem.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
@@ -15,6 +16,9 @@ extends JpaRepository<Passagem, Long>{
 //	
 //	@Query("select p from Passagem p where guidReserva:guidReserva ")
 	public List<Passagem> findPassagemByReserva_GuidReserva(Long reserva);
+
+	@Query("select p from Passagem p where p.guidPassagem = ?1")
+	public Optional<Passagem> findOne(Long id);
 	
 //	public boolean existsPassagemReserva_GuidReserva(Long reserva);
 }

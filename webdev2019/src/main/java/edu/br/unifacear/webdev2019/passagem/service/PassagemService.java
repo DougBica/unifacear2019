@@ -52,6 +52,16 @@ public class PassagemService {
 		return passagem;
 	}
 	
+	public Optional<Passagem> findMyCheckin(Long id) {
+		try {
+			return passagemRepository.findOne(id);
+		}
+		catch(Exception e) {
+			throw new BusinessException(BusinessExceptionCode.ERR000);
+		}
+		
+	}
+	
 //	public boolean existeReserva(final Long guidReserva) {
 //		return passagemRepository.existsPassagemReserva_GuidReserva(guidReserva);
 //	}
