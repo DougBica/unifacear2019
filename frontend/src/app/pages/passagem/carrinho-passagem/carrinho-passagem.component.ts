@@ -33,10 +33,10 @@ export class CarrinhoPassagemComponent implements OnInit {
       origem: "CURITIBA",
       destino: "SÃO PAULO",
       active: true,
-      isKid: false,
+      isKid: true,
       valorPassagem: 250.4,
       nomePassageiro: "ADSas",
-      cpfPassageiro: "89",  
+      cpfPassageiro: "NÃO TEM",  
       reserva: new Reserva()
     },
     { 
@@ -117,10 +117,17 @@ export class CarrinhoPassagemComponent implements OnInit {
     private reservaService: ReservaService, 
     private tipoPagamentoService: TipoPagamentoService,
     ) { 
-    this.calcularValorReserva();
+    
   }
 
   ngOnInit() { 
+    this.calcularValorReserva();
+  }
+
+  teste(){
+    this.listaPassagens.forEach(passagem => {
+      console.log("Nome: "+passagem.nomePassageiro + " | CPF: "+passagem.cpfPassageiro);
+    })
   }
 
   listPassagemById(){ 
