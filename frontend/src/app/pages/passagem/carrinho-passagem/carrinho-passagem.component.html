@@ -16,6 +16,8 @@
                                 <th>Origem</th>
                                 <th>Destino</th>
                                 <th>Data Partida</th>
+                                <th>CPF</th>
+                                <th>Nome</th>
                                 <th>Valor</th>
                             </thead>
                             <tbody>
@@ -23,11 +25,16 @@
                                     <td>{{passagem.origem}}</td>
                                     <td>{{passagem.destino}}</td>
                                     <td>{{passagem.dataPartida}}</td>
+                                    <td><input type="text" [readonly]="passagem.isKid" class="form-control" [(ngModel)]="passagem.cpfPassageiro"></td>
+                                    <td><input type="text" class="form-control" [(ngModel)]="passagem.nomePassageiro"></td>
+                                    <!-- <input type="number" class="form-control" [(ngModel)]="overRideRate" formControlName="OverRideRate"> -->
                                     <td>R$ {{passagem.valorPassagem}}</td>
                                 </tr>
                             </tbody>  
                             <thead class="text-warning" (submit)="calcularValorReserva()">
                                 <th>Total: R$ {{viewValorReserva}}</th>
+                                <th></th>
+                                <th></th>
                                 <th></th>
                                 <th></th>
                                 <th></th>
@@ -38,10 +45,15 @@
             </div>
         </div>
     </div>
-    <td><button class="btn" (click)="salvarReserva()">Botao Teste Salvar Reserva</button></td>
+    <modal-login (conteudo)="pagarReserva($event)"></modal-login>
+    
+    <td><button class="btn" (click)="teste()">Botao Teste</button></td>
+    
+   
 </div>
 
-<app-pagamento-passagem></app-pagamento-passagem>
+<app-pagamento-passagem *ngIf="pagamentoPassagem"></app-pagamento-passagem>
+
 
 <!-- <p></p>
 <td><button class="btn" (click)="listPassagemById()">Botao Teste Listar Por Id</button></td>

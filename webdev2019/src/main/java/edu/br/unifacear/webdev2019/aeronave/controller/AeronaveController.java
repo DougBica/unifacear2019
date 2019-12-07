@@ -17,7 +17,7 @@ import edu.br.unifacear.webdev2019.aeronave.service.AeronaveService;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/aeronave")
+@RequestMapping("/scp/private/aeronave")
 public class AeronaveController {
 
 	@Autowired

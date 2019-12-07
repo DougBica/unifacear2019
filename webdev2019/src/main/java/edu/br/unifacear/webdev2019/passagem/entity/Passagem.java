@@ -34,6 +34,9 @@ public class Passagem {
 	@NotNull
 	private Long guidRota; // this attibute shall be NOT NULL
 	
+	private boolean isKid;
+	
+	
 	/*
 	 * This Enum must contain in Aeroporto module
 	 */
@@ -68,6 +71,14 @@ public class Passagem {
 		return origem;
 	}
 
+
+	public boolean isKid() {
+		return isKid;
+	}
+
+	public void setKid(boolean isKid) {
+		this.isKid = isKid;
+	}
 
 	public void setDestino(String destino) {
 		this.destino = destino;
