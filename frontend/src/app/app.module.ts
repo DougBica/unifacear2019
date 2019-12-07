@@ -1,9 +1,13 @@
+import { ArquivoService } from 'src/app/arquivo.service';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { NgModule } from "@angular/core";
 import { FormsModule } from "@angular/forms";
 import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { ToastrModule } from 'ngx-toastr';
+import { PassagemModule } from './pages/passagem/passagem.module';
+import { CarouselModule } from 'ngx-bootstrap/carousel';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 import {
   MatAutocompleteModule,
@@ -76,9 +80,11 @@ import {
     
     
   ],
-  declarations: []
+  declarations: [],
+  imports: [BsDatepickerModule.forRoot(), BrowserAnimationsModule, BsDropdownModule.forRoot(), ButtonsModule.forRoot()]
 })
 export class MaterialModule { }
+
 
 import { AppComponent } from "./app.component";
 import { AdminLayoutComponent } from "./layouts/admin-layout/admin-layout.component";
@@ -90,11 +96,18 @@ import { AppRoutingModule } from "./app-routing.module";
 import { ComponentsModule } from "./components/components.module";
 import { UsuarioListarComponent } from './pages/usuario/usuario-listar/usuario-listar.component';
 import { UsuarioModule } from './pages/usuario/usuario.module';
+import { AeronaveModule } from './pages/aeronave/aeronave.module';
+import { FabricanteModule } from './pages/fabricante/model/fabricante.module';
 import { CheckinModule } from './pages/checkin/checkin.module';
 import { EmbarqueModule } from './pages/checkin/embarque.module';
 import { BagagemModule } from './pages/checkin/bagagem.module';
 import { LogintesteModule } from './pages/login/login.module';
-import { ArquivoService } from './arquivo.service';
+import { RegisterModule } from "./pages/register/RegisterModule";
+import { PerfilModule } from './pages/perfil1/perfil.module';
+import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
+import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
+import { ButtonsModule } from 'ngx-bootstrap/buttons';
+import { CancelaModule } from './pages/cancela/cancela.module'
 
 @NgModule({
   imports: [
@@ -106,11 +119,18 @@ import { ArquivoService } from './arquivo.service';
     RouterModule,
     AppRoutingModule,
     FormsModule,
+    RegisterModule,
     LogintesteModule,
     UsuarioModule,
+    AeronaveModule,
+    FabricanteModule,
+    PerfilModule,
     CheckinModule,
     BagagemModule,
     EmbarqueModule,
+    PassagemModule,
+    MatIconModule,
+    CancelaModule,
     ToastrModule.forRoot()
   ],
   declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],

@@ -27,17 +27,19 @@ public class ControllerUsuario {
 	@Autowired
 	private UsuarioService usuarioService;
 
+
 	@PostMapping
 	public void salvar(@RequestBody @Valid Usuario usuario) {
 		usuarioService.salvar(usuario);
 	}
 	
-	@PreAuthorize("hasRole('ADMIN') || hasRole('USUARIO_LISTAR')")
+	@PreAuthorize("hasRole('GERENCIAR_USUARIO')")
 	@GetMapping("/listar")
 	public List<Usuario> listar() {
 		return usuarioService.listar();
 	}
-
+	
+	@PreAuthorize("hasRole('GERENCIAR_USUARIO')")
 	@GetMapping("/buscarPorID/{guidUsuario}")
 	public Usuario BuscarPorID(@PathVariable("guidUsuario") final Long guidUsuario) {
 		return usuarioService.buscarPorId(guidUsuario);

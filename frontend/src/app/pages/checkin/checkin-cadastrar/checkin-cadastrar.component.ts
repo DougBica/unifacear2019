@@ -8,6 +8,8 @@ import { BagagemService } from '../bagagem.service';
 import { Bagagem } from '../model/bagagem.model';
 import { Usuario } from '../../usuario/model/usuario.model';
 import { Status } from '../model/status.model';
+import { Passagem } from '../../passagem/model/passagem.model';
+import { PassagemService } from '../../passagem/service/passagem.service';
 
 @Component({
   selector: 'app-checkin-cadastrar',
@@ -25,14 +27,18 @@ export class CheckinCadastrarComponent implements OnInit {
   status: Status = new Status();
   bagagem: Bagagem = new Bagagem();
   variavel: number;
+  passagem: Passagem = new Passagem();
+  idString: number;
 
   constructor(private checkinService: CheckinService,
     private router: Router,
     private route: ActivatedRoute,
     private toastr: ToastrService,
-    private bagagemService: BagagemService) { }
+    private bagagemService: BagagemService,
+    private passagemService: PassagemService) { }
 
   ngOnInit() {
+    this.loadPassagem(1);
     this.route.paramMap.subscribe(params => {
       if (params.get('id') != 'novo') {
         this.guidCheckin = params.get('id');
@@ -43,6 +49,7 @@ export class CheckinCadastrarComponent implements OnInit {
             this.checkin = checkin;
             this.loadUser(this.checkin.guidUsuario);
             this.loadStatus(this.checkin.guidStatus);
+            this.idString = this.checkin.guidPassagem;
           }
         )
       }
@@ -52,8 +59,8 @@ export class CheckinCadastrarComponent implements OnInit {
   salvarBagagem(bagagem2: Bagagem) {
     bagagem2.guidCheckin = this.checkin.guidCheckin;
     bagagem2.valorexcesso = 230.9;
-    if(bagagem2.pesoBagagem > 30.0) {
-      bagagem2.valortotal = bagagem2.valorbagagem+bagagem2.valorexcesso;
+    if (bagagem2.pesoBagagem > 30.0) {
+      bagagem2.valortotal = bagagem2.valorbagagem + bagagem2.valorexcesso;
     }
     else {
       bagagem2.valortotal = bagagem2.valorbagagem;
@@ -92,10 +99,10 @@ export class CheckinCadastrarComponent implements OnInit {
 
   loadBagagem(id: number) {
     this.bagagemService.loadByGuidCheckin(id).subscribe(
-      bagagem =>{
+      bagagem => {
         this.bagagens = bagagem;
       }
-    );  
+    );
   }
 
   loadUser(id: number) {
@@ -131,6 +138,15 @@ export class CheckinCadastrarComponent implements OnInit {
     setTimeout(() => {
       window.location.reload();
     }, 2000);
+  }
+
+  loadPassagem(id: number) {
+    console.log(id);
+    this.passagemService.listByCheckin(id).subscribe(
+      passagem => {
+        this.passagem = passagem;
+      }
+    )
   }
 
 }

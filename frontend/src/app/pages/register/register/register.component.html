@@ -1,0 +1,61 @@
+<div class="header bg-gradient-danger py-7 py-lg-8"  style="background-image: url(../assets/img/back.jpg); background-size: cover;">
+  <div class="container">
+    <div class="header-body text-center mb-7">
+      <div class="row justify-content-center">
+        <div class="col-lg-5 col-md-6">
+          <div class="logo">
+                <img src="./assets/img/logo_principal.png"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<!-- Page content -->
+<div class="container mt--8 pb-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-5 col-md-7">
+      <div class="card bg-secondary shadow border-0">
+        <div class="card-header bg-transparent pb-1">
+        </div>
+        <div class="card-body px-lg-5 py-lg-5">
+            <h1 class="text-center " style="color: black;">Bem Vindo!</h1>
+          <div class="text-center text-muted mb-4">
+            <small>Por favor insera os dados necessários para realizar o cadastro</small>
+          </div>
+          <form role="form" (ngSubmit)="salvar()">
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
+                </div>
+                <input type="text" style="color: black;" class="form-control" name="nome" placeholder="Digite seu nome" [(ngModel)]="usuario.nome"
+                required> 
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                </div>
+                <input type="email" style="color: black;" class="form-control" name="email" placeholder="Digite seu email" [(ngModel)]="usuario.email"
+                required>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="input-group input-group-alternative">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
+                </div>
+                <input  type="password" style="color: black;" class="form-control" name="senha" placeholder="Digite sua senha" [(ngModel)]="usuario.senha"
+                required>
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit" class="btn btn-primary mt-4" style = "background-color: blue;">Criar Conta</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

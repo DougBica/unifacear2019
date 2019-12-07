@@ -31,4 +31,8 @@ public class FabricanteService {
 	public Fabricante findOneById(Long guidFabricante) {
 		return fabricanteRepository.findById(guidFabricante).get();
 	}
+	
+	public void remover(Long guidFabricante) {
+		fabricanteRepository.deleteById(guidFabricante);
+	}
 }

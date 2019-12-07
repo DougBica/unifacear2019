@@ -26,17 +26,8 @@ public class UsuarioService {
 
 	@Transactional
 	public void salvar(Usuario usuario) {
-		if (usuario.getEmail().contentEquals(buscarPorEmail(usuario.getEmail()).getEmail())) {
-			throw new BusinessException(BusinessExceptionCode.ERR004);
-		} else if (usuario.getCpf().contentEquals(buscarPorCpf(usuario.getCpf()).getCpf())) {
-			throw new BusinessException(BusinessExceptionCode.ERR007);
-		} else if (usuario.getDataNasc().after(new Date())) {
-			throw new BusinessException(BusinessExceptionCode.ERR008);
-		} else if (usuario.getDataNasc().getYear() < new Date().getYear() - 80) {
-			throw new BusinessException(BusinessExceptionCode.ERR009);
-		} else {
-			usuarioRepository.save(usuario);
-		}
+
+		usuarioRepository.save(usuario);
 	}
 
 	public void excluir(Usuario usuario) {
@@ -49,7 +40,7 @@ public class UsuarioService {
 
 	public Usuario buscarPorId(final Long guidUsuario) {
 		Usuario usuario = Optional.ofNullable(usuarioRepository.findById(guidUsuario).orElse(null))
-				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR001));
+				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR001));		
 		return usuario;
 	}
 
