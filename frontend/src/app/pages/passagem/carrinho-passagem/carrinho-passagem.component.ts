@@ -5,6 +5,8 @@ import { PassagemService } from '../service/passagem.service';
 import { Passagem } from '../model/passagem.model';
 import { Reserva } from '../model/reserva.model';
 import { TipoPagamento } from '../model/tipo-pagamento.model';
+import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { ModalLoginComponent } from '../modalLogin/modal-login.component';
 
 @Component({
   selector: 'app-carrinho-passagem',
@@ -12,7 +14,9 @@ import { TipoPagamento } from '../model/tipo-pagamento.model';
   styleUrls: ['./carrinho-passagem.component.scss']
 })
 export class CarrinhoPassagemComponent implements OnInit {
-
+  pagamentoPassagem: any = false;
+  closeResult: string;
+  login: boolean = false;
   passagem: Passagem = null;
   reserva: Reserva = new Reserva();
   tipoPagamento: TipoPagamento;
@@ -29,9 +33,10 @@ export class CarrinhoPassagemComponent implements OnInit {
       origem: "CURITIBA",
       destino: "SÃO PAULO",
       active: true,
+      isKid: true,
       valorPassagem: 250.4,
       nomePassageiro: "ADSas",
-      cpfPassageiro: "89",  
+      cpfPassageiro: "NÃO TEM",  
       reserva: new Reserva()
     },
     { 
@@ -42,6 +47,7 @@ export class CarrinhoPassagemComponent implements OnInit {
       origem: "RIO DE JANEIRO",
       destino: "MACEIÓ",
       active: true,
+      isKid: false,
       valorPassagem: 232.4,
       nomePassageiro: "ADSas",
       cpfPassageiro: "89",  
@@ -55,6 +61,7 @@ export class CarrinhoPassagemComponent implements OnInit {
       origem: "CURITIBA",
       destino: "BRASILIA",
       active: true,
+      isKid: false,
       valorPassagem: 334.67,
       nomePassageiro: "ADSas",
       cpfPassageiro: "89",  
@@ -68,6 +75,7 @@ export class CarrinhoPassagemComponent implements OnInit {
       origem: "SÃO PAULO",
       destino: "TOLEDO",
       active: true,
+      isKid: false,
       valorPassagem: 564.67,
       nomePassageiro: "ADSas",
       cpfPassageiro: "89",  
@@ -81,6 +89,7 @@ export class CarrinhoPassagemComponent implements OnInit {
       origem: "TOLEDO",
       destino: "BAHIA",
       active: true,
+      isKid: false,
       valorPassagem: 334.67,
       nomePassageiro: "ADSas",
       cpfPassageiro: "89",  
@@ -94,6 +103,7 @@ export class CarrinhoPassagemComponent implements OnInit {
       origem: "BAHIA",
       destino: "SÃO PAULO",
       active: true,
+      isKid: false,
       valorPassagem: 334.67,
       nomePassageiro: "ADSas",
       cpfPassageiro: "89",  
@@ -102,11 +112,22 @@ export class CarrinhoPassagemComponent implements OnInit {
   ]
 
   
-  constructor(private passagemService: PassagemService, private reservaService: ReservaService, private tipoPagamentoService: TipoPagamentoService) { 
-    this.calcularValorReserva();
+  constructor(
+    private passagemService: PassagemService, 
+    private reservaService: ReservaService, 
+    private tipoPagamentoService: TipoPagamentoService,
+    ) { 
+    
   }
 
   ngOnInit() { 
+    this.calcularValorReserva();
+  }
+
+  teste(){
+    this.listaPassagens.forEach(passagem => {
+      console.log("Nome: "+passagem.nomePassageiro + " | CPF: "+passagem.cpfPassageiro);
+    })
   }
 
   listPassagemById(){ 
@@ -164,4 +185,11 @@ export class CarrinhoPassagemComponent implements OnInit {
     console.log('Executado salvarReserva()');
   }
 
+  pagarReserva(login: boolean){
+    localStorage.setItem("listaPassagens", JSON.stringify(this.listaPassagens));
+    if (login) {
+      this.pagamentoPassagem = true;
+    }
+  }       
+        
 }

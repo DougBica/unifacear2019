@@ -31,7 +31,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		httpSecurity.headers().frameOptions().sameOrigin();
 		
 		httpSecurity.csrf().disable().authorizeRequests().antMatchers("/scp/public/**").permitAll()
-				.antMatchers(HttpMethod.POST, "/scp/public/login").permitAll().anyRequest().authenticated().and()
+				.antMatchers(HttpMethod.POST, "/scp/public/login").permitAll().anyRequest().authenticated()
+				.antMatchers("/scp/private/passagem/**").authenticated().and()
+				
 
 				// filtra requisições de login
 				.addFilterBefore(new JWTLoginFilter("/scp/public/login", authenticationManager()),
