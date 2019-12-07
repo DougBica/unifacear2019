@@ -39,6 +39,8 @@ export class PassagemService {
 
   salvarReserva(passagens, usuario){
     let options = this.criarOptions();
+    console.log(this.urlPrivateApi + 'reserva','{ "user":' + JSON.stringify(usuario) +
+    ', "listaPassagens":' + passagens + '}', options);
     return this.http.post(this.urlPrivateApi + 'reserva','{ "user":' + JSON.stringify(usuario) +
                                                             ', "listaPassagens":' + passagens + '}', options)
       .pipe(
