@@ -36,23 +36,20 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	}
 
 	private CustomUser getCustomUser(String userName) {
-		 CustomUser customUser = jdbcTemplate.
-		 queryForObject("select guid_usuario as id, email as login, senha from usuario where email=?",
-		 new Object[]{userName},new UserRowMapper());
-		 
-		 System.out.println(customUser.getId());
-		 
-		 if(customUser != null){
-		 customUser = new CustomUser(customUser.getId(), customUser.getUsername(),new
-		 BCryptPasswordEncoder().encode(customUser.getPassword()),customUser.isEnabled(),customUser.isAccountNonExpired(),customUser.isCredentialsNonExpired(),
-		 customUser.isAccountNonLocked(),getUserRoles(customUser.getId()));
-		 }
-		 
 
-//		ArrayList<GrantedAuthority> permissoes = new ArrayList<GrantedAuthority>();
-//		permissoes.add(new SimpleGrantedAuthority("GERENCIAR_VOO"));
-//		CustomUser customUser = new CustomUser("admin@scp.com", new BCryptPasswordEncoder().encode("123"), true, true,
-//				true, true, permissoes);
+		 CustomUser customUser = jdbcTemplate.
+		 queryForObject("select guid_usuario as id, email as login, senha from usuario where email=?",new
+		 Object[]{userName},new UserRowMapper());
+		 if(customUser != null){
+		 customUser = new CustomUser(customUser.getUsername(),new
+		 BCryptPasswordEncoder().encode(customUser.getPassword()),customUser.isEnabled(),customUser.isAccountNonExpired(),customUser.isCredentialsNonExpired(),
+		 customUser.isAccountNonLocked(),getUserRoles(customUser.getId()), customUser.getId());
+		 }
+
+		//ArrayList<GrantedAuthority> permissoes = new ArrayList<GrantedAuthority>();
+		//permissoes.add(new SimpleGrantedAuthority("GERENCIAR_VOO"));
+		//CustomUser customUser = new CustomUser("admin@scp.com", new BCryptPasswordEncoder().encode("123"), true, true,
+		//		true, true, permissoes);
 
 		return customUser;
 	}
@@ -60,22 +57,23 @@ public class UserDetailServiceImpl implements UserDetailsService {
 	private class UserRowMapper implements RowMapper<CustomUser> {
 		@Override
 		public CustomUser mapRow(ResultSet rs, int rowNum) throws SQLException {
-			return new CustomUser(rs.getLong("id"), rs.getString("login"), rs.getString("senha"), true, true, true, true,
-					Collections.emptyList());
+			return new CustomUser(rs.getString("login"), rs.getString("senha"), true, true, true, true,
+					Collections.emptyList(), rs.getLong("id"));
+
 
 		}
 	}
 
 	private List<GrantedAuthority> getUserRoles(Long ID) {
 		List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+		 System.out.println(ID);
+		 List<String> roles = jdbcTemplate.queryForList("SELECT ROLE FROM perfil_permissao as p inner join tipo_perfil as t on p.guid_tipo_perfil = t.guid_tipo_perfil inner join usuario as u on u.guid_tipo_perfil = t.guid_tipo_perfil where u.guid_usuario=?",
+		 new Object[] { ID }, String.class);
+		 System.out.println(roles);
+		 if (roles != null) {
+		 roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role)));
+		 }
 
-		List<String> roles = jdbcTemplate.queryForList(
-		"select distinct pp.role from perfil_permissao pp left join usuario up on up.guid_tipo_perfil = pp.guid_tipo_perfil where up.guid_usuario=?",
-		new Object[] { ID }, String.class);
-		
-		if (roles != null) {
-			roles.forEach(role -> authorities.add(new SimpleGrantedAuthority(role)));
-		}
 		return authorities;
 
 	}

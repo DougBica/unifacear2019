@@ -1,0 +1,20 @@
+<div class=" content">
+    <h4>
+      Registro Fabricante
+    </h4>
+  
+    <form id="formFabricante" (ngSubmit)="salvar()" ngNativeValidate>
+ 
+      <div class="form-group">
+        <label for="nome">Nome Fabricante</label>
+        <input type="text" class="form-control" name="nome" placeholder="Digite nome Fabricante " [(ngModel)]="fabricante.nomefabricante"
+        required >
+      </div>
+      <div>
+        <button type="submit" style='font-size:16px' class="btn btn-default" style=color:white> <i class="fas fa-save "
+            style='font-size:24px' aria-hidden="true" style=color:white> </i> Salvar</button>
+      </div>
+    </form>
+</div>
+  
+  

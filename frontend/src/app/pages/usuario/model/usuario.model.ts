@@ -1,4 +1,4 @@
-import { Perfil } from './perfil.model';
+import { Perfil } from '../../perfil1/model/perfil.model';
 
 export class Usuario {
 
@@ -6,7 +6,9 @@ export class Usuario {
 	nome:string;
     email:string;
     dataNasc: any;
-
-    perfis: Perfil[] = [];
+    cpf : String;
+    foto : String;
+    perfil: Perfil;
+    perfis : Perfil [] = [];
 
 }

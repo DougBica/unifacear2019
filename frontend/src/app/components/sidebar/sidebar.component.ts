@@ -16,8 +16,8 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },
   {
-    path: "/login",
-    title: "Login",
+    path: "/admin/tipoperfil",
+    title: "Perfil",
     rtlTitle: "",
     icon: "icon-single-02",
     class: ""
@@ -42,6 +42,23 @@ export const ROUTES: RouteInfo[] = [
     rtlTitle: "",
     icon: "icon-map-big",
     class: ""
+  },
+  {
+    path: "/admin/aeronave",
+    title: "Aeronave",
+    rtlTitle: "",
+    icon: "icon-chart-pie-36",
+    class: "",
+
+   
+    
+  },
+  {
+  path: "/admin/fabricante",
+  title: "Fabricante",
+  rtlTitle: "",
+  icon: "icon-chart-pie-36",
+  class: ""
   }
 ];
 
