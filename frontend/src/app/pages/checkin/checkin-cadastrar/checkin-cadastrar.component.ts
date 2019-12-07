@@ -28,7 +28,7 @@ export class CheckinCadastrarComponent implements OnInit {
   bagagem: Bagagem = new Bagagem();
   variavel: number;
   passagem: Passagem = new Passagem();
-  idString: number;
+  idString: string;
 
   constructor(private checkinService: CheckinService,
     private router: Router,
@@ -38,7 +38,7 @@ export class CheckinCadastrarComponent implements OnInit {
     private passagemService: PassagemService) { }
 
   ngOnInit() {
-    this.loadPassagem(1);
+    this.loadPassagem('2');
     this.route.paramMap.subscribe(params => {
       if (params.get('id') != 'novo') {
         this.guidCheckin = params.get('id');
@@ -49,7 +49,8 @@ export class CheckinCadastrarComponent implements OnInit {
             this.checkin = checkin;
             this.loadUser(this.checkin.guidUsuario);
             this.loadStatus(this.checkin.guidStatus);
-            this.idString = this.checkin.guidPassagem;
+            this.idString = this.checkin.guidPassagem.toString();
+            this.loadPassagem(this.idString);
           }
         )
       }
@@ -140,13 +141,12 @@ export class CheckinCadastrarComponent implements OnInit {
     }, 2000);
   }
 
-  loadPassagem(id: number) {
-    console.log(id);
-    this.passagemService.listByCheckin(id).subscribe(
+  loadPassagem(id: string) {
+    this.passagemService.listById(id).subscribe(
       passagem => {
         this.passagem = passagem;
       }
-    )
+    );
   }
 
 }

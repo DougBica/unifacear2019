@@ -19,8 +19,21 @@ public class Embarque {
 	private Long guidCheckin;
 	private Date dataEmbarque;
 	private boolean embarcou;
+	private String passageiro;
+	private String embarcouIdf;
 	
-	
+	public String getEmbarcouIdf() {
+		return embarcouIdf;
+	}
+	public void setEmbarcouIdf(String embarcouIdf) {
+		this.embarcouIdf = embarcouIdf;
+	}
+	public String getPassageiro() {
+		return passageiro;
+	}
+	public void setPassageiro(String passageiro) {
+		this.passageiro = passageiro;
+	}
 	public boolean isEmbarcou() {
 		return embarcou;
 	}

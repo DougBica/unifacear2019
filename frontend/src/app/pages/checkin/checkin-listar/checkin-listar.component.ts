@@ -3,6 +3,8 @@ import { CheckinService } from '../checkin.service';
 import { Checkin } from '../model/checkin.model';
 import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
+import { Embarque } from '../model/embarque.model';
+import { EmbarqueService } from '../embarque.service';
 
 @Component({
   selector: 'app-checkin-listar',
@@ -13,8 +15,12 @@ export class CheckinListarComponent implements OnInit {
 
   checkins: Checkin[];
   checkin: Checkin = new Checkin();
+  embarque: Embarque = new Embarque();
 
-  constructor(private checkinService: CheckinService, private toastr: ToastrService, private router: Router) { }
+  constructor(private checkinService: CheckinService, 
+              private toastr: ToastrService, 
+              private router: Router,
+              private embarqueService: EmbarqueService) { }
 
   ngOnInit() {
     this.load();
@@ -36,18 +42,26 @@ export class CheckinListarComponent implements OnInit {
       toastClass: "alert alert-info alert-with-icon",
       timeOut: 5000,
     });
-    this.router.navigate(["/admin/checkin-cadastrar/"+checkin.guidCheckin]);
+    this.router.navigate(["/admin/checkin-cadastrar/" + checkin.guidCheckin]);
   }
 
   baixarCheckin(token: number) {
     this.checkinService.loadById(token).subscribe(
       checkin => {
         this.checkin = checkin;
-        console.log(this.checkin);
         this.checkin.guidStatus = 2;
-        console.log(this.checkin.guidStatus);
+        this.embarque.dataEmbarque = new Date();
+        this.embarque.embarcou = false;
+        this.embarque.guidCheckin = this.checkin.guidCheckin;
+        this.embarque.guidUsuario = this.checkin.guidUsuario;
+        this.embarque.guidPassagem = this.checkin.guidPassagem;
+        this.embarque.embarcouIdf = 'Não';
+        this.embarqueService.save(this.embarque).subscribe(
+          () => {
+          }
+        )
         this.checkinService.save(this.checkin).subscribe(
-          () => {    
+          () => {
           }
         );
       }

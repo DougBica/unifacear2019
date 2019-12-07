@@ -1,7 +1,12 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Passagem } from '../model/passagem.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { catchError, retry } from 'rxjs/operators';
+import { error } from '@angular/compiler/src/util';
+import { Usuario } from '../../usuario/model/usuario.model';
+
+
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +14,20 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class PassagemService {
 
   private readonly API = 'http://localhost:8080/scp/public/passagem/'
-
-  constructor(private http : HttpClient) { }
+  private readonly urlPrivateApi = 'http://localhost:8080/scp/private/passagem/'
+  
+  constructor(private http : HttpClient) {   }
+  httpOptions;
+  criarOptions(){
+    let token =  localStorage.getItem('token');
+    return this.httpOptions = {
+      
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Authorization': "Bearer " + token
+      })
+    } 
+  }
 
   listById(id: string) : Observable<Passagem>{
     return this.http.get<Passagem>(this.API+id);
@@ -20,12 +37,26 @@ export class PassagemService {
     return this.http.get<Passagem[]>(this.API);
   }
 
-  salvar(passagem: Passagem) : Observable<any> {
-    return this.http.post<any>(this.API, passagem);
+  salvarReserva(passagens, usuario){
+    let options = this.criarOptions();
+    return this.http.post(this.urlPrivateApi + 'reserva','{ "user":' + JSON.stringify(usuario) +
+                                                            ', "listaPassagens":' + passagens + '}', options)
+      .pipe(
+        retry(1)       
+        )
+
   }
 
-  listByCheckin(id: number): Observable<Passagem> {
-    return this.http.get<Passagem>(this.API+'checkin/'+id);
+  buscaUsuarioByEmail(email):Observable<Usuario>{
+    let options = this.criarOptions();
+    return this.http.get<Usuario>( "http://localhost:8080/scp/private/usuario/email/" + email, options)
+      .pipe(
+        retry(1)       
+        )
+  }
+
+  salvar(passagem: Passagem) : Observable<any> {
+    return this.http.post<any>(this.API, passagem);
   }
 
 }
