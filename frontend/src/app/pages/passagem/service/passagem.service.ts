@@ -4,6 +4,7 @@ import { Passagem } from '../model/passagem.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError, retry } from 'rxjs/operators';
 import { error } from '@angular/compiler/src/util';
+import { Usuario } from '../../usuario/model/usuario.model';
 
 
 
@@ -36,14 +37,22 @@ export class PassagemService {
     return this.http.get<Passagem[]>(this.API);
   }
 
-  salvarReserva(passagens){
+  salvarReserva(passagens, usuario){
     let options = this.criarOptions();
-    console.log(options);
-    return this.http.post(this.urlPrivateApi + 'reserva',passagens, options)
+    return this.http.post(this.urlPrivateApi + 'reserva','{ "user":' + JSON.stringify(usuario) +
+                                                            ', "listaPassagens":' + passagens + '}', options)
       .pipe(
         retry(1)       
         )
 
+  }
+
+  buscaUsuarioByEmail(email):Observable<Usuario>{
+    let options = this.criarOptions();
+    return this.http.get<Usuario>( "http://localhost:8080/scp/private/usuario/email/" + email, options)
+      .pipe(
+        retry(1)       
+        )
   }
 
   salvar(passagem: Passagem) : Observable<any> {
