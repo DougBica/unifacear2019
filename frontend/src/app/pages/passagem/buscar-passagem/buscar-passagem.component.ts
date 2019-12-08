@@ -43,6 +43,9 @@ export class BuscarPassagemComponent implements OnInit {
 
   "voo4":{"origem": "Curitiba", "destino": "Bahia", "dataIda": "2019-12-10", "dataVolta": "2019-12-15", "duracao": "2h30m", "horario": "18:00/20:30",
           "origemVolta": "Curitiba", "destinoVolta": "Bahia",  "duracaoVolta": "2h30m", "horarioVolta": "15:00/17:30", "valor": "870.10", "classepassagem": "CLASSE_EXECUTIVA"},
+  
+  "voo5":{"origem": "Curitiba", "destino": "Bahia", "dataIda": "2019-12-10", "dataVolta": "2019-12-15", "duracao": "3h00m", "horario": "18:00/21:00",
+          "origemVolta": "Curitiba", "destinoVolta": "Bahia",  "duracaoVolta": "2h30m", "horarioVolta": "15:00/17:30", "valor": "467.10", "classepassagem": "CLASSE_ECONOMICA"},
    
     };
   
@@ -234,7 +237,7 @@ comprarPassagem(template2: TemplateRef<any>){
   localStorage.setItem("passagens", JSON.stringify(this.passagens));
   this.modalRef.hide();
   this.modalRef = null;
-  this.router.navigate(['/carrinho-passagem']);
+  this.router.navigate(['/admin/carrinho-passagem']);
   this.passagens = new Array();
 }
 
@@ -311,7 +314,7 @@ criarPassagemVolta(){
   localStorage.setItem("passagens", JSON.stringify(this.passagens));
   this.modalRef2.hide();
   this.modalRef2 = null;
-  this.router.navigate(['/carrinho-passagem']);
+  this.router.navigate(['/admin/carrinho-passagem']);
   this.passagens = new Array();
 
 }
