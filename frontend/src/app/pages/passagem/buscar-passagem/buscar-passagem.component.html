@@ -14,11 +14,19 @@
                   <div class="col-sm">
                     <div class="form-group has-feedback">
                       <label class="control-label">ORIGEM</label>
-                      <input type="text" class="form-control" placeholder="Insira sua cidade de origem" />
-                      <i class="form-control-feedback material-icons">my_location</i>
+                      
+                      <input id="origem" placeHolder="Insira sua cidade de origem "class="form-control" list="idCidades" name="cidade" [(ngModel)]="cidade" 
+                      value="{{cidadeObj.nome}}"
+                      (ngModelChange)="onChange()" (focusout)="exitFocus()" />
+
+                      <datalist id="idCidades">
+                        <option *ngFor="let cidade of cidades" [value]="cidade.nome">{{cidade.nome}}</option>
+                      </datalist>
+                      
+                      <i id="icon1" class="form-control-feedback material-icons">my_location</i>
                     </div>
                   </div>
-                   
+                  
                   <div class="col-sm">
                       <i class="seta material-icons">arrow_forward_ios</i>
                   </div>
@@ -26,8 +34,15 @@
                     <div class="col-sm">
                       <div class="form-group has-feedback" style="right: -83px;">
                         <label class="control-label">DESTINO</label>
-                        <input type="text" class="form-control" placeholder="Insira sua cidade de origem" />
-                        <i class="form-control-feedback material-icons">local_airport</i>
+                        <input id="destino" placeHolder="Insira sua cidade de destino" class="form-control" list="idCidadesDestino" name="cidadeDestino" [(ngModel)]="cidadeDestino"
+                               value="{{cidadeDestinoObj.nome}}"
+                              (ngModelChange)="onChangeDestino()" (focusout)="exitFocusDestino()" />
+
+                          <datalist id="idCidadesDestino">
+	                            <option *ngFor="let cidade of cidades" [value]="cidade.nome">{{cidade.nome}}</option>
+                          </datalist>
+
+                        <i id="icon2" class="form-control-feedback material-icons">local_airport</i>
                       </div>
                     </div>
                   </div>  
@@ -35,17 +50,22 @@
                   <div class="row">
                     <div class="col-xs-12 col-12 col-md-4 form-group" style="right: -73px;top: 47px;">
                       <label>DATA DE IDA</label>
-                      <input type="text"
+                      <input id="dataDeIda" type="text"  (ngModelChange)="exitData()"
+                             datetime="dd-mm-yyyy"
                              placeholder="Escolha sua data de ida"
                              class="form-control"
-                             bsDatepicker>
+                             name="dataIda"
+                             [(ngModel)]="dataIda"
+                             bsDatepicker >
                     </div>
 
                     <div class="col-xs-12 col-12 col-md-4 form-group" style="right: -73px;top: 47px;">
                       <label>DATA DE VOLTA</label>
-                      <input type="text"
+                      <input id="dataDeVolta" type="text" (ngModelChange)="exitData()"
                              placeholder="Escolha sua data de volta"
                              class="form-control"
+                             name="dataVolta"
+                             [(ngModel)]="dataVolta"
                              bsDatepicker>
                     </div>
 
@@ -58,25 +78,25 @@
                         </button>
                     
                         <ul id="dropdown-autoclose2" *dropdownMenu class="dropdown-menu" role="menu" aria-labelledby="button-autoclose2">
-                          <div class="labels" style="top: 9px;position: relative;right: -27px;width: 350px;height: 253px;">
+                          <div class="labels" style="top: 9px;position: relative;right: -27px;width: 350px;height: 281px;">
                             <div class="row">
                               <div class="col-sm" style="right: 16px;">
                              <label style="    margin-bottom: -7px;">ADULTOS</label>
                              <!-- <input class="form-control" type="number" value="42" id="example-number-input"> -->
                             </div>
                             <div class="col-sm" style="right: -80px;">
-                                <select>
-                                    <option>0</option>
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                    <option>6</option>
-                                    <option>7</option>
-                                    <option>8</option>
-                                    <option>9</option>
-                                </select>
+                              <select id="adultos" >
+                                <option value=0>0</option>
+                                <option value=1>1</option>
+                                <option value=2>2</option>
+                                <option value=3>3</option>
+                                <option value=4>4</option>
+                                <option value=5>5</option>
+                                <option value=6>6</option>
+                                <option value=7>7</option>
+                                <option value=8>8</option>
+                                <option value=9>9</option>
+                            </select>
                             </div>
                             
                             </div>
@@ -90,18 +110,18 @@
                                <!-- <input class="form-control" type="number" value="42" id="example-number-input"> -->
                               </div>
                               <div class="col-sm" style="right: -80px;">
-                                  <select>
-                                      <option>0</option>
-                                      <option>1</option>
-                                      <option>2</option>
-                                      <option>3</option>
-                                      <option>4</option>
-                                      <option>5</option>
-                                      <option>6</option>
-                                      <option>7</option>
-                                      <option>8</option>
-                                      <option>9</option>
-                                  </select>
+                                <select id="criancas" >
+                                  <option value=0>0</option>
+                                  <option value=1>1</option>
+                                  <option value=2>2</option>
+                                  <option value=3>3</option>
+                                  <option value=4>4</option>
+                                  <option value=5>5</option>
+                                  <option value=6>6</option>
+                                  <option value=7>7</option>
+                                  <option value=8>8</option>
+                                  <option value=9>9</option>
+                               </select>
                               </div>
                               
                               </div>
@@ -115,36 +135,44 @@
                                  <!-- <input class="form-control" type="number" value="42" id="example-number-input"> -->
                                 </div>
                                 <div class="col-sm" style="right: -80px;">
-                                    <select>
-                                        <option>0</option>
-                                        <option>1</option>
-                                        <option>2</option>
-                                        <option>3</option>
-                                        <option>4</option>
-                                        <option>5</option>
-                                        <option>6</option>
-                                        <option>7</option>
-                                        <option>8</option>
-                                        <option>9</option>
+                                    <select id="bebes" >
+                                        <option value=0>0</option>
+                                        <option value=1>1</option>
+                                        <option value=2>2</option>
+                                        <option value=3>3</option>
+                                        <option value=4>4</option>
+                                        <option value=5>5</option>
+                                        <option value=6>6</option>
+                                        <option value=7>7</option>
+                                        <option value=8>8</option>
+                                        <option value=9>9</option>
                                     </select>
                                 </div>
-                                
                                 </div>
-                                
                                 <div class="row small">
-                                 <label style="color: #aaa;">0 a 23 meses</label>
+                                 <label style="color: #aaa;">0 a 1 ano</label>
                                 </div>
 
                                 <li class="divider dropdown-divider" style="position: relative;right: 27px;"></li>
                                 <div class="row small">
                                     <label style="color: #aaa;">Classe do voo</label>
+                                    <label style="color: #aaa;position: absolute;right: 146px;">Voo de </label>
                                 </div>
 
-                                <div class="checkbox" >
-                                    <label><input type="checkbox" class="sm" value=""> Classe ecônomica   </label>
-                                    <label style="    right: -16px;
-                                    position: relative;"><input type="checkbox" class="sm" value=""> Classe executiva</label>
-                                </div>
+                              <div class="checkbox" >
+                                    <!-- <label><input type="checkbox" class="sm" value=""> Classe ecônomica   </label> -->
+                                    <!-- <label style="    right: -16px; -->
+                                    <!-- position: relative;"><input type="checkbox" class="sm" value=""> Classe executiva</label> -->
+                                    <input type="radio" name="gender" value="Primeira classe"  [(ngModel)]="classePassagem"> Primeira classe<br>
+                                    <input type="radio" name="gender" value="Classe executiva" [(ngModel)]="classePassagem"> Classe executiva<br>
+                                    <input type="radio" name="gender" value="Classe economica" [(ngModel)]="classePassagem"> Clase ecônomica   
+                              </div>
+
+                              <div class="idaVolta" style="position: absolute;top: 201px;right: 70px;">
+                                <input type="radio" name="tipo" value="Somente ida"  [(ngModel)]="vooDe"> Somente ida<br>
+                                <input type="radio" name="tipo" value="Ida e volta" [(ngModel)]="vooDe"> Ida e volta<br>
+                              </div>
+
                          </div>
                         </ul>
                       </div>
@@ -153,29 +181,91 @@
                 
                   <div class="row" style="    right: -358px;align-items: center;position: relative;top: 47px;">
                   
-                      <button (click)="abrirModal(template)" type="button" class="btn btn-outline-primary" style="    color: whitesmoke;    height: 44px;" >
+                      <button (click)="buscarPassagem(template)" type="button" class="btn btn-outline-primary" style="    color: whitesmoke;    height: 44px;" >
                           <i class="material-icons" style="right: 6px; position: relative;top: 7px;">search</i>
                              <label> Pesquisar Passagem</label>
                         </button>
                   </div>
                  
-                 
-                  <ng-template #template>
+                  <ng-template #template >
                     <div class="modal-header">
-                      <h4 class="modal-title pull-left">Passagens</h4>
-                      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                      <h4 class="modal-title pull-left">Selecione o voo de ida:</h4>
+                      <button type="button" class="close pull-right" aria-label="Close" (click)="fecharModalPrincipal()">
                         <span aria-hidden="true">&times;</span>
                       </button>
                     </div>
-                    <div class="modal-body">
-                      Passagens
+                    <div class="modal-body">                   
+                      <div class="form-group">
+                          <table class="table table-bordered table-striped">
+                              <thead>
+                                <tr>
+                                  <th style="color: #747576;">Cidade origem</th>
+                                  <th style="color: #747576;">Cidade destino</th>
+                                  <th style="color: #747576;">Horário</th>
+                                  <th style="color: #747576;">Duração</th>
+                                  <th style="color: #747576;"></th>                                
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of vooIdaVolta">
+                                  <td style= "color: black !important;">{{item.origem}}</td>
+                                  <td style= "color: black !important;">{{item.destino}}</td>
+                                  <td style= "color: black !important;">{{item.horario}}</td>
+                                  <td style= "color: black !important;">{{item.duracao}}</td>
+                                 <td><button style="height: 38px;
+                                  /* size: 18px; */
+                                  width: 49px;" type="button" class="btn btn-outline-secondary" (click)="comprarPassagem(templateNested)" ><i class="material-icons">
+                                  add_shopping_cart
+                                  </i></button></td>                             
+                                </tr>
+                              </tbody>
+                            </table>      
+                      </div>
                     </div>
                   </ng-template>
+
+                  <ng-template #templateNested >
+                    <div class="modal-header">
+                      <h4 class="modal-title pull-left">Selecione o voo de volta:</h4>
+                      <button type="button" class="close pull-right" aria-label="Close" (click)="voltarModal(template)">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                    <div class="modal-body">                   
+                      <div class="form-group">
+                          <table class="table table-bordered table-striped">
+                              <thead>
+                                <tr>
+                                  <th style="color: #747576;">Cidade origem</th>
+                                  <th style="color: #747576;">Cidade destino</th>
+                                  <th style="color: #747576;">Horário</th>
+                                  <th style="color: #747576;">Duração</th>
+                                  <th style="color: #747576;"></th>                                
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let item of vooIdaVolta">
+                                  <td style= "color: black !important;">{{item.origemVolta}}</td>
+                                  <td style= "color: black !important;">{{item.destinoVolta}}</td>
+                                  <td style= "color: black !important;">{{item.horarioVolta}}</td>
+                                  <td style= "color: black !important;">{{item.duracaoVolta}}</td>
+                                 <td><button style="height: 38px;
+                                  /* size: 18px; */
+                                  width: 49px;" type="button" class="btn btn-outline-secondary"  (click)="criarPassagemVolta()"><i class="material-icons">
+                                  add_shopping_cart
+                                  </i></button></td>                             
+                                </tr>
+                              </tbody>
+                            </table>      
+                      </div>
+                    </div>
+                  </ng-template>
+
+
+
+
                 </form>
             </div>
-          
-         
          </div>
 </body>
-
 </html>

@@ -92,7 +92,7 @@ public class PassagemService {
 				passagemRepository.save(passagem);
 				logger("CRIANDO CHECKIN...");
 				Checkin checkin = gerarCheckin(guidUsuario, passagem);
-				logger("SALVANDO CHECKIN - CPF: " + passagem.getCpfPassageiro());
+				logger(" SALVANDO CHECKIN - CPF: " + passagem.getCpfPassageiro());
 				checkinRepository.save(checkin);
 			};
 			
