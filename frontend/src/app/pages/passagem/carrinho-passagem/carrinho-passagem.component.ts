@@ -50,7 +50,7 @@ export class CarrinhoPassagemComponent implements OnInit {
       isKid: false,
       valorPassagem: 232.4,
       nomePassageiro: "ADSas",
-      cpfPassageiro: "89",  
+      cpfPassageiro: "892222",  
       reserva: new Reserva()
     },
     { 
@@ -64,7 +64,7 @@ export class CarrinhoPassagemComponent implements OnInit {
       isKid: false,
       valorPassagem: 334.67,
       nomePassageiro: "ADSas",
-      cpfPassageiro: "89",  
+      cpfPassageiro: "82229",  
       reserva: new Reserva()
     },
     { 
