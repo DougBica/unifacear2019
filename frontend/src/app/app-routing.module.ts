@@ -51,8 +51,7 @@ const routes: Routes = [
       { path: 'cancela/salvar/:id', component: CancelaSalvarComponent },
       { path: 'cancela/lista/:id', component: CancelaListarComponent },
       { path: 'cancela/detalhes', component: CancelaDetalhesComponent },
-      { path: 'remarca', component: RemarcaListarComponent},
-      { path: 'remarca/salvar', component: RemarcaSalvarComponent}
+      { path: 'remarca/salvar/:id', component: RemarcaSalvarComponent}
    ]
   },
   { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
