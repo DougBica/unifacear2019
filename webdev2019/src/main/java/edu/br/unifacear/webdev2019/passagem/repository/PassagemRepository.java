@@ -14,7 +14,7 @@ extends JpaRepository<Passagem, Long>{
 //	public Passagem findByClasse(String classe);
 //	
 //	@Query("select p from Passagem p where guidReserva:guidReserva ")
-	public List<Passagem> findPassagemByReserva_GuidReserva(Long reserva);
+//	public List<Passagem> findPassagemByReserva_GuidReserva(Long reserva);
 	
 //	public boolean existsPassagemReserva_GuidReserva(Long reserva);
 }

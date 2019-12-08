@@ -36,7 +36,7 @@ export class CarrinhoPassagemComponent implements OnInit {
       isKid: true,
       valorPassagem: 250.4,
       nomePassageiro: "ADSas",
-      cpfPassageiro: "NÃO TEM",  
+      cpfPassageiro: "",  
       reserva: new Reserva()
     },
     { 

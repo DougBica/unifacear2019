@@ -56,11 +56,12 @@ public class PassagemService {
 		passagemRepository.delete(passagem);
 	}
 	
-	public List<Passagem> listarPorReserva(final Long guidReserva) {
-		List<Passagem> listaPassagens = passagemRepository.findPassagemByReserva_GuidReserva(guidReserva);
-		if (listaPassagens.isEmpty()) throw new BusinessException(BusinessExceptionCode.ERR504);
-		return listaPassagens;
-	}
+//	public List<Passagem> listarPorReserva(final Long guidReserva) {
+//		List<Passagem> listaPassagens = passagemRepository.findPassagemByReserva_GuidReserva(guidReserva);
+//		if (listaPassagens.isEmpty()) throw new BusinessException(BusinessExceptionCode.ERR504);
+//		return listaPassagens;
+//	}
+	
 	public Passagem burcarPorId(final Long guidPassagem) {
 		Passagem passagem = Optional.ofNullable(passagemRepository.findById(guidPassagem)).orElse(null)
 				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR000));
@@ -75,7 +76,7 @@ public class PassagemService {
 		
 		Reserva reserva = new Reserva(guidUsuario, usuarioPassagem.getListaPassagens());
 		
-		usuarioPassagem.getListaPassagens().forEach(passagem -> passagem.setReserva(reserva));
+//		usuarioPassagem.getListaPassagens().forEach(passagem -> passagem.setReserva(reserva));
 		
 		Optional.ofNullable(reserva).orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR512));
 		try {
@@ -87,6 +88,7 @@ public class PassagemService {
 			// Salvando Passagens e seus respectivos checkins no bancos
 			for(Passagem passagem: usuarioPassagem.getListaPassagens()) {
 				logger("SALVANDO PASSAGEM - CPF: " + passagem.getCpfPassageiro());
+				passagem.setGuidReserva(reserva.getGuidReserva());
 				passagemRepository.save(passagem);
 				logger("CRIANDO CHECKIN...");
 				Checkin checkin = gerarCheckin(guidUsuario, passagem);
