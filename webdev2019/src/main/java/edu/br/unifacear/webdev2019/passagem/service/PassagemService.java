@@ -118,6 +118,8 @@ public class PassagemService {
 		
 		//guidAeronave: number; // não é possivel ainda, pois o modulo voo que tera os voos cadastrados nao esta inalizado
 		
+		// checkin.status INICIAR
+		
 		//checkinAtivo: boolean; // precisa 
 		checkin.setCheckinAtivo(true);
 		
