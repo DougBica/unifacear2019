@@ -243,7 +243,7 @@ criarPassagemVolta(){
   for(let i=0; i<adultos;i++){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
-    this.passagem.guidRota = null;
+    this.passagem.guidRota = 1;
     this.passagem.valorPassagem = null;
     this.passagem.dataPartida = moment(this.dataVoltaFormat).toDate();
     this.passagem.origem = this.cidadeDestino;
@@ -253,7 +253,7 @@ criarPassagemVolta(){
     this.passagem.destino = this.cidade;
     this.passagem.isKid = false;
     this.passagem.active = true;
-    this.passagem.reserva = new Reserva();
+    this.passagem.guidReserva = null;
      console.log(this.passagem);
     this.passagens.push(this.passagem);
   }
@@ -261,7 +261,7 @@ criarPassagemVolta(){
   for(let i=0; i<criancas;i++){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
-    this.passagem.guidRota = null;
+    this.passagem.guidRota = 1;
     this.passagem.valorPassagem = null;
     this.passagem.dataPartida = moment(this.dataVoltaFormat).toDate();
     this.passagem.origem = this.cidadeDestino;
@@ -271,14 +271,14 @@ criarPassagemVolta(){
     this.passagem.nomePassageiro = "";
     this.passagem.cpfPassageiro = "";
     this.passagem.active = true;
-    this.passagem.reserva = new Reserva();
+    this.passagem.guidReserva = null;
     this.passagens.push(this.passagem);
   }
 
   for(let i=0; i<bebes;i++){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
-    this.passagem.guidRota = null;
+    this.passagem.guidRota = 1;
     this.passagem.valorPassagem = null;
     this.passagem.dataPartida = moment(this.dataVoltaFormat).toDate();
     this.passagem.origem = this.cidadeDestino;
@@ -288,7 +288,7 @@ criarPassagemVolta(){
     this.passagem.nomePassageiro = "";
     this.passagem.cpfPassageiro = "";
     this.passagem.active = true;
-    this.passagem.reserva = new Reserva();
+    this.passagem.guidReserva = null;
     this.passagens.push(this.passagem);
     this.checkBebes = false;
   }
@@ -310,7 +310,7 @@ criarPassagemIda(){
   for(let i=0; i<adultos;i++){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
-    this.passagem.guidRota = null;
+    this.passagem.guidRota = 1;
     this.passagem.valorPassagem = null;
     this.passagem.dataPartida = moment(this.dataIdaFormat).toDate();
     this.passagem.origem = this.cidade;
@@ -320,7 +320,7 @@ criarPassagemIda(){
     this.passagem.nomePassageiro = "";
     this.passagem.cpfPassageiro = "";
     this.passagem.active = true;
-    this.passagem.reserva = new Reserva();
+    this.passagem.guidReserva = null;
     console.log("ADULTO");
     this.passagens.push(this.passagem);
   }
@@ -328,7 +328,7 @@ criarPassagemIda(){
   for(let i=0; i<criancas;i++){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
-    this.passagem.guidRota = null;
+    this.passagem.guidRota = 1;
     this.passagem.valorPassagem = null;
     this.passagem.dataPartida = moment(this.dataIdaFormat).toDate();
     this.passagem.origem = this.cidade;
@@ -337,7 +337,7 @@ criarPassagemIda(){
     this.passagem.isKid = true;
     this.passagem.nomePassageiro = "";
     this.passagem.cpfPassageiro = "";
-    this.passagem.reserva = new Reserva();
+    this.passagem.guidReserva = null;
     this.passagem.active = true;
     this.passagens.push(this.passagem);
     console.log("CRIANCA");
@@ -347,7 +347,7 @@ criarPassagemIda(){
     for(let i=0; i<bebes;i++){
       this.passagem = new Passagem();
       this.passagem.guidPassagem = null;
-      this.passagem.guidRota = null;
+      this.passagem.guidRota = 1;
       this.passagem.valorPassagem = null;
       this.passagem.dataPartida = moment(this.dataIdaFormat).toDate();
       this.passagem.origem = this.cidade;
@@ -357,7 +357,7 @@ criarPassagemIda(){
       this.passagem.active = true;
       this.passagem.nomePassageiro = "";
       this.passagem.cpfPassageiro = "";
-      this.passagem.reserva = new Reserva();
+      this.passagem.guidReserva = null;
       this.passagens.push(this.passagem);
       this.checkBebes = false;
       console.log("bebes");
