@@ -103,7 +103,9 @@ public class PassagemService {
 		}
 	}
 	
+
 	public Checkin gerarCheckin(Long guidUsuario, Passagem passagem) {
+
 		
 		Checkin checkin = new Checkin();
 		
@@ -148,6 +150,7 @@ public class PassagemService {
 		System.out.println(headerLog + log);
 	}
 	
+
 //	public boolean existeReserva(final Long guidReserva) {
 //		return passagemRepository.existsPassagemReserva_GuidReserva(guidReserva);
 //	}

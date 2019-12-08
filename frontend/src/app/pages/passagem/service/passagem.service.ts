@@ -29,7 +29,7 @@ export class PassagemService {
     } 
   }
 
-  listById(id: String) : Observable<Passagem>{
+  listById(id: string) : Observable<Passagem>{
     return this.http.get<Passagem>(this.API+id);
   }
 
@@ -60,6 +60,7 @@ export class PassagemService {
   salvar(passagem: Passagem) : Observable<any> {
     return this.http.post<any>(this.API, passagem);
   }
+
 }
 
 
