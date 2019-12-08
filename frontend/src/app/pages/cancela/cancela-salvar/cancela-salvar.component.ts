@@ -3,6 +3,8 @@ import { Cancela } from '../model/cancela.model';
 import { CancelaService } from '../cancela.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { formatDate, DatePipe } from '@angular/common';
+import { Passagem } from '../../passagem/model/passagem.model';
+import { PassagemService } from '../../passagem/service/passagem.service';
 
 
 @Component({
@@ -13,23 +15,34 @@ import { formatDate, DatePipe } from '@angular/common';
 export class CancelaSalvarComponent implements OnInit {
 
   cancela: Cancela = new Cancela()
+  passagem: Passagem = new Passagem()
   data: any = new Date();
 
-  constructor(private route: ActivatedRoute, private router: Router, private service: CancelaService) {
-    const nav = this.router.getCurrentNavigation();
-    if (nav.extras.state == null) {
-      this.router.navigate(["/admin/cancela"])
-    }
-    else {
-      this.cancela = nav.extras.state.cancela;
-    }
+  constructor(private route: ActivatedRoute,
+    private router: Router,
+    private serviceCancela: CancelaService,
+    private servicePassagem: PassagemService) {
+
   }
   ngOnInit() {
-
+    this.route.paramMap.subscribe(params => {
+      if (params.get('id') != 'novo') {
+        const idPassagem = params.get('id');
+        this.servicePassagem.listById(idPassagem).subscribe(
+          passagem => {
+            this.passagem = passagem;
+          }
+        );
+      }
+    });
   }
   salvar() {
     this.cancela.dataCancelamento = formatDate(this.data, 'dd/MM/yyyy HH:mm', 'en-US')
-    this.service.save(this.cancela).subscribe(
+    this.cancela.guidReserva = 0
+    this.cancela.guidPassagem = this.passagem.guidPassagem
+    this.cancela.checkin = false
+    this.cancela.guidUsuario = 1
+    this.serviceCancela.save(this.cancela).subscribe(
       () => {
         this.router.navigate(["/admin/cancela"])
       }

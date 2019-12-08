@@ -1,49 +1,20 @@
-<!--<div class="content">
-  <form id="formCancela" (ngSubmit)="salvar()">
-    <div class="form-group">
-      <label for="usuario">Id usuario</label>
-      <input type="text" class="form-control" name="usuario" placeholder="ID usuario" [(ngModel)]="cancela.guidUsuario"
-        required>
-    </div>
-    <div class="form-group">
-      <label for="reserva">Id reserva</label>
-      <input type="text" class="form-control" name="reserva" placeholder="Id reserva" [(ngModel)]="cancela.guidReserva">
-    </div>
-    <div class="form-group">
-      <label for="passagem">Id passagem</label>
-      <input type="text" class="form-control" name="passagem" placeholder="Id passagem"
-        [(ngModel)]="cancela.guidPassagem">
-    </div>
-    <div class="form-group">
-      <label for="checkin">Checkin</label>
-      <input type="text" class="form-control" name="checkin" placeholder="Checkin" [(ngModel)]="cancela.checkin">
-    </div>
-    <div class="form-group">
-      <label for="data">Data cancelamento</label>
-      <fieldset disabled>
-        <input type="text" class="form-control" name="checkin" value="{{data | date:'dd-MM-yyyy HH:mm'}}">
-      </fieldset>
-    </div>
-    <div class="form-group">
-      <label for="motivo">Motivo cancelamento</label>
-      <input type="text" min="1" max="5" class="form-control" name="motivo" placeholder="Motivo cancelamento"
-        [(ngModel)]="cancela.motivoCancelamento">
-    </div>
-    <button type="submit" class="btn btn-info btn-sm">Salvar</button>
-  </form>
-</div>-->
 <div class="content">
   <div class="card">
     <div class="card-header">
-      Cancelamento
+      <h2>Cancelamento</h2>
     </div>
     <div class="card-body">
-      <h5 class="card-title">Deseja realmente cancelar esta passagem?</h5>
-      <p class="card-text">ID Usuário: {{cancela.guidUsuario}}</p>
-      <p class="card-text">ID Passagem: {{cancela.guidPassagem}}</p>
+      <!--<h5 class="card-title">Deseja realmente cancelar esta passagem?</h5>-->
+      <p class="card-text">Nome do passageiro > {{passagem.nomePassageiro}} </p>
+      <p class="card-text">ID Passagem > {{passagem.guidPassagem}}</p>
+      <p class="card-text">Origem > {{passagem.origem}}</p>
+      <p class="card-text">Destino > {{passagem.destino}}</p>
+      <p class="card-text">Valor passagem > R$ {{passagem.valorPassagem}}</p>
+      <p class="card-text">Status do checkin > Ainda não efetuado</p>
       <div class="form-group">
-        <textarea name="motivo" class="form-control" cols="30" rows="10"  placeholder="Conte-nos um pouco sobre o motivo do cancelamento"
-        [(ngModel)]="cancela.motivoCancelamento"></textarea>
+        <textarea name="motivo" class="form-control" cols="30" rows="10"
+          placeholder="Conte-nos um pouco sobre o motivo do cancelamento"
+          [(ngModel)]="cancela.motivoCancelamento"></textarea>
       </div>
     </div>
   </div>

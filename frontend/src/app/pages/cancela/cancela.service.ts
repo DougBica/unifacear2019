@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cancela } from './model/cancela.model';
+import { Passagem } from '../passagem/model/passagem.model';
 
 @Injectable({
   providedIn: 'root'
@@ -25,5 +26,4 @@ export class CancelaService {
   delete(guidCancela: string): Observable<any>{
     return this.http.delete<any>("http://localhost:8080/scp/public/cancela/"+guidCancela)
   }
-
 }
