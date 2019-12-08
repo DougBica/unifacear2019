@@ -49,8 +49,11 @@ export class CancelaSalvarComponent implements OnInit {
     this.cancela.guidUsuario = 2
     this.serviceCancela.save(this.cancela).subscribe(
       () => {
-        this.router.navigate(["admin/cancela/lista"])
+        //this.router.navigate(["admin/cancela/lista"])
       }
     )
+  }
+  voltar() {
+    console.log("Voltouuu")
   }
 }
