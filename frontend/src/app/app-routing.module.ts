@@ -26,6 +26,7 @@ import { PerfilListarComponent } from './pages/perfil1/perfil-listar/perfil-list
 import { CancelaListarComponent } from './pages/cancela/cancela-listar/cancela-listar.component';
 import { CancelaDetalhesComponent } from './pages/cancela/cancela-detalhes/cancela-detalhes.component';
 import { CancelaSalvarComponent } from './pages/cancela/cancela-salvar/cancela-salvar.component'
+import { CheckinPassageiroComponent } from './pages/checkin/checkin-passageiro/checkin-passageiro.component';
 
 const routes: Routes = [
   {
@@ -45,7 +46,8 @@ const routes: Routes = [
       { path: 'tipoperfil', component : PerfilListarComponent},
       { path: 'embarque-controle', component: EmbarqueListarComponent},
       { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent},
-      { path: 'checkin-menu', component: CheckinMenuComponent }
+      { path: 'checkin-menu', component: CheckinMenuComponent },
+      { path: 'checkin-passageiro', component: CheckinPassageiroComponent }
    ]
   },
   { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },

@@ -5,6 +5,9 @@ import { ToastrService } from 'ngx-toastr';
 import { Router } from '@angular/router';
 import { Embarque } from '../model/embarque.model';
 import { EmbarqueService } from '../embarque.service';
+import { PassagemService } from '../../passagem/service/passagem.service';
+import { Passagem } from '../../passagem/model/passagem.model';
+import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-checkin-listar',
@@ -16,11 +19,14 @@ export class CheckinListarComponent implements OnInit {
   checkins: Checkin[];
   checkin: Checkin = new Checkin();
   embarque: Embarque = new Embarque();
+  passagem: Passagem = new Passagem();
+  nome: string;
 
-  constructor(private checkinService: CheckinService, 
-              private toastr: ToastrService, 
-              private router: Router,
-              private embarqueService: EmbarqueService) { }
+  constructor(private checkinService: CheckinService,
+    private toastr: ToastrService,
+    private router: Router,
+    private embarqueService: EmbarqueService,
+    private passagemService: PassagemService) { }
 
   ngOnInit() {
     this.load();
@@ -30,6 +36,7 @@ export class CheckinListarComponent implements OnInit {
     this.checkinService.load().subscribe(
       checkins => {
         this.checkins = checkins;
+        console.log(this.checkins);
       }
     );
   }
@@ -50,18 +57,24 @@ export class CheckinListarComponent implements OnInit {
       checkin => {
         this.checkin = checkin;
         this.checkin.guidStatus = 2;
-        this.embarque.dataEmbarque = new Date();
-        this.embarque.embarcou = false;
-        this.embarque.guidCheckin = this.checkin.guidCheckin;
-        this.embarque.guidUsuario = this.checkin.guidUsuario;
-        this.embarque.guidPassagem = this.checkin.guidPassagem;
-        this.embarque.embarcouIdf = 'Não';
-        this.embarqueService.save(this.embarque).subscribe(
-          () => {
-          }
-        )
-        this.checkinService.save(this.checkin).subscribe(
-          () => {
+        this.passagemService.listById(this.checkin.guidPassagem.toString()).subscribe(
+          passagem => {
+            this.nome = passagem.nomePassageiro;
+            this.embarque.dataEmbarque = new Date();
+            this.embarque.embarcou = false;
+            this.embarque.guidCheckin = this.checkin.guidCheckin;
+            this.embarque.guidUsuario = this.checkin.guidUsuario;
+            this.embarque.guidPassagem = this.checkin.guidPassagem;
+            this.embarque.passageiro = this.nome;
+            this.embarque.embarcouIdf = 'Não';
+            this.embarqueService.save(this.embarque).subscribe(
+              () => {
+              }
+            )
+            this.checkinService.save(this.checkin).subscribe(
+              () => {
+              }
+            );
           }
         );
       }

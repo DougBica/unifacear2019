@@ -38,7 +38,6 @@ export class CheckinCadastrarComponent implements OnInit {
     private passagemService: PassagemService) { }
 
   ngOnInit() {
-    this.loadPassagem('2');
     this.route.paramMap.subscribe(params => {
       if (params.get('id') != 'novo') {
         this.guidCheckin = params.get('id');
