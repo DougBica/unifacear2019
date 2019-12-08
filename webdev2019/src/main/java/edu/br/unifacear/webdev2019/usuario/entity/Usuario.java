@@ -33,7 +33,7 @@ public class Usuario {
 	private String email;
 	private String senha;
 	private String cpf;
-	private Date dataNasc;
+	private String dataNasc;
 	private Long foto;
 	
 	@ManyToOne
@@ -71,11 +71,11 @@ public class Usuario {
 		cpf = cPF;
 	}
 
-	public Date getDataNasc() {
+	public String getDataNasc() {
 		return dataNasc;
 	}
 
-	public void setDataNasc(Date dataNasc) {
+	public void setDataNasc(String dataNasc) {
 		this.dataNasc = dataNasc;
 	}
 

@@ -28,14 +28,15 @@ export class LoginComponent implements OnInit, OnDestroy {
       user => {
         localStorage.setItem("token",user['token']);
         localStorage.setItem("id",user['id']);
-        
         this.usuarioService.buscarPorID(localStorage.getItem("id")).subscribe(
           usuario => {
-            this.usuario = usuario;
+            this.usuario = usuario
             if (this.usuario.tipoDeUsuarios == "ADMIN") {
               this.router.navigate(["/"])
+              localStorage.setItem("typeUser",'ADMIN');
             } else {
               this.router.navigate(["/buscar-passagem"])
+              localStorage.setItem("typeUser",'CLIENTE');
             }
           }
         );
