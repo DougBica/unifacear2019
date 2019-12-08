@@ -1,4 +1,4 @@
-/*package edu.br.unifacear.webdev2019.checkin.service;
+package edu.br.unifacear.webdev2019.checkin.service;
 
 import java.io.Serializable;
 import java.util.List;
@@ -50,24 +50,11 @@ public class BagagemService implements Serializable {
 	}
 	
 	public Bagagem inserirBagagem(Bagagem bagagem) {
-		if(bagagem.getPesoBagagem()>peso) {
-			bagagem.setExcesso(true);
-			bagagem.setValortotal((bagagem.getValorbagagem()+(bagagem.getPesoBagagem()-peso)*
-					bagagem.getValorexcesso()));
-			if(bagagem.getGuidCheckin() == null) {
-				throw new BusinessException(BusinessExceptionCode.ERR511);
-			}
-			else {
-				return bagagemrepository.save(bagagem);		
-			}
-		}
-		else if(bagagem.getGuidCheckin() == null) {
-			throw new BusinessException(BusinessExceptionCode.ERR511);
-		}
-		else {
-			bagagem.setExcesso(false);
-			bagagem.setValortotal(bagagem.getValorbagagem());
+		try {
 			return bagagemrepository.save(bagagem);
+		}
+		catch(Exception e) {
+			throw new BusinessException(BusinessExceptionCode.ERR502);
 		}
 	}
 	
@@ -93,9 +80,9 @@ public class BagagemService implements Serializable {
 		}
 	}
 	
-	public void deletarBagagem(Bagagem bagagem) {
+	public void deletarBagagem(Long id) {
 		try {
-			bagagemrepository.delete(bagagem);
+			bagagemrepository.deleteById(id);
 		}
 		catch(Exception e) {
 			throw new BusinessException(BusinessExceptionCode.ERR000);
@@ -103,4 +90,3 @@ public class BagagemService implements Serializable {
 	}
 
 }
-*/

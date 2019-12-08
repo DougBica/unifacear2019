@@ -7,8 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -22,8 +20,6 @@ public class Checkin {
 	private String token;
 	private Long guidUsuario;
 	@Column(nullable=false)
-	private Long guidVoo;
-	@Column(nullable=false)
 	private Long guidPassagem;
 	private Long guidAeronave;
 	private boolean checkinAtivo;
@@ -31,15 +27,13 @@ public class Checkin {
 	private String fotoCheckin;
 	private boolean indicadorFoto;
 	private Long guidMilhagem;
-	@OneToOne
-	@JoinColumn(name="guidStatus")
-	private StatusCheckin statusCheckin;
-	
-	public StatusCheckin getStatusCheckin() {
-		return statusCheckin;
+	private Long guidStatus;
+
+	public Long getGuidStatus() {
+		return guidStatus;
 	}
-	public void setStatusCheckin(StatusCheckin statusCheckin) {
-		this.statusCheckin = statusCheckin;
+	public void setGuidStatus(Long guidStatus) {
+		this.guidStatus = guidStatus;
 	}
 	public Long getGuidMilhagem() {
 		return guidMilhagem;
@@ -72,12 +66,6 @@ public class Checkin {
 	}
 	public void setGuidUsuario(Long guidUsuario) {
 		this.guidUsuario = guidUsuario;
-	}
-	public Long getGuidVoo() {
-		return guidVoo;
-	}
-	public void setGuidVoo(Long guidVoo) {
-		this.guidVoo = guidVoo;
 	}
 	public Long getGuidPassagem() {
 		return guidPassagem;

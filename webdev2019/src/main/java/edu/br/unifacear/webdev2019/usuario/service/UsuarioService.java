@@ -63,4 +63,8 @@ public class UsuarioService {
 				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR002));
 		return usuario;
 	}
+	
+	public Optional<Usuario> findByMyId(Long id) {
+		return usuarioRepository.findById(id);
+	}
 }

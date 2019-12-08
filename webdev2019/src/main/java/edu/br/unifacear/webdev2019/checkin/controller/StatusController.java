@@ -16,7 +16,7 @@ import edu.br.unifacear.webdev2019.checkin.entity.StatusCheckin;
 import edu.br.unifacear.webdev2019.checkin.service.StatusCheckinService;
 
 @RestController
-@RequestMapping(value="/statuscheckin")
+@RequestMapping(value="/scp/public/statuscheckin")
 public class StatusController {
 	
 	@Autowired

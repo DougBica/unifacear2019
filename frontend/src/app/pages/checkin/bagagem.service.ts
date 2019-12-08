@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Bagagem } from './model/bagagem.model';
-import { HttpClient } from '@angular/common/http';
-const urlApi = 'http://localhost:8080/scp/public/bagagem';
-const urlApi2 = 'http://localhost:8080/scp/public/bagagem/listarpcheckin/';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+const urlApi = 'http://localhost:8080/scp/private/bagagem';
+const urlApi2 = 'http://localhost:8080/scp/private/bagagem/listarpcheckin/';
+const urlExcluir = 'http://localhost:8080/scp/private/bagagem/';
 
 @Injectable({
   providedIn: 'root'
@@ -13,19 +14,35 @@ export class BagagemService {
   constructor(private http: HttpClient) { }
 
   load() : Observable<Bagagem[]> {
-    return this.http.get<Bagagem[]>(urlApi);
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
+    return this.http.get<Bagagem[]>(urlApi, options);
   }
   
   loadById(id: string): Observable<Bagagem> {
     return this.http.get<Bagagem>(urlApi+id);
   }
 
-  loadByGuidCheckin(id: string): Observable<Bagagem[]>{
-    return this.http.get<Bagagem[]>(urlApi2+id);
+  loadByGuidCheckin(id: number): Observable<Bagagem[]>{
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
+    return this.http.get<Bagagem[]>(urlApi2+id, options);
   }
 
-  save(checkin: Bagagem): Observable<Bagagem> {
-    return this.http.post<Bagagem>(urlApi, Bagagem);
+  save(bagagem: Bagagem): Observable<Bagagem> {
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
+    return this.http.post<Bagagem>(urlApi, bagagem, options);
+  }
+
+  excluir(id: number) {
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
+    return this.http.delete<Bagagem>(urlExcluir+id, options);
   }
 
 }

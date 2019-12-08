@@ -41,21 +41,6 @@ public class CheckinService implements Serializable {
 	}
 	
 	public Checkin insertCheckin(Checkin checkin) {
-		/*if(checkin.getDataCheckin().before(Calendar.
-				getInstance().getTime())) {
-			throw new BusinessException(BusinessExceptionCode.ERR506);
-		}
-		else if(checkin.getGuidUsuario() == null){ throw new
-		BusinessException(BusinessExceptionCode.ERR510); } else
-		if(checkin.getGuidAeronave() == null) { throw new
-		BusinessException(BusinessExceptionCode.ERR509); } else
-		if(checkin.getGuidVoo() == null) { throw new
-		BusinessException(BusinessExceptionCode.ERR508); } else
-		if(checkin.getGuidPassagem() == null) { throw new
-		BusinessException(BusinessExceptionCode.ERR507); } 
-		else {
-			return checkinRepository.save(checkin);
-		}*/
 		return checkinRepository.save(checkin);
 	}
 	
@@ -80,6 +65,51 @@ public class CheckinService implements Serializable {
 	
 	public Checkin chekinWithToken(String token) {
 		return checkinRepository.findByToken(token);
+	}
+	
+	public List<Checkin> listCheckinOpen() {
+		try {
+			return checkinRepository.findByStatus();
+		}
+		catch(Exception e) {
+			throw new BusinessException(BusinessExceptionCode.ERR503);
+		}
+	}
+
+	public List<Checkin> listarAbertos() {
+		try {
+			return checkinRepository.findByStatus();
+		}
+		catch(Exception e) {
+			throw new BusinessException(BusinessExceptionCode.ERR503);
+		}
+	}
+	
+	public Checkin puxarToken(String id) {
+		try {
+			return checkinRepository.findByToken(id);
+		}
+		catch(Exception e) {
+			throw new BusinessException(BusinessExceptionCode.ERR503);
+		}
+	}
+	
+	public Checkin listarPorPassagem(Long id) {
+		try {
+			return checkinRepository.findByPassagem(id);
+		}
+		catch(Exception e) {
+			throw new BusinessException(BusinessExceptionCode.ERR503);
+		}
+	}
+	
+	public Checkin listarPorPassageiro(Long id) {
+		try {
+			return checkinRepository.findByPassageiro(id);
+		}
+		catch(Exception e) {
+			throw new BusinessException(BusinessExceptionCode.ERR503);
+		}
 	}
 	
 }

@@ -2,7 +2,6 @@ export class Checkin {
     guidCheckin: number;
     token: string; // precisa
     guidUsuario: number; 
-    guidVoo: number; // precisa
     guidPassagem: number; // precisa
     guidAeronave: number; // precisa
     checkinAtivo: boolean; // precisa

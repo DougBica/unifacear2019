@@ -29,7 +29,7 @@ export class PassagemService {
     } 
   }
 
-  listById(id: String) : Observable<Passagem>{
+  listById(id: string) : Observable<Passagem>{
     return this.http.get<Passagem>(this.API+id);
   }
 
@@ -39,6 +39,8 @@ export class PassagemService {
 
   salvarReserva(passagens, usuario){
     let options = this.criarOptions();
+    console.log(this.urlPrivateApi + 'reserva','{ "user":' + JSON.stringify(usuario) +
+    ', "listaPassagens":' + passagens + '}', options);
     return this.http.post(this.urlPrivateApi + 'reserva','{ "user":' + JSON.stringify(usuario) +
                                                             ', "listaPassagens":' + passagens + '}', options)
       .pipe(
@@ -58,6 +60,7 @@ export class PassagemService {
   salvar(passagem: Passagem) : Observable<any> {
     return this.http.post<any>(this.API, passagem);
   }
+
 }
 
 
