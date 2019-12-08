@@ -56,8 +56,8 @@ public class CancelaService {
 		return repo.save(cancela);
 	}
 	
-	public Cancela findByGuidUsuario(Long guidUsuario) {
-		Cancela obj = Optional.ofNullable(repo.findByGuidUsuario(guidUsuario))
+	public List<Cancela> findByGuidUsuario(Long guidUsuario) {
+		List<Cancela> obj = Optional.ofNullable(repo.findByGuidUsuario(guidUsuario))
 				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR301));
 		return obj;
 	}

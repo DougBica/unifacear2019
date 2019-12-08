@@ -16,8 +16,14 @@ export class CancelaListarComponent implements OnInit {
   }
 
   ngOnInit() {
-
-    this.find()
+    let idPassagem
+    this.route.paramMap.subscribe(params => {
+      if (params.get('id') != 'novo') {
+        idPassagem = params.get('id');
+      }
+    });
+    // this.find()
+    this.findByGuidUsuario(idPassagem)
 
   }
   find() {
@@ -25,20 +31,15 @@ export class CancelaListarComponent implements OnInit {
       cancelamentos => this.cancelamentos = cancelamentos
     )
   }
+  findByGuidUsuario(id) {
+    console.log(id)
+    this.service.findByidGuidUsuario(id).subscribe(
+      cancelamentos => this.cancelamentos = cancelamentos
+    )
+  }
   detail(cancela: Cancela) {
     // this.router.navigate(["/admin/cancela/detalhes/"+cancela.guidCancelar])
     this.router.navigate(["/admin/cancela/detalhes"],
       { state: { cancela: cancela } })
-  }
-  salvar() {
-    // init teste
-    const cancela_teste = new Cancela()
-    cancela_teste.guidReserva = 1
-    cancela_teste.guidPassagem = 1
-    cancela_teste.guidUsuario = 1
-    cancela_teste.checkin = false
-    // end teste*/
-    this.router.navigate(["/admin/cancela/salvar"],
-      { state: { cancela: cancela_teste } })
   }
 }

@@ -36,7 +36,7 @@ public class CancelaController {
 	}
 
 	@GetMapping("/guidusuario/{guidUsuario}")
-	public Cancela findByGuidUsuario(@PathVariable Long guidUsuario) {
+	public List<Cancela> findByGuidUsuario(@PathVariable Long guidUsuario) {
 		return service.findByGuidUsuario(guidUsuario);
 	}
 	

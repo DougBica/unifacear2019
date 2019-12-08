@@ -16,7 +16,7 @@ export class CancelaDetalhesComponent implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private service: CancelaService) {
     const nav = this.router.getCurrentNavigation();
     if (nav.extras.state == null) {
-      this.router.navigate(["/admin/cancela"])
+      this.router.navigate(["/admin/cancela/lista"])
     }
     else {
       this.cancela = nav.extras.state.cancela;
@@ -27,7 +27,7 @@ export class CancelaDetalhesComponent implements OnInit {
 
   }
   back() {
-    this.router.navigate(["/admin/cancela"])
+    this.router.navigate(["/admin/cancela/lista"])
   }
   deletar() {
     this.service.delete(this.cancela.guidCancelar + "").subscribe(

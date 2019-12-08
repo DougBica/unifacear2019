@@ -5,6 +5,8 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { formatDate, DatePipe } from '@angular/common';
 import { Passagem } from '../../passagem/model/passagem.model';
 import { PassagemService } from '../../passagem/service/passagem.service';
+import { CheckinService } from '../../checkin/checkin.service';
+import { Checkin } from '../../checkin/model/checkin.model';
 
 
 @Component({
@@ -16,12 +18,15 @@ export class CancelaSalvarComponent implements OnInit {
 
   cancela: Cancela = new Cancela()
   passagem: Passagem = new Passagem()
+  checkin: Checkin = new Checkin()
+  checkins: Checkin[]
   data: any = new Date();
 
   constructor(private route: ActivatedRoute,
     private router: Router,
     private serviceCancela: CancelaService,
-    private servicePassagem: PassagemService) {
+    private servicePassagem: PassagemService,
+    private serviceCheckin: CheckinService) {
 
   }
   ngOnInit() {
@@ -40,13 +45,12 @@ export class CancelaSalvarComponent implements OnInit {
     this.cancela.dataCancelamento = formatDate(this.data, 'dd/MM/yyyy HH:mm', 'en-US')
     this.cancela.guidReserva = 0
     this.cancela.guidPassagem = this.passagem.guidPassagem
-    this.cancela.checkin = false
-    this.cancela.guidUsuario = 1
+    this.cancela.checkin = false //this.checkin.checkinAtivo
+    this.cancela.guidUsuario = 2
     this.serviceCancela.save(this.cancela).subscribe(
       () => {
-        this.router.navigate(["/admin/cancela"])
+        this.router.navigate(["admin/cancela/lista"])
       }
     )
   }
-
 }
