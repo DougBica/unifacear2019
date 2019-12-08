@@ -3,6 +3,7 @@ package edu.br.unifacear.webdev2019.checkin.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import edu.br.unifacear.webdev2019.checkin.entity.Embarque;
 import edu.br.unifacear.webdev2019.checkin.service.EmbarqueService;
 
+@CrossOrigin
 @RestController
 @RequestMapping(value="/scp/public/embarque")
 public class EmbarqueController {
@@ -45,6 +47,11 @@ public class EmbarqueController {
 	@DeleteMapping
 	public void deletarEmbarque(@RequestBody Embarque embarque) {
 		embarqueService.deletarEmbarque(embarque);
+	}
+	
+	@GetMapping(value="/checkin/{id}")
+	public List<Embarque> findByCheckin(@PathVariable Long id) {
+		return embarqueService.findByCheckin(id);
 	}
 	
 }

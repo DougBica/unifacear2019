@@ -1,6 +1,7 @@
 package edu.br.unifacear.webdev2019.usuario.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -20,7 +21,7 @@ import edu.br.unifacear.webdev2019.usuario.service.UsuarioService;
 
 
 @RestController
-@RequestMapping("/scp/private/usuario")
+@RequestMapping("/scp/public/usuario")
 public class ControllerUsuario {
 
 	@Autowired
@@ -62,5 +63,10 @@ public class ControllerUsuario {
 	@GetMapping("/cpf/{cpf}")
 	public Usuario BuscarPorCpf(@PathVariable(name = "cpf") String cpf) {
 		return usuarioService.buscarPorCpf(cpf);
+	}
+	
+	@GetMapping(value="/meuId/{id}")
+	public Optional<Usuario> findByMydId(@PathVariable Long id) {
+		return usuarioService.findByMyId(id);
 	}
 }

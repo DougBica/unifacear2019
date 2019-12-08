@@ -1,5 +1,6 @@
 package edu.br.unifacear.webdev2019.checkin.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,7 @@ public class Bagagem {
 	private String tokenBagagem;
 	private boolean excesso;
 	private Double valorexcesso;
+	@Column(precision=10, scale=2)
 	private Double valortotal;
 	private Double valorbagagem;
 	private Long guidCheckin;

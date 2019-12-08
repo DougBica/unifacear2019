@@ -17,9 +17,9 @@ import { AutenticacaoGuard } from './autenticacao.guard';
 import { EmbarqueListarComponent } from './pages/checkin/embarque-listar/embarque-listar.component';
 import { EmbarqueCadastrarComponent } from './pages/checkin/embarque-cadastrar/embarque-cadastrar.component';
 import { LoginComponent } from './pages/login/login/login.component';
+import { CheckinMenuComponent } from './pages/checkin/checkin-menu/checkin-menu.component';
 import { CarrinhoPassagemComponent } from './pages/passagem/carrinho-passagem/carrinho-passagem.component';
 import { BuscarPassagemComponent } from './pages/passagem/buscar-passagem/buscar-passagem.component';
-
 import { RegisterComponent } from './pages/register/register/register.component';
 import { PerfilCadastrarComponent } from './pages/perfil1/perfil-cadastrar/perfil-cadastrar.component';
 import { PerfilListarComponent } from './pages/perfil1/perfil-listar/perfil-listar.component';
@@ -28,7 +28,6 @@ import { CancelaDetalhesComponent } from './pages/cancela/cancela-detalhes/cance
 import { CancelaSalvarComponent } from './pages/cancela/cancela-salvar/cancela-salvar.component'
 import { RemarcaListarComponent } from './pages/remarca/remarca-listar/remarca-listar.component';
 import { RemarcaSalvarComponent } from './pages/remarca/remarca-salvar/remarca-salvar.component';
-
 
 const routes: Routes = [
   {
@@ -48,6 +47,7 @@ const routes: Routes = [
       { path: 'tipoperfil', component : PerfilListarComponent},
       { path: 'embarque-controle', component: EmbarqueListarComponent},
       { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent},
+      { path: 'checkin-menu', component: CheckinMenuComponent },
       { path: 'cancela/salvar/:id', component: CancelaSalvarComponent },
       { path: 'cancela/lista/:id', component: CancelaListarComponent },
       { path: 'cancela/detalhes', component: CancelaDetalhesComponent },

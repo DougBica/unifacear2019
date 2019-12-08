@@ -27,4 +27,25 @@ export class EmbarqueListarComponent implements OnInit {
     );
   }
 
+  finalizar(embarque: Embarque) {
+    embarque.embarcouIdf = 'Sim'
+    this.embarqueService.save(embarque).subscribe(
+      () => {
+        
+      }
+    )
+  }
+  
+  encontrarEmbarque(id: number) {
+    console.log(id);
+    if(id == null) {
+      this.load();
+    }
+    this.embarqueService.loadByCheckin(id).subscribe(
+      embarques => {
+        this.embarques = embarques;
+      }
+    );
+  }
+
 }

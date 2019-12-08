@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Embarque } from './model/embarque.model';
 const urlApi = 'http://localhost:8080/scp/public/embarque/';
 const urlApiAlter = 'http://localhost:8080/scp/public/embarque/alter';
-
+const urlApiList = 'http://localhost:8080/scp/public/embarque/checkin/';
 
 @Injectable({
   providedIn: 'root'
@@ -23,6 +23,10 @@ export class EmbarqueService {
 
   save(embarque: Embarque): Observable<Embarque> {
     return this.http.post<Embarque>(urlApi, embarque);
+  }
+
+  loadByCheckin(id: number): Observable<Embarque[]> {
+    return this.http.get<Embarque[]>(urlApiList+id);
   }
 
 }

@@ -1,6 +1,7 @@
 package edu.br.unifacear.webdev2019.passagem.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import javax.validation.Valid;
 
@@ -49,8 +50,10 @@ public class PassagemController {
 	@GetMapping("public/passagem/{guidPassagem}")
 	public Passagem buscarPorId(@PathVariable(name = "guidPassagem") Long guidPassagem) {
 		
+		//
 		return passagemService.burcarPorId(guidPassagem);
 	
 	}
 	
+
 }

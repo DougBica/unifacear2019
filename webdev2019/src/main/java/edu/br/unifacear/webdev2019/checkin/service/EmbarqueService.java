@@ -60,4 +60,8 @@ public class EmbarqueService implements Serializable {
 		embarqueRepository.delete(embarque);
 	}
 	
+	public List<Embarque> findByCheckin(Long id) {
+		return embarqueRepository.findByCheckin(id);
+	}
+	
 }
