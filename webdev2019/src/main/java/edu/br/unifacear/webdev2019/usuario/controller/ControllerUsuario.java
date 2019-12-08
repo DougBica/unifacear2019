@@ -21,7 +21,7 @@ import edu.br.unifacear.webdev2019.usuario.service.UsuarioService;
 
 
 @RestController
-@RequestMapping("/scp/public/usuario")
+@RequestMapping("/scp/private/usuario")
 public class ControllerUsuario {
 
 	@Autowired
