@@ -1,4 +1,3 @@
-import { Reserva } from './reserva.model';
 
 export class Passagem {
 
@@ -13,6 +12,6 @@ export class Passagem {
     valorPassagem: number;
     nomePassageiro: string;
     cpfPassageiro: string;  
-    reserva: Reserva;
+    guidReserva: number;
 
 }

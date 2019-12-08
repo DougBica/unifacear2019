@@ -1,4 +1,4 @@
-<div class="main-content">
+<div class="main-content" id="content" #content>
     <p></p>
     <div class="container-fluid">
         <div class="row">
@@ -45,6 +45,9 @@
             </div>
         </div>
     </div>
+
+    <td><button class="btn" (click)="downloadPDF()">Download PDF</button></td>
+
     <modal-login (conteudo)="pagarReserva($event)"></modal-login>
     
 </div>
