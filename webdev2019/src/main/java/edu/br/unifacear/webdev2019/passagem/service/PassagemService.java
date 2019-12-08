@@ -145,17 +145,12 @@ public class PassagemService {
 		return null;
 	}
 	
-<<<<<<< HEAD
-	public Optional<Passagem> getById(Long id) {
-		return passagemRepository.findOne(id);
-	}
-=======
 	public void logger(String log) {
 		String headerLog = "PASSAGEM SERVICE - ";
 		System.out.println(headerLog + log);
 	}
 	
->>>>>>> masterMerge
+
 //	public boolean existeReserva(final Long guidReserva) {
 //		return passagemRepository.existsPassagemReserva_GuidReserva(guidReserva);
 //	}
