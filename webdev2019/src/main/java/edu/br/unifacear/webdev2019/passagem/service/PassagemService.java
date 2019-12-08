@@ -10,6 +10,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import edu.br.unifacear.webdev2019.checkin.entity.Checkin;
+import edu.br.unifacear.webdev2019.checkin.entity.StatusCheckin;
+import edu.br.unifacear.webdev2019.checkin.repository.CheckinRepository;
 import edu.br.unifacear.webdev2019.common.exception.BusinessException;
 import edu.br.unifacear.webdev2019.common.exception.BusinessExceptionCode;
 import edu.br.unifacear.webdev2019.passagem.dto.PassagensUsuario;
@@ -17,7 +19,6 @@ import edu.br.unifacear.webdev2019.passagem.entity.Passagem;
 import edu.br.unifacear.webdev2019.passagem.entity.Reserva;
 import edu.br.unifacear.webdev2019.passagem.repository.PassagemRepository;
 import edu.br.unifacear.webdev2019.passagem.repository.ReservaRepository;
-import edu.br.unifacear.webdev2019.usuario.entity.Usuario;
 import edu.br.unifacear.webdev2019.voo.entity.Rota;
 import edu.br.unifacear.webdev2019.voo.service.RotaService;
 
@@ -28,6 +29,9 @@ public class PassagemService {
 	
 	@Autowired
 	private ReservaRepository reservaRepository;
+	
+	@Autowired
+	private CheckinRepository checkinRepository;
 	
 	@Autowired
 	private RotaService rotaService;
@@ -52,11 +56,12 @@ public class PassagemService {
 		passagemRepository.delete(passagem);
 	}
 	
-	public List<Passagem> listarPorReserva(final Long guidReserva) {
-		List<Passagem> listaPassagens = passagemRepository.findPassagemByReserva_GuidReserva(guidReserva);
-		if (listaPassagens.isEmpty()) throw new BusinessException(BusinessExceptionCode.ERR504);
-		return listaPassagens;
-	}
+//	public List<Passagem> listarPorReserva(final Long guidReserva) {
+//		List<Passagem> listaPassagens = passagemRepository.findPassagemByReserva_GuidReserva(guidReserva);
+//		if (listaPassagens.isEmpty()) throw new BusinessException(BusinessExceptionCode.ERR504);
+//		return listaPassagens;
+//	}
+	
 	public Passagem burcarPorId(final Long guidPassagem) {
 		Passagem passagem = Optional.ofNullable(passagemRepository.findById(guidPassagem)).orElse(null)
 				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR000));
@@ -64,19 +69,43 @@ public class PassagemService {
 	}
 
 	public void salvarEmLote(PassagensUsuario usuarioPassagem) {
-		Usuario user = usuarioPassagem.getUser();
-		Reserva reserva = new Reserva(usuarioPassagem.getUser().getGuidUsuario(), usuarioPassagem.getListaPassagens());
-		usuarioPassagem.getListaPassagens().forEach(passagem -> passagem.setReserva(reserva));
+		
+		logger("SALVANDO EM LOTE..");
+		
+		Long guidUsuario = usuarioPassagem.getUser().getGuidUsuario();
+		
+		Reserva reserva = new Reserva(guidUsuario, usuarioPassagem.getListaPassagens());
+		
+//		usuarioPassagem.getListaPassagens().forEach(passagem -> passagem.setReserva(reserva));
+		
 		Optional.ofNullable(reserva).orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR512));
-		try {			
+		try {
+			
+			// Salvando Reserva no banco
+			logger("SALVANDO RESERVA DO USUARIO: " + usuarioPassagem.getUser().getNome());
 			reservaRepository.save(reserva);
-			passagemRepository.saveAll(usuarioPassagem.getListaPassagens());
+			
+			// Salvando Passagens e seus respectivos checkins no bancos
+			for(Passagem passagem: usuarioPassagem.getListaPassagens()) {
+				logger("SALVANDO PASSAGEM - CPF: " + passagem.getCpfPassageiro());
+				passagem.setGuidReserva(reserva.getGuidReserva());
+				passagemRepository.save(passagem);
+				logger("CRIANDO CHECKIN...");
+				Checkin checkin = gerarCheckin(guidUsuario, passagem);
+				logger("SALVANDO CHECKIN - CPF: " + passagem.getCpfPassageiro());
+				checkinRepository.save(checkin);
+			};
+			
 		} catch (Exception e) {
+			System.out.println(e);
 			throw new BusinessException(BusinessExceptionCode.ERR512);
+			
 		}
 	}
 	
-public Checkin gerarCheckin(Long guidUsuario, Passagem passagem) {
+
+	public Checkin gerarCheckin(Long guidUsuario, Passagem passagem) {
+
 		
 		Checkin checkin = new Checkin();
 		
@@ -116,10 +145,19 @@ public Checkin gerarCheckin(Long guidUsuario, Passagem passagem) {
 		return null;
 	}
 	
+<<<<<<< HEAD
 	public Optional<Passagem> getById(Long id) {
 		return passagemRepository.findOne(id);
 	}
+=======
+	public void logger(String log) {
+		String headerLog = "PASSAGEM SERVICE - ";
+		System.out.println(headerLog + log);
+	}
+	
+>>>>>>> masterMerge
 //	public boolean existeReserva(final Long guidReserva) {
 //		return passagemRepository.existsPassagemReserva_GuidReserva(guidReserva);
 //	}
+	
 }

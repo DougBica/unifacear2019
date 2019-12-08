@@ -42,10 +42,10 @@ public class PassagemController {
 	
 	}
 	
-	@GetMapping("public/passagem/reserva/{guidReserva}")
-	public List<Passagem> listarPorReserva(@PathVariable(name = "guidReserva") Long guidReserva) {
-		return passagemService.listarPorReserva(guidReserva);
-	}
+//	@GetMapping("public/passagem/reserva/{guidReserva}")
+//	public List<Passagem> listarPorReserva(@PathVariable(name = "guidReserva") Long guidReserva) {
+//		return passagemService.listarPorReserva(guidReserva);
+//	}
 	
 	@GetMapping("public/passagem/{guidPassagem}")
 	public Passagem buscarPorId(@PathVariable(name = "guidPassagem") Long guidPassagem) {

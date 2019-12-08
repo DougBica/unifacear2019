@@ -36,7 +36,7 @@ export class CarrinhoPassagemComponent implements OnInit {
       isKid: true,
       valorPassagem: 250.4,
       nomePassageiro: "ADSas",
-      cpfPassageiro: "NÃO TEM",  
+      cpfPassageiro: "",  
       reserva: new Reserva()
     },
     { 
@@ -124,12 +124,6 @@ export class CarrinhoPassagemComponent implements OnInit {
     this.calcularValorReserva();
   }
 
-  teste(){
-    this.listaPassagens.forEach(passagem => {
-      console.log("Nome: "+passagem.nomePassageiro + " | CPF: "+passagem.cpfPassageiro);
-    })
-  }
-
   listPassagemById(){ 
     this.passagemService.listById("1").subscribe(passagem => {
       console.log("Nome: "+passagem.nomePassageiro + "/ CPF: "+passagem.cpfPassageiro)
@@ -163,26 +157,10 @@ export class CarrinhoPassagemComponent implements OnInit {
     });
   }
 
-
-
   calcularValorReserva(){
     this.listaPassagens.forEach(passagem => {
       this.viewValorReserva += passagem.valorPassagem;
     });
-  }
-
-  salvarReserva(){
-    this.reserva.active = true;
-    this.reserva.guidUsuario = 1;
-    this.reserva.paid = false;
-    this.reserva.valorReserva = this.viewValorReserva;
-    this.reservaService.salvar(this.reserva);
-
-    this.listAllPassagens();
-    this.listAllReservas(); 
-    this.listAllTipoPagamento();
-
-    console.log('Executado salvarReserva()');
   }
 
   pagarReserva(login: boolean){
