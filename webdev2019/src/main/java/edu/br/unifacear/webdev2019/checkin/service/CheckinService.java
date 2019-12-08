@@ -94,4 +94,22 @@ public class CheckinService implements Serializable {
 		}
 	}
 	
+	public Checkin listarPorPassagem(Long id) {
+		try {
+			return checkinRepository.findByPassagem(id);
+		}
+		catch(Exception e) {
+			throw new BusinessException(BusinessExceptionCode.ERR503);
+		}
+	}
+	
+	public List<Checkin> listarPorPassageiro(Long id) {
+		try {
+			return checkinRepository.findByPassageiro(id);
+		}
+		catch(Exception e) {
+			throw new BusinessException(BusinessExceptionCode.ERR503);
+		}
+	}
+	
 }

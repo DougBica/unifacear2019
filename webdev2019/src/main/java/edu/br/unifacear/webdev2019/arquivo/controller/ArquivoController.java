@@ -58,8 +58,7 @@ public class ArquivoController {
 		}
 
 		return ResponseEntity.ok().contentType(MediaType.parseMediaType(contentType))
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + 
-						arquivo.getNome() + "\"")
+				.header(HttpHeaders.CONTENT_DISPOSITION)
 				.body(resource);
 
 	}

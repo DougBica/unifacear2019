@@ -4,12 +4,12 @@ import { Observable } from 'rxjs';
 import { Checkin } from './model/checkin.model';
 import { Usuario } from '../usuario/model/usuario.model';
 import { Status } from './model/status.model';
-const urlApi = 'http://localhost:8080/scp/public/checkin/';
-const urlApiListar = 'http://localhost:8080/scp/public/checkin/listarAberto';
-const urlApiAlter = 'http://localhost:8080/scp/public/checkin/alter';
-const urlApiUsuario = 'http://localhost:8080/scp/public/usuario/meuId/'
+const urlApi = 'http://localhost:8080/scp/private/checkin/';
+const urlApiListar = 'http://localhost:8080/scp/private/checkin/listarAberto';
+const urlApiUsuario = 'http://localhost:8080/scp/private/usuario/meuId/'
 const urlApiStatus = 'http://localhost:8080/scp/public/statuscheckin/'
-const urlApiToken = 'http://localhost:8080/scp/public/checkin/token/';
+const urlApiToken = 'http://localhost:8080/scp/private/checkin/token/';
+const urlApiUsuarioPassageiro = 'http://localhost:8080/scp/private/checkin/passageiro/';
 
 @Injectable({
   providedIn: 'root'
@@ -17,29 +17,54 @@ const urlApiToken = 'http://localhost:8080/scp/public/checkin/token/';
 export class CheckinService {
 
   constructor(private http: HttpClient) { }
-
+  
   load(): Observable<Checkin[]> {
-    return this.http.get<Checkin[]>(urlApiListar);
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
+    return this.http.get<Checkin[]>(urlApiListar, options);
   }
 
   loadById(id: number): Observable<Checkin> {
-    return this.http.get<Checkin>(urlApi+id);
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
+    return this.http.get<Checkin>(urlApi+id, options);
   }
 
   save(checkin: Checkin): Observable<Checkin> {
-    return this.http.post<Checkin>(urlApi, checkin);
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
+    return this.http.post<Checkin>(urlApi, checkin, options);
   }
 
   listarPorId(id: number): Observable<Usuario> {
-    return this.http.get<Usuario>(urlApiUsuario+id);
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
+    return this.http.get<Usuario>(urlApiUsuario+id, options);
   }
 
   lisarPorStatus(id: number) {
-    return this.http.get<Status>(urlApiStatus+id);
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
+    return this.http.get<Status>(urlApiStatus+id, options);
   }
 
   listarToken(token: string): Observable<Checkin> {
-    return this.http.get<Checkin>(urlApiToken+token);
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
+    return this.http.get<Checkin>(urlApiToken+token, options);
+  }
+
+  listarPorUsuario(id: number): Observable<Checkin[]> {
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
+    return this.http.get<Checkin[]>(urlApiUsuarioPassageiro+id, options);
   }
 
 }

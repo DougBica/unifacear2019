@@ -1,0 +1,78 @@
+<div class=" content">
+  <img src="../../../../assets/img/123.png">
+  <div class=" row">
+    <div class=" col-md-12">
+      <div class=" card">
+        <div class=" card-header">
+          <h5 class=" title">Informações do checkin</h5>
+        </div>
+        <div class=" card-body">
+          <form (ngSubmit)="salvar()">
+            <div class=" row">
+              <div class=" col-md-2 pr-md-1">
+                <div class=" form-group">
+                  <label> Código (desativado) </label>
+                  <input class=" form-control" disabled="" type="number" name="guidCheckin"
+                    [(ngModel)]="checkin.guidCheckin" />
+                </div>
+              </div>
+              <div class=" col-md-5 px-md-1">
+                <div class=" form-group">
+                  <label> Passageiro </label>
+                  <input class=" form-control" type="text" disabled="" name="nome"
+                    [(ngModel)]="passagem.nomePassageiro" />
+                </div>
+              </div>
+              <div class=" col-md-5 pl-md-1">
+                <div class=" form-group">
+                  <label for="exampleInputEmail1"> CPF </label>
+                  <input class=" form-control" type="number" disabled="" name="cpf"
+                    [(ngModel)]="passagem.cpfPassageiro" />
+                </div>
+              </div>
+            </div>
+            <div class=" row">
+              <div class=" col-md-6 pr-md-1">
+                <div class=" form-group">
+                  <label> Voo Origem </label>
+                  <input class=" form-control" type="text" disabled="" name="origem" [(ngModel)]="passagem.origem" />
+                </div>
+              </div>
+              <div class=" col-md-6 pl-md-1">
+                <div class=" form-group">
+                  <label> Voo Destino </label>
+                  <input class=" form-control" type="text" disabled="" name="destino" [(ngModel)]="passagem.destino" />
+                </div>
+              </div>
+            </div>
+            <div class=" col-md-6 pl-md-1">
+              <div class=" form-group">
+                <label> Data Saída</label>
+                <input class=" form-control" type="text" disabled="" name="dataPartida"
+                  [(ngModel)]="passagem.dataPartida" mask="0000/00/00" />
+              </div>
+            </div>
+            <div class=" row">
+              <div class=" col-md-6 pr-md-1">
+                <div class=" form-group">
+                  <label> Status checkin </label>
+                  <input class=" form-control" disable="" type="text" disabled="" name="status.nomeStatus"
+                    [(ngModel)]="status.nomeStatus" />
+                </div>
+              </div>
+            </div>
+            <div class=" row">
+              <div class=" col-md-6 pr-md-1">
+                <div class=" form-group">
+                  <label>Token Checkin</label>
+                  <br>
+                  <qr-code [value]="myAngularxQrCode" [size]="150"></qr-code>
+                </div>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

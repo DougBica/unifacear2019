@@ -32,7 +32,7 @@ import { RemarcaSalvarComponent } from './pages/remarca/remarca-salvar/remarca-s
 const routes: Routes = [
   {
     path: "admin",
-    //canActivate:[AutenticacaoGuard],
+    canActivate:[AutenticacaoGuard],
     component: AdminLayoutComponent,
     children: [
       { path: 'aeronave', component: AeronaveListarComponent },
@@ -60,6 +60,7 @@ const routes: Routes = [
   { path: 'register', component: RegisterComponent },
   {
     path: "",
+    canActivate:[AutenticacaoGuard],
     redirectTo: "dashboard",
     pathMatch: "full"
   },

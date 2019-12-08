@@ -3,6 +3,8 @@ import { ROUTES } from "../sidebar/sidebar.component";
 import { Location } from "@angular/common";
 import { Router } from "@angular/router";
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
+import { Usuario } from 'src/app/pages/usuario/model/usuario.model';
+import { UsuarioService } from 'src/app/pages/usuario/usuario.service';
 
 @Component({
   selector: "app-navbar",
@@ -15,7 +17,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   mobile_menu_visible: any = 0;
   private toggleButton: any;
   private sidebarVisible: boolean;
-
+  usuario: Usuario = new Usuario();
   public isCollapsed = true;
 
   closeResult: string;
@@ -24,7 +26,8 @@ export class NavbarComponent implements OnInit, OnDestroy {
     location: Location,
     private element: ElementRef,
     private router: Router,
-    private modalService: NgbModal
+    private modalService: NgbModal,
+    private usuarioService: UsuarioService
   ) {
     this.location = location;
     this.sidebarVisible = false;
@@ -45,6 +48,12 @@ export class NavbarComponent implements OnInit, OnDestroy {
     this.listTitles = ROUTES.filter(listTitle => listTitle);
     const navbar: HTMLElement = this.element.nativeElement;
     this.toggleButton = navbar.getElementsByClassName("navbar-toggler")[0];
+    this.usuarioService.buscarPorID(localStorage.getItem("id")).subscribe(
+      usuario => {
+        this.usuario = usuario;
+        //console.log(this.usuario);
+      }
+    );
     this.router.events.subscribe(event => {
       this.sidebarClose();
       var $layer: any = document.getElementsByClassName("close-layer")[0];
@@ -160,7 +169,7 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   Profile(){
-    this.router.navigate(['/admin/tipoperfil']);
+    this.router.navigate(["/admin/usuario/"+ this.usuario.guidUsuario]);
   } 
   logout(){
     localStorage.clear();

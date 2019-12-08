@@ -34,7 +34,7 @@ public class Usuario {
 	private String senha;
 	private String cpf;
 	private Date dataNasc;
-	private String foto;
+	private Long foto;
 	
 	@ManyToOne
 	@JoinColumn(name = "guidTipoPerfil")
@@ -79,11 +79,11 @@ public class Usuario {
 		this.dataNasc = dataNasc;
 	}
 
-	public String getFoto() {
+	public Long getFoto() {
 		return foto;
 	}
 
-	public void setFoto(String foto) {
+	public void setFoto(Long foto) {
 		this.foto = foto;
 	}
 

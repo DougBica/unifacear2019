@@ -14,6 +14,7 @@ import { Usuario } from '../../usuario/model/usuario.model';
 })
 export class PagamentoPassagemComponent implements OnInit {
   
+  headerLog = "PagamentoPassagemComponent - "
   anoAtual : any = new Date().getUTCFullYear();
   listaAno : any = [];
   listaMes : number [] = [1,2,3,4,5,6,7,8,9,10,11,12];
@@ -29,7 +30,7 @@ export class PagamentoPassagemComponent implements OnInit {
     
     ngOnInit() {
       this.dadosPagamento = this.fb.group({
-        nome: ['',[Validators.required]],
+        nome: ['',[Validators.compose([Validators.required,ValidadorCPF.noWhitespaceValidator()])]],
         numeroCartao: ['',Validators.compose([
                             Validators.required,
                             Validators.minLength(16)
@@ -52,7 +53,8 @@ export class PagamentoPassagemComponent implements OnInit {
         this.listaAno.push(String(this.anoAtual + i));
       }
     }
-    
+    public customPatterns = { 'S': { pattern: new RegExp('\\S')}};
+
     onFormSubmit(){
       console.log(this.dadosPagamento.value, this.dadosPagamento.valid);
       if(this.dadosPagamento.valid){
@@ -70,6 +72,8 @@ export class PagamentoPassagemComponent implements OnInit {
 
   salvarPassagens(usuario){
     return new Promise((resolve,reject) => {
+      console.log(this.headerLog + "Enviando passagens para o service")
+      console.log(localStorage.getItem("listaPassagens"))
       this.passagemService.salvarReserva(localStorage.getItem("listaPassagens"),usuario).pipe(
       catchError(this.handleError)
     ).subscribe(() => resolve())
