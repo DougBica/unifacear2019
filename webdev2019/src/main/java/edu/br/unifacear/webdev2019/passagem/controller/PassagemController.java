@@ -55,9 +55,5 @@ public class PassagemController {
 	
 	}
 	
-	@GetMapping(value="public/passagem/teste/{id}")
-	public Optional<Passagem> oBraboTemNome(@PathVariable Long id) {
-		return passagemService.getById(id);
-	}
 
 }
