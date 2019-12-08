@@ -19,6 +19,6 @@ public interface CheckinRepository extends JpaRepository<Checkin, Long>{
 	Checkin findByPassagem(Long id);
 
 	@Query("select c from Checkin c where c.guidUsuario = ?1")
-	Checkin findByPassageiro(Long id);
+	List<Checkin> findByPassageiro(Long id);
 	
 }
