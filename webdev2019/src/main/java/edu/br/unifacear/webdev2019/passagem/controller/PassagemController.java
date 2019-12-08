@@ -49,6 +49,7 @@ public class PassagemController {
 	@GetMapping("public/passagem/{guidPassagem}")
 	public Passagem buscarPorId(@PathVariable(name = "guidPassagem") Long guidPassagem) {
 		
+		//
 		return passagemService.burcarPorId(guidPassagem);
 	
 	}
