@@ -47,12 +47,11 @@ const routes: Routes = [
       { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent},
       { path: 'checkin-menu', component: CheckinMenuComponent },
       { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
-      { path: 'buscar-passagem', component: BuscarPassagemComponent },
-      { path: 'login', component: LoginComponent },
-      { path: 'register', component: RegisterComponent },
+      { path: 'buscar-passagem', component: BuscarPassagemComponent }
    ]
   },
-
+  { path: 'login', component: LoginComponent },
+  { path: 'register', component: RegisterComponent },
   {
     path: "",
     redirectTo: "dashboard",
