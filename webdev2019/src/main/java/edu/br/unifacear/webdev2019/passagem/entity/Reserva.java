@@ -2,14 +2,13 @@ package edu.br.unifacear.webdev2019.passagem.entity;
 
 import java.math.BigDecimal;
 import java.util.List;
-import java.util.stream.DoubleStream;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
@@ -31,10 +30,10 @@ public class Reserva {
 	
 	private boolean active; // its active?
 	
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	private TipoPagamentoEnum tipoPagamento;
 	
-	@OneToOne @NotNull
-	@JoinColumn(name="guidTipoPagamento")
-	private TipoPagamento tipoPagamento;
 	
 	public Reserva() {
 		
@@ -45,17 +44,9 @@ public class Reserva {
 		this.valorReserva = BigDecimal.valueOf(valorTotal);
 		this.paid = true;
 		this.active = true;
+		this.tipoPagamento = tipoPagamento.CARTAO;
 	}
 	
-	public TipoPagamento getTipoPagamento() {
-		return tipoPagamento;
-	}
-
-
-	public void setTipoPagamento(TipoPagamento tipoPagamento) {
-		this.tipoPagamento = tipoPagamento;
-	}
-
 	public Long getGuidReserva() {
 		return guidReserva;
 	}
