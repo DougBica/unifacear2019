@@ -29,7 +29,7 @@ export class PagamentoPassagemComponent implements OnInit {
     
     ngOnInit() {
       this.dadosPagamento = this.fb.group({
-        nome: ['',[Validators.required]],
+        nome: ['',[Validators.compose([Validators.required,ValidadorCPF.noWhitespaceValidator()])]],
         numeroCartao: ['',Validators.compose([
                             Validators.required,
                             Validators.minLength(16)
@@ -52,7 +52,8 @@ export class PagamentoPassagemComponent implements OnInit {
         this.listaAno.push(String(this.anoAtual + i));
       }
     }
-    
+    public customPatterns = { 'S': { pattern: new RegExp('\\S')}};
+
     onFormSubmit(){
       console.log(this.dadosPagamento.value, this.dadosPagamento.valid);
       if(this.dadosPagamento.valid){
