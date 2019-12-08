@@ -40,12 +40,12 @@
               <thead class=" text-primary">
                 <tr>
                   <th>Token</th>
-                  <th>Voô</th>
+                  <th>Passagem</th>
                   <th>Data do checkin</th>
                 </tr>
                 <tr *ngFor="let checkin of checkins">
                   <td>{{checkin.guidCheckin}}</td>
-                  <td>{{checkin.guidVoo}}</td>
+                  <td>{{checkin.guidPassagem}}</td>
                   <td>{{checkin.dataCheckin}}</td>
                   <button class="btn btn-sm btn-danger btn-simple active" (click)="editar(checkin)"><i
                       class=" tim-icons icon-pencil"></i></button>
