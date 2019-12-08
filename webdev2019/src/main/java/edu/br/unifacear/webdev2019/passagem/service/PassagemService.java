@@ -1,6 +1,7 @@
 	package edu.br.unifacear.webdev2019.passagem.service;
 
 import java.security.SecureRandom;
+import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -75,11 +76,30 @@ public class PassagemService {
 		}
 	}
 	
-	public Checkin gerarCheckin(Usuario user, Passagem pas) {
-		Checkin check = new Checkin();
-		check.setToken(gerarToken());
-		check.setGuidVoo(buscarGuidVoo(pas.getGuidRota()));
-		return null;
+public Checkin gerarCheckin(Long guidUsuario, Passagem passagem) {
+		
+		Checkin checkin = new Checkin();
+		
+		//token: string; // precisa
+		checkin.setToken(gerarToken());
+		
+	    //guidUsuario: number; // precisa
+		checkin.setGuidUsuario(guidUsuario);
+		
+	    //guidPassagem: number; // precisa
+		checkin.setGuidPassagem(passagem.getGuidPassagem());
+		
+		//guidAeronave: number; // não é possivel ainda, pois o modulo voo que tera os voos cadastrados nao esta inalizado
+		
+		// checkin.status INICIAR
+		
+		//checkinAtivo: boolean; // precisa 
+		checkin.setCheckinAtivo(true);
+		
+		//dataCheckin: any; // data padrão
+		checkin.setDataCheckin(new Date());
+		
+		return checkin;
 	}
 	
 	public String gerarToken() {
