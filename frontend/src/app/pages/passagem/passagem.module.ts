@@ -19,13 +19,16 @@ import { ButtonsModule } from 'ngx-bootstrap/buttons';
 import {NumberPickerModule} from 'ng-number-picker';
 import { CarouselModule } from 'ngx-bootstrap/carousel';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { ModalLoginComponent } from './modalLogin/modal-login.component';
+import { NgxMaskModule } from 'ngx-mask';
 
 
 @NgModule({
   declarations: [
     CarrinhoPassagemComponent, 
     BuscarPassagemComponent, 
-    PagamentoPassagemComponent
+    PagamentoPassagemComponent,
+    ModalLoginComponent
   ],
   imports: [
     FormsModule,
@@ -43,7 +46,9 @@ import { ModalModule } from 'ngx-bootstrap/modal';
     ButtonsModule.forRoot(), 
     NumberPickerModule, 
     CarouselModule,
-    ModalModule.forRoot()
-  ]
+    ModalModule.forRoot(),
+    NgxMaskModule.forRoot()
+  ],
+  entryComponents: [ModalLoginComponent]
 })
 export class PassagemModule { }

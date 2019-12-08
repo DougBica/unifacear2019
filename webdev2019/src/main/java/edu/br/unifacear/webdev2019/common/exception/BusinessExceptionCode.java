@@ -24,6 +24,7 @@ public enum BusinessExceptionCode {
 	ERR509("Erro aeronave"),
 	ERR510("Erro usuario"),
 	ERR511("Os campos obrigatórios estão nulos"),
+	ERR512("Reserva não vinculada para as passagens"),
 	ERR300("Erro não esperado"),
 	ERR301("Usuário não encontrado"),
 	ERR600("Cancelamento não encontrado!"),

@@ -1,15 +1,15 @@
 package edu.br.unifacear.webdev2019.passagem.entity;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Entity
@@ -23,40 +23,30 @@ public class Reserva {
 	@NotNull
 	private Long guidUsuario;
 	
-	
+	@NotNull
 	private BigDecimal valorReserva; // This attribute is defined with the Passagem values
 	
 	private boolean paid; // its paid?
 	
 	private boolean active; // its active?
 	
-	@OneToOne
-	@JoinColumn(name="guidTipoPagamento")
-	private TipoPagamento tipoPagamento;
-	
-//	@OneToMany
-//	@JoinColumn(name="guidPassagem")
-//	private List<Passagem> passagem; 
+	@NotNull
+	@Enumerated(EnumType.STRING)
+	private TipoPagamentoEnum tipoPagamento;
 	
 	
+	public Reserva() {
 		
-//
-//	public List<Passagem> getPassagem() {
-//		return this.passagem;
-//	}
-//
-//	public void setPassagem(List<Passagem> passagem) {
-//		this.passagem = passagem;
-//	}
-
-	public TipoPagamento getTipoPagamento() {
-		return tipoPagamento;
 	}
-
-	public void setTipoPagamento(TipoPagamento tipoPagamento) {
-		this.tipoPagamento = tipoPagamento;
+	public Reserva(Long guidUsuario,List<Passagem> listaPassagens) {
+		this.guidUsuario = guidUsuario;
+		double valorTotal = listaPassagens.stream().mapToDouble(passagem -> passagem.getValorPassagem()).sum();
+		this.valorReserva = BigDecimal.valueOf(valorTotal);
+		this.paid = true;
+		this.active = true;
+		this.tipoPagamento = tipoPagamento.CARTAO;
 	}
-
+	
 	public Long getGuidReserva() {
 		return guidReserva;
 	}

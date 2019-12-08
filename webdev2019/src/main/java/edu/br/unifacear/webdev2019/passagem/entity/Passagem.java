@@ -34,6 +34,9 @@ public class Passagem {
 	@NotNull
 	private Long guidRota; // this attibute shall be NOT NULL
 	
+	private boolean isKid;
+	
+	
 	/*
 	 * This Enum must contain in Aeroporto module
 	 */
@@ -57,17 +60,41 @@ public class Passagem {
 	private double valorPassagem;
 	@NotNull @NotEmpty
 	private String nomePassageiro; // this attibute shall be NOT NULL
-	@NotNull @NotEmpty @CPF
+	
+	//@NotNull @NotEmpty @CPF
 	private String cpfPassageiro; // This attribute shall be NULL
 	
-	@ManyToOne
-	@JoinColumn(name = "guidReserva")
-	private Reserva reserva;
+//	@ManyToOne
+//	@JoinColumn(name = "guidReserva")
+//	private Reserva reserva;
 	
+	@NotNull
+	private Long guidReserva;
+	
+	
+	
+	public Long getGuidReserva() {
+		return guidReserva;
+	}
+
+
+	public void setGuidReserva(Long guidReserva) {
+		this.guidReserva = guidReserva;
+	}
+
+
 	public String getOrigem() {
 		return origem;
 	}
 
+
+	public boolean isKid() {
+		return isKid;
+	}
+
+	public void setKid(boolean isKid) {
+		this.isKid = isKid;
+	}
 
 	public void setDestino(String destino) {
 		this.destino = destino;
@@ -81,12 +108,13 @@ public class Passagem {
 		return destino;
 	}
 	
-	public Reserva getReserva() {
-		return reserva;
-	}
-	public void setReserva(Reserva reserva) {
-		this.reserva = reserva;
-	}
+//	public Reserva getReserva() {
+//		return reserva;
+//	}
+//	public void setReserva(Reserva reserva) {
+//		this.reserva = reserva;
+//	}
+	
 	public Long getGuidPassagem() {
 		return guidPassagem;
 	}

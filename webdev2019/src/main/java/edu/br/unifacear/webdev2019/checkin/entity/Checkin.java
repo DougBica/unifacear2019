@@ -21,8 +21,8 @@ public class Checkin {
 	@Column(nullable=false)
 	private String token;
 	private Long guidUsuario;
-	@Column(nullable=false)
-	private Long guidVoo;
+	//@Column(nullable=false)
+//	private Long guidVoo;
 	@Column(nullable=false)
 	private Long guidPassagem;
 	private Long guidAeronave;
@@ -73,12 +73,12 @@ public class Checkin {
 	public void setGuidUsuario(Long guidUsuario) {
 		this.guidUsuario = guidUsuario;
 	}
-	public Long getGuidVoo() {
-		return guidVoo;
-	}
-	public void setGuidVoo(Long guidVoo) {
-		this.guidVoo = guidVoo;
-	}
+//	public Long getGuidVoo() {
+//		return guidVoo;
+//	}
+//	public void setGuidVoo(Long guidVoo) {
+//		this.guidVoo = guidVoo;
+//	}
 	public Long getGuidPassagem() {
 		return guidPassagem;
 	}
