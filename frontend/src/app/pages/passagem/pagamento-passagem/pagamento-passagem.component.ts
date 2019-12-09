@@ -112,6 +112,8 @@ export class PagamentoPassagemComponent implements OnInit {
     return throwError(errorMessage);
  }
 
+ 
+
  getEmailJwt(){
    let token = localStorage.getItem('token');
    let dados = token.split('.')[1]
