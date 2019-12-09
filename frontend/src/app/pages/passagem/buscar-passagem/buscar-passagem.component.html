@@ -202,7 +202,8 @@
                                   <th style="color: #747576;">Cidade origem</th>
                                   <th style="color: #747576;">Cidade destino</th>
                                   <th style="color: #747576;">Horário</th>
-                                  <th style="color: #747576;">Duração</th>
+                                  <th style="color: #747576;">Duração</th> 
+                                  <th style="color: #747576;">R$</th>                                   
                                   <th style="color: #747576;"></th>                                
                                 </tr>
                               </thead>
@@ -212,6 +213,7 @@
                                   <td style= "color: black !important;">{{item.destino}}</td>
                                   <td style= "color: black !important;">{{item.horario}}</td>
                                   <td style= "color: black !important;">{{item.duracao}}</td>
+                                  <td style= "color: black !important;">{{item.valor}}</td>
                                  <td><button style="height: 38px;
                                   /* size: 18px; */
                                   width: 49px;" type="button" class="btn btn-outline-secondary" (click)="comprarPassagem(templateNested)" ><i class="material-icons">
@@ -240,6 +242,7 @@
                                   <th style="color: #747576;">Cidade destino</th>
                                   <th style="color: #747576;">Horário</th>
                                   <th style="color: #747576;">Duração</th>
+                                  <th style="color: #747576;">R$</th>  
                                   <th style="color: #747576;"></th>                                
                                 </tr>
                               </thead>
@@ -249,6 +252,7 @@
                                   <td style= "color: black !important;">{{item.destinoVolta}}</td>
                                   <td style= "color: black !important;">{{item.horarioVolta}}</td>
                                   <td style= "color: black !important;">{{item.duracaoVolta}}</td>
+                                  <td style= "color: black !important;">{{item.valor}}</td>
                                  <td><button style="height: 38px;
                                   /* size: 18px; */
                                   width: 49px;" type="button" class="btn btn-outline-secondary"  (click)="criarPassagemVolta()"><i class="material-icons">

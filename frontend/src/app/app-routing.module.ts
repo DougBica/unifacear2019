@@ -48,12 +48,12 @@ const routes: Routes = [
       { path: 'embarque-controle', component: EmbarqueListarComponent},
       { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent},
       { path: 'checkin-menu', component: CheckinMenuComponent },
+      { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
+      { path: 'buscar-passagem', component: BuscarPassagemComponent },
       { path: 'checkin-passageiro', component: CheckinPassageiroComponent },
       { path: 'checkin-ticket/:id', component: CheckinInformacoesComponent }
    ]
   },
-  { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
-  { path: 'buscar-passagem', component: BuscarPassagemComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {
