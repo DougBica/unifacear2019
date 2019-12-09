@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit, OnDestroy {
         localStorage.setItem("id",user['id']);
         this.usuarioService.buscarPorID(localStorage.getItem("id")).subscribe(
           usuario => {
-            this.usuario = usuario
+            this.usuario = usuario;
             if (this.usuario.tipoDeUsuarios == "ADMIN") {
               this.router.navigate(["/"])
               localStorage.setItem("typeUser",'ADMIN');
