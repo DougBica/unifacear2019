@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CancelaService } from '../cancela.service';
 import { Cancela } from '../model/cancela.model';
 import { Router, ActivatedRoute } from '@angular/router';
+import { PassagemService } from '../../passagem/service/passagem.service';
+import { Passagem } from '../../passagem/model/passagem.model';
 
 @Component({
   selector: 'app-cancela-listar',
@@ -10,36 +12,22 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 })
 export class CancelaListarComponent implements OnInit {
-  cancelamentos: Cancela[];
-  constructor(private router: Router, private service: CancelaService, private route: ActivatedRoute) {
+  
+  passagens: Passagem[]
+
+  constructor(private router: Router, private service: PassagemService, private route: ActivatedRoute) {
 
   }
 
   ngOnInit() {
-    let idPassagem
-    this.route.paramMap.subscribe(params => {
-      if (params.get('id') != 'novo') {
-        idPassagem = params.get('id');
-      }
-    });
-    // this.find()
-    this.findByGuidUsuario(idPassagem)
-
+    this.find()
   }
   find() {
-    this.service.list().subscribe(
-      cancelamentos => this.cancelamentos = cancelamentos
+    this.service.listAll().subscribe(
+      passagens => this.passagens = passagens
     )
   }
-  findByGuidUsuario(id) {
-    console.log(id)
-    this.service.findByidGuidUsuario(id).subscribe(
-      cancelamentos => this.cancelamentos = cancelamentos
-    )
-  }
-  detail(cancela: Cancela) {
-    // this.router.navigate(["/admin/cancela/detalhes/"+cancela.guidCancelar])
-    this.router.navigate(["/admin/cancela/detalhes"],
-      { state: { cancela: cancela } })
+  detail(guidPassagem) {
+    this.router.navigate(["/admin/passagem/alterar/"+guidPassagem])
   }
 }

@@ -1,22 +1,18 @@
 <div class="content">
-  <h4>
-    Cancelamentos
-  </h4>
+  <h3>
+    Selecione uma passagem para alterar/cancelar
+  </h3>
   <table class="table table-sm table-hover">
     <thead>
       <tr>
         <th scope="col">ID</th>
-        <th scope="col">ID Usuário</th>
-        <th scope="col">ID Passagem</th>
-        <th scope="col">Data cancelamento</th>
+        <th scope="col">Passageiro</th>
       </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let cancela of cancelamentos" (click)="detail(cancela)">
-          <th scope="row">{{cancela.guidCancelar}}</th>
-          <td>{{cancela.guidUsuario}}</td>
-          <td>{{cancela.guidPassagem}}</td>
-          <td>{{cancela.dataCancelamento}}</td>
+        <tr *ngFor="let passagem of passagens" (click)="detail(passagem.guidPassagem)">
+          <th scope="row">{{passagem.guidPassagem}}</th>
+          <td>{{passagem.nomePassageiro}}</td>
         </tr>
     </tbody>
   </table>

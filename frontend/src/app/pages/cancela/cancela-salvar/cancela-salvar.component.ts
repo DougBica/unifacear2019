@@ -21,6 +21,7 @@ export class CancelaSalvarComponent implements OnInit {
   checkin: Checkin = new Checkin()
   checkins: Checkin[]
   data: any = new Date();
+  guidPassagem: any
 
   constructor(private route: ActivatedRoute,
     private router: Router,
@@ -32,10 +33,13 @@ export class CancelaSalvarComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       if (params.get('id') != 'novo') {
-        const idPassagem = params.get('id');
-        this.servicePassagem.listById(idPassagem).subscribe(
+        this.guidPassagem = params.get('id');
+        this.servicePassagem.listById(this.guidPassagem).subscribe(
           passagem => {
             this.passagem = passagem;
+            if(!this.passagem.active){
+              console.log("Passagem já cancelada")
+            }
           }
         );
       }
@@ -55,6 +59,6 @@ export class CancelaSalvarComponent implements OnInit {
     )
   }
   voltar() {
-    console.log("Voltouuu")
+    this.router.navigate(['/admin/passagem/alterar/'+this.guidPassagem])
   }
 }

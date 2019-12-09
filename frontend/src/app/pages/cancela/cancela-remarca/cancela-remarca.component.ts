@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-cancela-remarca',
@@ -8,15 +8,24 @@ import { Router } from '@angular/router';
 })
 export class CancelaRemarcaComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  guidPassagem: any
+
+  constructor(private router: Router, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.route.paramMap.subscribe(params => {
+      if (params.get('id') != 'novo') {
+        this.guidPassagem = params.get('id');
+      }
+    });
   }
-  cancelar(){
-    this.router.navigate(["admin/cancela/salvar/1"])
+  cancelar() {
+    this.router.navigate(["/admin/cancela/salvar/"+this.guidPassagem])
   }
-  remarcar(){
-    this.router.navigate(["admin/remarca/salvar/1"])
+  remarcar() {
+    this.router.navigate(["/admin/remarca/salvar/"+this.guidPassagem])
   }
-
+  voltar(){
+    this.router.navigate(["/admin/passagem/alterar"])
+  }
 }

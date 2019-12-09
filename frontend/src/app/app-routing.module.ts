@@ -55,10 +55,9 @@ const routes: Routes = [
       { path: 'buscar-passagem', component: BuscarPassagemComponent },
       { path: 'checkin-passageiro', component: CheckinPassageiroComponent },
       { path: 'checkin-ticket/:id', component: CheckinInformacoesComponent },
-      { path: 'passagem/alterar', component: CancelaRemarcaComponent},
+      { path: 'passagem/alterar', component: CancelaListarComponent},
+      { path: 'passagem/alterar/:id', component: CancelaRemarcaComponent},
       { path: 'cancela/salvar/:id', component: CancelaSalvarComponent },
-      { path: 'cancela/lista/:id', component: CancelaListarComponent },
-      { path: 'cancela/detalhes', component: CancelaDetalhesComponent },
       { path: 'remarca/salvar/:id', component: RemarcaSalvarComponent},
    ]
   },
