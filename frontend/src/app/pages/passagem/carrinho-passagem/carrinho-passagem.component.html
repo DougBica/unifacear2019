@@ -22,18 +22,46 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let passagem of listaPassagens">
-                                    <td>{{passagem.origem}}</td>
-                                    <td>{{passagem.destino}}</td>
-                                    <td>{{passagem.dataPartida}}</td>
-                                    <td><input type="text" [readonly]="passagem.isKid" class="form-control" [(ngModel)]="passagem.cpfPassageiro"></td>
-                                    <td><input type="text" id="name" name="name" class="form-control" required [(ngModel)]="passagem.nomePassageiro" #name="ngModel">
-                                    <div *ngIf="name.invalid && (name.dirty || name.touched)"
-                                        class="alert">
-                                        <div *ngIf="name.errors.required">
-                                            Name is required.
+                                    <td>
+                                        {{passagem.origem}}
+                                    </td>
+
+                                    <td>
+                                        {{passagem.destino}}
+                                    </td>
+
+                                    <td>
+                                        {{passagem.dataPartida}}
+                                    </td>
+
+                                    <ng-template [ngIf]="passagem.isKid">
+                                        <td>
+                                            <input type="text" [readonly]="passagem.isKid" 
+                                            placeholder="CRIANÇA" class="form-control" 
+                                            [(ngModel)]="passagem.cpfPassageiro">
+                                        </td>
+                                    </ng-template>
+                                    <ng-template [ngIf]="!passagem.isKid">
+                                        <td><input type="text" [readonly]="passagem.isKid" 
+                                            placeholder="Insira seu CPF" class="form-control" 
+                                            [(ngModel)]="passagem.cpfPassageiro">
+                                        </td>
+                                    </ng-template>
+
+                                    <td>
+                                        <input type="text" id="name" name="name" 
+                                        placeholder="Insira seu nome" class="form-control" 
+                                        required [(ngModel)]="passagem.nomePassageiro" #name="ngModel">
+                                        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                            class="alert">
+                                            <div *ngIf="name.errors.required">
+                                                Name is required.
+                                            </div>
                                         </div>
-                                    </div>
+                                    </td>   
+                                             
                                     <td>R$ {{passagem.valorPassagem}}</td>
+
                                 </tr>
                             </tbody>  
                             <thead class="text-warning" (submit)="calcularValorReserva()">
