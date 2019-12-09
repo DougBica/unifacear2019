@@ -29,6 +29,8 @@ import { CancelaSalvarComponent } from './pages/cancela/cancela-salvar/cancela-s
 import { RemarcaListarComponent } from './pages/remarca/remarca-listar/remarca-listar.component';
 import { RemarcaSalvarComponent } from './pages/remarca/remarca-salvar/remarca-salvar.component';
 import { CancelaRemarcaComponent } from './pages/cancela/cancela-remarca/cancela-remarca.component';
+import { CheckinInformacoesComponent } from './pages/checkin/checkin-informacoes/checkin-informacoes.component';
+import { CheckinPassageiroComponent } from './pages/checkin/checkin-passageiro/checkin-passageiro.component';
 
 const routes: Routes = [
   {
@@ -49,6 +51,10 @@ const routes: Routes = [
       { path: 'embarque-controle', component: EmbarqueListarComponent},
       { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent},
       { path: 'checkin-menu', component: CheckinMenuComponent },
+      { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
+      { path: 'buscar-passagem', component: BuscarPassagemComponent },
+      { path: 'checkin-passageiro', component: CheckinPassageiroComponent },
+      { path: 'checkin-ticket/:id', component: CheckinInformacoesComponent },
       { path: 'passagem/alterar', component: CancelaRemarcaComponent},
       { path: 'cancela/salvar/:id', component: CancelaSalvarComponent },
       { path: 'cancela/lista/:id', component: CancelaListarComponent },
@@ -56,8 +62,6 @@ const routes: Routes = [
       { path: 'remarca/salvar/:id', component: RemarcaSalvarComponent},
    ]
   },
-  { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
-  { path: 'buscar-passagem', component: BuscarPassagemComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {

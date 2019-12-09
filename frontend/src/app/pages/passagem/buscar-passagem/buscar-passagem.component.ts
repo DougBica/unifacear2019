@@ -33,21 +33,26 @@ export class BuscarPassagemComponent implements OnInit {
   objVoo: any = {
   
   "voo1":{"origem": "Curitiba", "destino": "São Paulo", "dataIda": "2019-12-20", "dataVolta": "2019-12-30", "duracao": "1h0m", "horario": "12:30/13:20",
-          "origemVolta": "São Paulo", "destinoVolta": "Curitiba", "duracaoVolta": "1h0m", "horarioVolta": "15:30/16:20"},
+          "origemVolta": "São Paulo", "destinoVolta": "Curitiba", "duracaoVolta": "1h0m", "horarioVolta": "15:30/16:20", "valor": 450.4, "classepassagem": "CLASSE_EXECUTIVA"},
 
   "voo2":{"origem": "Curitiba", "destino": "São Paulo", "dataIda": "2019-12-20", "dataVolta": "2019-12-30", "duracao": "1h30m", "horario": "12:30/13:50",
-          "origemVolta": "São Paulo", "destinoVolta": "Curitiba", "duracaoVolta": "1h30m", "horarioVolta": "11:30/11:50"},
+          "origemVolta": "São Paulo", "destinoVolta": "Curitiba", "duracaoVolta": "1h30m", "horarioVolta": "11:30/11:50", "valor": 250.4, "classepassagem": "CLASSE_ECONOMICA"},
 
   "voo3":{"origem": "Curitiba", "destino": "São Paulo", "dataIda": "2019-12-20", "dataVolta": "2019-12-30", "duracao": "1h0m", "horario": "09:30/10:20",
-          "origemVolta": "São Paulo", "destinoVolta": "Curitiba",  "duracaoVolta": "1h0m", "horarioVolta": "17:30/18:20"},
+          "origemVolta": "São Paulo", "destinoVolta": "Curitiba",  "duracaoVolta": "1h0m", "horarioVolta": "17:30/18:20", "valor": 315.10, "classepassagem": "PRIMEIRA_CLASSE"},
 
   "voo4":{"origem": "Curitiba", "destino": "Bahia", "dataIda": "2019-12-10", "dataVolta": "2019-12-15", "duracao": "2h30m", "horario": "18:00/20:30",
-          "origemVolta": "Curitiba", "destinoVolta": "Bahia",  "duracaoVolta": "2h30m", "horarioVolta": "15:00/17:30"},
+          "origemVolta": "Curitiba", "destinoVolta": "Bahia",  "duracaoVolta": "2h30m", "horarioVolta": "15:00/17:30", "valor": 870.10, "classepassagem": "CLASSE_EXECUTIVA"},
+  
+  "voo5":{"origem": "Curitiba", "destino": "Bahia", "dataIda": "2019-12-10", "dataVolta": "2019-12-15", "duracao": "3h00m", "horario": "18:00/21:00",
+          "origemVolta": "Curitiba", "destinoVolta": "Bahia",  "duracaoVolta": "2h30m", "horarioVolta": "15:00/17:30", "valor": 467.10 , "classepassagem": "CLASSE_ECONOMICA"},
+   
     };
   
   voo: JSON;
   vooIdaVolta: Array<Object> = new Array();
   classePassagem: string;
+  valor: number;
 
   cidades: any = [{
     nome: 'Curitiba',
@@ -101,20 +106,30 @@ export class BuscarPassagemComponent implements OnInit {
           moment(this.dataVoltaFormat).isBetween(voo.dataIda, voo.dataVolta)){
             if(this.cidade == voo.origem && this.cidadeDestino == voo.destino){
              
-              if(this.vooDe != null){
-                if(this.classePassagem != null){
-                  let adultos = (document.getElementById('adultos') as HTMLSelectElement).selectedIndex;  
-                  if(adultos >= 1){
-                    this.vooIdaVolta.push(voo);
-                    // this.arraykeys = Object.keys(this.voo);
-                    vooOK = true;
-                   }else{
-                     alert("Pelo menos 1 adulto!");
-                     break;
-                   } 
-                }else{
-                  alert("Selecione a classe do voo!");
-                  break;
+              if(this.vooDe != null){    
+                if(this.classePassagem != null ){         
+                  
+
+                  if(this.classePassagem == voo.classepassagem){
+
+                    let adultos = (document.getElementById('adultos') as HTMLSelectElement).selectedIndex;
+                                                      
+                    if(adultos >= 1){
+                      this.vooIdaVolta.push(voo);
+                      this.valor = voo.valor;
+                      console.log("Valor: "+this.valor);
+                      // this.arraykeys = Object.keys(this.voo);
+                      vooOK = true;
+                     }else{                    
+                       alert("Pelo menos 1 adulto!");
+                       break;
+                     } 
+                     console.log(voo.classepassagem);
+                  }
+                   
+                  }else{
+                    alert("Selecione a classe do voo!");
+                    break;
                 }
               }else{
                 alert("Selecione se é somente ida ou ida e volta!");
@@ -219,7 +234,7 @@ comprarPassagem(template2: TemplateRef<any>){
   localStorage.setItem("passagens", JSON.stringify(this.passagens));
   this.modalRef.hide();
   this.modalRef = null;
-  this.router.navigate(['/carrinho-passagem']);
+  this.router.navigate(['/admin/carrinho-passagem']);
   this.passagens = new Array();
 }
 
@@ -244,7 +259,7 @@ criarPassagemVolta(){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
     this.passagem.guidRota = 1;
-    this.passagem.valorPassagem = null;
+    this.passagem.valorPassagem = this.valor;
     this.passagem.dataPartida = moment(this.dataVoltaFormat).toDate();
     this.passagem.origem = this.cidadeDestino;
     this.passagem.nomePassageiro = "";
@@ -262,7 +277,7 @@ criarPassagemVolta(){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
     this.passagem.guidRota = 1;
-    this.passagem.valorPassagem = null;
+    this.passagem.valorPassagem = this.valor;
     this.passagem.dataPartida = moment(this.dataVoltaFormat).toDate();
     this.passagem.origem = this.cidadeDestino;
     this.passagem.classePassagem = this.classePassagem;
@@ -279,7 +294,7 @@ criarPassagemVolta(){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
     this.passagem.guidRota = 1;
-    this.passagem.valorPassagem = null;
+    this.passagem.valorPassagem = this.valor;
     this.passagem.dataPartida = moment(this.dataVoltaFormat).toDate();
     this.passagem.origem = this.cidadeDestino;
     this.passagem.classePassagem = this.classePassagem;
@@ -296,7 +311,7 @@ criarPassagemVolta(){
   localStorage.setItem("passagens", JSON.stringify(this.passagens));
   this.modalRef2.hide();
   this.modalRef2 = null;
-  this.router.navigate(['/carrinho-passagem']);
+  this.router.navigate(['/admin/carrinho-passagem']);
   this.passagens = new Array();
 
 }
@@ -311,7 +326,7 @@ criarPassagemIda(){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
     this.passagem.guidRota = 1;
-    this.passagem.valorPassagem = null;
+    this.passagem.valorPassagem = this.valor;
     this.passagem.dataPartida = moment(this.dataIdaFormat).toDate();
     this.passagem.origem = this.cidade;
     this.passagem.classePassagem = this.classePassagem;
@@ -329,7 +344,7 @@ criarPassagemIda(){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
     this.passagem.guidRota = 1;
-    this.passagem.valorPassagem = null;
+    this.passagem.valorPassagem = this.valor;
     this.passagem.dataPartida = moment(this.dataIdaFormat).toDate();
     this.passagem.origem = this.cidade;
     this.passagem.classePassagem = this.classePassagem;
@@ -348,7 +363,7 @@ criarPassagemIda(){
       this.passagem = new Passagem();
       this.passagem.guidPassagem = null;
       this.passagem.guidRota = 1;
-      this.passagem.valorPassagem = null;
+      this.passagem.valorPassagem = this.valor;
       this.passagem.dataPartida = moment(this.dataIdaFormat).toDate();
       this.passagem.origem = this.cidade;
       this.passagem.classePassagem = this.classePassagem;

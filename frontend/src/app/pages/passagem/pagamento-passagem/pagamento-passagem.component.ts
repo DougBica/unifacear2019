@@ -5,6 +5,7 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { ValidadorCPF } from '../util/ValidadorCPF';
 import { Usuario } from '../../usuario/model/usuario.model';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -24,6 +25,7 @@ export class PagamentoPassagemComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     private passagemService: PassagemService
     ) {}
     
@@ -64,6 +66,9 @@ export class PagamentoPassagemComponent implements OnInit {
           this.buscarUsuario()
           .then(retorno => this.salvarPassagens(retorno)
             .then(() => alert("Pagamento realizado com sucesso")));
+            // localStorage.removeItem('listaPassagens');
+            localStorage.removeItem('passagens');
+            this.router.navigate(['']);
         }else{
           alert("Problema ao realizar o pagamento. Operação cancelada !!")
         }

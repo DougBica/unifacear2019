@@ -36,6 +36,7 @@ export class UsuarioCadastrarComponent implements OnInit {
         this.usuarioService.buscarPorID(guidUsuario).subscribe(
           usuario => {
             this.usuario = usuario;
+            this.usuario.AlterarSenha = false;
             //console.log(this.usuario);
           }
         );
@@ -70,13 +71,16 @@ export class UsuarioCadastrarComponent implements OnInit {
     this.usuarioService.salvar(this.usuario).subscribe(
       () => {
 
+        console.log(this.usuario);
 
       }
     );
     this.router.navigate(["/admin/usuario"])
 
   }
-
+  ModalSenha(){
+    this.usuario.AlterarSenha = true;
+  }
   upload(input: any) {
     this.input = input;
   }

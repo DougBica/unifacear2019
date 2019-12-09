@@ -29,7 +29,7 @@ public class ControllerUsuario {
 
 
 	@PostMapping
-	public void salvar(@RequestBody @Valid Usuario usuario) {
+	public void salvar(@RequestBody @Valid Usuario usuario) throws Exception {
 		usuarioService.salvar(usuario);
 	}
 	
