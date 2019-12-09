@@ -11,12 +11,11 @@
       <p class="card-text">Data de partida anterior > {{passagem.dataPartida | date: 'dd/MM/yyyy'  }}</p>
       <div class="form-group">
         <p class="card-text">Nova data de partida</p>
-        <input type="date" class="form-control" [(ngModel)]="remarca.dataPassagemNova">
+        <input type="date" class="form-control" [(ngModel)]="dataNova">
       </div>
       <p class="card-text">Status checkin > Checkin ainda não efetuado</p>
       <button class="btn btn-primary" (click)="save()">Remarcar passagem</button>
       <button class="btn btn-info">Voltar</button>
-
     </div>
   </div>
 </div>

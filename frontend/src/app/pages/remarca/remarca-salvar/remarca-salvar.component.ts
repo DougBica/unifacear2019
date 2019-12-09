@@ -12,10 +12,11 @@ import { formatDate } from '@angular/common';
   styleUrls: ['./remarca-salvar.component.scss']
 })
 export class RemarcaSalvarComponent implements OnInit {
-  
+
   remarca: Remarca = new Remarca()
   passagem: Passagem = new Passagem()
-  
+  dataNova: any
+
   constructor(private serviceRemarca: RemarcaService,
     private router: Router,
     private servicePassagem: PassagemService,
@@ -34,19 +35,23 @@ export class RemarcaSalvarComponent implements OnInit {
       }
     });
   }
+  alterarPassagem() {
+    this.passagem.dataPartida = this.dataNova
+    this.servicePassagem.salvar(this.passagem).subscribe()
+  }
   save() {
     const data = new Date();
-    console.log(this.passagem.dataPartida)
     this.remarca.dataPassagemAntiga = formatDate(this.passagem.dataPartida, 'dd/MM/yyyy HH:mm', 'en-US')
+    this.remarca.dataPassagemNova = formatDate(this.dataNova, 'dd/MM/yyyy HH:mm', 'en-US')
     this.remarca.dataRemarcacao = formatDate(data, 'dd/MM/yyyy HH:mm', 'en-US')
     this.remarca.guidReserva = 0
     this.remarca.guidPassagem = this.passagem.guidPassagem
     this.remarca.guidUsuario = 0
     this.remarca.checkin = false
-    console.log(this.remarca)
     this.serviceRemarca.save(this.remarca).subscribe(
       () => {
-        console.log("Salvou essa poha de remarcação do caralho fudido fdp")
+       this.alterarPassagem()
+       this.router.navigate(["admin/passagem/alterar"])
       }
     )
   }

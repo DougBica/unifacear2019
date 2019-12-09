@@ -16,8 +16,8 @@
           placeholder="Conte-nos um pouco sobre o motivo do cancelamento"
           [(ngModel)]="cancela.motivoCancelamento"></textarea>
       </div>
+      <button class="btn btn-primary" (click)="salvar()">Cancelar passagem</button>
+      <button class="btn btn-info" (click)="voltar()">Voltar</button>
     </div>
   </div>
-  <td><button class="btn btn-primary" (click)="salvar()">Cancelar passagem</button></td>
-  <td><button class="btn btn-info" (click)="voltar()">Voltar</button></td>
 </div>

@@ -28,6 +28,7 @@ import { CancelaDetalhesComponent } from './pages/cancela/cancela-detalhes/cance
 import { CancelaSalvarComponent } from './pages/cancela/cancela-salvar/cancela-salvar.component'
 import { RemarcaListarComponent } from './pages/remarca/remarca-listar/remarca-listar.component';
 import { RemarcaSalvarComponent } from './pages/remarca/remarca-salvar/remarca-salvar.component';
+import { CancelaRemarcaComponent } from './pages/cancela/cancela-remarca/cancela-remarca.component';
 
 const routes: Routes = [
   {
@@ -48,10 +49,11 @@ const routes: Routes = [
       { path: 'embarque-controle', component: EmbarqueListarComponent},
       { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent},
       { path: 'checkin-menu', component: CheckinMenuComponent },
+      { path: 'passagem/alterar', component: CancelaRemarcaComponent},
       { path: 'cancela/salvar/:id', component: CancelaSalvarComponent },
       { path: 'cancela/lista/:id', component: CancelaListarComponent },
       { path: 'cancela/detalhes', component: CancelaDetalhesComponent },
-      { path: 'remarca/salvar/:id', component: RemarcaSalvarComponent}
+      { path: 'remarca/salvar/:id', component: RemarcaSalvarComponent},
    ]
   },
   { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },

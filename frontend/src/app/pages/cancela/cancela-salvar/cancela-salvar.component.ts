@@ -47,9 +47,10 @@ export class CancelaSalvarComponent implements OnInit {
     this.cancela.guidPassagem = this.passagem.guidPassagem
     this.cancela.checkin = false //this.checkin.checkinAtivo
     this.cancela.guidUsuario = 2
+    this.passagem.active = false
     this.serviceCancela.save(this.cancela).subscribe(
       () => {
-        //this.router.navigate(["admin/cancela/lista"])
+        this.servicePassagem.salvar(this.passagem).subscribe()
       }
     )
   }
