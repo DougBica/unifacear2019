@@ -6,7 +6,6 @@ import { PassagemService } from '../service/passagem.service';
 import { Passagem } from '../model/passagem.model';
 import { Reserva } from '../model/reserva.model';
 import { TipoPagamento } from '../model/tipo-pagamento.model';
-import * as jsPDF from 'jspdf'
 
 
 @Component({
@@ -105,32 +104,6 @@ export class CarrinhoPassagemComponent implements OnInit {
       this.pagamentoPassagem = true;
     }
   }   
-  
-  gerarPDF(){
-    var doc = new jsPDF();
-    doc.text('PASSAGENS', 90, 15);
-    doc.text('------------------------------------------------------------------------------------------------------------', 4, 30);
-    doc.text('NOME DO PASSAGEIRO:', 5, 40);
-    doc.text('CPF:', 5, 48);
-    doc.text('DATA DE PARTIDA:', 95, 48);
-    doc.text('CLASSE:', 5, 56);
-    doc.text('VALOR:', 95, 56);
-    doc.text('ORIGEM:', 5, 64);
-    doc.text('DESTINO:', 95, 64);
-    doc.text('------------------------------------------------------------------------------------------------------------', 4, 72);
-    doc.text('NOME DO PASSAGEIRO:', 5, 80);
-    doc.text('CPF:', 5, 88);
-    doc.text('DATA DE PARTIDA:', 95, 88);
-    doc.text('CLASSE:', 5, 96);
-    doc.text('VALOR:', 95, 96);
-    doc.text('ORIGEM:', 5, 104);
-    doc.text('DESTINO:', 95, 104);
-    
-    doc.output('save','test.pdf')
-    //doc.save('two-by-four.pdf')
-    //doc.addPage('a6', 'l');
-    
-   }
   
         
 }
