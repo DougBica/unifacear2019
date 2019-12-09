@@ -7,12 +7,14 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Passageiro</th>
+        <th scope="col">Destino</th>
       </tr>
     </thead>
     <tbody>
         <tr *ngFor="let passagem of passagens" (click)="detail(passagem.guidPassagem)">
           <th scope="row">{{passagem.guidPassagem}}</th>
           <td>{{passagem.nomePassageiro}}</td>
+          <td>{{passagem.destino}}</td>
         </tr>
     </tbody>
   </table>
