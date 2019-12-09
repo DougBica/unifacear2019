@@ -21,4 +21,8 @@ export class CheckinMenuComponent implements OnInit {
     this.router.navigate(['/admin/embarque-controle'])
   }
 
+  passageiro() {
+    this.router.navigate(['/admin/checkin-passageiro'])
+  }
+
 }

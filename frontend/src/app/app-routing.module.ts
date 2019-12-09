@@ -26,11 +26,13 @@ import { PerfilListarComponent } from './pages/perfil1/perfil-listar/perfil-list
 import { CancelaListarComponent } from './pages/cancela/cancela-listar/cancela-listar.component';
 import { CancelaDetalhesComponent } from './pages/cancela/cancela-detalhes/cancela-detalhes.component';
 import { CancelaSalvarComponent } from './pages/cancela/cancela-salvar/cancela-salvar.component'
+import { CheckinPassageiroComponent } from './pages/checkin/checkin-passageiro/checkin-passageiro.component';
+import { CheckinInformacoesComponent } from './pages/checkin/checkin-informacoes/checkin-informacoes.component';
 
 const routes: Routes = [
   {
     path: "admin",
-    //canActivate:[AutenticacaoGuard],
+    canActivate:[AutenticacaoGuard],
     component: AdminLayoutComponent,
     children: [
       { path: 'aeronave', component: AeronaveListarComponent },
@@ -47,13 +49,16 @@ const routes: Routes = [
       { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent},
       { path: 'checkin-menu', component: CheckinMenuComponent },
       { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
-      { path: 'buscar-passagem', component: BuscarPassagemComponent }
+      { path: 'buscar-passagem', component: BuscarPassagemComponent },
+      { path: 'checkin-passageiro', component: CheckinPassageiroComponent },
+      { path: 'checkin-ticket/:id', component: CheckinInformacoesComponent }
    ]
   },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {
     path: "",
+    canActivate:[AutenticacaoGuard],
     redirectTo: "dashboard",
     pathMatch: "full"
   },

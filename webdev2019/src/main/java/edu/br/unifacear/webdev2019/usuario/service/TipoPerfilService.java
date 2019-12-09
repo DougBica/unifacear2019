@@ -38,7 +38,7 @@ public class TipoPerfilService {
 				.orElseThrow(() -> new BusinessException(BusinessExceptionCode.ERR001));
 		return tipoperfil;
 	}
-	
+
 }
 
 
