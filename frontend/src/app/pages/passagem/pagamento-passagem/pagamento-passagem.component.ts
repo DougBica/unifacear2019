@@ -6,6 +6,8 @@ import { throwError } from 'rxjs';
 import { ValidadorCPF } from '../util/ValidadorCPF';
 import { Usuario } from '../../usuario/model/usuario.model';
 import { Router } from '@angular/router';
+import * as jsPDF from 'jspdf'
+import { Passagem } from '../model/passagem.model';
 
 
 @Component({
@@ -22,6 +24,7 @@ export class PagamentoPassagemComponent implements OnInit {
   listaCartoes: string [] = ["Visa", "Master Card", "American Express", "Elo"]
   dadosPagamento : FormGroup;
   usuario: Usuario;
+  
 
   constructor(
     private fb: FormBuilder,
@@ -67,6 +70,7 @@ export class PagamentoPassagemComponent implements OnInit {
           .then(retorno => this.salvarPassagens(retorno)
             .then(() => alert("Pagamento realizado com sucesso")));
             // localStorage.removeItem('listaPassagens');
+            this.gerarPdfPassagens(JSON.parse(localStorage.getItem("listaPassagens")));
             localStorage.removeItem('passagens');
             this.router.navigate(['']);
         }else{
@@ -74,6 +78,53 @@ export class PagamentoPassagemComponent implements OnInit {
         }
       }
   }
+
+  gerarPdfPassagens(listPassagens: Array<Passagem>){
+    
+    var doc = new jsPDF();
+  
+    doc.text('PASSAGENS', 90, 15);
+  
+    var Y = 30;
+    listPassagens.forEach(passagem => {
+      
+      doc.text('------------------------------------------------------------------------------------------------------------', 4, Y);
+      
+      Y = Y + 10;
+
+      var nome = "NOME DO PASSAGEIRO: " + passagem.nomePassageiro;
+      doc.text(nome, 5, Y);
+      
+      Y = Y + 8;
+
+      var cpf = "CPF: " + passagem.cpfPassageiro;
+      doc.text(cpf, 5, Y);
+      var dataPartida = "DATA DE PARTIDA: " + passagem.dataPartida;
+      doc.text(dataPartida, 95, Y);
+      
+      Y = Y + 8;
+
+      var classe = "CLASSE: " + passagem.classePassagem;
+      doc.text(classe, 5, Y);
+      var valor = "VALOR: " + passagem.valorPassagem;
+      doc.text(valor, 95, Y);
+      
+      Y = Y + 8;
+
+      var origem = "ORIGEM: " + passagem.origem;
+      doc.text(origem, 5, Y);
+      var destino = "DESTINO: " + passagem.destino;
+      doc.text(destino, 95, Y);
+      
+      Y = Y + 8;
+    
+    });
+    
+    doc.text('------------------------------------------------------------------------------------------------------------', 4, Y);
+    
+    doc.save('passagens.pdf');
+    
+   }
 
   salvarPassagens(usuario){
     return new Promise((resolve,reject) => {
@@ -111,6 +162,8 @@ export class PagamentoPassagemComponent implements OnInit {
     window.alert(errorMessage);
     return throwError(errorMessage);
  }
+
+ 
 
  getEmailJwt(){
    let token = localStorage.getItem('token');
