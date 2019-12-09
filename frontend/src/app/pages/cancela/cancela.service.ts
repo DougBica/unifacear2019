@@ -1,29 +1,44 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Cancela } from './model/cancela.model';
 import { Passagem } from '../passagem/model/passagem.model';
-const api_url = "http://localhost:8080/scp/public/cancela"
+const api_url = "http://localhost:8080/scp/private/cancela"
 @Injectable({
   providedIn: 'root'
 })
 export class CancelaService {
-  
-  constructor(private http: HttpClient) {}
 
-  list(): Observable<Cancela[]>{
-     return this.http.get<Cancela[]>(api_url)
-    }
-  findByid(guidCancela: string): Observable<Cancela>{
-    return this.http.get<Cancela>(api_url+guidCancela)
+  constructor(private http: HttpClient) { }
+
+  list(): Observable<Cancela[]> {
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'))
+    };
+    return this.http.get<Cancela[]>(api_url, options)
   }
-  findByidGuidUsuario(guidUsuario: string): Observable<Cancela[]>{
-    return this.http.get<Cancela[]>(api_url+"/guidusuario/"+guidUsuario)
+  findByid(guidCancela: string): Observable<Cancela> {
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'))
+    };
+    return this.http.get<Cancela>(api_url + guidCancela, options)
   }
-  save(cancela: Cancela): Observable<any>{
-    return this.http.post<any>(api_url,cancela)
+  findByidGuidUsuario(guidUsuario: string): Observable<Cancela[]> {
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'))
+    };
+    return this.http.get<Cancela[]>(api_url + "/guidusuario/" + guidUsuario, options)
   }
-  delete(guidCancela: string): Observable<any>{
-    return this.http.delete<any>(api_url+guidCancela)
+  save(cancela: Cancela): Observable<any> {
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'))
+    };
+    return this.http.post<any>(api_url, cancela, options)
+  }
+  delete(guidCancela: string): Observable<any> {
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'))
+    };
+    return this.http.delete<any>(api_url + guidCancela, options)
   }
 }
