@@ -103,11 +103,7 @@ export class CarrinhoPassagemComponent implements OnInit {
     if (login) {
       this.pagamentoPassagem = true;
     }
-  }     
+  }   
   
-  
-  public downloadPDF(){
-    
-  }
         
 }
