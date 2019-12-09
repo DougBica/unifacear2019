@@ -31,12 +31,14 @@ public class ControllerCliente {
 		    List<Permissao> permissoes = new ArrayList<Permissao>();
 			permissoes.add(Permissao.ACESSO);
 			usuario.setTipoDeUsuarios(TipoUsuario.CLIENTE);
-			tipoperfil.setGuidTipoPerfil((long) 1);
+			tipoperfil.setGuidTipoPerfil((long) 2);
 			tipoperfil.setPermissoes(permissoes);
 			tipoperfil.setDescricao("Cliente");
 			usuario.setPerfil(tipoperfil);
-			usuarioService.salvar(usuario);
+			usuarioService.salvarCliente(usuario);
 		}
+		
+		
 
 		@GetMapping
 		public List<Usuario> listar() {
