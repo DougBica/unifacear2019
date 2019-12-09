@@ -12,9 +12,9 @@ import { Passagem } from '../../passagem/model/passagem.model';
 
 })
 export class CancelaListarComponent implements OnInit {
-  
-  passagens: Passagem[]
 
+  passagens: Passagem[]
+  passagem: Passagem = new Passagem()
   constructor(private router: Router, private service: PassagemService, private route: ActivatedRoute) {
 
   }
@@ -28,6 +28,16 @@ export class CancelaListarComponent implements OnInit {
     )
   }
   detail(guidPassagem) {
-    this.router.navigate(["/admin/passagem/alterar/"+guidPassagem])
+    this.service.listById(guidPassagem).subscribe(
+      passagem => {
+        this.passagem = passagem
+        if (!this.passagem.active) {
+          this.router.navigate(["/admin/passagem/alterar/cancelada"])
+        }
+        else {
+          this.router.navigate(["/admin/passagem/alterar/" + guidPassagem])
+        }
+      }
+    )
   }
 }

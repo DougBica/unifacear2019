@@ -15,7 +15,8 @@ export class RemarcaSalvarComponent implements OnInit {
 
   remarca: Remarca = new Remarca()
   passagem: Passagem = new Passagem()
-  dataNova: any
+  dataNova: Date
+  guidPassagem: any
 
   constructor(private serviceRemarca: RemarcaService,
     private router: Router,
@@ -26,8 +27,8 @@ export class RemarcaSalvarComponent implements OnInit {
   ngOnInit() {
     this.route.paramMap.subscribe(params => {
       if (params.get('id') != 'novo') {
-        const idPassagem = params.get('id');
-        this.servicePassagem.listById(idPassagem).subscribe(
+        this.guidPassagem = params.get('id');
+        this.servicePassagem.listById(this.guidPassagem).subscribe(
           passagem => {
             this.passagem = passagem;
           }
@@ -50,9 +51,12 @@ export class RemarcaSalvarComponent implements OnInit {
     this.remarca.checkin = false
     this.serviceRemarca.save(this.remarca).subscribe(
       () => {
-       this.alterarPassagem()
-       this.router.navigate(["admin/passagem/alterar"])
+        this.alterarPassagem()
+        this.router.navigate(["admin/passagem/alterar/" + this.guidPassagem])
       }
     )
+  }
+  voltar(){
+    this.router.navigate(["/admin/passagem/alterar/" + this.guidPassagem])
   }
 }

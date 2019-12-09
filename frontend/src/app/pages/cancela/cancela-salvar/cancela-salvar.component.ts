@@ -37,13 +37,14 @@ export class CancelaSalvarComponent implements OnInit {
         this.servicePassagem.listById(this.guidPassagem).subscribe(
           passagem => {
             this.passagem = passagem;
-            if(!this.passagem.active){
-              console.log("Passagem já cancelada")
-            }
           }
         );
       }
     });
+  }
+  alterarPassagem() {
+    this.passagem.active = false
+    this.servicePassagem.salvar(this.passagem).subscribe()
   }
   salvar() {
     this.cancela.dataCancelamento = formatDate(this.data, 'dd/MM/yyyy HH:mm', 'en-US')
@@ -51,14 +52,14 @@ export class CancelaSalvarComponent implements OnInit {
     this.cancela.guidPassagem = this.passagem.guidPassagem
     this.cancela.checkin = false //this.checkin.checkinAtivo
     this.cancela.guidUsuario = 2
-    this.passagem.active = false
     this.serviceCancela.save(this.cancela).subscribe(
       () => {
-        this.servicePassagem.salvar(this.passagem).subscribe()
+        this.alterarPassagem()
+        this.router.navigate(["/admin/passagem/alterar/"])
       }
     )
   }
   voltar() {
-    this.router.navigate(['/admin/passagem/alterar/'+this.guidPassagem])
+    this.router.navigate(['/admin/passagem/alterar/' + this.guidPassagem])
   }
 }

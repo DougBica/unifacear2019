@@ -31,6 +31,7 @@ import { RemarcaSalvarComponent } from './pages/remarca/remarca-salvar/remarca-s
 import { CancelaRemarcaComponent } from './pages/cancela/cancela-remarca/cancela-remarca.component';
 import { CheckinInformacoesComponent } from './pages/checkin/checkin-informacoes/checkin-informacoes.component';
 import { CheckinPassageiroComponent } from './pages/checkin/checkin-passageiro/checkin-passageiro.component';
+import { PassagemJaCanceladaComponent } from './pages/cancela/passagem-ja-cancelada/passagem-ja-cancelada.component';
 
 const routes: Routes = [
   {
@@ -56,6 +57,7 @@ const routes: Routes = [
       { path: 'checkin-passageiro', component: CheckinPassageiroComponent },
       { path: 'checkin-ticket/:id', component: CheckinInformacoesComponent },
       { path: 'passagem/alterar', component: CancelaListarComponent},
+      { path: 'passagem/alterar/cancelada', component: PassagemJaCanceladaComponent},
       { path: 'passagem/alterar/:id', component: CancelaRemarcaComponent},
       { path: 'cancela/salvar/:id', component: CancelaSalvarComponent },
       { path: 'remarca/salvar/:id', component: RemarcaSalvarComponent},
