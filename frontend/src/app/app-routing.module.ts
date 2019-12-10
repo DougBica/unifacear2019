@@ -36,7 +36,7 @@ import { PassagemJaCanceladaComponent } from './pages/cancela/passagem-ja-cancel
 const routes: Routes = [
   {
     path: "admin",
-    canActivate:[AutenticacaoGuard],
+    canActivate: [AutenticacaoGuard],
     component: AdminLayoutComponent,
     children: [
       { path: 'aeronave', component: AeronaveListarComponent },
@@ -47,55 +47,61 @@ const routes: Routes = [
       { path: 'checkin-controle', component: CheckinListarComponent },
       { path: 'checkin-cadastrar/:id', component: CheckinCadastrarComponent },
       { path: 'usuario/:id', component: UsuarioCadastrarComponent },
-      { path: 'tipoPerfil/:id', component : PerfilCadastrarComponent},
-      { path: 'tipoperfil', component : PerfilListarComponent},
-      { path: 'embarque-controle', component: EmbarqueListarComponent},
-      { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent},
+      { path: 'tipoPerfil/:id', component: PerfilCadastrarComponent },
+      { path: 'tipoperfil', component: PerfilListarComponent },
+      { path: 'embarque-controle', component: EmbarqueListarComponent },
+      { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent },
       { path: 'checkin-menu', component: CheckinMenuComponent },
-      { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
-      { path: 'buscar-passagem', component: BuscarPassagemComponent },
       { path: 'checkin-passageiro', component: CheckinPassageiroComponent },
       { path: 'checkin-ticket/:id', component: CheckinInformacoesComponent },
-      { path: 'passagem/alterar', component: CancelaListarComponent},
-      { path: 'passagem/alterar/cancelada', component: PassagemJaCanceladaComponent},
-      { path: 'passagem/alterar/:id', component: CancelaRemarcaComponent},
+      { path: 'passagem/alterar', component: CancelaListarComponent },
+      { path: 'passagem/alterar/cancelada', component: PassagemJaCanceladaComponent },
+      { path: 'passagem/alterar/:id', component: CancelaRemarcaComponent },
       { path: 'cancela/salvar/:id', component: CancelaSalvarComponent },
-      { path: 'remarca/salvar/:id', component: RemarcaSalvarComponent},
-   ]
+      { path: 'remarca/salvar/:id', component: RemarcaSalvarComponent },
+    ]
   },
-  
-  { path: 'login', component: LoginComponent },
-  { path: 'register', component: RegisterComponent },
-  {
-    path: "",
-    canActivate:[AutenticacaoGuard],
-    redirectTo: "admin/buscar-passagem",
-    pathMatch: "full"
-  },
-  {
-    path: "",
+  {path: "cliente",
+      component: AdminLayoutComponent,
+      children: [
+
+        { path: 'buscar-passagem', component: BuscarPassagemComponent },
+        { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
+      ]
+    },
+
+{ path: 'login', component: LoginComponent },
+{ path: 'register', component: RegisterComponent },
+{
+  path: "",
+    canActivate: [AutenticacaoGuard],
+      redirectTo: "cliente/buscar-passagem",
+        pathMatch: "full"
+},
+{
+  path: "",
     component: AdminLayoutComponent,
-    children: [
-      {
-        path: "",
-        loadChildren:
-          "./layouts/admin-layout/admin-layout.module#AdminLayoutModule"
-      }
-    ]
-  }, {
-    path: '',
+      children: [
+        {
+          path: "",
+          loadChildren:
+            "./layouts/admin-layout/admin-layout.module#AdminLayoutModule"
+        }
+      ]
+}, {
+  path: '',
     component: AuthLayoutComponent,
-    children: [
-      {
-        path: '',
-        loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
-      }
-    ]
-  },
-  {
-    path: "**",
+      children: [
+        {
+          path: '',
+          loadChildren: './layouts/auth-layout/auth-layout.module#AuthLayoutModule'
+        }
+      ]
+},
+{
+  path: "**",
     redirectTo: "dashboard"
-  }
+}
 ];
 
 @NgModule({
