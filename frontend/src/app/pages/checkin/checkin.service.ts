@@ -4,12 +4,12 @@ import { Observable } from 'rxjs';
 import { Checkin } from './model/checkin.model';
 import { Usuario } from '../usuario/model/usuario.model';
 import { Status } from './model/status.model';
-const urlApi = 'http://localhost:8080/scp/private/checkin/';
-const urlApiListar = 'http://localhost:8080/scp/private/checkin/listarAberto';
-const urlApiUsuario = 'http://localhost:8080/scp/private/usuario/meuId/'
-const urlApiStatus = 'http://localhost:8080/scp/public/statuscheckin/'
-const urlApiToken = 'http://localhost:8080/scp/private/checkin/token/';
-const urlApiUsuarioPassageiro = 'http://localhost:8080/scp/private/checkin/passageiro/';
+const urlApi = 'http://200.98.142.28:8080/scp/private/checkin/';
+const urlApiListar = 'http://200.98.142.28:8080/scp/private/checkin/listarAberto';
+const urlApiUsuario = 'http://200.98.142.28:8080/scp/private/usuario/meuId/'
+const urlApiStatus = 'http://200.98.142.28:8080/scp/public/statuscheckin/'
+const urlApiToken = 'http://200.98.142.28:8080/scp/private/checkin/token/';
+const urlApiUsuarioPassageiro = 'http://200.98.142.28:8080/scp/private/checkin/passageiro/';
 
 @Injectable({
   providedIn: 'root'
