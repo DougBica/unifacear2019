@@ -63,6 +63,7 @@ const routes: Routes = [
       { path: 'remarca/salvar/:id', component: RemarcaSalvarComponent},
    ]
   },
+  
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {
