@@ -16,7 +16,7 @@
                       <label class="control-label">ORIGEM</label>
                       
                       <input id="origem" placeHolder="Insira sua cidade de origem "class="form-control" list="idCidades" name="cidade" [(ngModel)]="cidade" 
-                      value="{{cidade}}"
+                      value="{{cidadeObj.nome}}"
                       (ngModelChange)="onChange()" (focusout)="exitFocus()" />
 
                       <datalist id="idCidades">
@@ -35,7 +35,7 @@
                       <div class="form-group has-feedback" style="right: -83px;">
                         <label class="control-label">DESTINO</label>
                         <input id="destino" placeHolder="Insira sua cidade de destino" class="form-control" list="idCidadesDestino" name="cidadeDestino" [(ngModel)]="cidadeDestino"
-                               value="{{cidade}}"
+                               value="{{cidadeDestinoObj.nome}}"
                               (ngModelChange)="onChangeDestino()" (focusout)="exitFocusDestino()" />
 
                           <datalist id="idCidadesDestino">

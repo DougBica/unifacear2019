@@ -4,7 +4,6 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Passagem } from '../model/passagem.model';
 import * as moment from 'moment';
 import { Router } from '@angular/router';
-import { Reserva } from '../model/reserva.model';
 
 
 @Component({
@@ -78,11 +77,13 @@ export class BuscarPassagemComponent implements OnInit {
   cidade = "";
   nome:any;
 
-  cidadeObj = {};
+  cidadeObj: any = {"nome":""};
+
+  // cidadeObj = {};
 
   cidadeDestino = "";
   // arraykeys = {};
-  cidadeDestinoObj = {};
+  cidadeDestinoObj: any = {"nome":""};
   valorConvertIda: number;
   passagens:  Array<Passagem> = new Array();
 
