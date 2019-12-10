@@ -32,10 +32,10 @@ export class LoginComponent implements OnInit, OnDestroy {
           usuario => {
             this.usuario = usuario;
             if (this.usuario.tipoDeUsuarios == "ADMIN") {
-              this.router.navigate(["/"])
+              this.router.navigate(["cliente/buscar-passagem"])
               localStorage.setItem("typeUser",'ADMIN');
             } else {
-              this.router.navigate(["/buscar-passagem"])
+              this.router.navigate(["cliente/buscar-passagem"])
               localStorage.setItem("typeUser",'CLIENTE');
             }
           }

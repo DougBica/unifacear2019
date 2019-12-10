@@ -1,11 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Usuario } from '../model/usuario.model';
 import { UsuarioService } from '../usuario.service';
 import { Perfil } from '../../perfil1/model/perfil.model';
 import { PerfilService } from '../../perfil1/perfil.service';
 import { ArquivoService } from 'src/app/arquivo.service';
-
+import { ValidadorCPF } from 'src/app/pages/passagem/util/ValidadorCPF';
 
 @Component({
   selector: 'app-usuario-cadastrar',
@@ -25,6 +26,7 @@ export class UsuarioCadastrarComponent implements OnInit {
   constructor(private route: ActivatedRoute,
     private usuarioService: UsuarioService,
     private perfilService: PerfilService,
+    private fb: FormBuilder,
     private arquivoService: ArquivoService,
     private router: Router) { }
 
@@ -37,6 +39,7 @@ export class UsuarioCadastrarComponent implements OnInit {
           usuario => {
             this.usuario = usuario;
             this.usuario.AlterarSenha = false;
+        
             //console.log(this.usuario);
           }
         );
@@ -75,8 +78,13 @@ export class UsuarioCadastrarComponent implements OnInit {
 
       }
     );
-    this.router.navigate(["/admin/usuario"])
-
+    if(localStorage.getItem("typeUser") == "ADMIN"){
+      this.router.navigate(["/admin/usuario"]);
+    }
+    else{
+      this.router.navigate(["/cliente/buscar-passagem"])
+      
+    } ; 
   }
   ModalSenha(){
     this.usuario.AlterarSenha = true;
