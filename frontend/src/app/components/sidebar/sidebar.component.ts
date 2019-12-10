@@ -63,6 +63,25 @@ export const ROUTES: RouteInfo[] = [
   
 ];
 
+export const ROUTESCLIENTE: RouteInfo[] = [
+  {
+    path: "/admin/checkin-menu",
+    title: "Checkin",
+    rtlTitle: "",
+    icon: "icon-map-big",
+    class: ""
+  },  
+  {
+    path: "/cliente/buscar-passagem",
+    title: "Passagem",
+    rtlTitle: "",
+    icon: "icon-send",
+    class: ""
+  },
+  
+];
+
+
 @Component({
   selector: "app-sidebar",
   templateUrl: "./sidebar.component.html",
@@ -74,7 +93,11 @@ export class SidebarComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    if(localStorage.getItem("typeUser") == "ADMIN"){
     this.menuItems = ROUTES.filter(menuItem => menuItem);
+    }
+    else
+    this.menuItems = ROUTESCLIENTE.filter(menuItem => menuItem);
   }
   isMobileMenu() {
     if (window.innerWidth > 991) {
