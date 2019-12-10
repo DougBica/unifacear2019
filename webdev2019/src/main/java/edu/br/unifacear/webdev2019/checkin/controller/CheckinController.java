@@ -31,7 +31,7 @@ public class CheckinController {
 		return checkinService.findAll();
 	}
 	
-	@PreAuthorize("hasRole('GERENCIAR_PRIMEIRO_CHECKIN')")
+	@PreAuthorize("hasRole('GERENCIAR_SEGUNDO_CHECKIN')")
 	@GetMapping(value="/{id}")
 	public Checkin listOneCheckin(@PathVariable Long id) {
 		return checkinService.findOne(id);
