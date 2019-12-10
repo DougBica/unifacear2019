@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Assento } from '../model/assento.model';
-import { AssentoService } from '../model/assento.service';
+import { AssentoService } from '../assento.service';
 
 @Component({
   selector: 'app-assento-cadastrar',

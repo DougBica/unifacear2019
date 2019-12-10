@@ -21,6 +21,7 @@ export class CheckinListarComponent implements OnInit {
   embarque: Embarque = new Embarque();
   passagem: Passagem = new Passagem();
   nome: string;
+  token: any;
 
   constructor(private checkinService: CheckinService,
     private toastr: ToastrService,

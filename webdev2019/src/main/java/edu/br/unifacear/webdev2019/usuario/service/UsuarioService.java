@@ -46,13 +46,15 @@ public class UsuarioService {
         	usuario.setPerfil(perfil);
     		usuario.setSenha(senha);
     		usuario.setTipoDeUsuarios(TipoUsuario.ADMIN);
-    		emailU.sendMail("facearairlines@gmail.com", usuario.getEmail(), "Senha Facear Airlines", "Sua senha para acesso é:"+usuario.getSenha() );
+    		emailU.sendMail("facearairlines@gmail.com", usuario.getEmail(), "Senha Facear Airlines", "Sua senha para acesso: "+usuario.getSenha() );
         }
 		usuarioRepository.save(usuario);
 	}
 
 	@Transactional
 	public void salvarCliente(Usuario usuario) {
+	    email emailU = new email("smtp.gmail.com","465");
+		emailU.sendMail("facearairlines@gmail.com", usuario.getEmail(), "Bem vindo "+usuario.getNome()+" ao Facear Airlines","Sua senha para acesso: "+usuario.getSenha() );
 		usuarioRepository.save(usuario);
 	}
 	
