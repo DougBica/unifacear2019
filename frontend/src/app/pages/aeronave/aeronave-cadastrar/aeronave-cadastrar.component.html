@@ -15,7 +15,7 @@
     </div>    
     <div class="form-group">
       <label for="nome">Fabricante</label>
-      <select class="form-control" name="fabricante" [(ngModel)]="aeronave.guidFabricante">
+      <select class="form-control" name="fabricante" [(ngModel)]="aeronave.guidFabricante" required>
         <option *ngFor="let fabricante of fabricantes" [value]="fabricante.guidFabricante">{{fabricante.nomefabricante}}
         </option>
       </select>
