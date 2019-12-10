@@ -14,13 +14,13 @@ export class PerfilService {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
     
-    return this.http.get<Perfil[]>("http://localhost:8080/scp/private/tipoperfil",options);
+    return this.http.get<Perfil[]>("http://200.98.142.28:8080/scp/private/tipoperfil",options);
   }
   buscarPorID(guidTipoPerfil: string) : Observable<Perfil>  {
     let options = {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
-    return this.http.get<Perfil>("http://localhost:8080/scp/private/tipoperfil/BuscarId/"+guidTipoPerfil,options);
+    return this.http.get<Perfil>("http://200.98.142.28:8080/scp/private/tipoperfil/BuscarId/"+guidTipoPerfil,options);
   }
 
   salvar(perfil: Perfil) : Observable<any> {
@@ -28,7 +28,7 @@ export class PerfilService {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
     return this.http.post<any>
-      ("http://localhost:8080/scp/private/tipoperfil/",perfil,options);
+      ("http://200.98.142.28:8080/scp/private/tipoperfil/",perfil,options);
   }
 
 }
