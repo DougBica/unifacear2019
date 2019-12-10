@@ -103,7 +103,7 @@ public class CheckinService implements Serializable {
 		}
 	}
 	
-	public Checkin listarPorPassageiro(Long id) {
+	public List<Checkin> listarPorPassageiro(Long id) {
 		try {
 			return checkinRepository.findByPassageiro(id);
 		}

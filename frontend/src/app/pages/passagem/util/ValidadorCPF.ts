@@ -55,4 +55,11 @@ export class ValidadorCPF {
      return null;
    };
  }
+
+ static noWhitespaceValidator() {
+  return (control: AbstractControl): Validators => {
+    const isWhitespace = (control.value || '').trim().length === 0;
+    const isValid = !isWhitespace;
+    return isValid ? null : { 'whitespace': true };
+  }}
 }

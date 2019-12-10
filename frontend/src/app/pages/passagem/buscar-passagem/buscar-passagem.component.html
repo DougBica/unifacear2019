@@ -163,9 +163,9 @@
                                     <!-- <label><input type="checkbox" class="sm" value=""> Classe ecônomica   </label> -->
                                     <!-- <label style="    right: -16px; -->
                                     <!-- position: relative;"><input type="checkbox" class="sm" value=""> Classe executiva</label> -->
-                                    <input type="radio" name="gender" value="Primeira classe"  [(ngModel)]="classePassagem"> Primeira classe<br>
-                                    <input type="radio" name="gender" value="Classe executiva" [(ngModel)]="classePassagem"> Classe executiva<br>
-                                    <input type="radio" name="gender" value="Classe economica" [(ngModel)]="classePassagem"> Clase ecônomica   
+                                    <input type="radio" name="gender" value="PRIMEIRA_CLASSE"  [(ngModel)]="classePassagem"> Primeira classe<br>
+                                    <input type="radio" name="gender" value="CLASSE_EXECUTIVA" [(ngModel)]="classePassagem"> Classe executiva<br>
+                                    <input type="radio" name="gender" value="CLASSE_ECONOMICA" [(ngModel)]="classePassagem"> Clase ecônomica   
                               </div>
 
                               <div class="idaVolta" style="position: absolute;top: 201px;right: 70px;">
@@ -202,7 +202,8 @@
                                   <th style="color: #747576;">Cidade origem</th>
                                   <th style="color: #747576;">Cidade destino</th>
                                   <th style="color: #747576;">Horário</th>
-                                  <th style="color: #747576;">Duração</th>
+                                  <th style="color: #747576;">Duração</th> 
+                                  <th style="color: #747576;">R$</th>                                   
                                   <th style="color: #747576;"></th>                                
                                 </tr>
                               </thead>
@@ -212,6 +213,7 @@
                                   <td style= "color: black !important;">{{item.destino}}</td>
                                   <td style= "color: black !important;">{{item.horario}}</td>
                                   <td style= "color: black !important;">{{item.duracao}}</td>
+                                  <td style= "color: black !important;">{{item.valor}}</td>
                                  <td><button style="height: 38px;
                                   /* size: 18px; */
                                   width: 49px;" type="button" class="btn btn-outline-secondary" (click)="comprarPassagem(templateNested)" ><i class="material-icons">
@@ -240,6 +242,7 @@
                                   <th style="color: #747576;">Cidade destino</th>
                                   <th style="color: #747576;">Horário</th>
                                   <th style="color: #747576;">Duração</th>
+                                  <th style="color: #747576;">R$</th>  
                                   <th style="color: #747576;"></th>                                
                                 </tr>
                               </thead>
@@ -249,6 +252,7 @@
                                   <td style= "color: black !important;">{{item.destinoVolta}}</td>
                                   <td style= "color: black !important;">{{item.horarioVolta}}</td>
                                   <td style= "color: black !important;">{{item.duracaoVolta}}</td>
+                                  <td style= "color: black !important;">{{item.valor}}</td>
                                  <td><button style="height: 38px;
                                   /* size: 18px; */
                                   width: 49px;" type="button" class="btn btn-outline-secondary"  (click)="criarPassagemVolta()"><i class="material-icons">

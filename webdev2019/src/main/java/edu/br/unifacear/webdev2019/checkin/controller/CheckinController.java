@@ -74,7 +74,7 @@ public class CheckinController {
 	}
 	
 	@GetMapping(value="/passageiro/{id}")
-	public Checkin findByPassageiro(@PathVariable Long id) {
+	public List<Checkin> findByPassageiro(@PathVariable Long id) {
 		return checkinService.listarPorPassageiro(id);
 	}
 	

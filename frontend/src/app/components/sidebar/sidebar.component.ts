@@ -30,15 +30,8 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },  
   {
-    path: "/carrinho-passagem",
-    title: "Carrinho Compra Passagem",
-    rtlTitle: "",
-    icon: "icon-map-big",
-    class: ""
-  },
-  {
-    path: "/buscar-passagem",
-    title: "buscar pas",
+    path: "/admin/buscar-passagem",
+    title: "Passagem",
     rtlTitle: "",
     icon: "icon-map-big",
     class: ""

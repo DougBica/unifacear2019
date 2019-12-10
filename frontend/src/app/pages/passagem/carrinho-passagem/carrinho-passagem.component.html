@@ -1,4 +1,4 @@
-<div class="main-content">
+<div class=" content">
     <p></p>
     <div class="container-fluid">
         <div class="row">
@@ -22,13 +22,46 @@
                             </thead>
                             <tbody>
                                 <tr *ngFor="let passagem of listaPassagens">
-                                    <td>{{passagem.origem}}</td>
-                                    <td>{{passagem.destino}}</td>
-                                    <td>{{passagem.dataPartida}}</td>
-                                    <td><input type="text" [readonly]="passagem.isKid" class="form-control" [(ngModel)]="passagem.cpfPassageiro"></td>
-                                    <td><input type="text" class="form-control" [(ngModel)]="passagem.nomePassageiro"></td>
-                                    <!-- <input type="number" class="form-control" [(ngModel)]="overRideRate" formControlName="OverRideRate"> -->
+                                    <td>
+                                        {{passagem.origem}}
+                                    </td>
+
+                                    <td>
+                                        {{passagem.destino}}
+                                    </td>
+
+                                    <td>
+                                        {{passagem.dataPartida | date:'dd-MM-yyyy HH:mm:ss'}}
+                                    </td>
+
+                                    <ng-template [ngIf]="passagem.isKid">
+                                        <td>
+                                            <input type="text" [readonly]="passagem.isKid" 
+                                            placeholder="CRIANÇA" class="form-control" 
+                                            [(ngModel)]="passagem.cpfPassageiro">
+                                        </td>
+                                    </ng-template>
+                                    <ng-template [ngIf]="!passagem.isKid">
+                                        <td><input type="text" [readonly]="passagem.isKid" 
+                                            placeholder="Insira seu CPF" class="form-control" 
+                                            [(ngModel)]="passagem.cpfPassageiro">
+                                        </td>
+                                    </ng-template>
+
+                                    <td>
+                                        <input type="text" id="name" name="name" 
+                                        placeholder="Insira seu nome" class="form-control" 
+                                        required [(ngModel)]="passagem.nomePassageiro" #name="ngModel">
+                                        <div *ngIf="name.invalid && (name.dirty || name.touched)"
+                                            class="alert">
+                                            <div *ngIf="name.errors.required">
+                                                Name is required.
+                                            </div>
+                                        </div>
+                                    </td>   
+                                             
                                     <td>R$ {{passagem.valorPassagem}}</td>
+
                                 </tr>
                             </tbody>  
                             <thead class="text-warning" (submit)="calcularValorReserva()">
@@ -44,12 +77,12 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div>          
     <modal-login (conteudo)="pagarReserva($event)"></modal-login>
-    
+    <app-pagamento-passagem *ngIf="pagamentoPassagem"></app-pagamento-passagem>
 </div>
 
-<app-pagamento-passagem *ngIf="pagamentoPassagem"></app-pagamento-passagem>
+
 
 
 
