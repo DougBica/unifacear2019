@@ -14,7 +14,7 @@ export class ArquivoService {
     formData.append('arquivo', data, data.name);
 
     return this.http.post<any>
-      ("http://localhost:8080/scp/public/arquivo",formData);
+      ("http://200.98.142.28/:8080/scp/public/arquivo",formData);
   }
    
 
