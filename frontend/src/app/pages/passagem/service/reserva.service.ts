@@ -8,7 +8,7 @@ import { Reserva } from '../model/reserva.model';
 })
 export class ReservaService {
 
-  private readonly API = 'http://localhost:8080/scp/public/reserva/'
+  private readonly API = 'http://200.98.142.28:8080/scp/public/reserva/'
 
   constructor(private http : HttpClient) { }
 
