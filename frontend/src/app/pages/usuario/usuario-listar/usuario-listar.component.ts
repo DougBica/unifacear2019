@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class UsuarioListarComponent implements OnInit {
   
   usuarios : Usuario[];
+  usuario : Usuario;
 
   constructor(private usuarioService : UsuarioService,
     private router : Router) { }

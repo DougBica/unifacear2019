@@ -10,6 +10,7 @@ export class CheckinPassageiroComponent implements OnInit {
   constructor() { }
   id: string;
   idLong: number;
+  checkins: number;
 
   ngOnInit() {
     this.load();

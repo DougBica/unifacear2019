@@ -33,7 +33,7 @@ export class PerfilListarComponent implements OnInit {
     this.router.navigate(["/admin/tipoPerfil/"+perfil.guidTipoPerfil]); 
   }
 
-  novo(perfil: Perfil) {
+  novo() {
     this.router.navigate(["/admin/tipoPerfil/novo"])
   }
 }
