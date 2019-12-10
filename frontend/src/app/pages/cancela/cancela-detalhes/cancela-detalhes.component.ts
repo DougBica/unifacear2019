@@ -11,23 +11,24 @@ import { Cancela } from '../model/cancela.model';
 export class CancelaDetalhesComponent implements OnInit {
 
   cancela: Cancela = new Cancela()
-  nomeUsuario: string
+  nomeUsuario: string;
+  atualizar:any;
 
   constructor(private route: ActivatedRoute, private router: Router, private service: CancelaService) {
+
+  }
+  ngOnInit() {
     const nav = this.router.getCurrentNavigation();
+    console.log(nav.extras.state.cancela)
     if (nav.extras.state == null) {
-      this.router.navigate(["/admin/cancela"])
+      this.back()
     }
     else {
       this.cancela = nav.extras.state.cancela;
     }
   }
-
-  ngOnInit() {
-
-  }
   back() {
-    this.router.navigate(["/admin/cancela"])
+    this.router.navigate(["/admin/passagem/alterar"])
   }
   deletar() {
     this.service.delete(this.cancela.guidCancelar + "").subscribe(

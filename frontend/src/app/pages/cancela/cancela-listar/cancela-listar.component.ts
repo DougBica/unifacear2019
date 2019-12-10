@@ -1,7 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CancelaService } from '../cancela.service';
 import { Cancela } from '../model/cancela.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { PassagemService } from '../../passagem/service/passagem.service';
+import { Passagem } from '../../passagem/model/passagem.model';
 
 @Component({
   selector: 'app-cancela-listar',
@@ -10,32 +12,32 @@ import { Router } from '@angular/router';
 
 })
 export class CancelaListarComponent implements OnInit {
-  cancelamentos: Cancela[];
-  
-  constructor(private router: Router, private service: CancelaService) { }
+
+  passagens: Passagem[]
+  passagem: Passagem = new Passagem()
+  constructor(private router: Router, private service: PassagemService, private route: ActivatedRoute) {
+
+  }
 
   ngOnInit() {
-    this.load()
+    this.find()
   }
-  load (){
-    this.service.list().subscribe(
-      cancelamentos => this.cancelamentos = cancelamentos
+  find() {
+    this.service.listAll().subscribe(
+      passagens => this.passagens = passagens
     )
   }
-  detail(cancela: Cancela){
-   // this.router.navigate(["/admin/cancela/detalhes/"+cancela.guidCancelar])
-    this.router.navigate(["/admin/cancela/detalhes"],
-    { state: {cancela: cancela}})
-  }
-  salvar(){
-    // init teste
-    const cancela_teste = new Cancela()
-    cancela_teste.guidReserva = 1
-    cancela_teste.guidPassagem = 1
-    cancela_teste.guidUsuario = 1
-    cancela_teste.checkin = false
-    // end teste*/
-    this.router.navigate(["/admin/cancela/salvar"],
-    { state: {cancela: cancela_teste}})
+  detail(guidPassagem) {
+    this.service.listById(guidPassagem).subscribe(
+      passagem => {
+        this.passagem = passagem
+        if (!this.passagem.active) {
+          this.router.navigate(["/admin/passagem/alterar/cancelada"])
+        }
+        else {
+          this.router.navigate(["/admin/passagem/alterar/" + guidPassagem])
+        }
+      }
+    )
   }
 }

@@ -12,4 +12,5 @@ export class Usuario {
     perfil: Perfil;
     perfis : Perfil [] = [];
     AlterarSenha : Boolean;
+    senha: string;
 }

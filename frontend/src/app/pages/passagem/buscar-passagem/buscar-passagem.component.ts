@@ -76,6 +76,7 @@ export class BuscarPassagemComponent implements OnInit {
 ]; 
   
   cidade = "";
+  nome:any;
 
   cidadeObj = {};
 

@@ -13,6 +13,9 @@ export class EmbarqueCadastrarComponent implements OnInit {
 
   embarque: Embarque = new Embarque();
   guidEmbarque: string;
+  guidAeronave:any;
+  Voo:any;
+  teste: any;
  
 
   constructor(private embarqueService: EmbarqueService,

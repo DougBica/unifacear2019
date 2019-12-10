@@ -13,6 +13,8 @@ export class EmbarqueListarComponent implements OnInit {
 
   embarques: Embarque[];
 
+  token: any;
+
   constructor(private embarqueService: EmbarqueService, private toastr: ToastrService, private router: Router) { }
 
   ngOnInit() {
