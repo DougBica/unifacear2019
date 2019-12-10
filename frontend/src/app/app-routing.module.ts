@@ -27,6 +27,7 @@ import { CancelaListarComponent } from './pages/cancela/cancela-listar/cancela-l
 import { CancelaDetalhesComponent } from './pages/cancela/cancela-detalhes/cancela-detalhes.component';
 import { CancelaSalvarComponent } from './pages/cancela/cancela-salvar/cancela-salvar.component'
 import { CheckinPassageiroComponent } from './pages/checkin/checkin-passageiro/checkin-passageiro.component';
+import { CheckinInformacoesComponent } from './pages/checkin/checkin-informacoes/checkin-informacoes.component';
 
 const routes: Routes = [
   {
@@ -47,11 +48,12 @@ const routes: Routes = [
       { path: 'embarque-controle', component: EmbarqueListarComponent},
       { path: 'embarque-cadastro', component: EmbarqueCadastrarComponent},
       { path: 'checkin-menu', component: CheckinMenuComponent },
-      { path: 'checkin-passageiro', component: CheckinPassageiroComponent }
+      { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
+      { path: 'buscar-passagem', component: BuscarPassagemComponent },
+      { path: 'checkin-passageiro', component: CheckinPassageiroComponent },
+      { path: 'checkin-ticket/:id', component: CheckinInformacoesComponent }
    ]
   },
-  { path: 'carrinho-passagem', component: CarrinhoPassagemComponent },
-  { path: 'buscar-passagem', component: BuscarPassagemComponent },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {

@@ -9,6 +9,7 @@ const urlApiListar = 'http://localhost:8080/scp/private/checkin/listarAberto';
 const urlApiUsuario = 'http://localhost:8080/scp/private/usuario/meuId/'
 const urlApiStatus = 'http://localhost:8080/scp/public/statuscheckin/'
 const urlApiToken = 'http://localhost:8080/scp/private/checkin/token/';
+const urlApiUsuarioPassageiro = 'http://localhost:8080/scp/private/checkin/passageiro/';
 
 @Injectable({
   providedIn: 'root'
@@ -57,6 +58,13 @@ export class CheckinService {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
     return this.http.get<Checkin>(urlApiToken+token, options);
+  }
+
+  listarPorUsuario(id: number): Observable<Checkin[]> {
+    let options = {
+      headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
+    };
+    return this.http.get<Checkin[]>(urlApiUsuarioPassageiro+id, options);
   }
 
 }

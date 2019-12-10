@@ -5,6 +5,9 @@ import { catchError } from 'rxjs/operators';
 import { throwError } from 'rxjs';
 import { ValidadorCPF } from '../util/ValidadorCPF';
 import { Usuario } from '../../usuario/model/usuario.model';
+import { Router } from '@angular/router';
+import * as jsPDF from 'jspdf'
+import { Passagem } from '../model/passagem.model';
 
 
 @Component({
@@ -14,22 +17,25 @@ import { Usuario } from '../../usuario/model/usuario.model';
 })
 export class PagamentoPassagemComponent implements OnInit {
   
+  headerLog = "PagamentoPassagemComponent - "
   anoAtual : any = new Date().getUTCFullYear();
   listaAno : any = [];
   listaMes : number [] = [1,2,3,4,5,6,7,8,9,10,11,12];
   listaCartoes: string [] = ["Visa", "Master Card", "American Express", "Elo"]
   dadosPagamento : FormGroup;
   usuario: Usuario;
+  
 
   constructor(
     private fb: FormBuilder,
+    private router: Router,
     private passagemService: PassagemService
     ) {}
     
     
     ngOnInit() {
       this.dadosPagamento = this.fb.group({
-        nome: ['',[Validators.required]],
+        nome: ['',[Validators.compose([Validators.required,ValidadorCPF.noWhitespaceValidator()])]],
         numeroCartao: ['',Validators.compose([
                             Validators.required,
                             Validators.minLength(16)
@@ -52,7 +58,8 @@ export class PagamentoPassagemComponent implements OnInit {
         this.listaAno.push(String(this.anoAtual + i));
       }
     }
-    
+    public customPatterns = { 'S': { pattern: new RegExp('\\S')}};
+
     onFormSubmit(){
       console.log(this.dadosPagamento.value, this.dadosPagamento.valid);
       if(this.dadosPagamento.valid){
@@ -62,14 +69,67 @@ export class PagamentoPassagemComponent implements OnInit {
           this.buscarUsuario()
           .then(retorno => this.salvarPassagens(retorno)
             .then(() => alert("Pagamento realizado com sucesso")));
+            // localStorage.removeItem('listaPassagens');
+            this.gerarPdfPassagens(JSON.parse(localStorage.getItem("listaPassagens")));
+            localStorage.removeItem('passagens');
+            this.router.navigate(['']);
         }else{
           alert("Problema ao realizar o pagamento. Operação cancelada !!")
         }
       }
   }
 
+  gerarPdfPassagens(listPassagens: Array<Passagem>){
+    
+    var doc = new jsPDF();
+  
+    doc.text('PASSAGENS', 90, 15);
+  
+    var Y = 30;
+    listPassagens.forEach(passagem => {
+      
+      doc.text('------------------------------------------------------------------------------------------------------------', 4, Y);
+      
+      Y = Y + 10;
+
+      var nome = "NOME DO PASSAGEIRO: " + passagem.nomePassageiro;
+      doc.text(nome, 5, Y);
+      
+      Y = Y + 8;
+
+      var cpf = "CPF: " + passagem.cpfPassageiro;
+      doc.text(cpf, 5, Y);
+      var dataPartida = "DATA DE PARTIDA: " + passagem.dataPartida;
+      doc.text(dataPartida, 95, Y);
+      
+      Y = Y + 8;
+
+      var classe = "CLASSE: " + passagem.classePassagem;
+      doc.text(classe, 5, Y);
+      var valor = "VALOR: " + passagem.valorPassagem;
+      doc.text(valor, 95, Y);
+      
+      Y = Y + 8;
+
+      var origem = "ORIGEM: " + passagem.origem;
+      doc.text(origem, 5, Y);
+      var destino = "DESTINO: " + passagem.destino;
+      doc.text(destino, 95, Y);
+      
+      Y = Y + 8;
+    
+    });
+    
+    doc.text('------------------------------------------------------------------------------------------------------------', 4, Y);
+    
+    doc.save('passagens.pdf');
+    
+   }
+
   salvarPassagens(usuario){
     return new Promise((resolve,reject) => {
+      console.log(this.headerLog + "Enviando passagens para o service")
+      console.log(localStorage.getItem("listaPassagens"))
       this.passagemService.salvarReserva(localStorage.getItem("listaPassagens"),usuario).pipe(
       catchError(this.handleError)
     ).subscribe(() => resolve())
@@ -102,6 +162,8 @@ export class PagamentoPassagemComponent implements OnInit {
     window.alert(errorMessage);
     return throwError(errorMessage);
  }
+
+ 
 
  getEmailJwt(){
    let token = localStorage.getItem('token');

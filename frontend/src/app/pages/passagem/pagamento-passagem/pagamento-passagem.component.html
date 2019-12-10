@@ -2,8 +2,8 @@
 <div id="conteudo-principal">
   <div class="container-fluid">
     <div class="row">
-      <div class="col-md-2"></div>
-        <div id='formulario-pagamento'class="col-md-8">
+      <div class="col-md-3"></div>
+        <div id='formulario-pagamento'class="col-md-12">
           <h2>Pagamento</h2>
           <form [formGroup]="dadosPagamento" (ngSubmit)="onFormSubmit()">
             <div class="row">
@@ -49,7 +49,8 @@
                     <label for="nome">Nome Titular Cartão</label>
                     <input 
                       type="text" 
-                      mask='S*'
+                      [patterns]="customPatterns"
+                      mask=''
                       class="form-control" 
                       formControlName="nome"
                       placeholder="Ex: JOSE DA SILVA"
@@ -58,7 +59,8 @@
                 </div>
                 <div 
                   class="error" 
-                  *ngIf="dadosPagamento.get('nome').hasError('required') &&
+                  *ngIf="(dadosPagamento.get('nome').hasError('required') ||
+                          dadosPagamento.get('nome').getError('whitespace'))  &&
                           dadosPagamento.get('nome').touched">
                   Informe o Nome do titular
                 </div>
