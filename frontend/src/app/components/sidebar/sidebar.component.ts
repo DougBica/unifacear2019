@@ -47,12 +47,20 @@ export const ROUTES: RouteInfo[] = [
     
   },
   {
+    path: "/admin/passagem/alterar",
+    title: "Alterar pasagem",
+    rtlTitle: "",
+    icon: "icon-chart-pie-36",
+    class: ""
+    },
+  {
   path: "/admin/fabricante",
   title: "Fabricante",
   rtlTitle: "",
   icon: "icon-chart-pie-36",
   class: ""
-  }
+  },
+  
 ];
 
 @Component({
