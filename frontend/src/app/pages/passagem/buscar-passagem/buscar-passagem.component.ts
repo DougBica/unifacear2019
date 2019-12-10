@@ -4,7 +4,6 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { Passagem } from '../model/passagem.model';
 import * as moment from 'moment';
 import { Router } from '@angular/router';
-import { Reserva } from '../model/reserva.model';
 
 
 @Component({
@@ -47,6 +46,12 @@ export class BuscarPassagemComponent implements OnInit {
   "voo5":{"origem": "Curitiba", "destino": "Bahia", "dataIda": "2019-12-10", "dataVolta": "2019-12-15", "duracao": "3h00m", "horario": "18:00/21:00",
           "origemVolta": "Curitiba", "destinoVolta": "Bahia",  "duracaoVolta": "2h30m", "horarioVolta": "15:00/17:30", "valor": 467.10 , "classepassagem": "CLASSE_ECONOMICA"},
    
+          "voo6":{"origem": "Curitiba", "destino": "Bahia", "dataIda": "2019-12-10", "dataVolta": "2019-12-15", "duracao": "3h00m", "horario": "18:00/21:00",
+          "origemVolta": "Curitiba", "destinoVolta": "Bahia",  "duracaoVolta": "2h30m", "horarioVolta": "15:00/17:30", "valor": 500.10 , "classepassagem": "CLASSE_ECONOMICA"},
+
+          "voo7":{"origem": "Curitiba", "destino": "Bahia", "dataIda": "2019-12-10", "dataVolta": "2019-12-15", "duracao": "3h00m", "horario": "18:00/21:00",
+          "origemVolta": "Curitiba", "destinoVolta": "Bahia",  "duracaoVolta": "2h30m", "horarioVolta": "15:00/17:30", "valor": 600.10 , "classepassagem": "CLASSE_ECONOMICA"},
+   
     };
   
   voo: JSON;
@@ -72,18 +77,21 @@ export class BuscarPassagemComponent implements OnInit {
   cidade = "";
   nome:any;
 
-  cidadeObj = {};
+  cidadeObj: any = {"nome":""};
+
+  // cidadeObj = {};
 
   cidadeDestino = "";
   // arraykeys = {};
-  cidadeDestinoObj = {};
-
+  cidadeDestinoObj: any = {"nome":""};
+  valorConvertIda: number;
   passagens:  Array<Passagem> = new Array();
 
   dataIdaFormat;
   dataVoltaFormat;
   checkBebes = false;
 
+  index: number;
 
   constructor(private router: Router ,private matIcon : MatIconModule,private modalService: BsModalService) { }
 
@@ -215,10 +223,13 @@ onChangeDestino(){
     console.log("error");
   }
     console.log(this.cidadeDestinoObj);
+
 }
 
-comprarPassagem(template2: TemplateRef<any>){
-  console.log("eae");
+comprarPassagem(template2: TemplateRef<any>, index){
+  index = index + 1;
+  this.index = index;
+
   this.criarPassagemIda();
   if(this.vooDe == 'Ida e volta'){
    if(this.checkBebes == false){
@@ -256,11 +267,13 @@ criarPassagemVolta(){
   let criancas = (document.getElementById('criancas') as HTMLSelectElement).selectedIndex;
   let bebes = (document.getElementById('bebes') as HTMLSelectElement).selectedIndex;
 
+
   for(let i=0; i<adultos;i++){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
     this.passagem.guidRota = 1;
-    this.passagem.valorPassagem = this.valor;
+    this.passagem.valorPassagem = this.valorConvertIda;
+    console.log(this.passagem.valorPassagem+"eae bixo");
     this.passagem.dataPartida = moment(this.dataVoltaFormat).toDate();
     this.passagem.origem = this.cidadeDestino;
     this.passagem.nomePassageiro = "";
@@ -278,7 +291,7 @@ criarPassagemVolta(){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
     this.passagem.guidRota = 1;
-    this.passagem.valorPassagem = this.valor;
+    this.passagem.valorPassagem = this.valorConvertIda;
     this.passagem.dataPartida = moment(this.dataVoltaFormat).toDate();
     this.passagem.origem = this.cidadeDestino;
     this.passagem.classePassagem = this.classePassagem;
@@ -295,7 +308,7 @@ criarPassagemVolta(){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
     this.passagem.guidRota = 1;
-    this.passagem.valorPassagem = this.valor;
+    this.passagem.valorPassagem = this.valorConvertIda;
     this.passagem.dataPartida = moment(this.dataVoltaFormat).toDate();
     this.passagem.origem = this.cidadeDestino;
     this.passagem.classePassagem = this.classePassagem;
@@ -323,11 +336,17 @@ criarPassagemIda(){
   let criancas = (document.getElementById('criancas') as HTMLSelectElement).selectedIndex;
   let bebes = (document.getElementById('bebes') as HTMLSelectElement).selectedIndex;
 
+  var table: HTMLTableElement = <HTMLTableElement> document.getElementById("ida");
+  var valorTabela = table.rows[this.index].cells[4].innerText;
+  this.valorConvertIda = +valorTabela;
+  console.log("Valor ida: "+this.valorConvertIda + " ind: "+this.index);
+
+
   for(let i=0; i<adultos;i++){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
     this.passagem.guidRota = 1;
-    this.passagem.valorPassagem = this.valor;
+    this.passagem.valorPassagem = this.valorConvertIda;
     this.passagem.dataPartida = moment(this.dataIdaFormat).toDate();
     this.passagem.origem = this.cidade;
     this.passagem.classePassagem = this.classePassagem;
@@ -345,7 +364,7 @@ criarPassagemIda(){
     this.passagem = new Passagem();
     this.passagem.guidPassagem = null;
     this.passagem.guidRota = 1;
-    this.passagem.valorPassagem = this.valor;
+    this.passagem.valorPassagem = this.valorConvertIda;
     this.passagem.dataPartida = moment(this.dataIdaFormat).toDate();
     this.passagem.origem = this.cidade;
     this.passagem.classePassagem = this.classePassagem;
@@ -364,7 +383,7 @@ criarPassagemIda(){
       this.passagem = new Passagem();
       this.passagem.guidPassagem = null;
       this.passagem.guidRota = 1;
-      this.passagem.valorPassagem = this.valor;
+      this.passagem.valorPassagem = this.valorConvertIda;
       this.passagem.dataPartida = moment(this.dataIdaFormat).toDate();
       this.passagem.origem = this.cidade;
       this.passagem.classePassagem = this.classePassagem;
@@ -383,6 +402,9 @@ criarPassagemIda(){
     this.checkBebes = true;
     alert("1 bebê para cada adulto!");
   }
+
+  this.index = null;
+  
  
 }
 }

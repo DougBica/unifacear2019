@@ -19,7 +19,7 @@ export class UsuarioService {
       headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'))
     };
 
-    return this.http.post<any>("http://localhost:8080/scp/public/arquivo", formData, options);
+    return this.http.post<any>("http://200.98.142.28:8080/scp/public/arquivo", formData, options);
   }
 
 
@@ -28,14 +28,14 @@ export class UsuarioService {
       headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'))
     };
 
-    return this.http.get<Usuario[]>("http://localhost:8080/scp/private/usuario/listar", options);
+    return this.http.get<Usuario[]>("http://200.98.142.28:8080/scp/private/usuario/listar", options);
   }
 
   buscarPorID(guidUsuario: string): Observable<Usuario> {
     let options = {
       headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'))
     };
-    return this.http.get<Usuario>("http://localhost:8080/scp/private/usuario/buscarPorID/" + guidUsuario, options);
+    return this.http.get<Usuario>("http://200.98.142.28:8080/scp/private/usuario/buscarPorID/" + guidUsuario, options);
   }
 
   salvar(usuario: Usuario): Observable<any> {
@@ -43,7 +43,7 @@ export class UsuarioService {
       headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'))
     };
     return this.http.post<any>
-      ("http://localhost:8080/scp/private/usuario/", usuario, options);
+      ("http://200.98.142.28:8080/scp/private/usuario/", usuario, options);
   }
 
 }

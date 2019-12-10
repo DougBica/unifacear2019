@@ -15,14 +15,14 @@ export class AeronaveService {
     let options = {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
-    return this.http.get<Aeronave[]>("http://localhost:8080/scp/private/aeronave/listar",options);
+    return this.http.get<Aeronave[]>("http://200.98.142.28:8080/scp/private/aeronave/listar",options);
   }
 
   buscarPorId(guidaeronave: string) : Observable<Aeronave>  {
     let options = {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
-    return this.http.get<Aeronave>("http://localhost:8080/scp/private/aeronave/buscarPorId/"+guidaeronave,options);
+    return this.http.get<Aeronave>("http://200.98.142.28:8080/scp/private/aeronave/buscarPorId/"+guidaeronave,options);
   }
 
   salvar(aeronave: Aeronave) : Observable<any> {
@@ -30,7 +30,7 @@ export class AeronaveService {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
     return this.http.post<any>
-      ("http://localhost:8080/scp/private/aeronave/salvar/",aeronave,options);
+      ("http://200.98.142.28:8080/scp/private/aeronave/salvar/",aeronave,options);
   }
 
   remover(aeronave: Aeronave) : Observable<any> {
@@ -38,14 +38,14 @@ export class AeronaveService {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
     return this.http.delete<any>
-      ("http://localhost:8080/scp/private/aeronave/remover/"+aeronave.guidaeronave,options);
+      ("http://200.98.142.28:8080/scp/private/aeronave/remover/"+aeronave.guidaeronave,options);
   }
 
   listarfabricante() : Observable<Fabricante[]> {
     let options = {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
-    return this.http.get<Fabricante[]>("http://localhost:8080/scp/private/aeronave/listar",options);
+    return this.http.get<Fabricante[]>("http://200.98.142.28:8080/scp/private/aeronave/listar",options);
   }
 
 

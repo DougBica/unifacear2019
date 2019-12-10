@@ -67,6 +67,8 @@ export class CheckinInformacoesComponent implements OnInit {
     );
   }
 
+  salvar(){}
+
   loadUser(id: number) {
     this.checkinService.listarPorId(id).subscribe(
       usuario => {

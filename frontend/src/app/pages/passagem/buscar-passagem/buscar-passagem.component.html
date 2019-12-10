@@ -16,7 +16,7 @@
                       <label class="control-label">ORIGEM</label>
                       
                       <input id="origem" placeHolder="Insira sua cidade de origem "class="form-control" list="idCidades" name="cidade" [(ngModel)]="cidade" 
-                      value="{{cidade}}"
+                      value="{{cidadeObj.nome}}"
                       (ngModelChange)="onChange()" (focusout)="exitFocus()" />
 
                       <datalist id="idCidades">
@@ -35,7 +35,7 @@
                       <div class="form-group has-feedback" style="right: -83px;">
                         <label class="control-label">DESTINO</label>
                         <input id="destino" placeHolder="Insira sua cidade de destino" class="form-control" list="idCidadesDestino" name="cidadeDestino" [(ngModel)]="cidadeDestino"
-                               value="{{cidade}}"
+                               value="{{cidadeDestinoObj.nome}}"
                               (ngModelChange)="onChangeDestino()" (focusout)="exitFocusDestino()" />
 
                           <datalist id="idCidadesDestino">
@@ -196,7 +196,7 @@
                     </div>
                     <div class="modal-body">                   
                       <div class="form-group">
-                          <table class="table table-bordered table-striped">
+                          <table id="ida" class="table table-bordered table-striped">
                               <thead>
                                 <tr>
                                   <th style="color: #747576;">Cidade origem</th>
@@ -208,15 +208,15 @@
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr *ngFor="let item of vooIdaVolta">
+                                <tr *ngFor="let item of vooIdaVolta; let i = index" [attr.data-index]="i">
                                   <td style= "color: black !important;">{{item.origem}}</td>
                                   <td style= "color: black !important;">{{item.destino}}</td>
                                   <td style= "color: black !important;">{{item.horario}}</td>
                                   <td style= "color: black !important;">{{item.duracao}}</td>
-                                  <td style= "color: black !important;">{{item.valor}}</td>
-                                 <td><button style="height: 38px;
+                                  <td id="valorIda" style= "color: black !important;">{{item.valor}}</td>
+                                 <td><button id="btnIda"style="height: 38px;
                                   /* size: 18px; */
-                                  width: 49px;" type="button" class="btn btn-outline-secondary" (click)="comprarPassagem(templateNested)" ><i class="material-icons">
+                                  width: 49px;" type="button" class="btn btn-outline-secondary" (click)="comprarPassagem(templateNested, i)" ><i class="material-icons">
                                   add_shopping_cart
                                   </i></button></td>                             
                                 </tr>
@@ -252,7 +252,7 @@
                                   <td style= "color: black !important;">{{item.destinoVolta}}</td>
                                   <td style= "color: black !important;">{{item.horarioVolta}}</td>
                                   <td style= "color: black !important;">{{item.duracaoVolta}}</td>
-                                  <td style= "color: black !important;">{{item.valor}}</td>
+                                  <td id="valorVolta" style= "color: black !important;">{{item.valor}}</td>
                                  <td><button style="height: 38px;
                                   /* size: 18px; */
                                   width: 49px;" type="button" class="btn btn-outline-secondary"  (click)="criarPassagemVolta()"><i class="material-icons">

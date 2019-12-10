@@ -13,8 +13,8 @@ import { Usuario } from '../../usuario/model/usuario.model';
 })
 export class PassagemService {
 
-  private readonly API = 'http://localhost:8080/scp/public/passagem/'
-  private readonly urlPrivateApi = 'http://localhost:8080/scp/private/passagem/'
+  private readonly API = 'http://200.98.142.28:8080/scp/public/passagem/'
+  private readonly urlPrivateApi = 'http://200.98.142.28:8080/scp/private/passagem/'
   
   constructor(private http : HttpClient) {   }
   httpOptions;
@@ -51,7 +51,7 @@ export class PassagemService {
 
   buscaUsuarioByEmail(email):Observable<Usuario>{
     let options = this.criarOptions();
-    return this.http.get<Usuario>( "http://localhost:8080/scp/private/usuario/email/" + email, options)
+    return this.http.get<Usuario>( "http://200.98.142.28:8080/scp/private/usuario/email/" + email, options)
       .pipe(
         retry(1)       
         )
