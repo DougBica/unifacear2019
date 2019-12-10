@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Embarque } from './model/embarque.model';
-const urlApi = 'http://localhost:8080/scp/private/embarque/';
-const urlApiAlter = 'http://localhost:8080/scp/private/embarque/alter';
-const urlApiList = 'http://localhost:8080/scp/private/embarque/checkin/';
+const urlApi = 'http://200.98.142.28:8080/scp/private/embarque/';
+const urlApiAlter = 'http://200.98.142.28:8080/scp/private/embarque/alter';
+const urlApiList = 'http://200.98.142.28:8080/scp/private/embarque/checkin/';
 
 @Injectable({
   providedIn: 'root'
