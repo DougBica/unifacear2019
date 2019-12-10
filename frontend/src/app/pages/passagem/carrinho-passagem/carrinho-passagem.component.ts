@@ -6,6 +6,9 @@ import { PassagemService } from '../service/passagem.service';
 import { Passagem } from '../model/passagem.model';
 import { Reserva } from '../model/reserva.model';
 import { TipoPagamento } from '../model/tipo-pagamento.model';
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
+import * as jsPDF from 'jspdf'
+import * as moment from 'moment';
 
 
 @Component({
@@ -23,25 +26,8 @@ export class CarrinhoPassagemComponent implements OnInit {
   tipoPagamento: TipoPagamento;
   viewValorReserva: number = 0;
 
-
   // Array populado com as passgens da tela de busca
   listaPassagens: Array<Passagem> = JSON.parse(localStorage.getItem("passagens"));
-  // listaPassagens: Array<Passagem> = [
-  //   { 
-  //     guidPassagem: null,
-  //     guidRota: 1,
-  //     classePassagem: "CLASSE_EXECUTIVA",
-  //     dataPartida: new Date(),
-  //     origem: "CURITIBA",
-  //     destino: "SÃO PAULO",
-  //     active: true,
-  //     isKid: false,
-  //     valorPassagem: 250.4,
-  //     nomePassageiro: "ADSas",
-  //     cpfPassageiro: "",  
-  //     guidReserva: null
-  //    }
-  // ]
 
   
   constructor(
@@ -56,6 +42,7 @@ export class CarrinhoPassagemComponent implements OnInit {
     // var passagens = JSON.parse(localStorage.getItem("passagens"));
     // this.listaPassagens = passagens;
     // console.log(passagens);
+
     this.calcularValorReserva();
   }
 
@@ -103,7 +90,8 @@ export class CarrinhoPassagemComponent implements OnInit {
     if (login) {
       this.pagamentoPassagem = true;
     }
-  }   
+  } 
+
   
         
 }
