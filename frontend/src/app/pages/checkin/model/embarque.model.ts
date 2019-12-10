@@ -8,5 +8,7 @@ export class Embarque {
     dataEmbarque: any;
     embarcou: boolean;
     passageiro: string;
+    guidAeronave:any;
     embarcouIdf: string;
+    guidStatus: any;
 }

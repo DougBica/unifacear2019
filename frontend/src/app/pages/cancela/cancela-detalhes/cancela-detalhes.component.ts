@@ -11,7 +11,8 @@ import { Cancela } from '../model/cancela.model';
 export class CancelaDetalhesComponent implements OnInit {
 
   cancela: Cancela = new Cancela()
-  nomeUsuario: string
+  nomeUsuario: string;
+  atualizar:any;
 
   constructor(private route: ActivatedRoute, private router: Router, private service: CancelaService) {
 
