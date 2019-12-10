@@ -43,7 +43,7 @@
                                     </ng-template>
                                     <ng-template [ngIf]="!passagem.isKid">
                                         <td><input type="text" [readonly]="passagem.isKid" 
-                                            placeholder="Insira seu CPF" class="form-control" 
+                                            placeholder="Insira seu CPF" mask="000.000.000-00" class="form-control" 
                                             [(ngModel)]="passagem.cpfPassageiro">
                                         </td>
                                     </ng-template>
