@@ -30,7 +30,7 @@ export const ROUTES: RouteInfo[] = [
     class: ""
   },  
   {
-    path: "/admin/buscar-passagem",
+    path: "/cliente/buscar-passagem",
     title: "Passagem",
     rtlTitle: "",
     icon: "icon-send",
