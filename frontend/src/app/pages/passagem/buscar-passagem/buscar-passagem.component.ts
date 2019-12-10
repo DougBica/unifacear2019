@@ -246,7 +246,7 @@ comprarPassagem(template2: TemplateRef<any>, index){
   localStorage.setItem("passagens", JSON.stringify(this.passagens));
   this.modalRef.hide();
   this.modalRef = null;
-  this.router.navigate(['/admin/carrinho-passagem']);
+  this.router.navigate(['/cliente/carrinho-passagem']);
   this.passagens = new Array();
 }
 
