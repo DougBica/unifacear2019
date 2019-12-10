@@ -54,6 +54,7 @@ const routes: Routes = [
       { path: 'checkin-ticket/:id', component: CheckinInformacoesComponent }
    ]
   },
+  
   { path: 'login', component: LoginComponent },
   { path: 'register', component: RegisterComponent },
   {
