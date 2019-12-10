@@ -100,7 +100,7 @@ const routes: Routes = [
 },
 {
   path: "**",
-    redirectTo: "dashboard"
+    redirectTo: "cliente/buscar-passagem"
 }
 ];
 
