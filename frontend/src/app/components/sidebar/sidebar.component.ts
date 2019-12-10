@@ -78,7 +78,13 @@ export const ROUTESCLIENTE: RouteInfo[] = [
     icon: "icon-send",
     class: ""
   },
-  
+  {
+    path: "/admin/passagem/alterar",
+    title: "Alterar pasagem",
+    rtlTitle: "",
+    icon: "icon-chart-pie-36",
+    class: ""
+    },
 ];
 
 
