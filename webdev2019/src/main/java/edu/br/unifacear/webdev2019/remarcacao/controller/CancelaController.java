@@ -18,7 +18,7 @@ import edu.br.unifacear.webdev2019.remarcacao.entity.Cancela;
 import edu.br.unifacear.webdev2019.remarcacao.service.CancelaService;
 
 @RestController
-@RequestMapping("/scp/public/cancela")
+@RequestMapping("/scp/private/cancela")
 public class CancelaController {
 	
 	@Autowired
@@ -36,7 +36,7 @@ public class CancelaController {
 	}
 
 	@GetMapping("/guidusuario/{guidUsuario}")
-	public Cancela findByGuidUsuario(@PathVariable Long guidUsuario) {
+	public List<Cancela> findByGuidUsuario(@PathVariable Long guidUsuario) {
 		return service.findByGuidUsuario(guidUsuario);
 	}
 	

@@ -16,7 +16,7 @@ import edu.br.unifacear.webdev2019.remarcacao.entity.Remarca;
 import edu.br.unifacear.webdev2019.remarcacao.service.RemarcaService;
 
 @RestController
-@RequestMapping("/scp/public/remarca")
+@RequestMapping("/scp/private/remarca")
 public class RemarcaController {
 		
 		@Autowired

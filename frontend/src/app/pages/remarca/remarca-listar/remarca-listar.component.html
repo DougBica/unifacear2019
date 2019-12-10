@@ -1,0 +1,21 @@
+<div class="content">
+  <h4>
+    Remarcações
+  </h4>
+  <table class="table table-sm table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">ID Usuário</th>
+        <th scope="col">ID Passagem</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let remarca of remarcacoes" >
+          <th scope="row">{{remarca.guidRemarcar}}</th>
+          <td>{{remarca.guidUsuario}}</td>
+          <td>{{remarca.guidPassagem}}</td>
+        </tr>
+    </tbody>
+  </table>
+</div>

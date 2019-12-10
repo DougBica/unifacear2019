@@ -4,10 +4,12 @@ import { CancelaListarComponent } from './cancela-listar/cancela-listar.componen
 import { CancelaDetalhesComponent } from './cancela-detalhes/cancela-detalhes.component';
 import { CancelaSalvarComponent } from './cancela-salvar/cancela-salvar.component';
 import { FormsModule } from '@angular/forms';
-import { MatTableModule } from '@angular/material' 
+import { MatTableModule } from '@angular/material';
+import { CancelaRemarcaComponent } from './cancela-remarca/cancela-remarca.component';
+import { PassagemJaCanceladaComponent } from './passagem-ja-cancelada/passagem-ja-cancelada.component' 
 
 @NgModule({
-  declarations: [CancelaListarComponent, CancelaDetalhesComponent, CancelaSalvarComponent],
+  declarations: [CancelaListarComponent, CancelaDetalhesComponent, CancelaSalvarComponent, CancelaRemarcaComponent, PassagemJaCanceladaComponent],
   imports: [
     CommonModule,
     FormsModule,
