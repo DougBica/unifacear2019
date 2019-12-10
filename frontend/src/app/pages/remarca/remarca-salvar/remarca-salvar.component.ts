@@ -38,6 +38,7 @@ export class RemarcaSalvarComponent implements OnInit {
   }
   alterarPassagem() {
     this.passagem.dataPartida = this.dataNova
+    this.passagem.valorPassagem += 50.0
     this.servicePassagem.salvar(this.passagem).subscribe()
   }
   save() {
