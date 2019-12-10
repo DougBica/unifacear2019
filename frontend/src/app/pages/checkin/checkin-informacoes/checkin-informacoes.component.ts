@@ -30,6 +30,7 @@ export class CheckinInformacoesComponent implements OnInit {
   passagem: Passagem = new Passagem();
   idString: string;
   value : string;
+  salvar : any;
   public myAngularxQrCode: string = null;
 
   constructor(private checkinService: CheckinService,
