@@ -13,16 +13,16 @@ export class AssentoService {
   constructor(private http : HttpClient) { }
 
   list() : Observable<Assento[]> {
-    return this.http.get<Assento[]>("http://localhost:8080/assento/listar");
+    return this.http.get<Assento[]>("http://200.98.142.28:8080/assento/listar");
   }
 
   buscarPorId(guidassento: string) : Observable<Assento>  {
-    return this.http.get<Assento>("http://localhost:8080/assento/buscarPorId/"+guidassento);
+    return this.http.get<Assento>("http://200.98.142.28:8080/assento/buscarPorId/"+guidassento);
   }
 
   salvar(assento: Assento) : Observable<any> {
     return this.http.post<any> 
-      ("http://localhost:8080/assento/salvar/",assento);
+      ("http://200.98.142.28:8080/assento/salvar/",assento);
   }
 
 
