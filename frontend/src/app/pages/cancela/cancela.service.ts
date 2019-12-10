@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { Cancela } from './model/cancela.model';
 import { Passagem } from '../passagem/model/passagem.model';
 import { Checkin } from '../checkin/model/checkin.model';
-const api_url = "http://localhost:8080/scp/private/cancela"
+const api_url = "http://200.98.142.28:8080/scp/private/cancela"
 @Injectable({
   providedIn: 'root'
 })
@@ -46,6 +46,6 @@ export class CancelaService {
     let options = {
       headers: new HttpHeaders().set('Authorization', "Bearer " + localStorage.getItem('token'))
     };
-    return this.http.get<Checkin>('http://localhost:8080/scp/private/checkin/passagem/' + guidPassagem,options)
+    return this.http.get<Checkin>('http://200.98.142.28:8080/scp/private/checkin/passagem/' + guidPassagem,options)
   }
 }

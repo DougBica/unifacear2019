@@ -7,8 +7,8 @@
       <p class="card-text">Nome passageiro > {{passagem.nomePassageiro}}</p>
       <p class="card-text">Origem > {{passagem.origem}}</p>
       <p class="card-text">Destino > {{passagem.destino}}</p>
-      <p class="card-text">Preço > R$ {{passagem.valorPassagem}}</p>
-      <p class="card-text">Data de partida anterior > {{passagem.dataPartida | date: 'dd/MM/yyyy'  }}</p>
+      <p class="card-text">Preço > R$ {{passagem.valorPassagem}} (Taxa de R$ 50,00 sobre a remarcação)</p>
+      <p class="card-text">Data de partida atual > {{passagem.dataPartida | date: 'dd/MM/yyyy'  }}</p>
       <div class="form-group">
         <p class="card-text">Nova data de partida</p>
         <input type="date" class="form-control"  [(ngModel)]="dataNova">
@@ -16,7 +16,6 @@
       <p class="card-text">Status checkin > Checkin ainda não efetuado</p>
       <button class="btn btn-primary" (click)="save()">Remarcar passagem</button>
       <button class="btn btn-info" (click)="voltar()">Voltar</button>
-      
     </div>
   </div>
 </div>

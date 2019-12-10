@@ -3,7 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Remarca } from './model/remarca.model';
 import { Checkin } from '../checkin/model/checkin.model';
-const api_url = "http://localhost:8080/scp/private/remarca"
+const api_url = "http://200.98.142.28:8080/scp/private/remarca"
 @Injectable({
   providedIn: 'root'
 })
