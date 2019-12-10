@@ -92,9 +92,9 @@
               <div class="form-group">
                 <label for="file">
                   <img alt="Profile Photo" class="avatar"
-                    src="http://localhost:8080/scp/public/arquivo/download/{{usuario.foto}}"
+                    src="http://200.98.142.28:8080/scp/public/arquivo/download/{{usuario.foto}}"
                     *ngIf="usuario.foto != null" />
-                  <img alt="Profile Photo" class="avatar" src="assets/img/default-avatar.png"
+                  <img alt="Profile Photo" class="avatar" src="http://200.98.142.28:8080/assets/img/default-avatar.png"
                     *ngIf="usuario.foto == null" />
                 </label>
                 <input type="file" id="file" (change)="handleFileInput($event.target.files)">
