@@ -15,7 +15,7 @@ export class LoginService {
     };
 
     return this.http.post<any>
-      ("http://localhost:8080/scp/public/login",
+      ("http://200.98.142.28:8080/scp/public/login",
         "login="+login+"&senha="+senha, 
         options);
   }

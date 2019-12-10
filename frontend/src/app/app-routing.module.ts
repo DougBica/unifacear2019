@@ -69,7 +69,7 @@ const routes: Routes = [
   {
     path: "",
     canActivate:[AutenticacaoGuard],
-    redirectTo: "dashboard",
+    redirectTo: "admin/buscar-passagem",
     pathMatch: "full"
   },
   {

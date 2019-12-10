@@ -12,7 +12,7 @@ export class RegisterService {
   salvar(usuario: Usuario) : Observable<any> {
     console.log(usuario);
     return this.http.post<any>
-      ("http://localhost:8080/scp/public/register/",usuario);
+      ("http://200.98.142.28:8080/scp/public/register/",usuario);
 
   }
 

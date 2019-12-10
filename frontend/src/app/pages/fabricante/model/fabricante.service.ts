@@ -15,14 +15,14 @@ export class FabricanteService {
     let options = {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
-    return this.http.get<Fabricante[]>("http://localhost:8080/scp/private/fabricante/listar",options);
+    return this.http.get<Fabricante[]>("http://200.98.142.28:8080/scp/private/fabricante/listar",options);
   }
 
   buscarPorId(guidFabricante: string) : Observable<Fabricante>  {
     let options = {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
-    return this.http.get<Fabricante>("http://localhost:8080/scp/private/fabricante/buscarPorId/"+guidFabricante,options);
+    return this.http.get<Fabricante>("http://200.98.142.28:8080/scp/private/fabricante/buscarPorId/"+guidFabricante,options);
   }
 
   salvar(fabricante: Fabricante) : Observable<any> {
@@ -30,7 +30,7 @@ export class FabricanteService {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
     return this.http.post<any>
-      ("http://localhost:8080/scp/private/fabricante/salvar/",fabricante,options);
+      ("http://200.98.142.28:8080/scp/private/fabricante/salvar/",fabricante,options);
   }
 
   remover(fabricante: Fabricante) : Observable<any> {
@@ -38,7 +38,7 @@ export class FabricanteService {
       headers: new HttpHeaders().set('Authorization', "Bearer "+localStorage.getItem('token'))
     };
     return this.http.delete<any>
-      ("http://localhost:8080/scp/private/fabricante/remover/"+fabricante.guidFabricante,options);
+      ("http://200.98.142.28:8080/scp/private/fabricante/remover/"+fabricante.guidFabricante,options);
   }
 
 
