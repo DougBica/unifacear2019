@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Bagagem } from './model/bagagem.model';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-const urlApi = 'http://localhost:8080/scp/private/bagagem';
-const urlApi2 = 'http://localhost:8080/scp/private/bagagem/listarpcheckin/';
-const urlExcluir = 'http://localhost:8080/scp/private/bagagem/';
+const urlApi = 'http://200.98.142.28:8080/scp/private/bagagem';
+const urlApi2 = 'http://200.98.142.28:8080/scp/private/bagagem/listarpcheckin/';
+const urlExcluir = 'http://200.98.142.28:8080/scp/private/bagagem/';
 
 @Injectable({
   providedIn: 'root'
