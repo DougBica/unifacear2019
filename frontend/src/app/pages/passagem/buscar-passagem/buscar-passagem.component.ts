@@ -31,26 +31,20 @@ export class BuscarPassagemComponent implements OnInit {
 
   objVoo: any = {
   
-  "voo1":{"origem": "Curitiba", "destino": "São Paulo", "dataIda": "2019-12-20", "dataVolta": "2019-12-30", "duracao": "1h0m", "horario": "12:30/13:20",
-          "origemVolta": "São Paulo", "destinoVolta": "Curitiba", "duracaoVolta": "1h0m", "horarioVolta": "15:30/16:20", "valor": 450.4, "classepassagem": "CLASSE_EXECUTIVA"},
-
-  "voo2":{"origem": "Curitiba", "destino": "São Paulo", "dataIda": "2019-12-20", "dataVolta": "2019-12-30", "duracao": "1h30m", "horario": "12:30/13:50",
-          "origemVolta": "São Paulo", "destinoVolta": "Curitiba", "duracaoVolta": "1h30m", "horarioVolta": "11:30/11:50", "valor": 250.4, "classepassagem": "CLASSE_ECONOMICA"},
-
-  "voo3":{"origem": "Curitiba", "destino": "São Paulo", "dataIda": "2019-12-20", "dataVolta": "2019-12-30", "duracao": "1h0m", "horario": "09:30/10:20",
-          "origemVolta": "São Paulo", "destinoVolta": "Curitiba",  "duracaoVolta": "1h0m", "horarioVolta": "17:30/18:20", "valor": 315.10, "classepassagem": "PRIMEIRA_CLASSE"},
-
-  "voo4":{"origem": "Curitiba", "destino": "Bahia", "dataIda": "2019-12-10", "dataVolta": "2019-12-15", "duracao": "2h30m", "horario": "18:00/20:30",
-          "origemVolta": "Curitiba", "destinoVolta": "Bahia",  "duracaoVolta": "2h30m", "horarioVolta": "15:00/17:30", "valor": 870.10, "classepassagem": "CLASSE_EXECUTIVA"},
+    "voo1":{"origem": "Curitiba", "destino": "São Paulo", "dataIda": "2019-12-20", "dataVolta": "2019-12-30", "duracao": "1h0m", "horario": "12:30/13:20",
+            "origemVolta": "São Paulo", "destinoVolta": "Curitiba", "duracaoVolta": "1h0m", "horarioVolta": "15:30/16:20", "valor": 450.4, "classepassagem": "CLASSE_EXECUTIVA"},
   
-  "voo5":{"origem": "Curitiba", "destino": "Bahia", "dataIda": "2019-12-10", "dataVolta": "2019-12-15", "duracao": "3h00m", "horario": "18:00/21:00",
-          "origemVolta": "Curitiba", "destinoVolta": "Bahia",  "duracaoVolta": "2h30m", "horarioVolta": "15:00/17:30", "valor": 467.10 , "classepassagem": "CLASSE_ECONOMICA"},
-   
-          "voo6":{"origem": "Curitiba", "destino": "Bahia", "dataIda": "2019-12-10", "dataVolta": "2019-12-15", "duracao": "3h00m", "horario": "18:00/21:00",
-          "origemVolta": "Curitiba", "destinoVolta": "Bahia",  "duracaoVolta": "2h30m", "horarioVolta": "15:00/17:30", "valor": 500.10 , "classepassagem": "CLASSE_ECONOMICA"},
-
-          "voo7":{"origem": "Curitiba", "destino": "Bahia", "dataIda": "2019-12-10", "dataVolta": "2019-12-15", "duracao": "3h00m", "horario": "18:00/21:00",
-          "origemVolta": "Curitiba", "destinoVolta": "Bahia",  "duracaoVolta": "2h30m", "horarioVolta": "15:00/17:30", "valor": 600.10 , "classepassagem": "CLASSE_ECONOMICA"},
+    "voo2":{"origem": "Curitiba", "destino": "São Paulo", "dataIda": "2019-12-20", "dataVolta": "2019-12-30", "duracao": "1h30m", "horario": "12:30/13:50",
+            "origemVolta": "São Paulo", "destinoVolta": "Curitiba", "duracaoVolta": "1h30m", "horarioVolta": "11:30/11:50", "valor": 250.4, "classepassagem": "CLASSE_ECONOMICA"},
+  
+    "voo3":{"origem": "Curitiba", "destino": "São Paulo", "dataIda": "2019-12-20", "dataVolta": "2019-12-30", "duracao": "1h0m", "horario": "09:30/10:20",
+            "origemVolta": "São Paulo", "destinoVolta": "Curitiba",  "duracaoVolta": "1h0m", "horarioVolta": "17:30/18:20", "valor": 315.10, "classepassagem": "PRIMEIRA_CLASSE"},
+  
+    "voo4":{"origem": "Curitiba", "destino": "Bahia", "dataIda": "2019-12-10", "dataVolta": "2019-12-19", "duracao": "2h30m", "horario": "18:00/20:30",
+            "origemVolta": "Bahia", "destinoVolta": "Curitiba",  "duracaoVolta": "2h30m", "horarioVolta": "15:00/17:30", "valor": 870.10, "classepassagem": "CLASSE_EXECUTIVA"},
+  
+    "voo5":{"origem": "Curitiba", "destino": "Bahia", "dataIda": "2019-12-10", "dataVolta": "2019-12-19", "duracao": "3h30m", "horario": "20:00/23:30",
+            "origemVolta": "Bahia", "destinoVolta": "Curitiba",  "duracaoVolta": "2h40m", "horarioVolta": "16:00/19:40", "valor": 970.10, "classepassagem": "CLASSE_EXECUTIVA"},
    
     };
   
